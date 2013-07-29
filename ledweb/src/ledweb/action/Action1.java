@@ -1,4 +1,4 @@
-package ledweb;
+package ledweb.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
