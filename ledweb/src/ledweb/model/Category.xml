@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ICategoryOperation">
+	<resultMap type="Category" id="resultListCategory">
+		<id property="categoryID" column="CategoryID" />
+		<result property="categoryName" column="CategoryName" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+
+
+	</resultMap>
+
+	<select id="selectCategoryByID" parameterType="int" resultType="Category">
+		select * from Category where CategoryID = #{categoryID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addCategory" parameterType="Category" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into Category(CategoryName,Reserve1,Reserve2,Reserve3)
+		values(#{categoryName},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateCategory" parameterType="Category" >
+        update Category set 
+        CategoryName=#{categoryName},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where CategoryID=#{categoryID}
+    </update>
+	
+	<delete id="deleteCategory" parameterType="int">
+         update Category set 
+        IsDelete=1
+        where CategoryID=#{categoryID}
+    </delete>
+	
+</mapper>

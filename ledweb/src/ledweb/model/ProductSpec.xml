@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IProductSpecOperation">
+	<resultMap type="ProductSpec" id="resultListProductSpec">
+		<id property="productSpecID" column="ProductSpecID" />
+		<result property="productID" column="ProductID" />
+		<result property="specID" column="SpecID" />
+		<result property="specValue" column="SpecValue" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+	</resultMap>
+
+	<select id="selectProductSpecByID" parameterType="int" resultType="ProductSpec">
+		select * from ProductSpec where ProductSpecID = #{productSpecID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addProductSpec" parameterType="ProductSpec" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3)
+		values(#{productID},#{specID},#{specValue},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateProductSpec" parameterType="ProductSpec" >
+        update ProductSpec set 
+        ProductID=#{productID},
+        SpecID=#{specID},
+        SpecValue=#{specValue},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where SpecID=#{specID}
+    </update>
+	
+	<delete id="deleteProductSpec" parameterType="int">
+         update ProductSpec set 
+        IsDelete=1
+        where ProductSpecID=#{productSpecID}
+    </delete>
+	
+</mapper>

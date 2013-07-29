@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ITypeOperation">
+	<resultMap type="Type" id="resultListType">
+		<id property="typeID" column="TypeID" />
+		<result property="typeName" column="TypeName" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+	</resultMap>
+
+	<select id="selectTypeByID" parameterType="int" resultType="Type">
+		select * from Type where TypeID = #{typeID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into Type(TypeName,Reserve1,Reserve2,Reserve3)
+		values(#{typeName},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateTypeType" parameterType="Type" >
+        update Type set 
+        TypeName=#{typeName},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where TypeID=#{typeID}
+    </update>
+	
+	<delete id="deleteType" parameterType="int">
+         update Type set 
+        IsDelete=1
+        where TypeID=#{typeID}
+    </delete>
+	
+</mapper>

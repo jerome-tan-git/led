@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IProductOperation">
+	<resultMap type="Product" id="resultListProduct">
+		<id property="productID" column="ProductID" />
+		<result property="categoryID" column="CategoryID" />
+		<result property="productName" column="ProductName" />
+		<result property="productDesc" column="ProductDesc" />
+		<result property="productImage" column="ProductImage" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+
+
+	</resultMap>
+
+	<select id="selectProductByID" parameterType="int" resultType="Product">
+		select * from Product where ProductID = #{productID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addProduct" parameterType="Product" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into Product(CategoryID,ProductName,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
+		values(#{categoryID},#{productName},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateProduct" parameterType="Product" >
+        update Product set 
+        CategoryID=#{categoryID},
+        ProductName=#{productName},
+        ProductDesc=#{productDesc},
+        ProductImage=#{productImage},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where UserID=#{userID}
+    </update>
+	
+	<delete id="deleteProduct" parameterType="int">
+         update Product set 
+        IsDelete=1
+        where ProductID=#{productID}
+    </delete>
+	
+</mapper>

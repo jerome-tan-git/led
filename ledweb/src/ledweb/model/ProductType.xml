@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IProductTypeOperation">
+	<resultMap type="ProductType" id="resultListProductType">
+		<id column="ProductTypeID" property="productTypeID" />
+		<result column="ProductID" property="productID" />
+		<result column="TypeID" property="typeID" />
+		<result column="IsDelete" property="isDelete" />
+		<result column="Reserve1" property="reserve1" />
+		<result column="Reserve2" property="reserve2" />
+		<result column="Reserve3" property="reserve3" />
+	</resultMap>
+
+	<select id="selectProductTypeByID" parameterType="int" resultType="ProductType">
+		select * from ProductType where ProductTypeID = #{productTypeID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addProductType" parameterType="ProductType" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into ProductType(ProductID,TypeID,Reserve1,Reserve2,Reserve3)
+		values(#{productID},#{typeID},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateProductType" parameterType="ProductType" >
+        update ProductType set 
+        ProductID=#{productID},
+        TypeID=#{typeID},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where TypeID=#{typeID}
+    </update>
+	
+	<delete id="deleteProductType" parameterType="int">
+         update ProductType set 
+        IsDelete=1
+        where ProductTypeID=#{productTypeID}
+    </delete>
+	
+</mapper>
