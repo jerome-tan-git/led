@@ -154,6 +154,8 @@ public class Test {
 					.getMapper(IProductTypeOperation.class);
 			ProductType p = o.selectProductTypeByIDWithDetail(2);
 			System.out.println(p.getType().getTypeName());
+			System.out.println(p.getType().getReserve1());
+			
 //			System.out.println(catOperation.deleteUser(1));
 //			session.commit();
 //			System.out.println("new ID:" + c.getOrderID());

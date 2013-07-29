@@ -15,7 +15,16 @@
 		<association property="type" column="TypeID" javaType="Type" select="ledweb.model.mapper.ITypeOperation.selectTypeByID">
 		</association>
 		 -->
-		 <association property="type" javaType="Type" resultMap="ledweb.model.mapper.ITypeOperation.typeResultMap"/>  
+		 <!-- <association property="type" javaType="Type" resultMap="ledweb.model.mapper.ITypeOperation.typeResultMap">
+		</association> -->
+		<association property="type" javaType="Type">
+			<id property="typeID" column="TypeID" />
+			<result property="typeName" column="TypeName" />
+			<result property="isDelete" column="IsDelete" />
+			<result property="reserve1" column="t_Reserve1" />
+			<result property="reserve2" column="t_Reserve2" />
+			<result property="reserve3" column="t_Reserve3" />  
+		</association>
 	</resultMap>
 
 
@@ -33,9 +42,9 @@
 			t.TypeID,
 			t.TypeName,
 			t.Isdelete,
-			t.Reserve1,
-			t.Reserve2, 
-			t.Reserve3 
+			t.Reserve1 as t_Reserve1,
+			t.Reserve2 as t_Reserve2, 
+			t.Reserve3 as t_Reserve3 
 					FROM 
 			ProductType as pt join `Type` as t 
 			on pt.TypeID=t.TypeID 
