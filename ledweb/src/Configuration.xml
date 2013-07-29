@@ -4,6 +4,8 @@
 <configuration>
     <typeAliases> 
         <typeAlias alias="User" type="ledweb.model.User"/> 
+        <typeAlias alias="Teacher" type="ledweb.model.Teacher"/> 
+        <typeAlias alias="Student" type="ledweb.model.Student"/> 
     </typeAliases> 
 
     <environments default="development">
@@ -20,5 +22,6 @@
     
     <mappers>
         <mapper resource="ledweb/model/User.xml"/>
+        <mapper resource="ledweb/model/mapper/TeacherMapper.xml"/>
     </mappers>
 </configuration>

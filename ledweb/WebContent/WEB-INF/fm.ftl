@@ -11,5 +11,9 @@
 <@s.submit value="submit"/>
 </@s.form>
 <br/>name:${username}
+<br/>user.userName: ${user.userName}
+<br/>user.userAge: ${user.userAge}
+<br/>user.userAddress: ${user.userAddress}
+
 </body>
 </html>
