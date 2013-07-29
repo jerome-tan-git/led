@@ -8,5 +8,10 @@
             <result name="success">/success.jsp</result>
             <result name="input">/Login.jsp</result>
         </action>
+        
+        <action name="Action1" class="ledweb.Action1">
+    		<result type="freemarker">/WEB-INF/fm.ftl</result>
+		</action>
+        
     </package>
 </struts>
