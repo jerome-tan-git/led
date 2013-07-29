@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="ledweb.a" %>
+<!-- %@ page import="ledweb.a" %> -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% a x = new a();%>
-<%=x.getTest() %>
+<!--
+<!--% a x = new a();%>
+<!--%=x.getTest() %-->
+-->
 </body>
 </html>
