@@ -1,11 +1,15 @@
 package ledweb.model;
 
+import java.util.List;
+
 public class Product {
 	private int productID;
 	private int categoryID;
 	private String productName;
 	private String productDesc;
 	private String productImage;
+	private List<Type> types;
+	
 	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";

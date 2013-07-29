@@ -90,8 +90,14 @@ public class Test {
 			// p.setProductDesc("productDesc");
 			// p.setCategoryID(1);
 			// p.setProductImage("ProductImage");
-			// IProductOperation productOperation = session
-			// .getMapper(IProductOperation.class);
+			IProductTypeOperation productOperation = session
+			 .getMapper(IProductTypeOperation.class);
+			ProductType products = productOperation.selectProductTypeByIDWithDetail(1);
+			System.out.println(products.getTypeName());
+//			 for (ProductType p : products)
+//			 {
+//				 System.out.println(p.getTypeID());
+//			 }
 			// System.out.println(productOperation.addProduct(p));
 			// session.commit();
 			// System.out.println("new ID:"+p.getProductID());
@@ -138,17 +144,17 @@ public class Test {
 //			System.out.println("new ID:" + c.getProductTypeID());
 			
 			
-			Order c = new Order();	
-			c.setProductID(1);
-			c.setQuantity(123);
-			c.setTypeID(2);
-			c.setUserID(1);
-			
-			IUserOperation catOperation = session
-					.getMapper(IUserOperation.class);
-			System.out.println(catOperation.deleteUser(1));
-			session.commit();
-			System.out.println("new ID:" + c.getOrderID());
+//			Order c = new Order();	
+//			c.setProductID(1);
+//			c.setQuantity(123);
+//			c.setTypeID(2);
+//			c.setUserID(1);
+//			
+//			IUserOperation catOperation = session
+//					.getMapper(IUserOperation.class);
+//			System.out.println(catOperation.deleteUser(1));
+//			session.commit();
+//			System.out.println("new ID:" + c.getOrderID());
 			
 			// IUserOperation userOperation = session
 			// .getMapper(IUserOperation.class);

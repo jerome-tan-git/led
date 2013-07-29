@@ -13,14 +13,30 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
-
-
 	</resultMap>
+	
+	
+	<resultMap type="Product" id="fullProduct">
+		<id property="productID" column="ProductID" />
+		<result property="categoryID" column="CategoryID" />
+		<result property="productName" column="ProductName" />
+		<result property="productDesc" column="ProductDesc" />
+		<result property="productImage" column="ProductImage" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+	</resultMap>
+	
+	
+	
 
 	<select id="selectProductByID" parameterType="int" resultType="Product">
 		select * from Product where ProductID = #{productID} and IsDelete = 0
 	</select>
-
+	<select id="selectProductsByCategoryID"  parameterType="int" resultMap="resultListProduct">
+		select * from Product where CategoryID = #{categoryID} and IsDelete = 0
+	</select>
 
 
 	<insert id="addProduct" parameterType="Product" useGeneratedKeys="true"

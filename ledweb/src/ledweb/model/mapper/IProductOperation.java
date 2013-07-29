@@ -7,6 +7,7 @@ import ledweb.model.User;
 
 public interface IProductOperation {
 	public Product selectProductByID(int id);
+	public List<Product> selectProductsByCategoryID(int id);
 	public int addProduct(Product product);
 	public int updateProduct(Product product);
 	public int deleteProduct(int id);
