@@ -2,20 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Platinum Theme - Free CSS Template</title>
-<meta name="keywords" content="platinum, web design theme, free templates, website templates, CSS, HTML" />
-<meta name="description" content="Platinum Theme is a free CSS template provided by bestmoban.com" />
+<title>Platinum Theme - Portfolio Page</title>
+<meta name="keywords" content="platinum, portfolio, free templates, website templates, CSS, HTML" />
+<meta name="description" content="Platinum Theme, Portfolio, free CSS template by bestmoban.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-
-<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-
-<script language="javascript" type="text/javascript">
-function clearText(field)
-{
-    if (field.defaultValue == field.value) field.value = '';
-    else if (field.value == '') field.value = field.defaultValue;
-}
-</script>
 
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 
@@ -42,6 +32,12 @@ ddsmoothmenu.init({
 
 </script>
 
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	
+<script src="js/prototype.js" type="text/javascript"></script>
+<script src="js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+<script src="js/lightbox.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -51,7 +47,7 @@ ddsmoothmenu.init({
         <div id="site_title"><h1><a href="http://www.bestmoban.com">Free CSS Templates</a></h1></div>
         <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
-                <li><a href="index.html" class="selected"><span></span>Home</a></li>
+                <li><a href="index.html"><span></span>Home</a></li>
                 <li><a href="about.html"><span></span>About Us</a>
                     <ul>
                         <li><a href="submenupage.html">Sub menu 1</a></li>
@@ -59,7 +55,7 @@ ddsmoothmenu.init({
                         <li><a href="submenupage.html">Sub menu 3</a></li>
                     </ul>
                 </li>
-                <li><a href="portfolio.html"><span></span>Portfolio</a>
+                <li><a href="portfolio.html" class="selected"><span></span>Portfolio</a>
                     <ul>
                         <li><a href="submenupage.html">Sub menu 1</a></li>
                         <li><a href="submenupage.html">Sub menu 2</a></li>
@@ -74,37 +70,9 @@ ddsmoothmenu.init({
             <br style="clear: left" />
         </div> <!-- end of menu -->
     </div> <!-- end of header -->
-    
-    <div id="templatemo_middle">
-    	<div id="templatemo_middle_left">
-        	<h2>Welcome to<strong>Platinum Theme</strong></h2>
-            <p>Donec pulvinar mattis feugiat. Suspendisse adipiscing hendrerit dapibus. Fusce auctor nibh a velit tempor rutrum. Vivamus mauris nulla, rutrum sed cursus sed, tempus eget magna.</p>
-            <a href="#" class="learn_more"></a>
-        </div>
-        <div id="slider-wrapper">
-        
-            <div id="slider" class="nivoSlider">
-                <img src="images/slider/01.jpg" alt="Slider 01" />
-                <img src="images/slider/02.jpg" alt="Slider 02" />
-                <img src="images/slider/03.jpg" alt="Slider 03" />
-                <img src="images/slider/04.jpg" alt="Slider 04" />
-            </div>
-        
-        </div>
-            <script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
-            <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-            <script type="text/javascript">
-            $(window).load(function() {
-                $('#slider').nivoSlider();
-            });
-            </script>
-        <div class="cleaner"></div>
-    </div> <!-- end of middle -->
-    
+   
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main">
-          	<div id="content">
-          	 <div id="templatemo_main">
         	<div class="gallery_box">
                 <a href="images/portfolio/01.jpg" rel="lightbox[portfolio]" title="Pellentesque dictum feugiat"><img src="images/portfolio/01.jpg" alt="Image 01" class="image_frame"/></a>
                 <h5>Pellentesque dictum feugiat</h5>
@@ -123,14 +91,38 @@ ddsmoothmenu.init({
                 <p>Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>. Quisque at sapien odio, id placerat neque et ac turpis. </p>
                 <a href="#" class="more"></a>  
 			</div>
-            
+            <div class="gallery_box">
+                <a href="images/portfolio/04.jpg" rel="lightbox[portfolio]" title="Nam sit amet eros dolor"><img src="images/portfolio/04.jpg" alt="Image 04" class="image_frame"/></a>
+                <h5>Nam sit amet eros dolor</h5>
+                <p>Integer venenatis pharetra magna vitae ultrices pharetra justo quis mauris elementum.</p>
+                <a href="#" class="more"></a>  
+			</div>
+            <div class="gallery_box">
+                <a href="images/portfolio/05.jpg" rel="lightbox[portfolio]" title="Donec interdum nulla sed"><img src="images/portfolio/05.jpg" alt="Image 05" class="image_frame"/></a>
+                <h5>Donec interdum nulla sed</h5>
+                <p> Vestibulum quis nulla nunc, nec lobortis nunc sed ac arcu ipsum, ut suscipit neque.</p>
+                <a href="#" class="more"></a>  
+			</div>
+            <div class="gallery_box no_margin_right">
+                <a href="images/portfolio/06.jpg" rel="lightbox[portfolio]"><img src="images/portfolio/06.jpg" alt="Image 06" class="image_frame"/></a>
+                <h5>Nullam gravida quam</h5>
+                <p> Suspendisse nec odio sit amet mauris ultricies pretium posuere eu dui.</p>
+                <a href="#" class="more"></a>  
+			</div>
             
             <div class="cleaner"></div>
-             </div>
-          	</div>
-            <!-- end of sidebar -->
-            
-          <div class="cleaner"></div>
+            <div class="pagging">
+                <ul>
+                    <li><a href="http://www.bestmoban.com" target="_parent">Previous</a></li>
+                    <li><a href="http://www.bestmoban.com/page/1" target="_parent">1</a></li>
+                    <li><a href="http://www.bestmoban.com/page/2" target="_parent">2</a></li>
+                    <li><a href="http://www.bestmoban.com/page/3" target="_parent">3</a></li>
+                    <li><a href="http://www.bestmoban.com/page/4" target="_parent">4</a></li>
+                    <li><a href="http://www.bestmoban.com/page/5" target="_parent">5</a></li>
+                    <li><a href="http://www.bestmoban.com/page/6" target="_parent">6</a></li>
+                    <li><a href="http://www.bestmoban.com/page/7" target="_parent">Next</a></li>
+                </ul>
+            </div>   
         </div> <!-- end of main -->
     </div> <!-- end of main wrapper -->
     
