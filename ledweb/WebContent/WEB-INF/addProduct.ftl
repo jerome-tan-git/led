@@ -42,7 +42,7 @@
 
 
 <div class="row" style="padding-top:70px">
-<div class="col-lg-2"></div>
+<div class="col-lg-1"></div>
   <div class="col-lg-2">
 
   <div class="list-group"  style="background-color:#f5f5f5">
@@ -60,7 +60,7 @@
 </div>
 
 	</div>
-  <div class="col-lg-6">
+  <div class="col-lg-8">
 	<div class="well">
 		<form class="AddProduct.action" method="post">
 		
@@ -77,7 +77,7 @@
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      <input type="text" name="product.productName" class="form-control" id="exampleInputEmail" placeholder="Product Title" value="${product.productName}"/>
+      <input type="text" name="product.productName" class="form-control" id="exampleInputEmail" placeholder="Product Title" value=""/>
     </div>
     
     <div class="row">
