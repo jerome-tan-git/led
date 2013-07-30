@@ -1,6 +1,7 @@
 package ledweb;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 import ledweb.model.Category;
@@ -150,15 +151,42 @@ public class Test {
 //			c.setTypeID(2);
 //			c.setUserID(1);
 //			
-			IProductTypeOperation o = session
-					.getMapper(IProductTypeOperation.class);
-			ProductType p = o.selectProductTypeByIDWithDetail(2);
-			System.out.println(p.getType().getTypeName());
-			System.out.println(p.getType().getReserve1());
+//			IProductOperation o = session
+//					.getMapper(IProductOperation.class);
+//			List<Product> p = o.selectProductsByCategoryID(1);
+//			System.out.println(p.size());
+//			ICategoryOperation co = session.getMapper(ICategoryOperation.class);
+//			List<Category> c = co.selectAllCategories();
+//			System.out.println(c.size());
+//			System.out.println(p.getType().getTypeName());
+//			System.out.println(p.getType().getReserve1());
 			
 //			System.out.println(catOperation.deleteUser(1));
 //			session.commit();
 //			System.out.println("new ID:" + c.getOrderID());
+			
+			
+			List<ProductSpec> specs = new ArrayList<ProductSpec>();
+			ProductSpec ps = new ProductSpec();
+			ps.setProductID(10);
+			ps.setSpecID(1);
+			ps.setSpecValue("aaaa");
+			specs.add(ps);
+			ProductSpec ps1 = new ProductSpec();
+			ps1.setProductID(10);
+			ps1.setSpecID(2);
+			ps1.setSpecValue("bbb");
+			specs.add(ps1);
+			IProductSpecOperation pso = session.getMapper(IProductSpecOperation.class);
+			System.out.println(pso.batchAddProductSpec(specs));
+			session.commit();
+			
+			ISpecOperation iso = session.getMapper(ISpecOperation.class);
+			List<Spec> specs1 = iso.selectAllSpec();
+			System.out.println(specs1.size());
+			
+//			ProductSpec ps1 = new 
+			
 			// IUserOperation userOperation = session
 			// .getMapper(IUserOperation.class);
 			// User user = userOperation.selectUserByID(4);

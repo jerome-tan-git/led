@@ -7,6 +7,13 @@ public class ProductSpec {
 	private String specValue;
 	private int isDelete;
 	private String reserve1="";
+	private Spec spec;
+	public Spec getSpec() {
+		return spec;
+	}
+	public void setSpec(Spec spec) {
+		this.spec = spec;
+	}
 	public int getProductSpecID() {
 		return productSpecID;
 	}

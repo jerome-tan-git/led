@@ -15,7 +15,10 @@
 	<select id="selectSpecByID" parameterType="int" resultType="Spec">
 		select * from Spec where SpecID = #{specID} and IsDelete = 0
 	</select>
-
+	
+	<select id="selectAllSpec" resultMap="resultListSpec">
+		select * from Spec where IsDelete = 0
+	</select>
 
 
 	<insert id="addSpec" parameterType="Spec" useGeneratedKeys="true"

@@ -11,4 +11,5 @@ public interface ICategoryOperation {
 	public int addCategory(Category category);
 	public int updateCategory(Category category);
 	public int deleteCategory(int id);
+	public List<Category> selectAllCategories();
 }

@@ -12,16 +12,22 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
+		<association property="spec" column="SpecID" javaType="Spec" 
+			select="ledweb.model.mapper.ISpecOperation.selectSpecByID">
+		</association>
 	</resultMap>
 
-	<select id="selectProductSpecByID" parameterType="int" resultType="ProductSpec">
+	<select id="selectProductSpecByID" parameterType="int" resultMap="resultListProductSpec">
 		select * from ProductSpec where ProductSpecID = #{productSpecID} and IsDelete = 0
 	</select>
 
+	<select id="selectProductSpecByProductID" parameterType="int" resultMap="resultListProductSpec">
+		select * from ProductSpec where ProductID = #{productID} and IsDelete = 0
+	</select>
 
 
 	<insert id="addProductSpec" parameterType="ProductSpec" useGeneratedKeys="true"
-		keyProperty="id">
+		keyProperty="productSpecID">
 		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3)
 		values(#{productID},#{specID},#{specValue},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
@@ -37,10 +43,25 @@
         where SpecID=#{specID}
     </update>
 	
-	<delete id="deleteProductSpec" parameterType="int">
+	<update id="deleteProductSpec" parameterType="int">
          update ProductSpec set 
         IsDelete=1
         where ProductSpecID=#{productSpecID}
-    </delete>
-	
+    </update>
+    
+	<update id="deleteAllProductSpec" parameterType="int">
+         update ProductSpec set 
+        IsDelete=1
+        where ProductID=#{productID}
+    </update>
+    
+    <insert id="batchAddProductSpec"  parameterType="java.util.List">
+    		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 
+    		values
+    		<foreach collection="list" item="item" index="index" separator="," >  
+        			(#{item.productID},#{item.specID},
+        			#{item.specValue},#{item.reserve1},
+        			#{item.reserve2},#{item.reserve3})  
+    		</foreach> 
+    </insert> 
 </mapper>

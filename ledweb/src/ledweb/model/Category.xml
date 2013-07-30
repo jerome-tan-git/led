@@ -18,6 +18,9 @@
 		select * from Category where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
 
+	<select id="selectAllCategories" resultType="Category">
+		select * from Category where IsDelete = 0
+	</select>
 
 
 	<insert id="addCategory" parameterType="Category" useGeneratedKeys="true"

@@ -8,8 +8,27 @@ public class Product {
 	private String productName;
 	private String productDesc;
 	private String productImage;
-	private List<Type> types;
-	
+	private float price;
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	private List<ProductType> types;
+	private List<ProductSpec> specs;
+	public List<ProductSpec> getSpecs() {
+		return specs;
+	}
+	public void setSpecs(List<ProductSpec> specs) {
+		this.specs = specs;
+	}
+	public List<ProductType> getTypes() {
+		return types;
+	}
+	public void setTypes(List<ProductType> types) {
+		this.types = types;
+	}
 	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";

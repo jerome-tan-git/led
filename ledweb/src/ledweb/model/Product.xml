@@ -9,29 +9,16 @@
 		<result property="productName" column="ProductName" />
 		<result property="productDesc" column="ProductDesc" />
 		<result property="productImage" column="ProductImage" />
+		<result property="price" column="Price" />
 		<result property="isDelete" column="IsDelete" />
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
+		<collection property="types" column="ProductID" ofType="ProductType" select="ledweb.model.mapper.IProductTypeOperation.selectProductTypeByProductID"/>
+		<collection property="specs" column="ProductID" ofType="ProductSpec" select="ledweb.model.mapper.IProductSpecOperation.selectProductSpecByProductID"/>
 	</resultMap>
 	
-	
-	<resultMap type="Product" id="fullProduct">
-		<id property="productID" column="ProductID" />
-		<result property="categoryID" column="CategoryID" />
-		<result property="productName" column="ProductName" />
-		<result property="productDesc" column="ProductDesc" />
-		<result property="productImage" column="ProductImage" />
-		<result property="isDelete" column="IsDelete" />
-		<result property="reserve1" column="Reserve1" />
-		<result property="reserve2" column="Reserve2" />
-		<result property="reserve3" column="Reserve3" />
-	</resultMap>
-	
-	
-	
-
-	<select id="selectProductByID" parameterType="int" resultType="Product">
+	<select id="selectProductByID" parameterType="int" resultMap="resultListProduct">
 		select * from Product where ProductID = #{productID} and IsDelete = 0
 	</select>
 	<select id="selectProductsByCategoryID"  parameterType="int" resultMap="resultListProduct">
@@ -41,8 +28,8 @@
 
 	<insert id="addProduct" parameterType="Product" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Product(CategoryID,ProductName,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
-		values(#{categoryID},#{productName},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
+		insert into Product(CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
+		values(#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateProduct" parameterType="Product" >
@@ -51,6 +38,7 @@
         ProductName=#{productName},
         ProductDesc=#{productDesc},
         ProductImage=#{productImage},
+        Price=#{price},
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
         Reserve3=#{reserve3},

@@ -12,4 +12,5 @@ public interface ISpecOperation {
 	public int addSpec(Spec spec);
 	public int updateSpec(Spec spec);
 	public int deleteSpec(int id);
+	public List<Spec> selectAllSpec();
 }
