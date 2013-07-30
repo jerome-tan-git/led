@@ -6,12 +6,13 @@ public class ProductType {
 	private int typeID;
 	private int isDelete;
 	private String reserve1="";
-	private int typeName;
-	public int getTypeName() {
-		return typeName;
+	private Type type;
+
+	public Type getType() {
+		return type;
 	}
-	public void setTypeName(int typeName) {
-		this.typeName = typeName;
+	public void setType(Type type) {
+		this.type = type;
 	}
 	public int getProductTypeID() {
 		return productTypeID;
