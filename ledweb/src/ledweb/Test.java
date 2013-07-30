@@ -90,10 +90,10 @@ public class Test {
 			// p.setProductDesc("productDesc");
 			// p.setCategoryID(1);
 			// p.setProductImage("ProductImage");
-			IProductTypeOperation productOperation = session
-			 .getMapper(IProductTypeOperation.class);
-			ProductType products = productOperation.selectProductTypeByIDWithDetail(1);
-			System.out.println(products.getTypeName());
+//			IProductTypeOperation productOperation = session
+//			 .getMapper(IProductTypeOperation.class);
+//			ProductType products = productOperation.selectProductTypeByIDWithDetail(1);
+//			System.out.println(products.getTypeName());
 //			 for (ProductType p : products)
 //			 {
 //				 System.out.println(p.getTypeID());
@@ -117,16 +117,16 @@ public class Test {
 			// System.out.println(catOperation.addSpec(c));
 			// session.commit();
 			// System.out.println("new ID:"+c.getSpecID());
-			// ProductSpec c = new ProductSpec();
-			// c.setProductID(1);
-			// c.setSpecID(2);
-			// c.setSpecValue("1111");
-			//
-			// IProductSpecOperation catOperation = session
-			// .getMapper(IProductSpecOperation.class);
-			// System.out.println(catOperation.addProductSpec(c));
-			// session.commit();
-			// System.out.println("new ID:"+c.getProductSpecID());
+//			 ProductSpec c = new ProductSpec();
+//			 c.setProductID(1);
+//			 c.setSpecID(2);
+//			 c.setSpecValue("1111");
+//			
+//			 IProductSpecOperation catOperation = session
+//			 .getMapper(IProductSpecOperation.class);
+//			 System.out.println(catOperation.addProductSpec(c));
+//			 session.commit();
+//			 System.out.println("new ID:"+c.getProductSpecID());
 //			Type c = new Type();	
 //			c.setTypeName("type name");
 //			ITypeOperation catOperation = session
@@ -150,12 +150,15 @@ public class Test {
 //			c.setTypeID(2);
 //			c.setUserID(1);
 //			
-//			IUserOperation catOperation = session
-//					.getMapper(IUserOperation.class);
+			IProductTypeOperation o = session
+					.getMapper(IProductTypeOperation.class);
+			ProductType p = o.selectProductTypeByIDWithDetail(2);
+			System.out.println(p.getType().getTypeName());
+			System.out.println(p.getType().getReserve1());
+			
 //			System.out.println(catOperation.deleteUser(1));
 //			session.commit();
 //			System.out.println("new ID:" + c.getOrderID());
-			
 			// IUserOperation userOperation = session
 			// .getMapper(IUserOperation.class);
 			// User user = userOperation.selectUserByID(4);
