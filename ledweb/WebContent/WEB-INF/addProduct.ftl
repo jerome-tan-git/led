@@ -4,11 +4,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
+<script>
+$().ready(function() {$("#commentForm").validate(
+	{
+		errorLabelContainer:"#messageBox",
+		errorClass: "alert alert-danger",
+		errorElement:"div",
+		onfocusout: false,
+		onkeyup: false,
+		focusCleanup: true,
+		focusInvalid: false,
+		wrapper:"div",
+		showErrors:function(errorMap,errorList) {
+	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
+			this.defaultShowErrors();
+			$('#myModal').modal('show');
+		}
+	}
+)});
+function showDia()
+{
+	
+	
+}
+</script>
 <body>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="summary">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div id="messageBox"></div>
+        </div>
+        <div class="modal-footer">
 
-
+          <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
@@ -44,14 +86,13 @@
 <div class="row" style="padding-top:70px">
 <div class="col-lg-1"></div>
   <div class="col-lg-2">
-
   <div class="list-group"  style="background-color:#f5f5f5">
   <a href="#" class="list-group-item active">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in
+  <a href="#" class="list-group-item">Product management
   </a>
-  <a href="#" class="list-group-item">Morbi leo risus
+  <a href="#" class="list-group-item">Category/Spec/Type management
   </a>
   <a href="#" class="list-group-item">Porta ac consectetur ac
   </a>
@@ -62,7 +103,7 @@
 	</div>
   <div class="col-lg-8">
 	<div class="well">
-		<form class="AddProduct.action" method="post" enctype="multipart/form-data">
+		<form id="commentForm" action="newProduct.action" method="post" enctype="multipart/form-data">
 		
 		 <fieldset>
     	<legend>Add product</legend>
@@ -87,7 +128,9 @@
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      <@s.textfield name="product.productName" theme="simple" cssClass="form-control" id="exampleInputEmail" placeholder="Product Title" />
+      
+      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" 
+		data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address"  />
     </div>
     
     <div class="row">
@@ -102,7 +145,10 @@
     <div class="col-lg-6">
     <div class="form-group">
       <label for="exampleInputEmail">Product Price</label>
-      <@s.textfield  cssClass="form-control" theme="simple" id="exampleInputEmail" name="product.price" placeholder="Product Price" />
+      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${(product.price)!""}"
+      data-rule-required="true" data-rule-number="true"
+      data-msg-required="Please enter price" 
+      data-msg-number="Please enter a number" />
     </div>
     </div>
     </div>
@@ -125,14 +171,12 @@
 <div class="row">
   <div class="col-lg-3">
   
-  		<#if specIDs??>
-  			${specIDs?seq_contains("1")?string("yes", "no")}
-		</#if> 
+  		
   		
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <@s.checkbox theme="simple" name="specIDs" fieldValue="0" /> Check me out
+        <input type="checkbox"  name="specIDs" value="0" <#if specIDs??>${specIDs?seq_contains("0")?string("checked", "")}</#if> /> Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -143,7 +187,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <@s.checkbox theme="simple" name="specIDs" fieldValue="1"/> Check me out
+        <input type="checkbox"  name="specIDs" value="1"  <#if specIDs??>${specIDs?seq_contains("1")?string("checked", "")}</#if>/>  Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -154,7 +198,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <@s.checkbox theme="simple" name="specIDs" fieldValue="2"/> Check me out
+        <input type="checkbox"  name="specIDs" value="2"  <#if specIDs??>${specIDs?seq_contains("2")?string("checked", "")}</#if>/>  Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -165,7 +209,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <@s.checkbox theme="simple" name="specIDs" fieldValue="3"/> Check me out
+        <input type="checkbox"  name="specIDs" value="3"  <#if specIDs??>${specIDs?seq_contains("3")?string("checked", "")}</#if>/>  Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">

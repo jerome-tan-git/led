@@ -146,7 +146,7 @@ public class AddProduct extends ActionSupport {
 
 	@Override
 	public void validate() {
-//		if ("submit".equals(this.getIsSubmit())) {
+		if ("submit".equals(this.getIsSubmit())) {
 //			if (this.getNewImage() != null) {
 //				if (this.getFileType().toLowerCase()
 //						.indexOf(this.getNewImageContentType().toLowerCase()) == -1) {
@@ -158,20 +158,20 @@ public class AddProduct extends ActionSupport {
 //							new String[] { this.getNewImageFileName() }));
 //				}
 //			}
-//			if (this.product.getProductName()==null || "".equals(this.product.getProductName()))
-//			{
-//				this.addFieldError("product.productName", this.getText(
-//					"struts.messages.error.field.is.empty",
-//					new String[] { "product name" }));
-//			}
-//			
-//			if (this.product.getPrice() ==0)
-//			{
-//				this.addFieldError("product.price", this.getText(
-//					"struts.messages.error.field.is.empty",
-//					new String[] { "product price" }));
-//			}
-//		}
+			if (this.product.getProductName()==null || "".equals(this.product.getProductName()))
+			{
+				this.addFieldError("product.productName", this.getText(
+					"struts.messages.error.field.is.empty",
+					new String[] { "product name" }));
+			}
+			
+			if (this.product.getPrice() ==0)
+			{
+				this.addFieldError("product.price", this.getText(
+					"struts.messages.error.field.is.empty",
+					new String[] { "product price" }));
+			}
+		}
 	}
 
 	@Override
