@@ -62,7 +62,7 @@
 	</div>
   <div class="col-lg-8">
 	<div class="well">
-		<form class="AddProduct.action" method="post">
+		<form class="AddProduct.action" method="post" enctype="multipart/form-data">
 		
 		 <fieldset>
     	<legend>Add product</legend>
@@ -70,14 +70,24 @@
     	<div class="row">
     	<div class="col-lg-1"></div>
     	<div class="col-lg-10">
+    		<@s.if test="hasFieldErrors()">  
+				<@s.iterator value="fieldErrors">  
+				    <@s.iterator value="value">
+				    	<div class="alert alert-danger"> 
+				        <@s.property/>     
+				        </div>
+				    </@s.iterator>    
+				</@s.iterator>   
+			</@s.if>  
     	    <div class="panel panel-info">
-     <div class="panel-heading">
-	    <h3 class="panel-title">Basic Info</h3>
+     		<div class="panel-heading">
+     		
+	    	<h3 class="panel-title">Basic Info</h3>
 	  </div>
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      <input type="text" name="product.productName" class="form-control" id="exampleInputEmail" placeholder="Product Title" value=""/>
+      <@s.textfield name="product.productName" theme="simple" cssClass="form-control" id="exampleInputEmail" placeholder="Product Title" />
     </div>
     
     <div class="row">
@@ -92,7 +102,7 @@
     <div class="col-lg-6">
     <div class="form-group">
       <label for="exampleInputEmail">Product Price</label>
-      <input type="text" class="form-control" id="exampleInputEmail" name="product.price" placeholder="Product Price">
+      <@s.textfield  cssClass="form-control" theme="simple" id="exampleInputEmail" name="product.price" placeholder="Product Price" />
     </div>
     </div>
     </div>
@@ -103,7 +113,8 @@
        
 	    <div class="form-group">
 	      <label for="exampleInputFile">Product Image</label>
-	      <input type="file" id="exampleInputFile" name="product.productImage">
+	      <input type="file" id="exampleInputFile" name="newImage" />
+	      
 	    </div>
    
     </div>
@@ -113,10 +124,15 @@
 	  </div>
 <div class="row">
   <div class="col-lg-3">
+  
+  		<#if specIDs??>
+  			${specIDs?seq_contains("1")?string("yes", "no")}
+		</#if> 
+  		
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Check me out
+        <@s.checkbox theme="simple" name="specIDs" fieldValue="0" /> Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -127,7 +143,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Check me out
+        <@s.checkbox theme="simple" name="specIDs" fieldValue="1"/> Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -138,7 +154,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Check me out
+        <@s.checkbox theme="simple" name="specIDs" fieldValue="2"/> Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
@@ -149,7 +165,7 @@
       <div class="form-group">
       <div class="checkbox">
       <label>
-        <input type="checkbox"> Check me out
+        <@s.checkbox theme="simple" name="specIDs" fieldValue="3"/> Check me out
       </label>
     </div>
       <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">

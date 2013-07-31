@@ -3,6 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+	<constant name="struts.custom.i18n.resources" value="global" />
     <package name="welcomePackage" extends="struts-default">
         <action name="welcome" class="ledweb.action.WelcomeAction">
             <result name="success">/success.jsp</result>
@@ -12,7 +13,9 @@
         <action name="Action1" class="ledweb.action.Action1">
     		<result type="freemarker">/WEB-INF/fm.ftl</result>
 		</action>
-        <action name="AddProduct" class="ledweb.action.AddProduct">
+        <action name="newProduct" class="ledweb.action.AddProduct">
+        	<param name="savePath">/UploadedImages</param>
+        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png</param>
     		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
 		</action>
