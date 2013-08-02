@@ -9,14 +9,15 @@ public class Product {
 	private String productDesc;
 	private String productImage;
 	private float price;
-	public float getPrice() {
-		return price;
-	}
-	public void setPrice(float price) {
-		this.price = price;
-	}
+
 	private List<ProductType> types;
 	private List<ProductSpec> specs;
+
+	private int isDelete;
+	private String reserve1="";
+	private String reserve2="";
+	private String reserve3="";
+	
 	public List<ProductSpec> getSpecs() {
 		return specs;
 	}
@@ -29,11 +30,12 @@ public class Product {
 	public void setTypes(List<ProductType> types) {
 		this.types = types;
 	}
-	private int isDelete;
-	private String reserve1="";
-	private String reserve2="";
-	private String reserve3="";
-
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
 	public String getProductID() {
 		return productID;
 	}

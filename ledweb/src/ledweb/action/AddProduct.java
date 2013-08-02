@@ -227,11 +227,9 @@ public class AddProduct extends ActionSupport {
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		try {
 			IProductOperation po = session.getMapper(IProductOperation.class);
-			this.setProduct(po.selectProductByID(Integer
-					.parseInt(this.productID)));
+			this.setProduct(po.selectProductByID(this.productID));
 			System.out.println("Product Name:"
-					+ po.selectProductByID(Integer.parseInt(this.productID))
-							.getProductName());
+					+ po.selectProductByID(this.productID).getProductName());
 			this.specValueMap = new HashMap<Integer, String>();
 			for (ProductSpec spec: this.product.getSpecs())
 			{

@@ -4,7 +4,7 @@
 
 <mapper namespace="ledweb.model.mapper.IProductOperation">
 	<resultMap type="Product" id="resultListProduct">
-		<id property="productID" column="ProductID" />
+		<result property="productID" column="ProductID" />
 		<result property="categoryID" column="CategoryID" />
 		<result property="productName" column="ProductName" />
 		<result property="productDesc" column="ProductDesc" />
@@ -18,7 +18,7 @@
 		<collection property="specs" column="ProductID" ofType="ProductSpec" select="ledweb.model.mapper.IProductSpecOperation.selectProductSpecByProductID"/>
 	</resultMap>
 	
-	<select id="selectProductByID" parameterType="int" resultMap="resultListProduct">
+	<select id="selectProductByID" parameterType="String" resultMap="resultListProduct">
 		select * from Product where ProductID = #{productID} and IsDelete = 0
 	</select>
 	<select id="selectProductsByCategoryID"  parameterType="int" resultMap="resultListProduct">
@@ -26,10 +26,9 @@
 	</select>
 
 
-	<insert id="addProduct" parameterType="Product" useGeneratedKeys="true"
-		keyProperty="id">
-		insert into Product(CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
-		values(#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
+	<insert id="addProduct" parameterType="Product">
+		insert into Product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
+		values(#{productID},#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateProduct" parameterType="Product" >
@@ -42,10 +41,10 @@
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
         Reserve3=#{reserve3},
-        where UserID=#{userID}
+        where ProductID=#{productID}
     </update>
 	
-	<delete id="deleteProduct" parameterType="int">
+	<delete id="deleteProduct" parameterType="string">
          update Product set 
         IsDelete=1
         where ProductID=#{productID}

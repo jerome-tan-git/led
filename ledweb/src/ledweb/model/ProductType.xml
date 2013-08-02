@@ -58,7 +58,7 @@
 		select * from ProductType where ProductTypeID = #{productTypeID} and IsDelete = 0
 	</select>
 
-	<select id="selectProductTypeByProductID" parameterType="int" resultMap="resultListProductType">
+	<select id="selectProductTypeByProductID" parameterType="String" resultMap="resultListProductType">
 		select * from ProductType where ProductID = #{productID} and IsDelete = 0
 	</select>
 

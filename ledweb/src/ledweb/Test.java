@@ -3,6 +3,7 @@ package ledweb;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import ledweb.model.Category;
 import ledweb.model.Order;
@@ -86,13 +87,18 @@ public class Test {
 			// user.setReserve1("");
 			// user.setReserve2("");
 			// user.setReserve3("");
-			// Product p = new Product();
-			// p.setProductName("ProductName");
-			// p.setProductDesc("productDesc");
-			// p.setCategoryID(1);
-			// p.setProductImage("ProductImage");
-//			IProductTypeOperation productOperation = session
-//			 .getMapper(IProductTypeOperation.class);
+//			 Product p = new Product();
+//			 p.setProductName("ProductName");
+//			 p.setProductDesc("productDesc");
+//			 p.setCategoryID(1);
+//			 p.setProductImage("ProductImage");
+//			 p.setProductID(UUID.randomUUID().toString());
+			IProductOperation productOperation = session
+			 .getMapper(IProductOperation.class);
+//			productOperation.addProduct(p);
+			Product p = productOperation.selectProductByID("758d1701ace14ae0890625d7528c4efb");
+			System.out.println(p);
+//			session.commit();
 //			ProductType products = productOperation.selectProductTypeByIDWithDetail(1);
 //			System.out.println(products.getTypeName());
 //			 for (ProductType p : products)
