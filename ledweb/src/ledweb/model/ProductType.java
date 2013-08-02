@@ -8,6 +8,9 @@ public class ProductType {
 	private String reserve1="";
 	private Type type;
 	private float price;
+	private String reserve2="";
+	private String reserve3="";
+	
 	public float getPrice() {
 		return price;
 	}
@@ -63,6 +66,30 @@ public class ProductType {
 	public void setReserve3(String reserve3) {
 		this.reserve3 = reserve3;
 	}
+	
+	/**
+	 * private int productTypeID;
+	private String productID;
+	private int typeID;
+	private int isDelete;
+	private String reserve1="";
+	private Type type;
+	private float price;
 	private String reserve2="";
 	private String reserve3="";
+	 */
+	
+	public String toString()
+	{
+		String result = "\n-----------------------------------------------";
+		result += "\nProductType ID;  " + this.getProductTypeID();
+		result += "\nProduct ID;  " + this.getProductID();
+		result += "\nType ID;  " + this.getTypeID();
+		result += "\nProduct price;  " + this.getPrice();
+		result += "\nSpec reserve1;  " + this.getReserve1();
+		result += "\nSpec reserve2;  " + this.getReserve2();
+		result += "\nSpec reserve3;  " + this.getReserve3();
+		result += "\n-----------------------------------------------";
+		return result;
+	}
 }

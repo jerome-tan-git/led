@@ -8,10 +8,12 @@ import ledweb.model.ProductType;
 import ledweb.model.User;
 
 public interface IProductTypeOperation {
-//	public ProductType selectProductTypeByIDWithDetail(int id);
+
 	public ProductType selectProductTypeByID(int id);
 	public int addProductType(ProductType productType);
 	public int updateProductType(ProductType productType);
 	public int deleteProductType(int id);
+	public int deleteAllProductType(String productID);
 	public List<ProductType> selectProductTypeByProductID(int productID);
+	public int batchAddProductType(List<ProductType> specs); 
 }

@@ -69,6 +69,15 @@
 		values(#{productID},#{typeID},#{price},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
+	<insert id="batchAddProductType"  parameterType="java.util.List">
+    		insert into ProductType(ProductID,TypeID,Price,Reserve1,Reserve2,Reserve3) 
+    		values
+    		<foreach collection="list" item="item" index="index" separator="," >  
+        			(#{item.productID},#{item.typeID},
+        			#{item.price},#{item.reserve1},
+        			#{item.reserve2},#{item.reserve3})  
+    		</foreach> 
+    </insert> 
 	<update id="updateProductType" parameterType="ProductType" >
         update ProductType set 
         ProductID=#{productID},
@@ -84,6 +93,12 @@
          update ProductType set 
         IsDelete=1
         where ProductTypeID=#{productTypeID}
+    </delete>
+	
+	<delete id="deleteAllProductType" parameterType="String">
+         update ProductType set 
+        IsDelete=1
+        where ProductID=#{productID}
     </delete>
 	
 </mapper>

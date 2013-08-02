@@ -1,6 +1,7 @@
 package ledweb.model;
 
 public class ProductSpec {
+	
 	private int productSpecID;
 	private String productID;
 	private int specID;
@@ -8,6 +9,9 @@ public class ProductSpec {
 	private int isDelete;
 	private String reserve1="";
 	private Spec spec;
+	private String reserve2="";
+	private String reserve3="";
+	
 	public Spec getSpec() {
 		return spec;
 	}
@@ -63,7 +67,28 @@ public class ProductSpec {
 	public void setReserve3(String reserve3) {
 		this.reserve3 = reserve3;
 	}
+
+	/**
+	 * private int productSpecID;
+	private String productID;
+	private int specID;
+	private String specValue;
+	private int isDelete;
+	private String reserve1="";
+	private Spec spec;
 	private String reserve2="";
 	private String reserve3="";
-	
+	 */
+	public String toString()
+	{
+		String result = "\n-----------------------------------------------";
+		result += "\nSpec ID;  " + this.getSpecID();
+		result += "\nProduct ID;  " + this.getProductID();
+		result += "\nSpec Value;  " + this.getSpecValue();
+		result += "\nSpec reserve1;  " + this.getReserve1();
+		result += "\nSpec reserve2;  " + this.getReserve2();
+		result += "\nSpec reserve3;  " + this.getReserve3();
+		result += "\n-----------------------------------------------";
+		return result;
+	}
 }

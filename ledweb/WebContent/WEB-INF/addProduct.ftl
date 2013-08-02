@@ -4,11 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
+
+
+<style type="text/css" media="screen">
+    .square {
+        width: 300px;
+        height: 300px;
+        
+    }
+</style>
+
+
 <script>
 $().ready(
 	function() {$("#commentForm").validate(
@@ -20,7 +33,6 @@ $().ready(
 				required:true,
 				number:true,
 				min:0.01
-				
 			},
 			"product.productName":
 			{
@@ -73,6 +85,10 @@ $().ready(
 		})
 	}
 )
+
+jQuery(document).ready(function() {
+    jQuery('.nailthumb-container').nailthumb();
+});
 
 </script>
 <body>
@@ -170,7 +186,7 @@ $().ready(
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" />
+      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" /><input type="hidden" name="productID" value="${(productID)!""}"/>
     </div>
     
     <div class="row">
@@ -178,67 +194,79 @@ $().ready(
     <div class="form-group">
       <label for="exampleInputEmail">Product Category</label>
       <select class="form-control" name="selectedCategory">
+      <#if allCategories??>
       	<#list allCategories as category>
-        	  <option <#if selectedCategory??><#if category.categoryID==selectedCategory>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
+        	  <option <#if selectedCategory??><#if category.categoryID==selectedCategory>selected</#if><#else><#if category_index==0>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
           </#list>
+       </#if>   
         </select>
     </div>
     </div>
-    <div class="col-lg-6">
-    <div class="form-group">
-      <label for="exampleInputEmail">Product Price</label>
-      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
-    </div>
-    </div>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword">Product Description</label>
-      <textarea class="form-control" rows="3" name="product.productDesc" placeholder="Product Description"></textarea>
-    </div>
-       
-	    <div class="form-group">
-	      <label for="exampleInputFile">Product Image</label>
-	      <input type="file" id="exampleInputFile" name="newImage" />
-	      
+	    <div class="col-lg-6">
+			    <div class="form-group">
+			      <label for="exampleInputEmail">Product Price</label>
+			      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
+			    </div>
+		    </div>
 	    </div>
-   
+	    <div class="form-group">
+	      <label for="exampleInputPassword">Product Description</label>
+	      <textarea class="form-control" rows="3" name="product.productDesc" placeholder="Product Description"></textarea>
+	    </div>
+	       <div class="row">
+	       <div class="col-lg-6">
+		    <div class="form-group">
+		      <label for="exampleInputFile">Product Image</label>
+		      <input type="file" id="exampleInputFile" name="newImage" />
+		    </div>
+		    </div>
+		    
+		    <div class="col-lg-6">
+		    <div class="form-group">
+		     <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
+		    </div>
+		    </div>
+		    
+		    </div>
+   		
     </div>
     <div class="panel panel-success">
          <div class="panel-heading ">
 	    <h3 class="panel-title">Select Specs</h3>
 	  </div>
-  	<#list allSpecs as sp>
-  	<#if specValueMap??>
-  		<#assign keys = specValueMap?keys>
-  	</#if>
-  		<#if sp_index%4==0>
-  		<div class="row">
-  		</#if>
-		<div class="col-lg-3">
-			<div class="form-group">
-				<div class="checkbox">
-				<label>
-					<input type="checkbox"  name="specIDs" value="${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??>checked</#if></#if> id="specIDs_${sp.specID}"/>${sp.specName}
-				</label>
-				
-				</div>
-				<div>
-				<input type="text" name="specValues" class="form-control input-small" 
-				id="specValue_${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??><#else> disabled </#if><#else> disabled </#if> 
-				placeholder="Enter email" 
-				value="<#if specValueMap??><#if specValueMap.get(sp.specID)??>${specValueMap.get(sp.specID)}</#if></#if>">
+	  <#if allSpecs??>
+	  	<#list allSpecs as sp>
+	  	<#if specValueMap??>
+	  		<#assign keys = specValueMap?keys>
+	  	</#if>
+	  		<#if sp_index%4==0>
+	  		<div class="row">
+	  		</#if>
+			<div class="col-lg-3">
+				<div class="form-group">
+					<div class="checkbox">
+					<label>
+						<input type="checkbox"  name="specIDs" value="${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??>checked</#if></#if> id="specIDs_${sp.specID}"/>${sp.specName}
+					</label>
+					
+					</div>
+					<div>
+					<input type="text" name="specValues" class="form-control input-small" 
+					id="specValue_${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??><#else> disabled </#if><#else> disabled </#if> 
+					placeholder="Enter email" 
+					value="<#if specValueMap??><#if specValueMap.get(sp.specID)??>${specValueMap.get(sp.specID)}</#if></#if>">
+					</div>
 				</div>
 			</div>
-		</div>
-		  <#if sp_index%4==3>
-	  		</div>
-	  		<#else>
-		  		<#if sp_index+1==allSpecs?size>
-		  			</div>
-		  		</#if>
-  	  	</#if>
-  	</#list>
-
+			  <#if sp_index%4==3>
+		  		</div>
+		  		<#else>
+			  		<#if sp_index+1==allSpecs?size>
+			  			</div>
+			  		</#if>
+	  	  	</#if>
+	  	</#list>
+	</#if>
 	</div>
 
 	    <div class="panel panel-warning">
@@ -247,11 +275,13 @@ $().ready(
 	  </div>
 	<div class="row">
 		 <div class="col-lg-12">
-		 <#list allTypes as type>
-			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox1" name="selectedTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
-			</label>
-		</#list>
+		 <#if allTypes??>
+			 <#list allTypes as type>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" name="selectedTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
+				</label>
+			</#list>
+		</#if>
 		</div>
 	</div>
 	</div>

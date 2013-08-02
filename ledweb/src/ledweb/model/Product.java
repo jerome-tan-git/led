@@ -91,4 +91,35 @@ public class Product {
 	public void setCategoryID(int categoryID) {
 		this.categoryID = categoryID;
 	}
+	/**
+	 * 	private String productID;
+	private int categoryID;
+	private String productName;
+	private String productDesc;
+	private String productImage;
+	private float price;
+
+	private List<ProductType> types;
+	private List<ProductSpec> specs;
+
+	private int isDelete;
+	private String reserve1="";
+	private String reserve2="";
+	private String reserve3="";
+	 */
+	public String toString()
+	{
+		String result = "\n-----------------------------------------------";
+		result += "\nProduct ID;  " + this.getProductID();
+		result += "\nCategory ID;  " + this.getCategoryID();
+		result += "\nProduct name;  " + this.getProductName();
+		result += "\nProduct Desc;  " + this.getProductDesc();
+		result += "\nProduct Image;  " + this.getProductImage();
+		result += "\nProduct Price;  " + this.getPrice();
+		result += "\nProduct reserve1;  " + this.getReserve1();
+		result += "\nProduct reserve2;  " + this.getReserve2();
+		result += "\nProduct reserve3;  " + this.getReserve3();
+		result += "\n-----------------------------------------------";
+		return result;
+	}
 }

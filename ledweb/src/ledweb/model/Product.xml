@@ -44,9 +44,8 @@
         where ProductID=#{productID}
     </update>
 	
-	<delete id="deleteProduct" parameterType="string">
-         update Product set 
-        IsDelete=1
+	<delete id="realDeleteProduct" parameterType="String">
+        delete Product from Product 
         where ProductID=#{productID}
     </delete>
 	

@@ -13,8 +13,8 @@ public interface IProductSpecOperation {
 	public ProductSpec selectProductSpecByID(int productID);
 	public int addProductSpec(ProductSpec productSpec);
 	public int updateProductSpec(ProductSpec ProductSpec);
-	public int deleteProductSpec(int productID);
-	public int deleteAllProductSpec(int productID);
+	public int deleteProductSpec(int productSpecID);
+	public int deleteAllProductSpec(String productID);
 	public int batchAddProductSpec(List<ProductSpec> specs); 
 	
 	

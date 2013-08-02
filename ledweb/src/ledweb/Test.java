@@ -93,11 +93,11 @@ public class Test {
 //			 p.setCategoryID(1);
 //			 p.setProductImage("ProductImage");
 //			 p.setProductID(UUID.randomUUID().toString());
-			IProductOperation productOperation = session
-			 .getMapper(IProductOperation.class);
+			IProductTypeOperation productOperation = session
+			 .getMapper(IProductTypeOperation.class);
 //			productOperation.addProduct(p);
-			Product p = productOperation.selectProductByID("758d1701ace14ae0890625d7528c4efb");
-			System.out.println(p);
+			productOperation.deleteAllProductType("1");
+			session.commit();
 //			session.commit();
 //			ProductType products = productOperation.selectProductTypeByIDWithDetail(1);
 //			System.out.println(products.getTypeName());

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import ledweb.ModelSessionFactory;
 import ledweb.model.Category;
@@ -16,11 +17,14 @@ import ledweb.model.Spec;
 import ledweb.model.Type;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
+import ledweb.model.mapper.IProductSpecOperation;
+import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
 import ledweb.model.mapper.ITypeOperation;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -30,7 +34,7 @@ public class AddProduct extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 4573207127956494966L;
-
+	private static Logger logger = Logger.getLogger(AddProduct.class);
 	private Product product;
 	private List<Spec> specs;
 	private List<Type> types;
@@ -38,10 +42,10 @@ public class AddProduct extends ActionSupport {
 	private List<Spec> allSpecs;
 	private List<Type> allTypes;
 	private List<Category> allCategories;
-	
+
 	private List<String> specIDs;
 	private List<String> specValues;
-	
+
 	private Map<Integer, String> specValueMap;
 	private List<String> selectedTypes;
 	private String productID;
@@ -52,32 +56,31 @@ public class AddProduct extends ActionSupport {
 	private String savePath;
 	private String fileType;
 	private Integer selectedCategory;
-	
-	
+
 	public Integer getSelectedCategory() {
 		return selectedCategory;
 	}
-
 
 	public void setSelectedCategory(Integer selectedCategory) {
 		this.selectedCategory = selectedCategory;
 	}
 
-
 	public List<Category> getAllCategories() {
 		return allCategories;
 	}
 
-	
 	public List<String> getSelectedTypes() {
 		return selectedTypes;
 	}
+
 	public void setSelectedTypes(List<String> selectedTypes) {
 		this.selectedTypes = selectedTypes;
 	}
+
 	public Map<Integer, String> getSpecValueMap() {
 		return specValueMap;
 	}
+
 	public List<String> getSpecValues() {
 		return specValues;
 	}
@@ -210,7 +213,7 @@ public class AddProduct extends ActionSupport {
 			}
 			if (this.product.getProductName() == null
 					|| "".equals(this.product.getProductName())) {
-				this.addFieldError("product.productName", this.getText( 
+				this.addFieldError("product.productName", this.getText(
 						"struts.messages.error.field.is.empty",
 						new String[] { "product name" }));
 			}
@@ -223,22 +226,22 @@ public class AddProduct extends ActionSupport {
 		}
 	}
 
-	private void updateProduct() {
+	private void showProduct() {
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		try {
 			IProductOperation po = session.getMapper(IProductOperation.class);
 			this.setProduct(po.selectProductByID(this.productID));
-			System.out.println("Product Name:"
-					+ po.selectProductByID(this.productID).getProductName());
+			logger.warn("Get product ID: " + this.productID);
+			logger.warn("Get product: " + this.getProduct());
+			
 			this.specValueMap = new HashMap<Integer, String>();
-			for (ProductSpec spec: this.product.getSpecs())
-			{
+			
+			for (ProductSpec spec : this.product.getSpecs()) {
 				this.specValueMap.put(spec.getSpecID(), spec.getSpecValue());
 			}
 			this.selectedTypes = new ArrayList<String>();
-			for (ProductType type: this.product.getTypes())
-			{
-				this.selectedTypes.add(type.getTypeID()+"");
+			for (ProductType type : this.product.getTypes()) {
+				this.selectedTypes.add(type.getTypeID() + "");
 			}
 		} finally {
 			session.close();
@@ -247,46 +250,97 @@ public class AddProduct extends ActionSupport {
 
 	}
 
-	private void newProduct() {
+	private void newProduct(String _newProductID) {
 		System.out.println("Has error: " + this.hasFieldErrors());
 		System.out.println(this.product.getProductName());
-		if (this.specIDs != null)
-		{
+		if (this.specIDs != null) {
 			this.specValueMap = new HashMap<Integer, String>();
-			List<ProductSpec> productSpec = new ArrayList<ProductSpec>();
-			for (int i=0;i<this.getSpecIDs().size();i++)
-			{
-				this.specValueMap.put(Integer.parseInt(this.getSpecIDs().get(i)), this.getSpecValues().get(i));
-				ProductSpec ps = new ProductSpec();
+			for (int i = 0; i < this.getSpecIDs().size(); i++) {
+				this.specValueMap.put(Integer
+						.parseInt(this.getSpecIDs().get(i)), this
+						.getSpecValues().get(i));
 			}
-			
+
 			System.out.println("Spec size: " + this.getSpecIDs().size());
-			System.out.println("Spec value size: " + this.getSpecValues().size());
+			System.out.println("Spec value size: "
+					+ this.getSpecValues().size());
 		}
-		if (this.selectedTypes != null)
-		{
-			System.out.println("Selected type size: " + this.selectedTypes.size());
+		if (this.selectedTypes != null) {
+			System.out.println("Selected type size: "
+					+ this.selectedTypes.size());
 		}
+		String newFileName = "";
 		if (this.getNewImage() != null) {
-			String newFileName = System.currentTimeMillis() + "_"
-					+ this.getNewImageFileName(); 
-			File savefile = new File(new File(this.getRealSavePath()), 
+			newFileName = System.currentTimeMillis() + "_"
+					+ this.getNewImageFileName();
+			File savefile = new File(new File(this.getRealSavePath()),
 					newFileName);
 			if (!savefile.getParentFile().exists()) {
 				savefile.getParentFile().mkdirs();
 			}
 			try {
 				FileUtils.copyFile(this.getNewImage(), savefile);
-				System.out.println(this.getSavePath() + "/" + newFileName);
-
+				logger.warn(this.getSavePath() + "/" + newFileName);
 			} catch (IOException e) {
-
+				logger.error(e.getMessage());
 			}
-			System.out.println("Image file get name: "
-					+ this.getNewImage().getName());
-			System.out.println("File name:" + this.getNewImageFileName());
-			System.out
-					.println("Content Type: " + this.getNewImageContentType());
+		}
+		
+		
+		this.getProduct().setProductID(_newProductID);
+		this.getProduct().setCategoryID(this.selectedCategory);
+		logger.warn("Select category: " + this.selectedCategory);
+		logger.warn("Real image path: " + this.getRealSavePath()
+				+ File.separator + newFileName);
+		if (new File(this.getRealSavePath() + File.separator + newFileName)
+				.exists()) {
+			this.getProduct().setProductImage(
+					this.getSavePath() + "/" + newFileName);
+		}
+		List<ProductSpec> pss = new ArrayList<ProductSpec>();
+		for (int i = 0; i < this.getSpecIDs().size(); i++) {
+			ProductSpec ps = new ProductSpec();
+			ps.setProductID(_newProductID);
+			ps.setSpecID(Integer.parseInt(this.getSpecIDs().get(i)));
+			ps.setSpecValue(this.getSpecValues().get(i));
+			pss.add(ps);
+		}
+
+		List<ProductType> pts = new ArrayList<ProductType>();
+		for (String typeID : this.selectedTypes) {
+			ProductType pt = new ProductType();
+			pt.setProductID(_newProductID);
+			pt.setPrice(this.getProduct().getPrice());
+			pt.setTypeID(Integer.parseInt(typeID));
+			pts.add(pt);
+		}
+		// Insert into DB
+		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		try {
+			//Product
+			IProductOperation ipo = sqlSession
+					.getMapper(IProductOperation.class);
+			ipo.realDeleteProduct(_newProductID);
+			ipo.addProduct(this.getProduct());
+			
+			sqlSession.commit();
+			//Product Spec
+			IProductSpecOperation ipso = sqlSession.getMapper(IProductSpecOperation.class);
+			ipso.deleteAllProductSpec(_newProductID);
+			logger.warn("new product ID: "+_newProductID);
+			ipso.batchAddProductSpec(pss);
+			
+			sqlSession.commit();
+			//Product type
+			IProductTypeOperation ipto = sqlSession.getMapper(IProductTypeOperation.class);
+			ipto.deleteAllProductType(_newProductID);
+			ipto.batchAddProductType(pts);
+			
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} finally {
+			sqlSession.close();
 		}
 	}
 
@@ -297,10 +351,11 @@ public class AddProduct extends ActionSupport {
 			this.setAllSpecs(iso.selectAllSpec());
 			ITypeOperation ito = session.getMapper(ITypeOperation.class);
 			this.setAllTypes(ito.selectAllTypes());
-			ICategoryOperation ico = session.getMapper(ICategoryOperation.class);
+			ICategoryOperation ico = session
+					.getMapper(ICategoryOperation.class);
 			this.setAllCategories(ico.selectAllCategories());
 		} catch (Exception e) {
- 
+			logger.error("Add product init: " + e.getMessage());
 		} finally {
 			session.close();
 
@@ -311,14 +366,17 @@ public class AddProduct extends ActionSupport {
 		this.allCategories = allCategories;
 	}
 
-
 	@Override
 	public String execute() {
 		this.init();
-		if (this.productID != null) {
-			this.updateProduct();
-		} else if ("submit".equals(this.getIsSubmit())) {
-			this.newProduct();
+		if (this.productID != null && !this.productID.trim().equals("")) {
+			this.showProduct();
+		} 
+		if ("submit".equals(this.getIsSubmit())) {
+			if (this.productID == null || "".equals(this.productID.trim())) {
+				this.productID = UUID.randomUUID().toString();
+			}
+			this.newProduct(this.productID);
 		}
 
 		return SUCCESS;

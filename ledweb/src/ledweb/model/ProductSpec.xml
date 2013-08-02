@@ -49,7 +49,7 @@
         where ProductSpecID=#{productSpecID}
     </update>
     
-	<update id="deleteAllProductSpec" parameterType="int">
+	<update id="deleteAllProductSpec" parameterType="String">
          update ProductSpec set 
         IsDelete=1
         where ProductID=#{productID}
