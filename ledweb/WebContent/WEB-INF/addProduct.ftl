@@ -161,7 +161,7 @@ jQuery(document).ready(function() {
 	</div>
   <div class="col-lg-8">
 	<div class="well">
-		<form id="commentForm" action="newProduct.action" method="post" enctype="multipart/form-data">
+		<form id="commentForm" action="newProduct.do" method="post" enctype="multipart/form-data">
 		
 		 <fieldset>
     	<legend>Add product</legend>
@@ -278,10 +278,12 @@ jQuery(document).ready(function() {
 		 <#if allTypes??>
 			 <#list allTypes as type>
 				<label class="checkbox-inline">
-				  <input type="checkbox" id="inlineCheckbox1" name="selectedTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
+				  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
 				</label>
+				
 			</#list>
 		</#if>
+
 		</div>
 	</div>
 	</div>

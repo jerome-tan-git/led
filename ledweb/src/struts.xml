@@ -4,6 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.action.extension" value="do"/>
     <package name="welcomePackage" extends="struts-default">
         <action name="welcome" class="ledweb.action.WelcomeAction">
             <result name="success">/success.jsp</result>
@@ -14,8 +15,8 @@
     		<result type="freemarker">/WEB-INF/fm.ftl</result>
 		</action>
         <action name="newProduct" class="ledweb.action.AddProduct">
-        	<param name="savePath">/UploadedImages</param>
-        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png</param>
+        	<param name="savePath">./UploadedImages</param>
+        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
     		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
 		</action>
