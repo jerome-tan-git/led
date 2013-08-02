@@ -214,17 +214,21 @@ jQuery(document).ready(function() {
 	      <textarea class="form-control" rows="3" name="product.productDesc" placeholder="Product Description"></textarea>
 	    </div>
 	       <div class="row">
-	       <div class="col-lg-6">
+	       <div class="col-lg-4">
 		    <div class="form-group">
 		      <label for="exampleInputFile">Product Image</label>
 		      <input type="file" id="exampleInputFile" name="newImage" />
+		      <input type="hidden" name="oldImage" value="${(product.productImage)!""}" />
 		    </div>
 		    </div>
 		    
-		    <div class="col-lg-6">
-		    <div class="form-group">
-		     <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
-		    </div>
+		    <div class="col-lg-8">
+			    <#if (product.productImage)??>
+			    <#assign a="${product.productImage?trim}">
+			    	<#if a!="">
+			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
+			    	</#if>
+			    </#if>
 		    </div>
 		     
 		    </div>

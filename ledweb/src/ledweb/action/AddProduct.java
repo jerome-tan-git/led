@@ -45,16 +45,17 @@ public class AddProduct extends ActionSupport {
 
 	private List<String> specIDs;
 	private List<String> specValues;
-
+	private String oldImage;
 	private Map<Integer, String> specValueMap;
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
-	public List<String> getTestSelectTypes() {
-		return testSelectTypes;
+	private String testImage ="    "; 
+	public String getTestImage() {
+		return testImage;
 	}
 
-	public void setTestSelectTypes(List<String> testSelectTypes) {
-		this.testSelectTypes = testSelectTypes;
+	public void setTestImage(String testImage) {
+		this.testImage = testImage;
 	}
 
 	private String productID;
@@ -65,6 +66,22 @@ public class AddProduct extends ActionSupport {
 	private String savePath;
 	private String fileType;
 	private Integer selectedCategory;
+
+	public List<String> getTestSelectTypes() {
+		return testSelectTypes;
+	}
+
+	public void setTestSelectTypes(List<String> testSelectTypes) {
+		this.testSelectTypes = testSelectTypes;
+	}
+
+	public String getOldImage() {
+		return oldImage;
+	}
+
+	public void setOldImage(String oldImage) {
+		this.oldImage = oldImage;
+	}
 
 	public Integer getSelectedCategory() {
 		return selectedCategory;
@@ -242,21 +259,20 @@ public class AddProduct extends ActionSupport {
 			this.setProduct(po.selectProductByID(this.productID));
 			logger.warn("Get product ID: " + this.productID);
 			logger.warn("Get product: " + this.getProduct());
-			
+
 			this.specValueMap = new HashMap<Integer, String>();
-			
+
 			for (ProductSpec spec : this.product.getSpecs()) {
 				this.specValueMap.put(spec.getSpecID(), spec.getSpecValue());
 			}
 			this.selectedTypes = new ArrayList<String>();
-			if (this.testSelectTypes == null)
-			{
+			if (this.testSelectTypes == null) {
 				this.testSelectTypes = new ArrayList<String>();
 			}
 			for (ProductType type : this.product.getTypes()) {
 				this.selectedTypes.add(type.getTypeID() + "");
-				
-				logger.warn("add type: "+type.getTypeID());
+
+				logger.warn("add type: " + type.getTypeID());
 			}
 		} finally {
 			session.close();
@@ -280,7 +296,6 @@ public class AddProduct extends ActionSupport {
 			System.out.println("Spec value size: "
 					+ this.getSpecValues().size());
 		}
-		
 
 		String newFileName = "";
 		if (this.getNewImage() != null) {
@@ -298,66 +313,72 @@ public class AddProduct extends ActionSupport {
 				logger.error(e.getMessage());
 			}
 		}
+
 		logger.warn("Test selected types: " + this.testSelectTypes.size());
-		
+
 		this.getProduct().setProductID(_newProductID);
 		this.getProduct().setCategoryID(this.selectedCategory);
 		logger.warn("Select category: " + this.selectedCategory);
 		logger.warn("Real image path: " + this.getRealSavePath()
 				+ File.separator + newFileName);
-		if (new File(this.getRealSavePath() + File.separator + newFileName)
-				.exists()) {
-			this.getProduct().setProductImage(
-					this.getSavePath() + "/" + newFileName);
+		if (this.getNewImage() != null) {
+			if (new File(this.getRealSavePath() + File.separator + newFileName)
+					.exists()) {
+				this.getProduct().setProductImage(
+						this.getSavePath() + "/" + newFileName);
+			}
+		} else if (this.getOldImage() != null) {
+			this.getProduct().setProductImage(this.getOldImage());
 		}
 		List<ProductSpec> pss = new ArrayList<ProductSpec>();
-		if (this.getSpecIDs() !=null)
-		{
-		for (int i = 0; i < this.getSpecIDs().size(); i++) {
-			ProductSpec ps = new ProductSpec();
-			ps.setProductID(_newProductID);
-			ps.setSpecID(Integer.parseInt(this.getSpecIDs().get(i)));
-			ps.setSpecValue(this.getSpecValues().get(i));
-			pss.add(ps);
-		}
+		if (this.getSpecIDs() != null) {
+			for (int i = 0; i < this.getSpecIDs().size(); i++) {
+				ProductSpec ps = new ProductSpec();
+				ps.setProductID(_newProductID);
+				ps.setSpecID(Integer.parseInt(this.getSpecIDs().get(i)));
+				ps.setSpecValue(this.getSpecValues().get(i));
+				pss.add(ps);
+			}
 		}
 		List<ProductType> pts = new ArrayList<ProductType>();
-		
-		logger.warn("Selected types: "+this.testSelectTypes);
+
+		logger.warn("Selected types: " + this.testSelectTypes);
 		for (String typeID : this.testSelectTypes) {
 			ProductType pt = new ProductType();
 			pt.setProductID(_newProductID);
 			pt.setPrice(this.getProduct().getPrice());
 			pt.setTypeID(Integer.parseInt(typeID));
 			pts.add(pt);
-			
+
 		}
 		this.setSelectedTypes(this.testSelectTypes);
-		logger.warn("Product Type size: "+pts.size());
+		logger.warn("Product Type size: " + pts.size());
 		// Insert into DB
 		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
 		try {
-			//Product
+			// Product
 			IProductOperation ipo = sqlSession
 					.getMapper(IProductOperation.class);
 			ipo.realDeleteProduct(_newProductID);
 			ipo.addProduct(this.getProduct());
-			
+
 			sqlSession.commit();
-			//Product Spec
-			IProductSpecOperation ipso = sqlSession.getMapper(IProductSpecOperation.class);
+			// Product Spec
+			IProductSpecOperation ipso = sqlSession
+					.getMapper(IProductSpecOperation.class);
 			ipso.deleteAllProductSpec(_newProductID);
-			logger.warn("new product ID: "+_newProductID);
+			logger.warn("new product ID: " + _newProductID);
 			ipso.batchAddProductSpec(pss);
-			
+
 			sqlSession.commit();
-			//Product type
-			IProductTypeOperation ipto = sqlSession.getMapper(IProductTypeOperation.class);
+			// Product type
+			IProductTypeOperation ipto = sqlSession
+					.getMapper(IProductTypeOperation.class);
 			ipto.deleteAllProductType(_newProductID);
 			ipto.batchAddProductType(pts);
 			logger.warn(pts);
 			sqlSession.commit();
-			
+
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
@@ -392,7 +413,7 @@ public class AddProduct extends ActionSupport {
 		this.init();
 		if (this.productID != null && !this.productID.trim().equals("")) {
 			this.showProduct();
-		} 
+		}
 		if ("submit".equals(this.getIsSubmit())) {
 			if (this.productID == null || "".equals(this.productID.trim())) {
 				this.productID = UUID.randomUUID().toString();
