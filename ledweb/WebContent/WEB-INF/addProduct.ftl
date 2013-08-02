@@ -226,7 +226,7 @@ jQuery(document).ready(function() {
 		     <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
 		    </div>
 		    </div>
-		    
+		     
 		    </div>
    		
     </div>
