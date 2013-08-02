@@ -3,7 +3,7 @@ package ledweb.model;
 import java.util.List;
 
 public class Product {
-	private int productID;
+	private String productID;
 	private int categoryID;
 	private String productName;
 	private String productDesc;
@@ -33,10 +33,11 @@ public class Product {
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-	public int getProductID() {
+
+	public String getProductID() {
 		return productID;
 	}
-	public void setProductID(int productID) {
+	public void setProductID(String productID) {
 		this.productID = productID;
 	}
 	public String getProductName() {

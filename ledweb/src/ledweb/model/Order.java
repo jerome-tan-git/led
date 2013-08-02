@@ -2,7 +2,7 @@ package ledweb.model;
 
 public class Order {
 	private int orderID;
-	private int productID;
+	private String productID;
 	private int userID;
 	private int quantity;
 	private int typeID;
@@ -14,14 +14,15 @@ public class Order {
 	public void setOrderID(int orderID) {
 		this.orderID = orderID;
 	}
-	public int getProductID() {
-		return productID;
-	}
-	public void setProductID(int productID) {
-		this.productID = productID;
-	}
+
 	public int getUserID() {
 		return userID;
+	}
+	public String getProductID() {
+		return productID;
+	}
+	public void setProductID(String productID) {
+		this.productID = productID;
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;

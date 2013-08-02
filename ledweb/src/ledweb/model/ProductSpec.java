@@ -2,7 +2,7 @@ package ledweb.model;
 
 public class ProductSpec {
 	private int productSpecID;
-	private int productID;
+	private String productID;
 	private int specID;
 	private String specValue;
 	private int isDelete;
@@ -20,14 +20,15 @@ public class ProductSpec {
 	public void setProductSpecID(int productSpecID) {
 		this.productSpecID = productSpecID;
 	}
-	public int getProductID() {
-		return productID;
-	}
-	public void setProductID(int productID) {
-		this.productID = productID;
-	}
+
 	public int getSpecID() {
 		return specID;
+	}
+	public String getProductID() {
+		return productID;
+	}
+	public void setProductID(String productID) {
+		this.productID = productID;
 	}
 	public void setSpecID(int specID) {
 		this.specID = specID;

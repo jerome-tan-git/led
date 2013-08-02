@@ -12,4 +12,5 @@ public interface ITypeOperation {
 	public int addType(Type type);
 	public int updateType(Type type);
 	public int deleteType(int id);
+	public List<Type> selectAllTypes();
 }

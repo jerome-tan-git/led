@@ -10,28 +10,70 @@
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
 <script>
-$().ready(function() {$("#commentForm").validate(
+$().ready(
+	function() {$("#commentForm").validate(
 	{
+		rules:
+		{
+			"product.price": 
+			{
+				required:true,
+				number:true,
+				min:0.01
+				
+			},
+			"product.productName":
+			{
+				required:true,
+			}
+		},
+		messages:
+		{
+			"product.price": 
+			{
+				required:"please input product price",
+				number:"product price must be a number",
+				min:"product price must be greater than 0.01"
+				
+			},
+			"product.productName":
+			{
+				required:"please input product title"
+			}
+		},
 		errorLabelContainer:"#messageBox",
-		errorClass: "alert alert-danger",
 		errorElement:"div",
 		onfocusout: false,
 		onkeyup: false,
 		focusCleanup: true,
 		focusInvalid: false,
-		wrapper:"div",
+		wrapper:"li",
 		showErrors:function(errorMap,errorList) {
 	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
 			this.defaultShowErrors();
-			$('#myModal').modal('show');
+			if (this.numberOfInvalids()>0)
+			{
+				$('#myModal').modal('show');
+			}
 		}
 	}
-)});
-function showDia()
-{
-	
-	
-}
+	)
+	}
+);
+
+
+$().ready(
+	function()
+	{
+		$('input[name="specIDs"]').click(
+		function()		{
+		    
+		    $("#specValue_"+$(this).attr('value')).prop("disabled", !$(this).prop('checked'));
+		    
+		})
+	}
+)
+
 </script>
 <body>
 <div class="modal fade" id="myModal">
@@ -128,27 +170,24 @@ function showDia()
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      
-      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" 
-		data-rule-required="true" data-rule-email="true" data-msg-required="Please enter your email address" data-msg-email="Please enter a valid email address"  />
+      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" />
     </div>
     
     <div class="row">
     <div class="col-lg-6">
     <div class="form-group">
       <label for="exampleInputEmail">Product Category</label>
-      <select class="form-control">
-          <option value="">Default select</option>
+      <select class="form-control" name="selectedCategory">
+      	<#list allCategories as category>
+        	  <option <#if selectedCategory??><#if category.categoryID==selectedCategory>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
+          </#list>
         </select>
     </div>
     </div>
     <div class="col-lg-6">
     <div class="form-group">
       <label for="exampleInputEmail">Product Price</label>
-      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${(product.price)!""}"
-      data-rule-required="true" data-rule-number="true"
-      data-msg-required="Please enter price" 
-      data-msg-number="Please enter a number" />
+      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
     </div>
     </div>
     </div>
@@ -168,81 +207,39 @@ function showDia()
          <div class="panel-heading ">
 	    <h3 class="panel-title">Select Specs</h3>
 	  </div>
-<div class="row">
-  <div class="col-lg-3">
-  
-  		
-  		
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"  name="specIDs" value="0" <#if specIDs??>${specIDs?seq_contains("0")?string("checked", "")}</#if> /> Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-    
-  </div>
-  <div class="col-lg-3">
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"  name="specIDs" value="1"  <#if specIDs??>${specIDs?seq_contains("1")?string("checked", "")}</#if>/>  Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-    
-  </div>
-  <div class="col-lg-3">
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"  name="specIDs" value="2"  <#if specIDs??>${specIDs?seq_contains("2")?string("checked", "")}</#if>/>  Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-    
-  </div>
-  <div class="col-lg-3">
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"  name="specIDs" value="3"  <#if specIDs??>${specIDs?seq_contains("3")?string("checked", "")}</#if>/>  Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-  </div>
-</div>
+  	<#list allSpecs as sp>
+  	<#if specValueMap??>
+  		<#assign keys = specValueMap?keys>
+  	</#if>
+  		<#if sp_index%4==0>
+  		<div class="row">
+  		</#if>
+		<div class="col-lg-3">
+			<div class="form-group">
+				<div class="checkbox">
+				<label>
+					<input type="checkbox"  name="specIDs" value="${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??>checked</#if></#if> id="specIDs_${sp.specID}"/>${sp.specName}
+				</label>
+				
+				</div>
+				<div>
+				<input type="text" name="specValues" class="form-control input-small" 
+				id="specValue_${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??><#else> disabled </#if><#else> disabled </#if> 
+				placeholder="Enter email" 
+				value="<#if specValueMap??><#if specValueMap.get(sp.specID)??>${specValueMap.get(sp.specID)}</#if></#if>">
+				</div>
+			</div>
+		</div>
+		  <#if sp_index%4==3>
+	  		</div>
+	  		<#else>
+		  		<#if sp_index+1==allSpecs?size>
+		  			</div>
+		  		</#if>
+  	  	</#if>
+  	</#list>
 
-<div class="row">
-  <div class="col-lg-3">
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"> Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-    
-  </div>
-  <div class="col-lg-3">
-      <div class="form-group">
-      <div class="checkbox">
-      <label>
-        <input type="checkbox"> Check me out
-      </label>
-    </div>
-      <input type="text" class="form-control input-small" id="exampleInputEmail" placeholder="Enter email">
-    </div>
-  </div>
-</div>
-
-
-</div>
+	</div>
 
 	    <div class="panel panel-warning">
              <div class="panel-heading">
@@ -250,15 +247,11 @@ function showDia()
 	  </div>
 	<div class="row">
 		 <div class="col-lg-12">
-		<label class="checkbox-inline">
-		  <input type="checkbox" id="inlineCheckbox1" value="option1"> asdfasf safasdf
-		</label>
-		<label class="checkbox-inline">
-		  <input type="checkbox" id="inlineCheckbox2" value="option2"> asfasf safdasd
-		</label>
-		<label class="checkbox-inline">
-		  <input type="checkbox" id="inlineCheckbox3" value="option3"> asfasd fasdfas
-		</label>
+		 <#list allTypes as type>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="inlineCheckbox1" name="selectedTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
+			</label>
+		</#list>
 		</div>
 	</div>
 	</div>
