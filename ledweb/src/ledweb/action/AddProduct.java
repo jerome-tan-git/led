@@ -42,22 +42,15 @@ public class AddProduct extends ActionSupport {
 	private List<Spec> allSpecs;
 	private List<Type> allTypes;
 	private List<Category> allCategories;
-
+	private String productDesc;
 	private List<String> specIDs;
 	private List<String> specValues;
+
+
 	private String oldImage;
 	private Map<Integer, String> specValueMap;
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
-	private String testImage ="    "; 
-	public String getTestImage() {
-		return testImage;
-	}
-
-	public void setTestImage(String testImage) {
-		this.testImage = testImage;
-	}
-
 	private String productID;
 	private File newImage;
 	private String newImageContentType;
@@ -67,6 +60,14 @@ public class AddProduct extends ActionSupport {
 	private String fileType;
 	private Integer selectedCategory;
 
+	
+	public String getProductDesc() {
+		return productDesc;
+	}
+
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
 	public List<String> getTestSelectTypes() {
 		return testSelectTypes;
 	}
@@ -282,8 +283,7 @@ public class AddProduct extends ActionSupport {
 	}
 
 	private void newProduct(String _newProductID) {
-		System.out.println("Has error: " + this.hasFieldErrors());
-		System.out.println(this.product.getProductName());
+		this.product.setProductDesc(this.getProductDesc());
 		if (this.specIDs != null) {
 			this.specValueMap = new HashMap<Integer, String>();
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
@@ -330,6 +330,7 @@ public class AddProduct extends ActionSupport {
 		} else if (this.getOldImage() != null) {
 			this.getProduct().setProductImage(this.getOldImage());
 		}
+		logger.warn("Product desc: " + this.getProduct().getProductDesc());
 		List<ProductSpec> pss = new ArrayList<ProductSpec>();
 		if (this.getSpecIDs() != null) {
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {

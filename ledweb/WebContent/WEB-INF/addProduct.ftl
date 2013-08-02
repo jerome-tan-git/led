@@ -204,7 +204,7 @@ jQuery(document).ready(function() {
 	    </div>
 	    <div class="form-group">
 	      <label for="exampleInputPassword">Product Description</label>
-	      <textarea class="form-control" rows="3" name="product.productDesc" placeholder="Product Description"></textarea>
+	      <textarea class="form-control" rows="3" name="productDesc" placeholder="Product Description">${(product.productDesc)!""}</textarea>
 	    </div>
 	       <div class="row">
 	       <div class="col-lg-4">
