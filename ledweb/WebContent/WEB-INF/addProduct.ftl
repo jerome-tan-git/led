@@ -13,13 +13,6 @@
 </head>
 
 
-<style type="text/css" media="screen">
-    .square {
-        width: 300px;
-        height: 300px;
-        
-    }
-</style>
 
 
 <script>
@@ -87,7 +80,7 @@ $().ready(
 )
 
 jQuery(document).ready(function() {
-    jQuery('.nailthumb-container').nailthumb();
+    jQuery('.nailthumb-container ').nailthumb({width:300,height:300});
 });
 
 </script>
@@ -226,7 +219,7 @@ jQuery(document).ready(function() {
 			    <#if (product.productImage)??>
 			    <#assign a="${product.productImage?trim}">
 			    	<#if a!="">
-			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
+			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
 			    	</#if>
 			    </#if>
 		    </div>
