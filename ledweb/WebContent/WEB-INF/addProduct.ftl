@@ -154,7 +154,7 @@ jQuery(document).ready(function() {
 	</div>
   <div class="col-lg-8">
 	<div class="well">
-		<form id="commentForm" action="newProduct.do" method="post" enctype="multipart/form-data">
+		<form id="commentForm" action="" method="post" enctype="multipart/form-data">
 		
 		 <fieldset>
     	<legend>Add product</legend>
