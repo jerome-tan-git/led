@@ -46,7 +46,6 @@ public class AddProduct extends ActionSupport {
 	private List<String> specIDs;
 	private List<String> specValues;
 
-
 	private String oldImage;
 	private Map<Integer, String> specValueMap;
 	private List<String> selectedTypes;
@@ -60,7 +59,6 @@ public class AddProduct extends ActionSupport {
 	private String fileType;
 	private Integer selectedCategory;
 
-	
 	public String getProductDesc() {
 		return productDesc;
 	}
@@ -68,6 +66,7 @@ public class AddProduct extends ActionSupport {
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
+
 	public List<String> getTestSelectTypes() {
 		return testSelectTypes;
 	}
@@ -275,6 +274,8 @@ public class AddProduct extends ActionSupport {
 
 				logger.warn("add type: " + type.getTypeID());
 			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
 		} finally {
 			session.close();
 

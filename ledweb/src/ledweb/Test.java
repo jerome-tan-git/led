@@ -187,10 +187,12 @@ public class Test {
 //			System.out.println(pso.batchAddProductSpec(specs));
 //			session.commit();
 			
-			ISpecOperation iso = session.getMapper(ISpecOperation.class);
-			List<Spec> specs1 = iso.selectAllSpec();
-			System.out.println(specs1.size());
-			
+//			ISpecOperation iso = session.getMapper(ISpecOperation.class);
+//			List<Spec> specs1 = iso.selectAllSpec();
+//			System.out.println(specs1.size());
+			ICategoryOperation ico = session.getMapper(ICategoryOperation.class);
+			List<Category> cat = ico.selectAllCategories();
+			System.out.println(cat);
 //			ProductSpec ps1 = new 
 			
 			// IUserOperation userOperation = session

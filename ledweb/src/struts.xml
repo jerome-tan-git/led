@@ -14,11 +14,20 @@
         <action name="Action1" class="ledweb.action.Action1">
     		<result type="freemarker">/WEB-INF/fm.ftl</result>
 		</action>
+		
         <action name="newProduct" class="ledweb.action.AddProduct">
         	<param name="savePath">./UploadedImages</param>
         	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
     		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
+		</action>
+		
+		
+		<action name="sysManagement" class="ledweb.action.SystemMan">
+        	<param name="savePath">./UploadedImages</param>
+        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
+    		<result name="input" type="freemarker">/WEB-INF/system.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/system.ftl</result>
 		</action>
     </package>
 </struts>

@@ -44,4 +44,23 @@ public class Category {
 	public void setReserve3(String reserve3) {
 		this.reserve3 = reserve3;
 	}
+	/**
+	 * 	private int categoryID;
+	private String categoryName;
+	private int isDelete;
+	private String reserve1="";
+	private String reserve2="";
+	private String reserve3="";
+	 */
+	public String toString()
+	{
+		String result = "\n-----------------------------------------------";
+		result += "\nCategory ID;  " + this.getCategoryID();
+		result += "\nCategory Name;  " + this.getCategoryName();
+		result += "\nCategory Desc;  " + this.getReserve1();
+		result += "\nCategory Image;  " + this.getReserve2();
+		result += "\nSpec reserve3;  " + this.getReserve3();
+		result += "\n-----------------------------------------------";
+		return result;
+	}
 }
