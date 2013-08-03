@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+body {
+	background: rgb(256,256,256) url(../bg.gif) repeat 0 0;
+	color: rgb(136,136,136);
+}
