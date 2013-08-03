@@ -190,9 +190,9 @@ public class Test {
 //			ISpecOperation iso = session.getMapper(ISpecOperation.class);
 //			List<Spec> specs1 = iso.selectAllSpec();
 //			System.out.println(specs1.size());
-			ICategoryOperation ico = session.getMapper(ICategoryOperation.class);
-			List<Category> cat = ico.selectAllCategories();
-			System.out.println(cat);
+//			ICategoryOperation ico = session.getMapper(ICategoryOperation.class);
+//			List<Category> cat = ico.selectAllCategories();
+//			System.out.println(cat);
 //			ProductSpec ps1 = new 
 			
 			// IUserOperation userOperation = session
@@ -205,7 +205,11 @@ public class Test {
 			// .getMapper(IUserOperation.class);
 			// userOperation.deleteUser(5);
 			// session.commit();
-
+			String a = null;
+			if (a==null || "".equals(a.trim()))
+			{
+				System.out.println("1");
+			}
 		} finally {
 			session.close();
 		}

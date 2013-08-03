@@ -12,6 +12,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class Action1 extends ActionSupport {
 	private String username = "111111";
 	private User user = null;
+	private String specID;
+	public String getSpecID() {
+		return specID;
+	}
+
+	public void setSpecID(String specID) {
+		this.specID = specID;
+	}
+
 	public Teacher getTeacher() {
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);  
@@ -35,6 +44,7 @@ public class Action1 extends ActionSupport {
 		{
 			this.username = "a";
 		}
+		System.out.println("Spec ID: " + this.specID);
 		return SUCCESS;
 	}
 

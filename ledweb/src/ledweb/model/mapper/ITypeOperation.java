@@ -8,9 +8,10 @@ import ledweb.model.Type;
 import ledweb.model.User;
 
 public interface ITypeOperation {
-	public Type selectTypeByID(int id);
+	public Type selectTypeByID(String id);
 	public int addType(Type type);
 	public int updateType(Type type);
-	public int deleteType(int id);
+	public int deleteType(String id);
+	public int realDeleteType(String id);
 	public List<Type> selectAllTypes();
 }

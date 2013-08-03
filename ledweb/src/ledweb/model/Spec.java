@@ -1,16 +1,17 @@
 package ledweb.model;
 
 public class Spec {
-	private int specID;
+	private String specID;
 	private String specName;
 	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-	public int getSpecID() {
+	
+	public String getSpecID() {
 		return specID;
 	}
-	public void setSpecID(int specID) {
+	public void setSpecID(String specID) {
 		this.specID = specID;
 	}
 	public String getSpecName() {

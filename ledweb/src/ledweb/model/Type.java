@@ -1,16 +1,17 @@
 package ledweb.model;
 
 public class Type {
-	private int typeID;
+	private String typeID;
 	private String typeName;
 	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-	public int getTypeID() {
+	
+	public String getTypeID() {
 		return typeID;
 	}
-	public void setTypeID(int typeID) {
+	public void setTypeID(String typeID) {
 		this.typeID = typeID;
 	}
 	public String getTypeName() {

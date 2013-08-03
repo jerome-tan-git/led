@@ -1,17 +1,18 @@
 package ledweb.model;
 
 public class Category {
-	private int categoryID;
+	private String categoryID;
 	private String categoryName;
 	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
 	
-	public int getCategoryID() {
+
+	public String getCategoryID() {
 		return categoryID;
 	}
-	public void setCategoryID(int categoryID) {
+	public void setCategoryID(String categoryID) {
 		this.categoryID = categoryID;
 	}
 	public String getCategoryName() {

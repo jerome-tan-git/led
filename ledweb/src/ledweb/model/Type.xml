@@ -22,8 +22,8 @@
 
 	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Type(TypeName,Reserve1,Reserve2,Reserve3)
-		values(#{typeName},#{reserve1},#{reserve2},#{reserve3})
+		insert into Type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
+		values(#{typeID},#{typeName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateTypeType" parameterType="Type" >
@@ -35,10 +35,15 @@
         where TypeID=#{typeID}
     </update>
 	
-	<delete id="deleteType" parameterType="int">
+	<delete id="deleteType" parameterType="String">
          update Type set 
         IsDelete=1
         where TypeID=#{typeID}
+    </delete>
+	
+	
+	<delete id="realDeleteType" parameterType="String">
+         delete from Type where TypeID=#{typeID}
     </delete>
 	
 </mapper>

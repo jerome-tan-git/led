@@ -27,6 +27,9 @@
   <button type="button" data-toggle="modal" class="btn btn-primary" data-target="#myModal">Launch modal</button>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	  
+	  <form action="" method="post">
+	  	<input type="text" name="specID" id="categoryForm" method="post" enctype="multipart/form-data" />
+	  	<button type="submit" name="aaa" >aaa</button> 
+	  </form>
 </body>
 </html>

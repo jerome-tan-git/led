@@ -21,7 +21,7 @@
 	<select id="selectProductByID" parameterType="String" resultMap="resultListProduct">
 		select * from Product where ProductID = #{productID} and IsDelete = 0
 	</select>
-	<select id="selectProductsByCategoryID"  parameterType="int" resultMap="resultListProduct">
+	<select id="selectProductsByCategoryID"  parameterType="String" resultMap="resultListProduct">
 		select * from Product where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
 

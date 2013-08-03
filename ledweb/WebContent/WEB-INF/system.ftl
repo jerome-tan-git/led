@@ -51,17 +51,17 @@
 	color: #b94a48;
 }
 
-.selectedCategory a
+.panel-success a
 {
 	color:#468847;
 }
 
-.selectedType a
+.panel-danger a
 {
 	color:#b94a48;
 }
 
-.selectedSpec a
+.panel-warning a
 {
 	color:#c09853;
 }
@@ -71,33 +71,21 @@
 
 <script>
 $().ready(
-	function() {$("#commentForm").validate(
+	function() {$("#categoryForm").validate(
 	{
 		rules:
 		{
-			"product.price": 
-			{
-				required:true,
-				number:true,
-				min:0.01
-			},
-			"product.productName":
+
+			"categoryName":
 			{
 				required:true,
 			}
 		},
 		messages:
 		{
-			"product.price": 
+			"categoryName":
 			{
-				required:"please input product price",
-				number:"product price must be a number",
-				min:"product price must be greater than 0.01"
-				
-			},
-			"product.productName":
-			{
-				required:"please input product title"
+				required:"please input category name"
 			}
 		},
 		errorLabelContainer:"#messageBox",
@@ -119,8 +107,49 @@ $().ready(
 	)
 	}
 );
+
+$().ready(
+	function() {$("#specForm").validate(
+	{
+		rules:
+		{
+
+			"specName":
+			{
+				required:true,
+			}
+		},
+		messages:
+		{
+			"specName":
+			{
+				required:"please input spec name"
+			}
+		},
+		errorLabelContainer:"#messageBox",
+		errorElement:"div",
+		onfocusout: false,
+		onkeyup: false,
+		focusCleanup: true,
+		focusInvalid: false,
+		wrapper:"li",
+		showErrors:function(errorMap,errorList) {
+	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
+			this.defaultShowErrors();
+			if (this.numberOfInvalids()>0)
+			{
+				$('#myModal').modal('show');
+			}
+		}
+	}
+	)
+	}
+);
+
+
+
 jQuery(document).ready(function() {
-    jQuery('.nailthumb-container ').nailthumb({width:150,height:150});
+    jQuery('.nailthumb-container ').nailthumb({width:100,height:100});
 });
 </script>
 <body>
@@ -199,7 +228,7 @@ jQuery(document).ready(function() {
 			    <h3 class="panel-title">Categories</h3>
 			  </div>
 			  <div class="col-lg-4">
-			    <span class="label label-success pull-right" style="cursor:hand">New Category</span>
+			    <span class="label label-success pull-right" style="cursor:hand" onClick="window.location.href='./sysManagement.do'">New Category</span>
 			  </div>
 		  </div>
 		  
@@ -208,22 +237,26 @@ jQuery(document).ready(function() {
 				<div class="col-lg-4">
 				<ul class="list-group">
 				<#if categories??>
-					<#list categories as category>
+					<#list categories as category> 
 						<li class="list-group-item <#if categoryID??><#if categoryID==category.categoryID?string>selectedCategory</#if></#if>">
-						${category.categoryName}/${category.categoryID}
+						<a href="?categoryID=${category.categoryID}">		
+						${category.categoryName}
+						</a>
+						 </li>
 					</#list>
 				</#if>
-			  </li>
+			 
 			  
 			</ul>
 		    	</div>
 		    	<div class="col-lg-8">
-					<form name="category_edit" action="" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="categoryID" value="" />
+		    	<div class="well">
+					<form name="category_edit" action="./sysManagement.do" id="categoryForm" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="categoryID" value="${categoryID!""}" />
 					  <fieldset>
 					    <legend>Edit category</legend>
 					    <div class="row">
-					    	<div class="col-lg-5">
+					    	<div class="col-lg-7">
 							 	<div class="form-group">
 							      <label for="exampleInputEmail">Category Name</label>
 							      <input type="text" class="form-control" name="categoryName" id="exampleInputEmail" placeholder="Enter category name" value="${categoryName!""}">
@@ -234,14 +267,15 @@ jQuery(document).ready(function() {
 							    </div>
 							    <button type="submit" class="btn btn-default pull-right" name="submitCategory" value="1">Submit</button>
 							 </div>
-						   	<div class="col-lg-6">
+						   	<div class="col-lg-5">
 							    <div class="form-group">
 							      <label for="exampleInputFile">Category Image</label>
 							      <input type="file" id="exampleInputFile" name="categoryImage"><br />
+							      <input type="hidden" name="orgCategoryImagePath" value="${orgCategoryImagePath!""}" />
 							       <#if (orgCategoryImagePath)??>
 								    <#assign a="${orgCategoryImagePath}">
 								    	<#if a!="">
-								    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:170px"><div class="nailthumb-container square"><img src="${(orgCategoryImagePath)!""}" /></div></div>
+								    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:120px"><div class="nailthumb-container square"><img src="${(orgCategoryImagePath)!""}" /></div></div>
 								    	</#if>
 								    </#if>
 							    </div>
@@ -250,7 +284,8 @@ jQuery(document).ready(function() {
 					    </div>
 					  </fieldset>
 					</form>
-		    	</div>
+					</div>
+		    	</div><!--div class="col-lg-8"-->
             </div>		  
 		  
 	  </div><!--div class="panel panel-success"-->
@@ -263,57 +298,42 @@ jQuery(document).ready(function() {
 			    <h3 class="panel-title">Specs</h3>
 			  </div>
 			  <div class="col-lg-4">
-			    <span class="label label-warning pull-right" style="cursor:hand">New Spec</span>
+			    <span class="label label-warning pull-right" style="cursor:hand" onClick="window.location.href='./sysManagement.do'">New Spec</span>
 			  </div>
 		  </div>
 		  
 		  </div>
 		  <div class="row">
-					    	<div class="col-lg-4">
-					    	<ul class="list-group">
-			  <li class="list-group-item selectedSpec">
-			    
-			    <a href="#">Cras justo odio</a>
+	    	<div class="col-lg-4">
+	    	<ul class="list-group">
+	    	<#if specs??>
+	    	<#list specs as spec>
+			  <li class="list-group-item <#if specID??><#if specID==spec.specID>selectedSpec</#if></#if>">			    
+			    <a href="?specID=${spec.specID}">${spec.specName}</a>
 			  </li>
-			  <li class="list-group-item ">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  
+			  </#list>
+			</#if>
 			</ul>
 		    	</div>
 		    	<div class="col-lg-8">
-		    		<form name="Specs_edit" action="">
+		    	<div class="well">
+		    		<form name="Specs_edit" action="./sysManagement.do" id="specForm" method="post">
 		    			<fieldset><legend>Edit Spec</legend>
 		    				<div class="row">
 		    					<div class="col-lg-11">
 		    						<div class="form-group">
 		    							<div class="form-group">
 									      <label for="exampleInputEmail">Spec name</label>
-									      <input type="text" class="form-control" id="a" placeholder="Spec name">
+									      <input type="text" class="form-control" name="specName" id="a" placeholder="Spec name" value="${specName!""}">
+									      <input type="hidden" class="form-control" name="specID" value="${specID!""}" />
 									    </div>
-									    <button type="submit" class="btn btn-default pull-right">Submit</button>
+									    <button type="submit" class="btn btn-default pull-right" name="specSubmit" value="1">Submit</button>
 		    						</div>
 		    					</div>
 		    				</div>
 		    			</fieldset>
 		    		</form>
+		    		</div>
 		    	</div>
             </div>	
 	  </div><!--div class="panel panel-warning"-->
@@ -326,57 +346,43 @@ jQuery(document).ready(function() {
 			    <h3 class="panel-title">Types</h3>
 			  </div>
 			  <div class="col-lg-4">
-			    <span class="label label-danger pull-right" style="cursor:hand">New Type</span>
+			    <span class="label label-danger pull-right" style="cursor:hand" onClick="window.location.href='./sysManagement.do'">New Type</span>
 			  </div>
 		  </div>
 		  
 		  </div>
 		  <div class="row">
-					    	<div class="col-lg-4">
-					    	<ul class="list-group">
-			  <li class="list-group-item selectedType">
-
-			    <a href="#">Cras justo odio</a>
+				<div class="col-lg-4">
+				<ul class="list-group">
+			  <#if types??>
+	    	<#list types as type>
+			  <li class="list-group-item <#if typeID??><#if typeID==type.typeID>selectedType</#if></#if>">			    
+			    <a href="?typeID=${type.typeID}">${type.typeName}</a>
 			  </li>
-			  <li class="list-group-item ">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
-			  			  <li class="list-group-item">
-
-			    Cras justo odio
-			  </li>
+			  </#list>
+			</#if>
 			  
 			</ul>
 		    	</div>
 		    	<div class="col-lg-8">
-		    		<form name="Specs_edit" action="">
+		    	<div class="well">
+		    		<form name="type_edit" action="./sysManagement.do" method="post">
 		    			<fieldset><legend>Edit Spec</legend>
 		    				<div class="row">
 		    					<div class="col-lg-11">
 		    						<div class="form-group">
 		    							<div class="form-group">
-									      <label for="exampleInputEmail">Spec name</label>
-									      <input type="text" class="form-control" id="a" placeholder="Spec name">
+									      <label for="exampleInputEmail">Type name</label>
+									      <input type="text" class="form-control" name="typeName" id="typename" value="${typeName!""}" placeholder="Type name">
+									      <input type="hidden" class="form-control" name="typeID" value="${typeID!""}" />
 									    </div>
-									    <button type="submit" class="btn btn-default pull-right">Submit</button>
+									    <button type="submit" class="btn btn-default pull-right" name="typeSubmit" value="1">Submit</button>
 		    						</div>
 		    					</div>
 		    				</div>
 		    			</fieldset>
 		    		</form>
+		    		</div>
 		    	</div>
             </div>	
 	  </div><!--div class="panel panel-danger"-->

@@ -47,7 +47,7 @@ public class AddProduct extends ActionSupport {
 	private List<String> specValues;
 
 	private String oldImage;
-	private Map<Integer, String> specValueMap;
+	private Map<String, String> specValueMap;
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
 	private String productID;
@@ -57,7 +57,7 @@ public class AddProduct extends ActionSupport {
 	private String imageFileName;
 	private String savePath;
 	private String fileType;
-	private Integer selectedCategory;
+	private String selectedCategory;
 
 	public String getProductDesc() {
 		return productDesc;
@@ -83,13 +83,7 @@ public class AddProduct extends ActionSupport {
 		this.oldImage = oldImage;
 	}
 
-	public Integer getSelectedCategory() {
-		return selectedCategory;
-	}
 
-	public void setSelectedCategory(Integer selectedCategory) {
-		this.selectedCategory = selectedCategory;
-	}
 
 	public List<Category> getAllCategories() {
 		return allCategories;
@@ -99,11 +93,19 @@ public class AddProduct extends ActionSupport {
 		return selectedTypes;
 	}
 
+	public String getSelectedCategory() {
+		return selectedCategory;
+	}
+
+	public void setSelectedCategory(String selectedCategory) {
+		this.selectedCategory = selectedCategory;
+	}
+
 	public void setSelectedTypes(List<String> selectedTypes) {
 		this.selectedTypes = selectedTypes;
 	}
 
-	public Map<Integer, String> getSpecValueMap() {
+	public Map<String, String> getSpecValueMap() {
 		return specValueMap;
 	}
 
@@ -260,7 +262,7 @@ public class AddProduct extends ActionSupport {
 			logger.warn("Get product ID: " + this.productID);
 			logger.warn("Get product: " + this.getProduct());
 
-			this.specValueMap = new HashMap<Integer, String>();
+			this.specValueMap = new HashMap<String, String>();
 
 			for (ProductSpec spec : this.product.getSpecs()) {
 				this.specValueMap.put(spec.getSpecID(), spec.getSpecValue());
@@ -286,10 +288,9 @@ public class AddProduct extends ActionSupport {
 	private void newProduct(String _newProductID) {
 		this.product.setProductDesc(this.getProductDesc());
 		if (this.specIDs != null) {
-			this.specValueMap = new HashMap<Integer, String>();
+			this.specValueMap = new HashMap<String, String>();
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
-				this.specValueMap.put(Integer
-						.parseInt(this.getSpecIDs().get(i)), this
+				this.specValueMap.put(this.getSpecIDs().get(i), this
 						.getSpecValues().get(i));
 			}
 
@@ -337,7 +338,7 @@ public class AddProduct extends ActionSupport {
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
 				ProductSpec ps = new ProductSpec();
 				ps.setProductID(_newProductID);
-				ps.setSpecID(Integer.parseInt(this.getSpecIDs().get(i)));
+				ps.setSpecID(this.getSpecIDs().get(i));
 				ps.setSpecValue(this.getSpecValues().get(i));
 				pss.add(ps);
 			}
@@ -349,7 +350,7 @@ public class AddProduct extends ActionSupport {
 			ProductType pt = new ProductType();
 			pt.setProductID(_newProductID);
 			pt.setPrice(this.getProduct().getPrice());
-			pt.setTypeID(Integer.parseInt(typeID));
+			pt.setTypeID(typeID);
 			pts.add(pt);
 
 		}

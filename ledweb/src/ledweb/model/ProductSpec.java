@@ -4,7 +4,7 @@ public class ProductSpec {
 	
 	private int productSpecID;
 	private String productID;
-	private int specID;
+	private String specID;
 	private String specValue;
 	private int isDelete;
 	private String reserve1="";
@@ -25,18 +25,20 @@ public class ProductSpec {
 		this.productSpecID = productSpecID;
 	}
 
-	public int getSpecID() {
-		return specID;
-	}
+
 	public String getProductID() {
 		return productID;
+	}
+	public String getSpecID() {
+		return specID;
+	}
+	public void setSpecID(String specID) {
+		this.specID = specID;
 	}
 	public void setProductID(String productID) {
 		this.productID = productID;
 	}
-	public void setSpecID(int specID) {
-		this.specID = specID;
-	}
+
 	public String getSpecValue() {
 		return specValue;
 	}

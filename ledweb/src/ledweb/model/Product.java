@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Product {
 	private String productID;
-	private int categoryID;
+	private String categoryID;
 	private String productName;
 	private String productDesc;
 	private String productImage;
@@ -85,10 +85,11 @@ public class Product {
 	public void setReserve3(String reserve3) {
 		this.reserve3 = reserve3;
 	}
-	public int getCategoryID() {
+
+	public String getCategoryID() {
 		return categoryID;
 	}
-	public void setCategoryID(int categoryID) {
+	public void setCategoryID(String categoryID) {
 		this.categoryID = categoryID;
 	}
 	/**

@@ -23,8 +23,8 @@
 
 	<insert id="addSpec" parameterType="Spec" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Spec(SpecName,Reserve1,Reserve2,Reserve3)
-		values(#{specName},#{reserve1},#{reserve2},#{reserve3})
+		insert into Spec(SpecID, SpecName,Reserve1,Reserve2,Reserve3)
+		values(#{specID},#{specName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateSpec" parameterType="Spec" >
@@ -36,10 +36,14 @@
         where SpecID=#{specID}
     </update>
 	
-	<delete id="deleteSpec" parameterType="int">
+	<delete id="deleteSpec" parameterType="String">
          update Spec set 
         IsDelete=1
         where SpecID=#{specID}
+    </delete>
+	
+	<delete id="realDeleteSpec" parameterType="String">
+        delete from Spec where SpecID=#{specID}
     </delete>
 	
 </mapper>

@@ -189,7 +189,7 @@ jQuery(document).ready(function() {
       <select class="form-control" name="selectedCategory">
       <#if allCategories??>
       	<#list allCategories as category>
-        	  <option <#if selectedCategory??><#if category.categoryID==selectedCategory>selected</#if><#else><#if category_index==0>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
+        	  <option <#if selectedCategory??><#if category.categoryID?string==selectedCategory>selected</#if><#else><#if category_index==0>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
           </#list>
        </#if>   
         </select>

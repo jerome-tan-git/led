@@ -8,9 +8,10 @@ import ledweb.model.Spec;
 import ledweb.model.User;
 
 public interface ISpecOperation {
-	public Spec selectSpecByID(int id);
+	public Spec selectSpecByID(String specID);
 	public int addSpec(Spec spec);
 	public int updateSpec(Spec spec);
-	public int deleteSpec(int id);
+	public int deleteSpec(String specID);
+	public int realDeleteSpec(String specID);
 	public List<Spec> selectAllSpec();
 }

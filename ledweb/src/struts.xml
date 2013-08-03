@@ -29,5 +29,11 @@
     		<result name="input" type="freemarker">/WEB-INF/system.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/system.ftl</result>
 		</action>
+		
+		<action name="productList" class="ledweb.action.ProductList">
+    		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
+		</action>
+		
     </package>
 </struts>

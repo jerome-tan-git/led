@@ -7,9 +7,10 @@ import ledweb.model.Product;
 import ledweb.model.User;
 
 public interface ICategoryOperation {
-	public Category selectCategoryByID(int id);
+	public Category selectCategoryByID(String id);
 	public int addCategory(Category category);
 	public int updateCategory(Category category);
-	public int deleteCategory(int id);
+	public int deleteCategory(String id);
+	public int realDeleteCategory(String id);
 	public List<Category> selectAllCategories();
 }
