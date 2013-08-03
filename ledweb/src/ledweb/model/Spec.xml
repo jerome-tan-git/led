@@ -12,7 +12,7 @@
 		<result property="reserve3" column="Reserve3" />
 	</resultMap>
 
-	<select id="selectSpecByID" parameterType="int" resultType="Spec">
+	<select id="selectSpecByID" parameterType="String" resultType="Spec">
 		select * from Spec where SpecID = #{specID} and IsDelete = 0
 	</select>
 	

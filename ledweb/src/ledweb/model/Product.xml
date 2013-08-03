@@ -14,8 +14,12 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
+		<association property="category" column="CategoryID" javaType="Category" 
+			select="ledweb.model.mapper.ICategoryOperation.selectCategoryByID">
+		</association>
 		<collection property="types" column="ProductID" ofType="ProductType" select="ledweb.model.mapper.IProductTypeOperation.selectProductTypeByProductID"/>
 		<collection property="specs" column="ProductID" ofType="ProductSpec" select="ledweb.model.mapper.IProductSpecOperation.selectProductSpecByProductID"/>
+				
 	</resultMap>
 	
 	<select id="selectProductByID" parameterType="String" resultMap="resultListProduct">
@@ -24,7 +28,9 @@
 	<select id="selectProductsByCategoryID"  parameterType="String" resultMap="resultListProduct">
 		select * from Product where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
-
+	<select id="selectAllProducts" resultMap="resultListProduct">
+		select * from Product where IsDelete = 0;
+	</select>
 
 	<insert id="addProduct" parameterType="Product">
 		insert into Product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)

@@ -17,7 +17,7 @@
 		</association>
 	</resultMap>
 
-	<select id="selectProductSpecByID" parameterType="int" resultMap="resultListProductSpec">
+	<select id="selectProductSpecByID" parameterType="String" resultMap="resultListProductSpec">
 		select * from ProductSpec where ProductSpecID = #{productSpecID} and IsDelete = 0
 	</select>
 
@@ -43,7 +43,7 @@
         where SpecID=#{specID}
     </update>
 	
-	<update id="deleteProductSpec" parameterType="int">
+	<update id="deleteProductSpec" parameterType="String">
          update ProductSpec set 
         IsDelete=1
         where ProductSpecID=#{productSpecID}

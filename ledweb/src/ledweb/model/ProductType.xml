@@ -54,7 +54,7 @@
 			where pt.isDelete=0 and t.isDelete=0 and pt.ProductTypeID=#{productTypeID}
 	</select>
 -->
-	<select id="selectProductTypeByID" parameterType="int" resultMap="resultListProductType">
+	<select id="selectProductTypeByID" parameterType="String" resultMap="resultListProductType">
 		select * from ProductType where ProductTypeID = #{productTypeID} and IsDelete = 0
 	</select>
 

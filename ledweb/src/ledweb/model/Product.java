@@ -9,7 +9,13 @@ public class Product {
 	private String productDesc;
 	private String productImage;
 	private float price;
-
+	private Category category;
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	private List<ProductType> types;
 	private List<ProductSpec> specs;
 

@@ -114,16 +114,18 @@ jQuery(document).ready(function() {
 	</div>
 			<div class="col-lg-8">
 			<!-- a product-->
+			<#if products??>
+				<#list products as product>
 				<div class="bs-callout bs-callout-info">
 				<div class="row">
 				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img }"="" src="http://localhost/ledweb/UploadedImages/1375458018640_Water%20lilies.jpg" style="position: relative; width: 226.66666666666666px; height: 170px; top: 0px; left: -28.33333333333333px;" class="nailthumb-image"></div>
+					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img onerror="this.src='./images/no.jpg'" src="${(product.productImage)!""}" class="nailthumb-image"></div>
 				</div>
 				
 				<div class="col-lg-9">
 					<div class="row">
 						<div class="col-lg-9">
-				      		<h3>Need more examples?</h3>
+				      		<h3>${product.productName!""}</h3>
 				      	</div>
 				      	<div class="col-lg-3">
 				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
@@ -131,11 +133,11 @@ jQuery(document).ready(function() {
 				      	</div>
 			      	</div>
 			      <p>
-			      <span class="label label-info">Category</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">13.25</span>
+			      <span class="label label-info">${(product.category.categoryName)!""}</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">${product.price?string('#.00')}</span>
 			      </p>
 
 			 
-			      <p>We dive into more grid layouts in a separate page, free of chrome and documentation to better show you the power of the grid.</p>
+			      <p>${product.productDesc!""}</p>
 				<br />
 			     <div class="bs-callout bs-callout-gray">
 					<dl class="dl-horizontal">
@@ -150,207 +152,22 @@ jQuery(document).ready(function() {
 				      </dl>
 				 </div>
 				 <br />
+				  
+				  <#if (product.types)??>
 				  <div class="bs-callout bs-callout-gray">
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
+				  <#list product.types as productType>
+				  	<span class="label">${productType.type.typeName!""}</span>&nbsp;&nbsp;&nbsp;
+				  	</#list>
 				  </div>
+				  </#if>	
+				  
+				  
 			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
 			    
 			    <br />
+			    </#list>
+			    </#if>
 			    <!-- a product-->
-			    
-			    
-			    <!-- a product-->
-				<div class="bs-callout bs-callout-info">
-				<div class="row">
-				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img }"="" src="http://localhost/ledweb/UploadedImages/1375458018640_Water%20lilies.jpg" style="position: relative; width: 226.66666666666666px; height: 170px; top: 0px; left: -28.33333333333333px;" class="nailthumb-image"></div>
-				</div>
-				
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-				      		<h3>Need more examples?</h3>
-				      	</div>
-				      	<div class="col-lg-3">
-				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
-				      	</div>
-			      	</div>
-			      <p>
-			      <span class="label label-info">Category</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">13.25</span>
-			      </p>
-
-			 
-			      <p>We dive into more grid layouts in a separate page, free of chrome and documentation to better show you the power of the grid.</p>
-				<br />
-			     <div class="bs-callout bs-callout-gray">
-					<dl class="dl-horizontal">
-				        <dt>Description lists</dt>
-				        <dd>A description list is perfect for defining terms.</dd>
-				        <dt>Euismod</dt>
-				        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-				        <dt>Malesuada porta</dt>
-				        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-				        <dt>Felis euismod semper eget lacinia</dt>
-				        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-				      </dl>
-				 </div>
-				 <br />
-				  <div class="bs-callout bs-callout-gray">
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  </div>
-			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
-			    
-			    <br />
-			    <!-- a product-->
-			    <!-- a product-->
-				<div class="bs-callout bs-callout-info">
-				<div class="row">
-				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img }"="" src="http://localhost/ledweb/UploadedImages/1375458018640_Water%20lilies.jpg" style="position: relative; width: 226.66666666666666px; height: 170px; top: 0px; left: -28.33333333333333px;" class="nailthumb-image"></div>
-				</div>
-				
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-				      		<h3>Need more examples?</h3>
-				      	</div>
-				      	<div class="col-lg-3">
-				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
-				      	</div>
-			      	</div>
-			      <p>
-			      <span class="label label-info">Category</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">13.25</span>
-			      </p>
-
-			 
-			      <p>We dive into more grid layouts in a separate page, free of chrome and documentation to better show you the power of the grid.</p>
-				<br />
-			     <div class="bs-callout bs-callout-gray">
-					<dl class="dl-horizontal">
-				        <dt>Description lists</dt>
-				        <dd>A description list is perfect for defining terms.</dd>
-				        <dt>Euismod</dt>
-				        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-				        <dt>Malesuada porta</dt>
-				        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-				        <dt>Felis euismod semper eget lacinia</dt>
-				        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-				      </dl>
-				 </div>
-				 <br />
-				  <div class="bs-callout bs-callout-gray">
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  </div>
-			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
-			    
-			    <br />
-			    <!-- a product-->
-			    <!-- a product-->
-				<div class="bs-callout bs-callout-info">
-				<div class="row">
-				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img }"="" src="http://localhost/ledweb/UploadedImages/1375458018640_Water%20lilies.jpg" style="position: relative; width: 226.66666666666666px; height: 170px; top: 0px; left: -28.33333333333333px;" class="nailthumb-image"></div>
-				</div>
-				
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-				      		<h3>Need more examples?</h3>
-				      	</div>
-				      	<div class="col-lg-3">
-				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
-				      	</div>
-			      	</div>
-			      <p>
-			      <span class="label label-info">Category</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">13.25</span>
-			      </p>
-
-			 
-			      <p>We dive into more grid layouts in a separate page, free of chrome and documentation to better show you the power of the grid.</p>
-				<br />
-			     <div class="bs-callout bs-callout-gray">
-					<dl class="dl-horizontal">
-				        <dt>Description lists</dt>
-				        <dd>A description list is perfect for defining terms.</dd>
-				        <dt>Euismod</dt>
-				        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-				        <dt>Malesuada porta</dt>
-				        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-				        <dt>Felis euismod semper eget lacinia</dt>
-				        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-				      </dl>
-				 </div>
-				 <br />
-				  <div class="bs-callout bs-callout-gray">
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  </div>
-			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
-			    
-			    <br />
-			    <!-- a product-->
-			    <!-- a product-->
-				<div class="bs-callout bs-callout-info">
-				<div class="row">
-				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img }"="" src="http://localhost/ledweb/UploadedImages/1375458018640_Water%20lilies.jpg" style="position: relative; width: 226.66666666666666px; height: 170px; top: 0px; left: -28.33333333333333px;" class="nailthumb-image"></div>
-				</div>
-				
-				<div class="col-lg-9">
-					<div class="row">
-						<div class="col-lg-9">
-				      		<h3>Need more examples?</h3>
-				      	</div>
-				      	<div class="col-lg-3">
-				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
-				      	</div>
-			      	</div>
-			      <p>
-			      <span class="label label-info">Category</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">13.25</span>
-			      </p>
-
-			 
-			      <p>We dive into more grid layouts in a separate page, free of chrome and documentation to better show you the power of the grid.</p>
-				<br />
-			     <div class="bs-callout bs-callout-gray">
-					<dl class="dl-horizontal">
-				        <dt>Description lists</dt>
-				        <dd>A description list is perfect for defining terms.</dd>
-				        <dt>Euismod</dt>
-				        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-				        <dt>Malesuada porta</dt>
-				        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-				        <dt>Felis euismod semper eget lacinia</dt>
-				        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-				      </dl>
-				 </div>
-				 <br />
-				  <div class="bs-callout bs-callout-gray">
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  	<span class="label">New</span>
-				  </div>
-			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
-			    
-			    <br />
-			    <!-- a product-->
-			    
 			</div><!--div class="col-lg-8"-->
 			
 			

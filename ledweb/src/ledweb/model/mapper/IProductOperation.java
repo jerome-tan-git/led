@@ -11,4 +11,5 @@ public interface IProductOperation {
 	public int addProduct(Product product);
 	public int updateProduct(Product product);
 	public int realDeleteProduct(String id);
+	public List<Product> selectAllProducts();
 }
