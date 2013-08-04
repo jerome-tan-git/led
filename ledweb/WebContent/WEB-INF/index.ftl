@@ -177,7 +177,7 @@ jQuery(document).ready(function() {
 							<img src="images/portfolio/01.jpg" alt="Image 01" class="image_frame"/>
 						</div>
 					</div>
-					<div style="margin: 0 auto;width:170px">
+					<div style="margin: 0 auto;width:190px">
 						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
 						<a href="#" class="more"></a>
 					</div>
