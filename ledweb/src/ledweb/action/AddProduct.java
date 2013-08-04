@@ -48,10 +48,12 @@ public class AddProduct extends ActionSupport {
 
 	private String oldImage;
 	private Map<String, String> specValueMap;
+
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
 	private String productID;
 	private File newImage;
+	private String productName;
 	private String newImageContentType;
 	private String newImageFileName;
 	private String imageFileName;
@@ -65,6 +67,14 @@ public class AddProduct extends ActionSupport {
 
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public List<String> getTestSelectTypes() {
@@ -82,8 +92,6 @@ public class AddProduct extends ActionSupport {
 	public void setOldImage(String oldImage) {
 		this.oldImage = oldImage;
 	}
-
-
 
 	public List<Category> getAllCategories() {
 		return allCategories;
@@ -239,8 +247,8 @@ public class AddProduct extends ActionSupport {
 							new String[] { this.getNewImageFileName() }));
 				}
 			}
-			if (this.product.getProductName() == null
-					|| "".equals(this.product.getProductName())) {
+			if (this.getProductName() == null
+					|| "".equals(this.getProductName())) {
 				this.addFieldError("product.productName", this.getText(
 						"struts.messages.error.field.is.empty",
 						new String[] { "product name" }));
@@ -287,6 +295,7 @@ public class AddProduct extends ActionSupport {
 
 	private void newProduct(String _newProductID) {
 		this.product.setProductDesc(this.getProductDesc());
+		this.product.setProductName(this.getProductName());
 		if (this.specIDs != null) {
 			this.specValueMap = new HashMap<String, String>();
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
@@ -413,17 +422,18 @@ public class AddProduct extends ActionSupport {
 
 	@Override
 	public String execute() {
-		this.init();
+
 		if (this.productID != null && !this.productID.trim().equals("")) {
 			this.showProduct();
 		}
 		if ("submit".equals(this.getIsSubmit())) {
+			logger.warn("product title: " + this.productName);
 			if (this.productID == null || "".equals(this.productID.trim())) {
 				this.productID = UUID.randomUUID().toString();
 			}
 			this.newProduct(this.productID);
 		}
-
+		this.init();
 		return SUCCESS;
 	}
 

@@ -27,7 +27,7 @@ $().ready(
 				number:true,
 				min:0.01
 			},
-			"product.productName":
+			"productName":
 			{
 				required:true,
 			}
@@ -41,7 +41,7 @@ $().ready(
 				min:"product price must be greater than 0.01"
 				
 			},
-			"product.productName":
+			"productName":
 			{
 				required:"please input product title"
 			}
@@ -157,8 +157,24 @@ jQuery(document).ready(function() {
 		<form id="commentForm" action="" method="post" enctype="multipart/form-data">
 		
 		 <fieldset>
-    	<legend>Add product</legend>
-    	
+    		<div class="row">
+    		<div class="col-lg-1"></div>
+	    		<div class="col-lg-10">
+	    			<div class="row" style="border-bottom: 1px solid #888">
+		    			<div class="col-lg-12">
+		    				<span style="font-size:18pt; color:#888;">Add product</font>
+		    				<a href="./productList.do">
+		    				<img src="./images/1375604792_list.png" class="pull-right"></img></a>
+		    			</div>
+		    			<!--div class="col-lg-8" style="padding-right:5px"> 
+		    			
+		    				
+		    			</div-->
+	    			</div>
+	    		</div>
+    		<div class="col-lg-1"></div>
+    		</div>
+    	<br />
     	<div class="row">
     	<div class="col-lg-1"></div>
     	<div class="col-lg-10">
@@ -179,7 +195,8 @@ jQuery(document).ready(function() {
     
     <div class="form-group">
       <label for="exampleInputEmail">Product Title</label>
-      <input type="text" class="form-control" name="product.productName" placeholder="Product Title" value="${(product.productName)!""}" /><input type="hidden" name="productID" value="${(productID)!""}"/>
+      <input type="text" class="form-control" name="productName" placeholder="Product Title" value="${(product.productName)!""}" />
+      <input type="hidden" name="productID" value="${(productID)!""}"/>
     </div>
     
     <div class="row">
@@ -210,7 +227,7 @@ jQuery(document).ready(function() {
 	       <div class="col-lg-4">
 		    <div class="form-group">
 		      <label for="exampleInputFile">Product Image</label>
-		      <input type="file" id="exampleInputFile" name="newImage" />
+		      <input type="file" id="exampleInputFile" name="newImage"/>
 		      <input type="hidden" name="oldImage" value="${(product.productImage)!""}" />
 		    </div>
 		    </div>
@@ -219,7 +236,11 @@ jQuery(document).ready(function() {
 			    <#if (product.productImage)??>
 			    <#assign a="${product.productImage?trim}">
 			    	<#if a!="">
-			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:320px"><div class="nailthumb-container square"><img src="${(product.productImage)!""}" /></div></div>
+			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:320px">
+			    		 	<div class="nailthumb-container square">
+			    		 		<img src="${(product.productImage)!""}" onerror="this.src='./images/no.jpg'" />
+			    		 	</div>
+			    		 </div>
 			    	</#if>
 			    </#if>
 		    </div>

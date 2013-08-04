@@ -3,3 +3,8 @@ body {
 	background: rgb(256,256,256) url(../bg.gif) repeat 0 0;
 	color: rgb(136,136,136);
 }
+.my_line
+{
+	background-image:url(../images/line.png); 
+	background-repeat:repeat-x
+}

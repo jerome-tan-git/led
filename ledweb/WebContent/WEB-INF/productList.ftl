@@ -119,47 +119,55 @@ jQuery(document).ready(function() {
 				<div class="bs-callout bs-callout-info">
 				<div class="row">
 				<div class="col-lg-3">
-					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;"><img onerror="this.src='./images/no.jpg'" src="${(product.productImage)!""}" class="nailthumb-image"></div>
+					<div class="nailthumb-container square" style="overflow: hidden; padding: 0px; width: 170px; height: 170px;">
+						<img onerror="this.src='./images/no.jpg'" src="${(product.productImage)!""}" class="nailthumb-image">
+					</div>
 				</div>
 				
 				<div class="col-lg-9">
 					<div class="row">
 						<div class="col-lg-9">
-				      		<h3>${product.productName!""}</h3>
+				      		<a href="./newProduct.do?productID=${product.productID}" style="color:#666"><h3>${product.productName!""}</h3></a>
 				      	</div>
 				      	<div class="col-lg-3">
-				      		 <img class="pull-right" src="./images/1375543402_edit.png" /><div class="pull-right"> &nbsp;&nbsp;</div>
+				      		 <a href="./newProduct.do?productID=${product.productID}" ><img class="pull-right" src="./images/1375543402_edit.png" /></a><div class="pull-right"> &nbsp;&nbsp;</div>
 				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
 				      	</div>
 			      	</div>
 			      <p>
-			      <span class="label label-info">${(product.category.categoryName)!""}</span>&nbsp;&nbsp;&nbsp;  <span class="label label-danger">${product.price?string('#.00')}</span>
+			      <span class="label label-info"><span style="color: #bce9f7">Category | </span><span><b>${(product.category.categoryName)!""}</b></span></span>
+			      <span class="label label-danger"><span style="color:#e8bebd">Price | </span><span><b>${product.price?string('#.00')}</b></span></span>
+			      <span class="label label-success"> 
+			      <#if (product.types)??>
+						<span style="color: #c9f0c9">Types |</span> 
+					  <#list product.types as productType>
+					  	 ${productType.type.typeName!""} 
+					  	 <#if productType_index+1 != (product.types)?size>
+					  	 	,
+					  	 </#if>
+					  	 
+					  </#list>
+				  </#if>	
+				  </span>
 			      </p>
-
-			 
-			      <p>${product.productDesc!""}</p>
-			     <#if (product.specs)??>
-				<br />
-			     <div class="bs-callout bs-callout-gray">
-					<dl class="dl-horizontal">
+			      <b>Specs</b>
+				<div class="bs-callout bs-callout-info">
+				<#if (product.specs)??>
 						<#list (product.specs) as productSpec>
 							<#if productSpec.spec??>
-					        <dt>${(productSpec.spec.specName)!""}</dt>
-					        <dd>${productSpec.specValue}</dd>
+					        <span class="label label-warning"><span style="color: #f1e7bc">${(productSpec.spec.specName)!""} | </span><b>${productSpec.specValue}</b></span>
 					        </#if>
 				        </#list>
-				      </dl>
-				 </div>
+
+				</div>
 				 </#if>
+			 	<br /><b>Description:</b>
+			 	<div class="bs-callout bs-callout-info">
+			      ${product.productDesc!""}
+			     </div>
 				 <br />
 				  
-				  <#if (product.types)??>
-				  <div class="bs-callout bs-callout-gray">
-				  <#list product.types as productType>
-				  	<span class="label">${productType.type.typeName!""}</span>&nbsp;&nbsp;&nbsp;
-				  	</#list>
-				  </div>
-				  </#if>	
+				 
 				  
 				  
 			    </div></div></div><!--div class="bs-callout bs-callout-info"-->
