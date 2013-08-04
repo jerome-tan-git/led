@@ -24,7 +24,13 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductList extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1815169853969021808L;
 	private List<Product> products;
+	private String deleteProduct;
+
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -34,31 +40,41 @@ public class ProductList extends ActionSupport {
 	}
 
 	private Logger logger = Logger.getLogger(ProductList.class);
-	private void init()
-	{
+
+	private void init() {
 		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
 		IProductOperation ipo = sqlSession.getMapper(IProductOperation.class);
-		List<Product> products =  ipo.selectAllProducts();
+		List<Product> products = ipo.selectAllProducts();
 		this.products = products;
 	}
-	
+
+	public String getDeleteProduct() {
+		return deleteProduct;
+	}
+
+	public void setDeleteProduct(String deleteProduct) {
+		this.deleteProduct = deleteProduct;
+	}
+
 	@Override
 	public String execute() {
-		
-		this.init();
-		for (Product prod : this.products)
-		{
-			List<ProductSpec> specs= prod.getSpecs();
-			logger.warn("++++++++++++++++++++++++++++++++"+prod.getProductName());
-			for (ProductSpec spec: specs)
-			{
-				if (spec.getSpec()!=null)
-				{
-					logger.warn(spec.getSpec().getSpecName());
-				}
+
+		if (this.deleteProduct != null && !this.deleteProduct.trim().equals("")) {
+			SqlSession sqlSession = ModelSessionFactory.getSession()
+					.openSession();
+			try {
+				IProductOperation ipo = sqlSession
+						.getMapper(IProductOperation.class);
+				ipo.realDeleteProduct(this.deleteProduct);
+				sqlSession.commit();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				sqlSession.close();
+
 			}
-			logger.warn("++++++++++++++++++++++++++++++++"+prod.getProductName());
 		}
+		this.init();
 		return SUCCESS;
 	}
 }

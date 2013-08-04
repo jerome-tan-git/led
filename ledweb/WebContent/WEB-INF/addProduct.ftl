@@ -160,9 +160,9 @@ jQuery(document).ready(function() {
     		<div class="row">
     		<div class="col-lg-1"></div>
 	    		<div class="col-lg-10">
-	    			<div class="row" style="border-bottom: 1px solid #888">
+	    			<div class="row" style="border-bottom: 1px solid #ccc">
 		    			<div class="col-lg-12">
-		    				<span style="font-size:18pt; color:#888;">Add product</font>
+		    				<span style="font-size:18pt; color:#999;">Add product</font>
 		    				<a href="./productList.do">
 		    				<img src="./images/1375604792_list.png" class="pull-right"></img></a>
 		    			</div>

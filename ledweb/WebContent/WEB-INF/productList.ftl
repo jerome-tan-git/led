@@ -44,6 +44,16 @@ border-color: #dFb5b4;
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container ').nailthumb({width:170,height:170});
 });
+
+function showConfirm(productName, productID)
+{
+	$('#messageBox').html("Are you sure to delete product: <span class=\"text-danger\"><b>"+ productName+"</span></b> ?")
+	$('#deletebutton').click(function()
+	{
+		window.location.href="./productList.do?deleteProduct="+productID
+	});
+	$('#myModal').modal('show');
+}
 </script>
 <body>
 <div class="modal fade" id="myModal">
@@ -51,14 +61,24 @@ jQuery(document).ready(function() {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="summary">Modal title</h4>
+          <h4 class="modal-title" id="summary">Delete Product</h4>
         </div>
         <div class="modal-body">
           <div id="messageBox"></div>
         </div>
         <div class="modal-footer">
-
-          <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+        
+			<div class="row">
+			<div class="col-lg-8" >
+			</div>
+			<div class="col-lg-2 full-right" style="padding-top: 20;">
+				<span href="#" data-dismiss="modal" style="font-size: 16px; font-weight: normal; line-height: 0; color: #ccc; cursor:hand;"><b>Cancel</b></span> 
+          	</div>
+          	<div class="col-lg-2">
+          		<button id="deletebutton" type="button" class="btn btn-danger">Delete</button>
+			</div>
+          
+          </div>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -131,7 +151,7 @@ jQuery(document).ready(function() {
 				      	</div>
 				      	<div class="col-lg-3">
 				      		 <a href="./newProduct.do?productID=${product.productID}" ><img class="pull-right" src="./images/1375543402_edit.png" /></a><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
+				      		<a href="#" data-toggle="tooltip" title="first tooltip" onClick="showConfirm('${product.productName!""}','${product.productID!""}')"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
 				      	</div>
 			      	</div>
 			      <p>
