@@ -163,8 +163,11 @@ jQuery(document).ready(function() {
 	    			<div class="row" style="border-bottom: 1px solid #ccc">
 		    			<div class="col-lg-12">
 		    				<span style="font-size:18pt; color:#999;">Add product</font>
-		    				<a href="./productList.do">
-		    				<img src="./images/1375604792_list.png" class="pull-right"></img></a>
+		    				<a href="./newProduct.do"><img style="margin-left: 13;" src="./images/1375609012_Black_New-Page.png" class="pull-right"></img></a>
+		    				
+		    				<a href="./productList.do"><img  src="./images/1375604792_list.png" class="pull-right"></img></a>
+		    				
+		    				
 		    			</div>
 		    			<!--div class="col-lg-8" style="padding-right:5px"> 
 		    			

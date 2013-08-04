@@ -11,6 +11,8 @@ import ledweb.model.Spec;
 import ledweb.model.Type;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
+import ledweb.model.mapper.IProductSpecOperation;
+import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
 import ledweb.model.mapper.ITypeOperation;
 
@@ -40,7 +42,9 @@ public class SystemMan extends ActionSupport {
 	private String specName;
 	private String specID;
 	private String typeID;
-
+	private String deleteCategoryID;
+	private String deleteSpecID;
+	private String deleteTypeID;
 	private String typeSubmit;
 	private String specSubmit;
 	private String typeName;
@@ -297,8 +301,8 @@ public class SystemMan extends ActionSupport {
 		}
 
 	}
-	private void editType(String _typeID)
-	{
+
+	private void editType(String _typeID) {
 		Type type = new Type();
 		type.setTypeID(_typeID);
 		type.setTypeName(this.typeName);
@@ -314,31 +318,98 @@ public class SystemMan extends ActionSupport {
 			sqlSession.close();
 		}
 	}
+
+	public String getDeleteCategoryID() {
+		return deleteCategoryID;
+	}
+
+	public void setDeleteCategoryID(String deleteCategoryID) {
+		this.deleteCategoryID = deleteCategoryID;
+	}
+
+	public String getDeleteSpecID() {
+		return deleteSpecID;
+	}
+
+	public void setDeleteSpecID(String deleteSpecID) {
+		this.deleteSpecID = deleteSpecID;
+	}
+
+	public String getDeleteTypeID() {
+		return deleteTypeID;
+	}
+
+	public void setDeleteTypeID(String deleteTypeID) {
+		this.deleteTypeID = deleteTypeID;
+	}
+
 	@Override
 	public String execute() {
 		if (this.submitCategory != null && "1".equals(this.submitCategory)) {
 			if (this.categoryID == null || "".equals(this.categoryID.trim())) {
 				this.categoryID = UUID.randomUUID().toString();
-			} 
+			}
 			logger.warn(this.categoryName);
 			this.editCategory(this.categoryID);
-		}
-		else if (this.specSubmit != null && this.specSubmit.trim().equals("1"))
-		{
-			if (this.specID == null || "".equals(this.specID.trim()))
-			{
+		} else if (this.specSubmit != null
+				&& this.specSubmit.trim().equals("1")) {
+			if (this.specID == null || "".equals(this.specID.trim())) {
 				this.specID = UUID.randomUUID().toString();
 			}
 			this.editSpec(this.specID);
-		}
-		else if (this.typeSubmit != null && this.typeSubmit.trim().equals("1"))
-		{
-			if (this.typeID == null || "".equals(this.typeID.trim()))
-			{
+		} else if (this.typeSubmit != null
+				&& this.typeSubmit.trim().equals("1")) {
+			if (this.typeID == null || "".equals(this.typeID.trim())) {
 				this.typeID = UUID.randomUUID().toString();
 			}
 			this.editType(this.typeID);
+					
+		} else if (this.deleteCategoryID != null
+				&& !this.deleteCategoryID.trim().equals("")) {
+			SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+			logger.warn("delete category ID:" + this.deleteCategoryID);
+			try
+			{
+				ICategoryOperation ico = sqlSession.getMapper(ICategoryOperation.class);
+				ico.realDeleteCategory(this.deleteCategoryID);
+				sqlSession.commit();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				sqlSession.close();
+			}
+		}else if (this.deleteSpecID != null
+				&& !this.deleteSpecID.trim().equals("")) {
+			SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+			try
+			{
+				ISpecOperation iso = sqlSession.getMapper(ISpecOperation.class);
+				iso.realDeleteSpec(deleteSpecID);
+				IProductSpecOperation ipso = sqlSession.getMapper(IProductSpecOperation.class);
+				ipso.deleteProductSpecBySpecID(deleteSpecID);
+				sqlSession.commit();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				sqlSession.close();
+			}
+		}else if (this.deleteTypeID != null
+				&& !this.deleteTypeID.trim().equals("")) {
+			SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+			try
+			{
+				ITypeOperation ito = sqlSession.getMapper(ITypeOperation.class);
+				ito.realDeleteType(deleteTypeID);
+				IProductTypeOperation ipto = sqlSession.getMapper(IProductTypeOperation.class);
+				ipto.deleteProductTypeByTypeID(deleteTypeID);
+				sqlSession.commit();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				sqlSession.close();
+			}
 		}
+
 		this.init();
 		return SUCCESS;
 	}

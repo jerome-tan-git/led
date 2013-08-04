@@ -54,7 +54,12 @@
         IsDelete=1
         where ProductID=#{productID}
     </update>
+    <delete id="deleteProductSpecBySpecID" parameterType="String">
+         update ProductSpec set 
+        IsDelete=1
+        where SpecID=#{SpecID}
     
+    </delete>
     <insert id="batchAddProductSpec"  parameterType="java.util.List">
     		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 
     		values

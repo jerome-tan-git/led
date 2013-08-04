@@ -43,7 +43,7 @@
 	
 	
 	<delete id="realDeleteType" parameterType="String">
-         delete from Type where TypeID=#{typeID}
+         delete from Type where TypeID=#{typeID};
     </delete>
 	
 </mapper>

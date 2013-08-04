@@ -15,5 +15,7 @@ public interface IProductTypeOperation {
 	public int deleteProductType(String id);
 	public int deleteAllProductType(String productID);
 	public List<ProductType> selectProductTypeByProductID(String productID);
-	public int batchAddProductType(List<ProductType> specs); 
+	public int batchAddProductType(List<ProductType> specs);
+	public int deleteProductTypeByTypeID(String typeID); 
+	
 }

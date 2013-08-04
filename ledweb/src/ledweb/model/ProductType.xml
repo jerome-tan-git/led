@@ -100,5 +100,10 @@
         IsDelete=1
         where ProductID=#{productID}
     </delete>
-	
+    
+	<delete id="deleteProductTypeByTypeID" parameterType="String">
+		update ProductType set 
+        IsDelete=1
+        where TypeID=#{typeID}
+	</delete>
 </mapper>

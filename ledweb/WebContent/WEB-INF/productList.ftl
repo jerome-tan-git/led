@@ -78,7 +78,7 @@ function showConfirm(productName, productID)
           		<button id="deletebutton" type="button" class="btn btn-danger">Delete</button>
 			</div>
           
-          </div>
+          </div><!--div class="row"-->
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

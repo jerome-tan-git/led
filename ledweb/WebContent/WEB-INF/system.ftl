@@ -100,6 +100,8 @@ $().ready(
 			this.defaultShowErrors();
 			if (this.numberOfInvalids()>0)
 			{
+				$('#close_btn').show();
+				$('#confirm_btn').hide();
 				$('#myModal').modal('show');
 			}
 		}
@@ -138,6 +140,8 @@ $().ready(
 			this.defaultShowErrors();
 			if (this.numberOfInvalids()>0)
 			{
+				$('#close_btn').show();
+				$('#confirm_btn').hide();
 				$('#myModal').modal('show');
 			}
 		}
@@ -147,6 +151,69 @@ $().ready(
 );
 
 
+$().ready(
+	function() {$("#typeForm").validate(
+	{
+		rules:
+		{
+
+			"typeName":
+			{
+				required:true,
+			}
+		},
+		messages:
+		{
+			"typeName":
+			{
+				required:"please input type name"
+			}
+		},
+		errorLabelContainer:"#messageBox",
+		errorElement:"div",
+		onfocusout: false,
+		onkeyup: false,
+		focusCleanup: true,
+		focusInvalid: false,
+		wrapper:"li",
+		showErrors:function(errorMap,errorList) {
+	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
+			this.defaultShowErrors();
+			if (this.numberOfInvalids()>0)
+			{
+				$('#close_btn').show();
+				$('#confirm_btn').hide();
+				$('#myModal').modal('show');
+			}
+		}
+	}
+	)
+	}
+);
+
+function showConfirm(deleteType, ID, name)
+{
+	if (deleteType == "deleteTypeID")
+	{
+		$('#messageBox').html("Are you sure to delete product type: <span class=\"text-danger\"><b>"+ name+"</span></b> ?")
+	}
+	else if (deleteType == "deleteSpecID")
+	{
+		$('#messageBox').html("Are you sure to delete product spec: <span class=\"text-danger\"><b>"+ name+"</span></b> ?")
+	}
+	else if (deleteType == "deleteCategoryID")
+	{
+		$('#messageBox').html("Are you sure to delete category: <span class=\"text-danger\"><b>"+ name+"</span></b> ?")
+	}
+	$('#deletebutton').click(function()
+	{
+		window.location.href="./sysManagement.do?"+deleteType+"="+ID
+	});
+	$('#close_btn').hide();
+	$('#confirm_btn').show();
+	
+	$('#myModal').modal('show');
+}
 
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container ').nailthumb({width:100,height:100});
@@ -164,8 +231,19 @@ jQuery(document).ready(function() {
           <div id="messageBox"></div>
         </div>
         <div class="modal-footer">
-
-          <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+        <button id="close_btn" type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+		
+          <div class="row" id="confirm_btn">
+			<div class="col-lg-8" >
+			</div>
+			<div id="close_button" class="col-lg-2 full-right" style="padding-top: 20;">
+				<span href="#" data-dismiss="modal" style="font-size: 16px; font-weight: normal; line-height: 0; color: #ccc; cursor:hand;"><b>Cancel</b></span> 
+          	</div>
+          	<div id="delete_button" class="col-lg-2">
+          		<button id="deletebutton" type="button" class="btn btn-danger">Delete</button>
+			</div>
+          
+          </div>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -238,10 +316,11 @@ jQuery(document).ready(function() {
 				<ul class="list-group">
 				<#if categories??>
 					<#list categories as category> 
-						<li class="list-group-item <#if categoryID??><#if categoryID==category.categoryID?string>selectedCategory</#if></#if>">
+						<li style="padding-right:10px" class="list-group-item <#if categoryID??><#if categoryID==category.categoryID?string>selectedCategory</#if></#if>">
 						<a href="?categoryID=${category.categoryID}">		
 						${category.categoryName}
 						</a>
+						<span class="pull-right" style="cursor:hand" onClick="showConfirm('deleteCategoryID','${category.categoryID}','${category.categoryName}')"> <img src="./images/delete_2.png" /> </span>
 						 </li>
 					</#list>
 				</#if>
@@ -308,9 +387,11 @@ jQuery(document).ready(function() {
 	    	<ul class="list-group">
 	    	<#if specs??>
 	    	<#list specs as spec>
-			  <li class="list-group-item <#if specID??><#if specID==spec.specID>selectedSpec</#if></#if>">			    
+			  <li style="padding-right:10px" class="list-group-item <#if specID??><#if specID==spec.specID>selectedSpec</#if></#if>">			    
 			    <a href="?specID=${spec.specID}">${spec.specName}</a>
+			    <span class="pull-right" style="cursor:hand" onClick="showConfirm('deleteSpecID','${spec.specID}','${spec.specName}')"> <img src="./images/delete_2.png" /> </span>
 			  </li>
+			  
 			  </#list>
 			</#if>
 			</ul>
@@ -356,8 +437,9 @@ jQuery(document).ready(function() {
 				<ul class="list-group">
 			  <#if types??>
 	    	<#list types as type>
-			  <li class="list-group-item <#if typeID??><#if typeID==type.typeID>selectedType</#if></#if>">			    
+			  <li style="padding-right:10px" class="list-group-item <#if typeID??><#if typeID==type.typeID>selectedType</#if></#if>">			    
 			    <a href="?typeID=${type.typeID}">${type.typeName}</a>
+			    <span class="pull-right" style="cursor:hand" onClick="showConfirm('deleteTypeID','${type.typeID}','${type.typeName}')"> <img src="./images/delete_2.png" /> </span>
 			  </li>
 			  </#list>
 			</#if>
@@ -366,8 +448,8 @@ jQuery(document).ready(function() {
 		    	</div>
 		    	<div class="col-lg-8">
 		    	<div class="well">
-		    		<form name="type_edit" action="./sysManagement.do" method="post">
-		    			<fieldset><legend>Edit Spec</legend>
+		    		<form name="type_edit" id="typeForm" action="./sysManagement.do" method="post">
+		    			<fieldset><legend>Edit Type</legend>
 		    				<div class="row">
 		    					<div class="col-lg-11">
 		    						<div class="form-group">

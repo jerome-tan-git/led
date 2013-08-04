@@ -16,6 +16,6 @@ public interface IProductSpecOperation {
 	public int deleteProductSpec(int productSpecID);
 	public int deleteAllProductSpec(String productID);
 	public int batchAddProductSpec(List<ProductSpec> specs); 
-	
+	public int deleteProductSpecBySpecID(String specID);
 	
 }
