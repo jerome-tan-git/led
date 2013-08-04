@@ -281,22 +281,19 @@ jQuery(document).ready(function() {
 
 
 <div class="row" style="padding-top:70px">
-<div class="col-lg-1"></div>
-  <div class="col-lg-2">
-  <div class="list-group"  style="background-color:#f5f5f5">
-  <a href="#" class="list-group-item active">
-    Cras justo odio
-  </a>
-  <a href="#" class="list-group-item">Product management
-  </a>
-  <a href="#" class="list-group-item">Category/Spec/Type management
-  </a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac
-  </a>
-  <a href="#" class="list-group-item">Vestibulum at eros
-  </a>
-</div>
-
+		<div class="col-lg-1"></div>
+		  <div class="col-lg-2">
+		  <div class="list-group"  style="background-color:#f5f5f5">
+		  <a href="./productList.do" class="list-group-item <#if module??><#if module=="product management">active</#if></#if>">
+		    Product management 
+		  </a>
+		  <a href="./sysManagement.do" class="list-group-item <#if module??><#if module=="system management">active</#if></#if>">System management
+		  </a>
+		   <a href="./userManagement.do" class="list-group-item <#if module??><#if module=="user management">active</#if></#if>">User management
+		  </a>
+		  <a href="./orderManagement.do" class="list-group-item <#if module??><#if module=="order management">active</#if></#if>"">Order management
+		  </a>
+		</div>
 	</div>
 	<div class="col-lg-8">
 		<div class="panel panel-success">

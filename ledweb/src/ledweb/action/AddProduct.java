@@ -45,8 +45,12 @@ public class AddProduct extends ActionSupport {
 	private String productDesc;
 	private List<String> specIDs;
 	private List<String> specValues;
-
+	private String module = "product management";
 	private String oldImage;
+	public String getModule() {
+		return module;
+	}
+
 	private Map<String, String> specValueMap;
 
 	private List<String> selectedTypes;

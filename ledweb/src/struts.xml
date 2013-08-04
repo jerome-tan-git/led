@@ -34,6 +34,15 @@
     		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
 		</action>
+		<action name="orderManagement" class="ledweb.action.Order">
+    		<result name="input" type="freemarker">/WEB-INF/orderList.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/orderList.ftl</result>
+		</action>
+		
+		<action name="index" class="ledweb.action.Home">
+    		<result name="input" type="freemarker">/WEB-INF/index.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/index.ftl</result>
+		</action>
 		
     </package>
 </struts>

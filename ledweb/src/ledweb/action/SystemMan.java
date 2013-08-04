@@ -26,6 +26,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class SystemMan extends ActionSupport {
 
 	private static final long serialVersionUID = 7594136658917087204L;
+	private String module = "system management";
+	
+	public String getModule() {
+		return module;
+	}
 
 	private File categoryImage;
 	private String categoryImageContentType;

@@ -29,8 +29,14 @@ public class ProductList extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1815169853969021808L;
 	private List<Product> products;
-	private String deleteProduct;
+	public String getModule() {
+		return module;
+	}
 
+	private String deleteProduct;
+	
+	private String module="product management";
+	
 	public List<Product> getProducts() {
 		return products;
 	}

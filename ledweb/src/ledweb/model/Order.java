@@ -1,22 +1,23 @@
 package ledweb.model;
 
 public class Order {
-	private int orderID;
+	private String orderID;
 	private String productID;
-	private int userID;
+	private String userID;
 	private int quantity;
 	private int typeID;
 	private int isDelete;
+	private String message;
+	private String orderDate;
+	private int status;
 	private String reserve1="";
-	public int getOrderID() {
+	private String reserve2="";
+	private String reserve3="";
+	public String getOrderID() {
 		return orderID;
 	}
-	public void setOrderID(int orderID) {
+	public void setOrderID(String orderID) {
 		this.orderID = orderID;
-	}
-
-	public int getUserID() {
-		return userID;
 	}
 	public String getProductID() {
 		return productID;
@@ -24,7 +25,10 @@ public class Order {
 	public void setProductID(String productID) {
 		this.productID = productID;
 	}
-	public void setUserID(int userID) {
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
 		this.userID = userID;
 	}
 	public int getQuantity() {
@@ -45,6 +49,24 @@ public class Order {
 	public void setIsDelete(int isDelete) {
 		this.isDelete = isDelete;
 	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getReserve1() {
 		return reserve1;
 	}
@@ -63,6 +85,5 @@ public class Order {
 	public void setReserve3(String reserve3) {
 		this.reserve3 = reserve3;
 	}
-	private String reserve2="";
-	private String reserve3="";
+
 }

@@ -8,14 +8,16 @@
 		<result column="ProductID" property="productID" />
 		<result column="UserID" property="userID" />
 		<result column="Quantity" property="quantity" />
-		<result column="TypeID" property="typeID" />
+		<result column="OrderDate" property="orderDate" />
+		<result column="Message" property="message" />
+		<result column="Status" property="status" />
 		<result column="IsDelete" property="isDelete" />
 		<result column="Reserve1" property="reserve1" />
 		<result column="Reserve2" property="reserve2" />
 		<result column="Reserve3" property="reserve3" />
 	</resultMap>
 
-	<select id="selectOrderByID" parameterType="int" resultType="Order">
+	<select id="selectOrderByID" parameterType="String" resultType="Order">
 		select * from `Order` where OrderID = #{orderID} and IsDelete = 0
 	</select>
 
@@ -23,8 +25,8 @@
 
 	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into `Order`(ProductID,UserID,Quantity,TypeID,Reserve1,Reserve2,Reserve3)
-		values(#{productID},#{userID},#{quantity},#{typeID},#{reserve1},#{reserve2},#{reserve3})
+		insert into `Order`(OrderID,ProductID,UserID,Quantity,TypeID,OrderDate,Message,Status,Reserve1,Reserve2,Reserve3)
+		values(#{orderID}#{productID},#{userID},#{quantity},#{typeID},#{orderDate},#{message},#{status},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateOrder" parameterType="Order" >
@@ -33,13 +35,16 @@
         UserID=#{userID},
         Quantity=#{quantity},
         TypeID=#{typeID},
+        Message=#{message},
+        OrderDate=#{orderDate},
+        Status=#{status},
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
         Reserve3=#{reserve3},
         where OrderID=#{orderID}
     </update>
 	
-	<delete id="deleteOrder" parameterType="int">
+	<delete id="deleteOrder" parameterType="String">
          update `Order` set 
         IsDelete=1
         where OrderID=#{orderID}

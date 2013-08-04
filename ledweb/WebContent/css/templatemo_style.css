@@ -124,7 +124,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 #templatemo_middle {
 	width: 960px;
-	padding: 40px 0 0;
+	padding-top: 20px;
 	margin: 0 auto;
 }
 #templatemo_middle_left {
@@ -246,9 +246,9 @@ a.nivo-prevNav {
 
 #templatemo_main {
 	width: 960px;
-	padding: 60px 10px 40px;
+	padding: 30px 10px 40px;
 	margin: 0 auto;
-	background: url(../images/templatemo_content_top.png) no-repeat top center 
+	
 }
 
 #content {
@@ -434,7 +434,7 @@ a.nivo-prevNav {
 
 .gallery_box { 
 	float: left; 
-	width: 280px; 
+	/*width: 280px;*/ 
 	margin: 0 60px 60px 0; 
 }
 
@@ -569,7 +569,6 @@ a.goto_top {
 	width: 30px; 
 	height: 31px; 
 	margin: 10px auto 40px; 
-	background: url(../images/templatemo_top.png) no-repeat top center;  
 }
 
 #templatemo_footer h5 { 
