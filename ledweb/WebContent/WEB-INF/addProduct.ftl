@@ -239,7 +239,7 @@ jQuery(document).ready(function() {
 			    <#if (product.productImage)??>
 			    <#assign a="${product.productImage?trim}">
 			    	<#if a!="">
-			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 0px 10px; width:320px">
+			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px">
 			    		 	<div class="nailthumb-container square">
 			    		 		<img src="${(product.productImage)!""}" onerror="this.src='./images/no.jpg'" />
 			    		 	</div>
