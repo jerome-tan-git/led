@@ -90,6 +90,7 @@
       $.each($(".slidesjs-control", $element).children(), function(i) {
         var $slide;
         $slide = $(this);
+        //$slide.attr("onClick", "aaa");
         return $slide.attr("slidesjs-index", i);
       });
       if (this.data.touch) {

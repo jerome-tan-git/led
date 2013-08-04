@@ -132,6 +132,10 @@ jQuery(document).ready(function() {
     #slides a:active {
       color: #9e2020
     }
+    .img_hand
+    {
+    	cursor:pointer;
+    }
 </style>
 </head>
 <body>
@@ -143,9 +147,9 @@ jQuery(document).ready(function() {
         
     </div> <!-- end of header -->
     
-    <div id="templatemo_middle">
+    <div id="templatemo_middle" class="img_hand" >
     	 <div id="slides">
-	      <img src="images/slide-1.png" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
+	      <img src="images/slide-1.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
 	      <img src="images/slide-2.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
 	      <img src="images/slide-3.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
 	      <img src="images/slide-4.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
