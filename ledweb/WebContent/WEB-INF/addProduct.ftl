@@ -244,7 +244,6 @@ jQuery(document).ready(function() {
 			    	</#if>
 			    </#if>
 		    </div>
-		     
 		    </div>
    		
     </div>

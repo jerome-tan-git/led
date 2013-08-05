@@ -11,10 +11,13 @@
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/960.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.slides.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:190,height:100});
@@ -143,8 +146,66 @@ jQuery(document).ready(function() {
 <div id="templatemo_wrapper">
 
     <div id="templatemo_header">
-        <div id="site_title"><h1><a href="http://www.bestmoban.com">Free CSS Templates</a></h1></div>
-        
+     	<div class="container_12">
+        	<div id="site_title" class="grid_3">
+        		<h1>
+        			<a href="http://www.bestmoban.com">Free CSS Templates</a>
+        		</h1>
+        	</div>
+        	<div id="site_title" class="grid_9">
+        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:100px">
+				<ul>
+				<li><a href="http://www.dynamicdrive.com">Item 1</a></li>
+				<li><a href="http://www.dynamicdrive.com">Folder 0</a>
+				  <ul>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.1</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+				  </ul>
+				</li>
+				<li><a href="http://www.dynamicdrive.com">Folder 1</a>
+				  <ul>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.1</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+				  </ul>
+				</li>
+				<li><a href="http://www.dynamicdrive.com">Item 3</a></li>
+				<li><a href="http://www.dynamicdrive.com">Folder 2</a>
+				  <ul>
+				  <li><a href="http://www.dynamicdrive.com">Sub Item 2.1</a></li>
+				  <li><a href="http://www.dynamicdrive.com">Folder 2.1</a>
+				    <ul>
+				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.1</a></li>
+				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.2</a></li>
+				    <li><a href="http://www.dynamicdrive.com">Folder 3.1.1</a>
+						<ul>
+				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.1</a></li>
+				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.2</a></li>
+				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.3</a></li>
+				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.4</a></li>
+				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.5</a></li>
+						</ul>
+				    </li>
+				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.4</a></li>
+				    </ul>
+				  </li>
+				  </ul>
+				</li>
+				<li><a href="http://www.dynamicdrive.com/style/">Item 4</a></li>
+				</ul>
+				<br style="clear: left" />
+				</div>		
+        	</div>
+        </div>
     </div> <!-- end of header -->
     
     <div id="templatemo_middle" class="img_hand" >
@@ -286,5 +347,19 @@ jQuery(document).ready(function() {
       });
     });
   </script>
+  
+  
+  <script type="text/javascript"> 
+	ddsmoothmenu.init({
+		 mainmenuid: "smoothmenu1", //menu DIV id
+		 orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+		 classname: 'ddsmoothmenu', //class added to menu's outer DIV
+		 //customtheme: ["#1c5a80", "#18374a"],
+		 contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+		});
+	</script>
+
+  
+  
 </body>
 </html>
