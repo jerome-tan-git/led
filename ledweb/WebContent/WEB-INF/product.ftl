@@ -20,7 +20,7 @@
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script>
 jQuery(document).ready(function() {
-    jQuery('.nailthumb-container').nailthumb({width:190,height:100});
+    jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
 });
 </script>
 
@@ -205,76 +205,109 @@ jQuery(document).ready(function() {
         	</div>
         </div>
     </div> <!-- end of header -->
-    
-    <div id="templatemo_middle" class="img_hand" >
-    	 <div id="slides">
-	      <img src="images/slide-1.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-	      <img src="images/slide-2.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-	      <img src="images/slide-3.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-	      <img src="images/slide-4.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
-	    </div>
 
-      
-        <div class="cleaner"></div>
-    </div> <!-- end of middle -->
     
 	<div id="templatemo_main_wrapper">
-    	<div id="templatemo_main">
-			 <div class="container_12" style="margin-top:40px">
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/portfolio/01.jpg" alt="Image 01" />
-						</div>
-					
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
-						<a href="#" class="more"></a>
-					</div>					
-				  </div>
-				  <!-- end .grid_1 -->
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/portfolio/03.jpg" alt="Image 01" class="image_frame"/> 
-						</div>
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
-						<a href="#" class="more"></a>
-					</div>
-				 </div>
-				  
-				  <!-- end .grid_11 -->
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/portfolio/03.jpg" alt="Image 01" class="image_frame"/> 
-						</div>	
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
-						<a href="#" class="more"></a>
-					</div>
-				</div>
-				  
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/templatemo_image_06.png" alt="Image 01" class="image_frame"/>
-						</div>
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
-						<a href="#" class="more"></a>
-					</div>			
-				</div>
-					<div class="clear"></div>
-			</div>
-			  
-				  
-        </div><!--div id="templatemo_main"-->
+    	<div id="templatemo_main"> 
+          	<div id="content" style="padding-top:40px;">
+				<h2>Lorem Ipsum Dolor Sit Amet</h2>
+				<div class="container_16">
+					<div class="grid_5">
+						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">				
+							<div class="nailthumb-container">
+								<img src="images/templatemo_image_01.png" alt="Image 01">
+						 	</div>
+					 	</div>
+				  	</div>
+				  	<div class="grid_11">
+				  		<div class="grid_5">
+					  		<h6>UT SED LOREM</h6>
+				  		</div>
+				  		<div class="clear"></div>
+				  		<div class="grid_1">
+					  		asdf
+				  		</div>
+				  		<div class="grid_2">
+				  			sasd
+				  		</div>
+				  		<div class="clear"></div>	  		
+				  		
+				  		<div class="grid_1">
+					  		111111111111
+				  		</div>
+				  		<div class="grid_2">
+				  			sasd
+				  		</div>
+				  		<div class="clear"></div>
+				  		
+				  		<div class="grid_1">
+					  		asdf
+				  		</div>
+				  		<div class="grid_2">
+				  			sasd
+				  		</div>
+				  		<div class="clear"></div>
+				  		
+				  		<div class="grid_1">
+					  		asdf
+				  		</div>
+				  		<div class="grid_2">
+				  			sasd
+				  		</div>
+				  		<div class="clear"></div>
+				  		
+				  	</div>
+				 </div>				 
+				<div class="cleaner h40"></div>
+                <h3>Our Staffs</h3>
+                <div class="col_2 float_l">
+                    <img class="image_frame image_fl" src="images/templatemo_image_02.png" alt="Staff 01">
+                    <h6>UT SED LOREM</h6>
+                    <div class="jobtitle">Marketing Executive</div>
+                    <div class="cleaner"></div>
+                </div>
+                <div class="col_2 float_r">
+                    <img class="image_frame image_fl" src="images/templatemo_image_04.png" alt="Staff 02">
+                    <h6>VESTIBULUM MASSA</h6>
+                    <div class="jobtitle">Internet Marketing Officer</div>
+                    <div class="cleaner"></div>
+                </div>
+                <div class="cleaner h30"></div>
+                <div class="col_2 float_l">
+                    <img class="image_frame image_fl" src="images/templatemo_image_05.png" alt="Staff 03">
+                    <h6>AENEAN EGET</h6>
+                    <div class="jobtitle">Accountant</div>
+                    <div class="cleaner"></div>
+                </div> 
+                <div class="cleaner"></div>
+            </div>
+            <div id="sidebar" style="padding-top:40px;">
+                <div class="sb_box">
+                    <h3>Testimonial</h3>
+                    <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
+                    <div class="cleaner"></div>
+                    <cite>Juvin <a href="#"><span>- Web Designer</span></a></cite>
+            </div>
+                <div class="sb_box">
+                	<h3>Flickr Stream</h3>
+                    <ul class="flickr_stream">
+                    	<li><a href="#"><img class="image_frame" src="images/templatemo_image_02.png" alt="Flickr 01"></a></li>
+                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_03.png" alt="Flickr 02"></a></li>
+                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_04.png" alt="Flickr 03"></a></li>
+                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_05.png" alt="Flickr 04"></a></li>
+                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_06.png" alt="Flickr 05"></a></li>
+                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_07.png" alt="Flickr 06"></a></li>
+                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_04.png" alt="Flickr 07"></a></li>
+                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_02.png" alt="Flickr 08"></a></li>
+                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_03.png" alt="Flickr 09"></a></li>
+                    </ul>
+                    <div class="cleaner"></div>
+                    <a href="#" class="more"></a>
+                    <div class="cleaner"></div>
+                </div>
+            </div> <!-- end of sidebar -->
+            <div class="cleaner"></div>
+        </div>
     </div> <!-- end of main wrapper -->
     
 </div> <!-- end of wrapper -->

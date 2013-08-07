@@ -20,12 +20,13 @@
 
 /*Top level menu link items style*/
 .ddsmoothmenu ul li a{
-	display: block;
-	/*background: #eee; background of menu items (default state)*/
+	display: block; 
+	font-family: Calibri;  
+	/*background: #eee;*/ 
 	color: white;
 	padding: 8px 10px;
 	/*border-right: 1px solid #778;*/
-	color: #ff0000;
+	color: #881212;
 	text-decoration: none;
 }
 
@@ -34,7 +35,7 @@ display: inline-block;
 }
 
 .ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited{
-color: #333333;
+color: #666;
 
 }
 
@@ -44,7 +45,17 @@ color: #333333;
 }
 .bar
 {
-	background-color: transparent !important;
+	background-color: transparent !important;	
+	width: 120px;
+	text-align:center;
+	color:#ffffff !important;
+}
+.bar a
+{
+		font-size:16px !important;
+		padding-right:12px !important;
+		font-weight: bold;
+
 }
 .ddsmoothmenu a:link, .ddsmoothmenu a:visited{
 font-size: 12px;
@@ -52,12 +63,12 @@ font-size: 12px;
 
 
 .ddsmoothmenu ul li a.selected { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
-background: red ; 
+background: #881212 ; 
 color: white;
 }
 
 .ddsmoothmenu ul li a:hover{
-background: red; /*background of menu items during onmouseover (hover state)*/
+background: #881212; /*background of menu items during onmouseover (hover state)*/
 color: white;
 }
 	
