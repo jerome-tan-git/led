@@ -25,6 +25,18 @@ jQuery(document).ready(function() {
 </script>
 
 <style>
+input, select, label {
+	vertical-align:middle;
+}
+	
+.form-radio,.form-checkbox{
+	margin:0 5px 0 0;
+	padding:0;
+	width:13px;
+	height:13px;
+	vertical-align:middle;
+	font:13px Helvetica, Arial, sans-serif;
+}
 	#slides {
       display: none
     }
@@ -220,42 +232,74 @@ jQuery(document).ready(function() {
 					 	</div>
 				  	</div>
 				  	<div class="grid_11">
+				  		<div class="grid_1">
+					  		<span style="float:right"><b>Price:</b></span>
+				  		</div>
 				  		<div class="grid_5">
-					  		<h6>UT SED LOREM</h6>
+					  		<h4>$198.00</h4>
 				  		</div>
 				  		<div class="clear"></div>
-				  		<div class="grid_1">
-					  		asdf
+				  		<div class="grid_1" >
+					  		<span style="float:right"><b>Types:</b></span>
 				  		</div>
-				  		<div class="grid_2">
-				  			sasd
+				  		<div class="grid_9">
+				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_1</label>&nbsp;
+				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_2</label>&nbsp;
+				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_2</label>&nbsp;
+				  			
 				  		</div>
 				  		<div class="clear"></div>	  		
-				  		
-				  		<div class="grid_1">
-					  		111111111111
+				  		<div class="grid_1"  style="margin-top:12px">
+					  		<span style="float:right"><b>Specs:</b></span>
 				  		</div>
-				  		<div class="grid_2">
-				  			sasd
+				  		<div class="grid_10">
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px"><b>Specs:</b></span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px">
+						  		Specs:
+					  		</div>
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px"><b>Spasfsas:</b></span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px">
+						  		Specs:
+					  		</div>
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px"><b>Specs:</b></span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px;">
+						  		Specs:
+					  		</div>
+					  		<div class="clear"></div>
+				  		</div>
+				  		<div class="clear"></div>
+					  		<div class="grid_1"  style="margin-top:12px">
+							  <span style="float:right"><b>Desc:</b></span>
+						  	</div>
+						  	<div class="grid_10">
+						  		<div class="grid_1">
+						  			&nbsp;&nbsp;
+						  		</div>
+						  		<div class="grid_9" style="margin-left:-20px;">
+						  			jsdafasdfaskfadfadf
+						  		</div>  		
+					  	</div>
+				  		
+				  		<div class="clear"></div>
+				  		<div class="grid_2 prefix_3">
+					  		&nbsp;
 				  		</div>
 				  		<div class="clear"></div>
 				  		
-				  		<div class="grid_1">
-					  		asdf
-				  		</div>
-				  		<div class="grid_2">
-				  			sasd
+				  		<div class="grid_2 prefix_3">
+					  		<img src="./images/templatemo_more.png" />
 				  		</div>
 				  		<div class="clear"></div>
-				  		
-				  		<div class="grid_1">
-					  		asdf
-				  		</div>
-				  		<div class="grid_2">
-				  			sasd
-				  		</div>
-				  		<div class="clear"></div>
-				  		
 				  	</div>
 				 </div>				 
 				<div class="cleaner h40"></div>
