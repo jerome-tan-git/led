@@ -22,6 +22,11 @@
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
 });
+
+jQuery(document).ready(function() {
+    jQuery('.category_small').nailthumb({width:120,height:120}); 
+});
+
 </script>
 
 <style>
@@ -224,8 +229,8 @@ input, select, label {
           	<div id="content" style="padding-top:40px;">
 				<h2>Lorem Ipsum Dolor Sit Amet</h2>
 				<div class="container_16">
-					<div class="grid_5">
-						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">				
+					<div class="grid_5" style="margin-left:-3px">
+						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
 								<img src="images/templatemo_image_01.png" alt="Image 01">
 						 	</div>
@@ -302,8 +307,8 @@ input, select, label {
 				  		<div class="clear"></div>
 				  	</div>
 				 </div>				 
-				<div class="cleaner h40"></div>
-                <h3>Our Staffs</h3>
+				<div class="cleaner h40" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
+                <h3>Similar products</h3>
                 <div class="col_2 float_l">
                     <img class="image_frame image_fl" src="images/templatemo_image_02.png" alt="Staff 01">
                     <h6>UT SED LOREM</h6>
@@ -333,22 +338,133 @@ input, select, label {
                     <cite>Juvin <a href="#"><span>- Web Designer</span></a></cite>
             </div>
                 <div class="sb_box">
-                	<h3>Flickr Stream</h3>
-                    <ul class="flickr_stream">
-                    	<li><a href="#"><img class="image_frame" src="images/templatemo_image_02.png" alt="Flickr 01"></a></li>
-                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_03.png" alt="Flickr 02"></a></li>
-                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_04.png" alt="Flickr 03"></a></li>
-                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_05.png" alt="Flickr 04"></a></li>
-                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_06.png" alt="Flickr 05"></a></li>
-                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_07.png" alt="Flickr 06"></a></li>
-                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_04.png" alt="Flickr 07"></a></li>
-                        <li><a href="#"><img class="image_frame" src="images/templatemo_image_02.png" alt="Flickr 08"></a></li>
-                        <li class="no_margin_right"><a href="#"><img class="image_frame" src="images/templatemo_image_03.png" alt="Flickr 09"></a></li>
-                    </ul>
-                    <div class="cleaner"></div>
-                    <a href="#" class="more"></a>
+                	<h3>Categories</h3>
+                   <div class="container_16" style="margin: 0 auto;">
+                   	<div class="grid_2 alpha">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfsdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	<div class="grid_2 alpha" >
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	
+                   	
+                   	<div class="grid_2 alpha">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/01.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfsdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/02.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	<div class="grid_2 alpha" >
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="cleaner"></div>
+                   	
+                   	
+                   	
+                   </div><!--div class="container_16"-->
                     <div class="cleaner"></div>
                 </div>
+                
+                
+                 <div class="sb_box">
+                	<h3>Categories</h3>
+                   <div class="container_16" style="margin: 0 auto;">
+                   	<div class="grid_2 alpha">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfsdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	<div class="grid_2 alpha" >
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	
+                   	
+                   	<div class="grid_2 alpha">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/01.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfsdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/02.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	
+                   	<div class="grid_2 alpha" >
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="grid_2 omega" style="margin-left:40px">
+                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   	</div>
+                   	<div class="cleaner"></div>
+                   	
+                   	
+                   	
+                   </div><!--div class="container_16"-->
+                    <div class="cleaner"></div>
+                </div>
+                
+                
             </div> <!-- end of sidebar -->
             <div class="cleaner"></div>
         </div>
