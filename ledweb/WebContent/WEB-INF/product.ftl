@@ -27,6 +27,9 @@ jQuery(document).ready(function() {
     jQuery('.category_small').nailthumb({width:120,height:120}); 
 });
 
+jQuery(document).ready(function() {
+    jQuery('.product_small').nailthumb({width:70,height:70}); 
+});
 </script>
 
 <style>
@@ -170,51 +173,23 @@ input, select, label {
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
-        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:100px">
+        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:50px">
 				 <ul>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Item 1</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Folder</a> 
+					<li class="bar"><a  href="./">Home</a></li>
+					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
 					  <ul>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Light</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Light</a></li>
 					  </ul>
 				</li>
-				<li class="bar">
-					<a  href="http://www.dynamicdrive.com">Folder</a>
-				  <ul>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.1</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-				  </ul>
+				<li class="bar wide">
+					<a  href="http://www.dynamicdrive.com">LED in the house</a>
 				</li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Item 3</a></li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Folder</a>
-				  <ul>
-				  <li><a href="http://www.dynamicdrive.com">Sub Item 2.1</a></li>
-				  <li><a href="http://www.dynamicdrive.com">Folder</a>
-				    <ul>
-				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.1</a></li>
-				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.2</a></li>
-				    <li><a href="http://www.dynamicdrive.com">Folder</a>
-						<ul>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.1</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.2</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.3</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.4</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.5</a></li>
-						</ul>
-				    </li>
-				    <li class="bar"><a href="http://www.dynamicdrive.com">Sub Item 2.1.4</a></li>
-				    </ul>
-				  </li>
-				  </ul>
+				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
+				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
+
 				</li>
 				</ul>
 				<br style="clear: left" />
@@ -262,7 +237,7 @@ input, select, label {
 						  		<span style="float:right;margin-right:-0px"><b>Specs:</b></span>
 					  		</div>
 					  		<div class="grid_6" style="margin-left:-5px">
-						  		Specs:
+						  		Specs:	
 					  		</div>
 					  		<div class="clear"></div>
 					  		
@@ -302,7 +277,7 @@ input, select, label {
 				  		<div class="clear"></div>
 				  		
 				  		<div class="grid_2 prefix_3">
-					  		<img src="./images/templatemo_more.png" />
+					  		<img src="./images/addcart.png" />
 				  		</div>
 				  		<div class="clear"></div>
 				  	</div>
@@ -402,19 +377,27 @@ input, select, label {
                 
                 
                  <div class="sb_box">
-                	<h3>Categories</h3>
+                	<h3>Featured products</h3>
                    <div class="container_16" style="margin: 0 auto;">
-                   	<div class="grid_2 alpha">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+                   	<div class="grid_1 alpha">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
 								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+                   	<div class="grid_1" style="margin-left:48px">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_1 omega" style="margin-left:48px">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
 								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
@@ -422,41 +405,31 @@ input, select, label {
                    	</div>
                    	<div class="cleaner" style="margin-bottom:10px"></div>
                    	
-                   	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	
-                   	
-                   	<div class="grid_2 alpha">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/01.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+                   	<div class="grid_1 alpha">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/02.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+                   	<div class="grid_1" style="margin-left:48px">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								asfasdf
+						 	</div>
+					 	</div>
+                   	</div>
+                   	<div class="grid_1 omega" style="margin-left:48px">
+                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
                    	</div>
                    	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
-                   	</div>
-                   	<div class="cleaner"></div>
                    	
                    	
                    	

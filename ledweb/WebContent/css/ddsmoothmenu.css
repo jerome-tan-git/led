@@ -50,11 +50,14 @@ color: #666;
 	text-align:center;
 	color:#ffffff !important;
 }
+.wide
+{
+	width: 160px !important;
+}
 .bar a
 {
-		font-size:16px !important;
+		font-size:19px !important;
 		padding-right:12px !important;
-		font-weight: bold;
 
 }
 .ddsmoothmenu a:link, .ddsmoothmenu a:visited{
@@ -93,12 +96,16 @@ top: 0;
 
 /* Sub level menu links style */
 .ddsmoothmenu ul li ul li a{
-font: normal 13px Verdana;
-width: 160px; /*width of sub menus*/
+width: 130px; /*width of sub menus*/
 padding: 5px;
 margin: 0;
 border-top-width: 0;
 /*border-bottom: 1px solid gray;*/
+}
+
+.smallfont
+{
+	font-size:13px !important;
 }
 
 /* Holly Hack for IE \*/

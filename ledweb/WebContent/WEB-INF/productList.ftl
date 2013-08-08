@@ -14,27 +14,27 @@
 </head>
 <style>
 .bs-callout {
-padding: 15px 30px 15px 15px;
-border-left: 5px solid #eee;
+	padding: 15px 30px 15px 15px;
+	border-left: 5px solid #eee;
 }
 
 .bs-callout-warning {
-background-color: #fefbed;
-border-color: #f1e7bc;
+	background-color: #fefbed;
+	border-color: #f1e7bc;
 }
 .bs-callout-gray {
-background-color: #fefefe;
-border-color: #d0e3f0;
+	background-color: #fefefe;
+	border-color: #d0e3f0;
 }
 
 .bs-callout-info {
-background-color: #f0f7fd;
-border-color: #d0e3f0;
+	background-color: #f0f7fd;
+	border-color: #d0e3f0;
 }
 
 .bs-callout-danger {
-background-color: #fcf2f2;
-border-color: #dFb5b4;
+	background-color: #fcf2f2;
+	border-color: #dFb5b4;
 }
 </style>
 
@@ -118,18 +118,29 @@ function showConfirm(productName, productID)
 	<div class="row" style="padding-top:70px">
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
-		  <div class="list-group"  style="background-color:#f5f5f5">
-		  <a href="./productList.do" class="list-group-item <#if module??><#if module=="product management">active</#if></#if>">
-		    Product management 
-		  </a>
-		  <a href="./sysManagement.do" class="list-group-item <#if module??><#if module=="system management">active</#if></#if>">System management
-		  </a>
-		   <a href="./userManagement.do" class="list-group-item <#if module??><#if module=="user management">active</#if></#if>">User management
-		  </a>
-		  <a href="./orderManagement.do" class="list-group-item <#if module??><#if module=="order management">active</#if></#if>"">Order management
-		  </a>
-		</div>
-	</div>
+		  	<div class="bs-sidebar affix" style="">
+            <ul class="nav bs-sidenav">           
+			    <li class="">
+			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
+			    	Product management </a>
+			    	</li>
+			    <li class="">
+			    	<a href="./sysManagement.do" <#if module??><#if module=="system management">style="background-color: #e5e3e9;"</#if></#if>">
+			    	System management
+		  			</a>
+				</li>
+			    <li class="">
+		  			 <a href="./userManagement.do" <#if module??><#if module=="user management">style="background-color: #e5e3e9;"</#if></#if>">
+		  			 User management
+		  			</a>
+		  		</li>
+			    <li class="">
+			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
+		  		</a></li>
+			</ul>
+          </div> <!-- -->
+			</div>
+
 			<div class="col-lg-8">
 			
 			<#if products??>

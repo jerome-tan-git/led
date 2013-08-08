@@ -49,5 +49,9 @@
     		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
 		</action>
 		
+		<action name="login" class="ledweb.action.Login">
+    		<result name="input" type="freemarker">/WEB-INF/login.ftl</result>
+    		<result name="success" type="redirect">/productList.do</result>
+		</action>
     </package>
 </struts>

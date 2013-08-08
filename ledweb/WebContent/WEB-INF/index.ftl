@@ -153,51 +153,23 @@ jQuery(document).ready(function() {
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
-        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:100px">
+        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:50px">
 				 <ul>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Item 1</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Folder</a> 
+					<li class="bar"><a  href="http://www.dynamicdrive.com">Home</a></li>
+					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
 					  <ul>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-						  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Light</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Light</a></li>
 					  </ul>
 				</li>
-				<li class="bar">
-					<a  href="http://www.dynamicdrive.com">Folder</a>
-				  <ul>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.1</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.2</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.3</a></li>
-					  <li><a href="http://www.dynamicdrive.com">Sub Item 1.4</a></li>
-				  </ul>
+				<li class="bar wide">
+					<a  href="http://www.dynamicdrive.com">LED in the house</a>
 				</li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Item 3</a></li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Folder</a>
-				  <ul>
-				  <li><a href="http://www.dynamicdrive.com">Sub Item 2.1</a></li>
-				  <li><a href="http://www.dynamicdrive.com">Folder</a>
-				    <ul>
-				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.1</a></li>
-				    <li><a href="http://www.dynamicdrive.com">Sub Item 2.1.2</a></li>
-				    <li><a href="http://www.dynamicdrive.com">Folder</a>
-						<ul>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.1</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.2</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.3</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.4</a></li>
-				    		<li><a href="http://www.dynamicdrive.com">Sub Item 3.1.1.5</a></li>
-						</ul>
-				    </li>
-				    <li class="bar"><a href="http://www.dynamicdrive.com">Sub Item 2.1.4</a></li>
-				    </ul>
-				  </li>
-				  </ul>
+				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
+				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
+
 				</li>
 				</ul>
 				<br style="clear: left" />

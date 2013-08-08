@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -137,17 +138,27 @@ jQuery(document).ready(function() {
 <div class="row" style="padding-top:70px">
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
-		  <div class="list-group"  style="background-color:#f5f5f5">
-		  <a href="./productList.do" class="list-group-item <#if module??><#if module=="product management">active</#if></#if>">
-		    Product management 
-		  </a>
-		  <a href="./sysManagement.do" class="list-group-item <#if module??><#if module=="system management">active</#if></#if>">System management
-		  </a>
-		  <a href="./userManagement.do" class="list-group-item <#if module??><#if module=="user management">active</#if></#if>">User management
-		  </a>
-		  <a href="./orderManagement.do" class="list-group-item <#if module??><#if module=="order management">active</#if></#if>"">Order management
-		  </a>
-		</div>
+		 <div class="bs-sidebar affix" style="">
+            <ul class="nav bs-sidenav">           
+			    <li class="">
+			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
+			    	Product management </a>
+			    	</li>
+			    <li class="">
+			    	<a href="./sysManagement.do" <#if module??><#if module=="system management">style="background-color: #e5e3e9;"</#if></#if>">
+			    	System management
+		  			</a>
+				</li>
+			    <li class="">
+		  			 <a href="./userManagement.do" <#if module??><#if module=="user management">style="background-color: #e5e3e9;"</#if></#if>">
+		  			 User management
+		  			</a>
+		  		</li>
+			    <li class="">
+			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
+		  		</a></li>
+			</ul>
+          </div> <!-- -->
 	</div>
   <div class="col-lg-8">
 	<div class="well">
