@@ -44,7 +44,7 @@
     		<result name="success" type="freemarker">/WEB-INF/index.ftl</result>
 		</action>
 		
-		<action name="produtdetail" class="ledweb.action.Product">
+		<action name="productdetail" class="ledweb.action.Product">
     		<result name="input" type="freemarker">/WEB-INF/product.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
 		</action>

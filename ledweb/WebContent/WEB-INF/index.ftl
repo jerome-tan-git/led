@@ -160,8 +160,8 @@ jQuery(document).ready(function() {
 					  <ul>
 						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
 						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Light</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Light</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Lights</a></li>
 					  </ul>
 				</li>
 				<li class="bar wide">
@@ -181,9 +181,9 @@ jQuery(document).ready(function() {
     <div id="templatemo_middle" class="img_hand" >
     	 <div id="slides">
 	      <img src="images/slide-1.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-	      <img src="images/slide-2.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-	      <img src="images/slide-3.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-	      <img src="images/slide-4.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
+	      <img src="images/slide-1.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
+	      <img src="images/slide-1.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
+	      <img src="images/slide-1.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
 	    </div>
 
       
@@ -196,12 +196,15 @@ jQuery(document).ready(function() {
 				<div class="grid_3">
 					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
 					    <div class="nailthumb-container">
-							<img src="images/portfolio/01.jpg" alt="Image 01" />
+							<img src="images/tripelights.jpg" alt="Image 01" />
 						</div>
 					
 					</div>
 					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
+						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Strip lights</h5></div>
+						<p>
+							Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+						</p>
 						<a href="#" class="more"></a>
 					</div>					
 				  </div>
@@ -209,11 +212,14 @@ jQuery(document).ready(function() {
 				<div class="grid_3">
 					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
 					    <div class="nailthumb-container">
-							<img src="images/portfolio/03.jpg" alt="Image 01" class="image_frame"/> 
+							<img src="images/downlights30814bl.jpg" alt="Image 01" class="image_frame"/> 
 						</div>
 					</div>
 					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
+						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Down lights</h5></div>
+						<p>
+							The CR Series is an amazing combination of price and performance. Built upon technical innovations in optical, electronics, mechanical and thermal design, the CR Series provides amazing color accuracy and advanced dimming capabilities.
+						</p>
 						<a href="#" class="more"></a>
 					</div>
 				 </div>
@@ -222,11 +228,14 @@ jQuery(document).ready(function() {
 				<div class="grid_3">
 					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
 					    <div class="nailthumb-container">
-							<img src="images/portfolio/03.jpg" alt="Image 01" class="image_frame"/> 
+							<img src="images/rope_light.jpg" alt="Image 01" class="image_frame"/> 
 						</div>	
 					</div>
 					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
+						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Rope Lights</h5></div>
+						<p>
+							WideLoyal, A leading manufacturer and supplier in LED rope light, rope light, LED strip light, flexi light, holiday light, decoration light and accessories.
+						</p>
 						<a href="#" class="more"></a>
 					</div>
 				</div>
@@ -234,11 +243,14 @@ jQuery(document).ready(function() {
 				<div class="grid_3">
 					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
 					    <div class="nailthumb-container">
-							<img src="images/templatemo_image_06.png" alt="Image 01" class="image_frame"/>
+							<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
 						</div>
 					</div>
 					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Donec in volutpat erat</h5></div>
+						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights</h5></div>
+						<p>
+							Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+						</p>
 						<a href="#" class="more"></a>
 					</div>			
 				</div>

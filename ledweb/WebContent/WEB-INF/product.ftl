@@ -180,8 +180,8 @@ input, select, label {
 					  <ul>
 						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
 						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Light</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Light</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Lights</a></li>
+						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Lights</a></li>
 					  </ul>
 				</li>
 				<li class="bar wide">
@@ -202,12 +202,12 @@ input, select, label {
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main"> 
           	<div id="content" style="padding-top:40px;">
-				<h2>Lorem Ipsum Dolor Sit Amet</h2>
+				<h2>LED Strip Light</h2>
 				<div class="container_16">
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
-								<img src="images/templatemo_image_01.png" alt="Image 01">
+								<img src="images/stripl.jpg" alt="Image 01">
 						 	</div>
 					 	</div>
 				  	</div>
@@ -220,56 +220,65 @@ input, select, label {
 				  		</div>
 				  		<div class="clear"></div>
 				  		<div class="grid_1" >
-					  		<span style="float:right"><b>Types:</b></span>
+					  		<span style="float:right"><b>Models:</b></span>
 				  		</div>
-				  		<div class="grid_9">
-				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_1</label>&nbsp;
-				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_2</label>&nbsp;
-				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />Type_2</label>&nbsp;
-				  			
+				  		<div class="grid_5 omega">
+				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL3528F3-60</label>&nbsp;
+				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL5050F3-30</label>&nbsp;
 				  		</div>
 				  		<div class="clear"></div>	  		
 				  		<div class="grid_1"  style="margin-top:12px">
 					  		<span style="float:right"><b>Specs:</b></span>
 				  		</div>
-				  		<div class="grid_10">
+				  		<div class="grid_10" style="margin-top:10px">
 					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px"><b>Specs:</b></span>
+						  		<span style="float:right;margin-right:-0px; color:#999">Light Source:</span>
 					  		</div>
 					  		<div class="grid_6" style="margin-left:-5px">
-						  		Specs:	
+						  		LED	
 					  		</div>
 					  		<div class="clear"></div>
 					  		
 					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px"><b>Spasfsas:</b></span>
+						  		<span style="float:right;margin-right:-0px; color:#999">Item Type:</span>
 					  		</div>
 					  		<div class="grid_6" style="margin-left:-5px">
-						  		Specs:
+						  		Light Strips
 					  		</div>
 					  		<div class="clear"></div>
 					  		
 					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px"><b>Specs:</b></span>
+						  		<span style="float:right;margin-right:-0px; color:#999">Place of Origin:</span>
 					  		</div>
 					  		<div class="grid_6" style="margin-left:-5px;">
-						  		Specs:
+						  		Jiangsu China (Mainland)
+					  		</div>
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Brand Name:</span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px;">
+						  		RISING
+					  		</div>
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Model Number:</span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px;">
+						  		5050 smd
+					  		</div>
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Quality:</span>
+					  		</div>
+					  		<div class="grid_6" style="margin-left:-5px;">
+						  		high
 					  		</div>
 					  		<div class="clear"></div>
 				  		</div>
-				  		<div class="clear"></div>
-					  		<div class="grid_1"  style="margin-top:12px">
-							  <span style="float:right"><b>Desc:</b></span>
-						  	</div>
-						  	<div class="grid_10">
-						  		<div class="grid_1">
-						  			&nbsp;&nbsp;
-						  		</div>
-						  		<div class="grid_9" style="margin-left:-20px;">
-						  			jsdafasdfaskfadfadf
-						  		</div>  		
-					  	</div>
-				  		
 				  		<div class="clear"></div>
 				  		<div class="grid_2 prefix_3">
 					  		&nbsp;
@@ -280,37 +289,108 @@ input, select, label {
 					  		<img src="./images/addcart.png" />
 				  		</div>
 				  		<div class="clear"></div>
-				  	</div>
+				  	</div><!--div class="grid_11"-->
+				  	<div class="clear"></div>
+				  	<div class="grid_10 omega" style="padding-top:20px">
+				  		<div class="grid_10 omega"><b>Features:</b></div>
+				  		<div class="clear"></div>
+				  		<div class="grid_10 omega">
+					  		<ul>
+								<li>Flexible, thin thickness, light in the weight, with 3M tape backside, easy to be shaped and installed.</li>
+								<li>Can produce any color, fullfill multi-color changing by controller simply.</li>
+								<li>Long lifespan up to 50000hrs and less energy consumed,slow failure, less maintenance /replacing cost, the economic choice.</li>
+								<li>No pollution, colorful, widely used for Building/Commercial Decorative Lighting,</li>
+								<li>Low operating temperature, Rohs approval, recyle without hazardous gasse and materials, green choice.</li>
+								<li>DC input voltage, much more safe and durable than traditional light sources</li>
+							</ul>
+						</div>
+					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
+					<div class="clear"></div>
+					
+					<div class="grid_10 omega" style="padding-top:20px">
+				  		<div class="grid_10 omega"><b>Application and Cautions:</b></div>
+				  		<div class="clear"></div>
+				  		<div class="grid_10 omega">
+					  		<ul>
+								<li>Widely used for Building /Commercial Decorative Lighting, landscape/architectural decorative lighting.</li>
+								<li>Can produce any color, fullfill multi-color changing by controller simply.</li>
+							</ul>
+						</div>
+					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
+					<div class="clear"></div>
+					
+					<div class="grid_10 omega" style="padding-top:20px">
+				  		<div class="grid_10 omega"><b>Packaging & Delivery:</b></div>
+				  		<div class="clear"></div>
+				  		<div class="grid_10 omega">
+					  		<ul>
+								<li>Packaging Detail: rising package/customer design</li>
+								<li>Delivery Detail: acording to order after 30% T/T</li>
+							</ul>
+						</div>
+					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
+					<div class="clear"></div>
+					
 				 </div>				 
 				<div class="cleaner h40" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
                 <h3>Similar products</h3>
-                <div class="col_2 float_l">
-                    <img class="image_frame image_fl" src="images/templatemo_image_02.png" alt="Staff 01">
-                    <h6>UT SED LOREM</h6>
-                    <div class="jobtitle">Marketing Executive</div>
-                    <div class="cleaner"></div>
-                </div>
-                <div class="col_2 float_r">
-                    <img class="image_frame image_fl" src="images/templatemo_image_04.png" alt="Staff 02">
-                    <h6>VESTIBULUM MASSA</h6>
-                    <div class="jobtitle">Internet Marketing Officer</div>
-                    <div class="cleaner"></div>
-                </div>
-                <div class="cleaner h30"></div>
-                <div class="col_2 float_l">
-                    <img class="image_frame image_fl" src="images/templatemo_image_05.png" alt="Staff 03">
-                    <h6>AENEAN EGET</h6>
-                    <div class="jobtitle">Accountant</div>
-                    <div class="cleaner"></div>
-                </div> 
-                <div class="cleaner"></div>
+                
+                <div class="container_16">
+                	<div class="grid_2">
+	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/strip_1.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
+							 </div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<h6><a href="#">Flexible LED strip lights</a></h6>
+					</div>
+                	
+                	<div class="grid_2">
+	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/strip_2.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
+							 </div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<h6><a href="#">Battery operated led rope strip light</a></h6>
+					</div>
+                	 <div class="clear" style="margin-bottom:20px"></div>
+                	 
+                	 <div class="grid_2">
+	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/strip_3.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
+							 </div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<h6><a href="#">Flexible High Intensity Smd5050 Led</a></h6>
+					</div>
+                	
+                	<div class="grid_2">
+	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+								<img alt="Image 01" src="images/strip_4.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
+							 </div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<h6><a href="#">sunbitlight-LED flex neon light</a></h6>
+					</div>
+                	 <div class="clear" style="margin-bottom:20px"></div>
+                </div><!--div class="container_16"-->
+                <div class="clear"></div>
+                
             </div>
-            <div id="sidebar" style="padding-top:40px;">
+            <div id="sidebar" style="padding-top:50px;">
                 <div class="sb_box">
-                    <h3>Testimonial</h3>
+                    <h3>News</h3>
                     <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
                     <div class="cleaner"></div>
-                    <cite>Juvin <a href="#"><span>- Web Designer</span></a></cite>
+                    <cite>Juvin <a href="#"><span>- Product specialist</span></a></cite>
             </div>
                 <div class="sb_box">
                 	<h3>Categories</h3>
@@ -318,7 +398,7 @@ input, select, label {
                    	<div class="grid_2 alpha">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
@@ -326,7 +406,7 @@ input, select, label {
                    	<div class="grid_2 omega" style="margin-left:40px">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/downlights30814bl.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
@@ -334,10 +414,10 @@ input, select, label {
                    	<div class="cleaner" style="margin-bottom:10px"></div>
                    	
                    	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   		<div style="width:130px;text-align:center"><h6>Stripe lights</h6></div>
                    	</div>
                    	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   		<div style="width:130px;text-align:center"><h6>Down lights</h6></div>
                    	</div>
                    	<div class="cleaner" style="margin-bottom:10px"></div>
                    	
@@ -346,7 +426,7 @@ input, select, label {
                    	<div class="grid_2 alpha">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/01.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/rope_light.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
@@ -354,7 +434,7 @@ input, select, label {
                    	<div class="grid_2 omega" style="margin-left:40px">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/02.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/PuckLight.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
@@ -362,10 +442,10 @@ input, select, label {
                    	<div class="cleaner" style="margin-bottom:10px"></div>
                    	
                    	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   		<div style="width:130px;text-align:center"><h6>Rope lights</h6></div>
                    	</div>
                    	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>UT SED LOREM</h6></div>
+                   		<div style="width:130px;text-align:center"><h6>LED Puck lights</h6></div>
                    	</div>
                    	<div class="cleaner"></div>
                    	
@@ -382,7 +462,7 @@ input, select, label {
                    	<div class="grid_1 alpha">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature1.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
@@ -390,7 +470,7 @@ input, select, label {
                    	<div class="grid_1" style="margin-left:48px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature2.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
@@ -398,7 +478,7 @@ input, select, label {
                    	<div class="grid_1 omega" style="margin-left:48px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature3.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
@@ -408,7 +488,7 @@ input, select, label {
                    	<div class="grid_1 alpha">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/portfolio/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature4.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfsdf
 						 	</div>
 					 	</div>
@@ -416,7 +496,7 @@ input, select, label {
                    	<div class="grid_1" style="margin-left:48px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature5.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
@@ -424,7 +504,7 @@ input, select, label {
                    	<div class="grid_1 omega" style="margin-left:48px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/blog/03.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+								<img alt="Image 01" src="images/feature6.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
 								asfasdf
 						 	</div>
 					 	</div>
