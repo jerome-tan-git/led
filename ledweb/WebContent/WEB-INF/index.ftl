@@ -18,10 +18,59 @@
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+<script type="text/javascript" language="javascript" src="js/	jquery.carouFredSel-6.2.1-packed.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:190,height:100});
 });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+        //move he last list item before the first item. The purpose of this is if the user clicks to slide left he will be able to see the last item.
+        //$('#carousel_ul li:first').before($('#carousel_ul li:last')); 
+        
+        
+        //when user clicks the image for sliding right        
+        $('#right_scroll div').click(function(){
+        
+            //get the width of the items ( i like making the jquery part dynamic, so if you change the width in the css you won't have o change it here too ) '
+            var item_width = $('#carousel_ul li').outerWidth() + 30;
+            
+            //calculae the new left indent of the unordered list
+            var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
+            
+            //make the sliding effect using jquery's anumate function '
+            $('#carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){    
+                
+                //get the first list item and put it after the last list item (that's how the infinite effects is made) '
+                $('#carousel_ul li:last').after($('#carousel_ul li:first')); 
+                
+                //and get the left indent to the default -210px
+                $('#carousel_ul').css({'left' : '-250px'});
+            }); 
+        });
+        
+        //when user clicks the image for sliding left
+        $('#left_scroll div').click(function(){
+            
+            var item_width = $('#carousel_ul li').outerWidth() + 30;
+            
+            /* same as for sliding right except that it's current left indent + the item width (for the sliding right it's - item_width) */
+            var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
+            
+            $('#carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){    
+            
+            /* when sliding to left we are moving the last item before the first list item */            
+            $('#carousel_ul li:first').before($('#carousel_ul li:last')); 
+            
+            /* and again, when we make that change we are setting the left indent of our unordered list to the default -210px */
+            $('#carousel_ul').css({'left' : '-250px'});
+            });
+            
+            
+        });
+  });
 </script>
 
 <style>
@@ -139,6 +188,72 @@ jQuery(document).ready(function() {
     {
     	cursor:pointer;
     }
+    
+   #carousel_inner {
+	float:left; /* important for inline positioning */
+	width:910px; /* important (this width = width of list item(including margin) * items shown */ 
+	overflow: hidden;  /* important (hide the items outside the div) */
+	margin-top:40px;
+	
+	}
+	
+	#carousel_ul {
+	position:relative;
+	left:-250px; /* important (this should be negative number of list items width(including margin) */
+	list-style-type: none; /* removing the default styling for unordered list items */
+	margin: 0px;
+	padding: 0px;
+	width:9999px; /* important */
+	/* non-important styling bellow */
+	padding-bottom:10px;
+	}
+	
+	#carousel_ul li{
+		float: left; /* important for inline positioning of the list items */                                    
+		width:200px;  /* fixed width, important */
+		/* just styling bellow*/
+		padding:0px;
+		margin-top:10px;
+		margin-bottom:10px; 
+		margin-left:15px; 
+		margin-right:15px; 
+	}
+	
+	#carousel_ul li img {
+	.margin-bottom:-4px; /* IE is making a 4px gap bellow an image inside of an anchor (<a href...>) so this is to fix that*/
+	/* styling */
+	cursor:pointer;
+	cursor: hand; 
+	border:0px; 
+	}
+	#left_scroll, #right_scroll{
+		float:left; 
+		height:130px; 
+		width:15px; 
+		padding-top:55px;
+		margin-top:40px;
+	}
+	#left_scroll img, #right_scroll img{
+		/*styling*/
+		cursor: pointer;
+		cursor: hand;
+	}
+    
+    
+    .arrow {
+		width: 22px;
+		height: 20px;
+		background: url("images/arrows_1.png") no-repeat;
+		cursor: pointer;
+		top: 50%;
+	}
+	.arrow.right {
+		background-position: center top;
+	}
+    .arrow.left {
+		background-position: center -20px;
+	}
+    
 </style>
 </head>
 <body>
@@ -192,72 +307,104 @@ jQuery(document).ready(function() {
     
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main">
-			 <div class="container_12" style="margin-top:40px">
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/tripelights.jpg" alt="Image 01" />
-						</div>
-					
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Strip lights</h5></div>
-						<p>
-							Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-						</p>
-						<a href="#" class="more"></a>
-					</div>					
-				  </div>
-				  <!-- end .grid_1 -->
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/downlights30814bl.jpg" alt="Image 01" class="image_frame"/> 
-						</div>
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Down lights</h5></div>
-						<p>
-							The CR Series is an amazing combination of price and performance. Built upon technical innovations in optical, electronics, mechanical and thermal design, the CR Series provides amazing color accuracy and advanced dimming capabilities.
-						</p>
-						<a href="#" class="more"></a>
-					</div>
-				 </div>
-				  
-				  <!-- end .grid_11 -->
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/rope_light.jpg" alt="Image 01" class="image_frame"/> 
-						</div>	
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Rope Lights</h5></div>
-						<p>
-							WideLoyal, A leading manufacturer and supplier in LED rope light, rope light, LED strip light, flexi light, holiday light, decoration light and accessories.
-						</p>
-						<a href="#" class="more"></a>
-					</div>
-				</div>
-				  
-				<div class="grid_3">
-					<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container">
-							<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
-						</div>
-					</div>
-					<div style="margin: 0 auto;width:190px">
-						<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights</h5></div>
-						<p>
-							Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-						</p>
-						<a href="#" class="more"></a>
-					</div>			
-				</div>
-					<div class="clear"></div>
-			</div>
-			  
-				  
+	    	<div class="container_12">
+		    	<div class="grid_12">
+				  <div id='carousel_container' style="height:260px;margin: 0 auto;">
+					  <div id='left_scroll'><div class="arrow left"></div></div>
+					    <div id='carousel_inner'>
+					        <ul id='carousel_ul'>
+					        <li><a href='#'>
+								<div class="grid_3">
+									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+									    <div class="nailthumb-container">
+											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
+										</div>
+									</div>
+									<div style="margin: 0 auto;width:190px">
+										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 5</h5></div>
+										<p>
+											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+										</p>
+										<a href="#" class="more"></a>
+									</div>			
+									</div>
+								</a></li>
+								
+								<li><a href='#'>
+					            	<div class="grid_3">
+										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+										    <div class="nailthumb-container">
+												<img src="images/tripelights.jpg" alt="Image 01" />
+											</div>
+										
+										</div>
+										<div style="margin: 0 auto;width:190px">
+											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
+											<p>
+												Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+											</p>
+											<a href="#" class="more"></a>
+										</div>					
+									  </div>
+								</li>
+					            <li><a href='#'>
+					            <div class="grid_3">
+									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+									    <div class="nailthumb-container">
+											<img src="images/downlights30814bl.jpg" alt="Image 01" class="image_frame"/> 
+										</div>
+									</div>
+									<div style="margin: 0 auto;width:190px">
+										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Down lights 2</h5></div>
+										<p>
+											The CR Series is an amazing combination of price and performance. Built upon technical innovations in optical, electronics, mechanical and thermal design, the CR Series provides amazing color accuracy and advanced dimming capabilities.
+										</p>
+										<a href="#" class="more"></a>
+									</div>
+								 </div>
+								</a></li>
+					            <li><a href='#'>
+					            	<div class="grid_3">
+										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+										    <div class="nailthumb-container">
+												<img src="images/rope_light.jpg" alt="Image 01" class="image_frame"/> 
+											</div>	
+										</div>
+										<div style="margin: 0 auto;width:190px">
+											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Rope Lights 3</h5></div>
+											<p>
+												WideLoyal, A leading manufacturer and supplier in LED rope light, rope light, LED strip light, flexi light, holiday light, decoration light and accessories.
+											</p>
+											<a href="#" class="more"></a>
+										</div>
+									</div>
+								</a></li>
+					            <li><a href='#'>
+					            				  
+								<div class="grid_3">
+									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+									    <div class="nailthumb-container">
+											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
+										</div>
+									</div>
+									<div style="margin: 0 auto;width:190px">
+										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 4</h5></div>
+										<p>
+											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+										</p>
+										<a href="#" class="more"></a>
+									</div>			
+									</div>
+								</a></li>
+								
+
+								
+					        </ul>
+					    </div>
+					  <div id='right_scroll'><div class="arrow right"></div></div>
+				  </div><!--div id='carousel_container' style="height:260px"-->
+			  </div><!--div class="container_12"-->
+			</div>	  
         </div><!--div id="templatemo_main"-->
     </div> <!-- end of main wrapper -->
     
