@@ -169,19 +169,19 @@ input, select, label {
      	<div class="container_12">
         	<div id="site_title" class="grid_3">
         		<h1>
-        			<a href="http://www.bestmoban.com">Free CSS Templates</a>
+        			<a href="./">Free CSS Templates</a>
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
-        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:50px">
+        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
 				 <ul>
 					<li class="bar"><a  href="./">Home</a></li>
 					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
 					  <ul>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
 					  </ul>
 				</li>
 				<li class="bar wide">
@@ -345,6 +345,7 @@ input, select, label {
 					</div>
 					<div class="grid_3">
 						<h6><a href="#">Flexible LED strip lights</a></h6>
+						$35.00
 					</div>
                 	
                 	<div class="grid_2">
@@ -356,6 +357,7 @@ input, select, label {
 					</div>
 					<div class="grid_3">
 						<h6><a href="#">Battery operated led rope strip light</a></h6>
+						$124.00
 					</div>
                 	 <div class="clear" style="margin-bottom:20px"></div>
                 	 
@@ -368,6 +370,7 @@ input, select, label {
 					</div>
 					<div class="grid_3">
 						<h6><a href="#">Flexible High Intensity Smd5050 Led</a></h6>
+						$37.00
 					</div>
                 	
                 	<div class="grid_2">
@@ -379,6 +382,7 @@ input, select, label {
 					</div>
 					<div class="grid_3">
 						<h6><a href="#">sunbitlight-LED flex neon light</a></h6>
+						$125.00
 					</div>
                 	 <div class="clear" style="margin-bottom:20px"></div>
                 </div><!--div class="container_16"-->

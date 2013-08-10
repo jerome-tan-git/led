@@ -149,19 +149,19 @@ jQuery(document).ready(function() {
      	<div class="container_12">
         	<div id="site_title" class="grid_3">
         		<h1>
-        			<a href="http://www.bestmoban.com">Free CSS Templates</a>
+        			<a href="./">Free CSS Templates</a>
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
         	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:50px">
 				 <ul>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Home</a></li>
+					<li class="bar"><a  href="/">Home</a></li>
 					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
 					  <ul>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Down lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">Rope Lights</a></li>
-						  <li><a href="http://www.dynamicdrive.com" style="font-size:15px !important">LED Puck Lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
+						  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
 					  </ul>
 				</li>
 				<li class="bar wide">
@@ -180,9 +180,9 @@ jQuery(document).ready(function() {
     
     <div id="templatemo_middle" class="img_hand" >
     	 <div id="slides">
-	      <img src="images/slide-1.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-	      <img src="images/slide-1.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-	      <img src="images/slide-1.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
+	      <img src="images/slide-2.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
+	      <img src="images/slide-3.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
+	      <img src="images/slide-4.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
 	      <img src="images/slide-1.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
 	    </div>
 
