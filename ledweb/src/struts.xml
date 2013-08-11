@@ -72,6 +72,10 @@
     		<result name="success" type="freemarker">/WEB-INF/m_index.ftl</result>
 		</action>
 		
+		<action name="productDetail" class="ledweb.action.MHome">
+    		<result name="input" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+		</action>
     </package>
 
 </struts>
