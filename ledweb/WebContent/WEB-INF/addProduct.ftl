@@ -11,6 +11,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/ckeditor.js"></script>
 </head>
 
 
@@ -138,7 +139,7 @@ jQuery(document).ready(function() {
 <div class="row" style="padding-top:70px">
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
-		 <div class="bs-sidebar affix" style="">
+		 <div class="bs-sidebar pull-right">
             <ul class="nav bs-sidenav">           
 			    <li class="">
 			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
@@ -232,7 +233,7 @@ jQuery(document).ready(function() {
 	    </div>
 	    <div class="form-group">
 	      <label for="exampleInputPassword">Product Description</label>
-	      <textarea class="form-control" rows="3" name="productDesc" placeholder="Product Description">${(product.productDesc)!""}</textarea>
+	      <textarea class="form-control" id="editor1" rows="3" name="productDesc" placeholder="Product Description">${(product.productDesc)!""}</textarea>
 	    </div>
 	       <div class="row">
 	       <div class="col-lg-4">
@@ -244,7 +245,7 @@ jQuery(document).ready(function() {
 		    </div>
 		    
 		    <div class="col-lg-8">
-			    <#if (product.productImage)??>
+			    <#if (product.productImage)??> 
 			    <#assign a="${product.productImage?trim}">
 			    	<#if a!="">
 			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px">
@@ -322,5 +323,9 @@ jQuery(document).ready(function() {
 </form>
 </div> 
 </div>
+<script>
+CKEDITOR.replace( 'editor1' );
+
+</script>
 </body>
 </html>

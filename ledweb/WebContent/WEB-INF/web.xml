@@ -10,6 +10,7 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
   <servlet>
     <servlet-name>JspSupportServlet</servlet-name>
     <servlet-class>
@@ -20,6 +21,7 @@
   <welcome-file-list>
     <welcome-file>index.do</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <description></description>
     <display-name>ImageServlet</display-name>
@@ -30,4 +32,14 @@
     <servlet-name>ImageServlet</servlet-name>
     <url-pattern>/ImageServlet.png</url-pattern>
   </servlet-mapping>
+  
+   <servlet>    
+    <servlet-name>upload</servlet-name>    
+    <servlet-class>ledweb.Upload</servlet-class>  
+  </servlet>  
+  <servlet-mapping>    
+    <servlet-name>upload</servlet-name>    
+    <url-pattern>/servlet/Upload</url-pattern>    
+  </servlet-mapping>  
+  
 </web-app>

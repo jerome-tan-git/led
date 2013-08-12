@@ -65,6 +65,11 @@
     		<result name="input" type="freemarker">/WEB-INF/login.ftl</result>
     		<result name="success" type="redirect">/productList.do</result>
 		</action>
+		
+		<action name="fileManagement" class="ledweb.action.FileManagement">
+    		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+		</action>
     </package>
      <package name="mobile" extends="struts-default" namespace="/m">
     	<action name="index" class="ledweb.action.MHome">
@@ -76,6 +81,8 @@
     		<result name="input" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
 		</action>
+		
+
     </package>
 
 </struts>
