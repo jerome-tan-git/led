@@ -3,9 +3,15 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+
 	<constant name="struts.custom.i18n.resources" value="global" />
 	<constant name="struts.action.extension" value="do"/>
-    <package name="welcomePackage" extends="struts-default">
+	  
+	
+    <package name="welcomePackage" extends="struts-default" namespace="/">
+    	<interceptors>  
+        	<interceptor name="browser" class="ledweb.action.MobileDetector"></interceptor>  
+    	</interceptors>
         <action name="welcome" class="ledweb.action.WelcomeAction">
             <result name="success">/success.jsp</result>
             <result name="input">/Login.jsp</result>
@@ -40,11 +46,17 @@
 		</action>
 		
 		<action name="index" class="ledweb.action.Home">
+			<interceptor-ref name="browser">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>  
     		<result name="input" type="freemarker">/WEB-INF/index.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/index.ftl</result>
 		</action>
 		
 		<action name="productdetail" class="ledweb.action.Product">
+			<interceptor-ref name="browser">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>  
     		<result name="input" type="freemarker">/WEB-INF/product.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
 		</action>
@@ -54,4 +66,16 @@
     		<result name="success" type="redirect">/productList.do</result>
 		</action>
     </package>
+     <package name="mobile" extends="struts-default" namespace="/m">
+    	<action name="index" class="ledweb.action.MHome">
+    		<result name="input" type="freemarker">/WEB-INF/m_index.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/m_index.ftl</result>
+		</action>
+		
+		<action name="productDetail" class="ledweb.action.MHome">
+    		<result name="input" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+		</action>
+    </package>
+
 </struts>

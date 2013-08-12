@@ -33,6 +33,11 @@ jQuery(document).ready(function() {
 </script>
 
 <style>
+
+@media print { 
+.noprint { display: none;color:green } 
+} 
+
 input, select, label {
 	vertical-align:middle;
 }
@@ -165,7 +170,7 @@ input, select, label {
 
 <div id="templatemo_wrapper">
 
-    <div id="templatemo_header">
+    <div id="templatemo_header" class="noprint">
      	<div class="container_12">
         	<div id="site_title" class="grid_3">
         		<h1>
@@ -285,7 +290,7 @@ input, select, label {
 				  		</div>
 				  		<div class="clear"></div>
 				  		
-				  		<div class="grid_2 prefix_3">
+				  		<div class="grid_2 prefix_3 noprint">
 					  		<img src="./images/addcart.png" />
 				  		</div>
 				  		<div class="clear"></div>
@@ -332,10 +337,10 @@ input, select, label {
 					<div class="clear"></div>
 					
 				 </div>				 
-				<div class="cleaner h40" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
-                <h3>Similar products</h3>
+				<div class="cleaner h40 noprint" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
+                <h3 class="noprint">Similar products</h3>
                 
-                <div class="container_16">
+                <div class="container_16 noprint">
                 	<div class="grid_2">
 	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
@@ -389,7 +394,7 @@ input, select, label {
                 <div class="clear"></div>
                 
             </div>
-            <div id="sidebar" style="padding-top:50px;">
+            <div id="sidebar" class="noprint" style="padding-top:50px;">
                 <div class="sb_box">
                     <h3>News</h3>
                     <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
@@ -529,7 +534,7 @@ input, select, label {
     
 </div> <!-- end of wrapper -->
 
-<div id="templatemo_footer_wrapper">
+<div id="templatemo_footer_wrapper" class="noprint">
 	<div id="templatemo_footer">
     	<a class="goto_top"></a>
     	<div class="col_4">
