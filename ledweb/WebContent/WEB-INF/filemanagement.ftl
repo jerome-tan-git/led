@@ -48,13 +48,10 @@ border-color: #dFb5b4;
 
 
 <script type="text/javascript">
-    $(function() {
-        $('#uploadify').uploadify({
-            'swf'      : 'uploadify.swf',
-            'uploader' : './servlet/Upload'
-        });
-    });
-    </script>
+	 jQuery(document).ready(function() {
+	    jQuery('.nailthumb-container ').nailthumb({width:200,height:200});
+	});
+  </script>
 <body>
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
@@ -141,7 +138,15 @@ border-color: #dFb5b4;
           </div> <!-- -->
 	</div>
 			<div class="col-lg-8">
-				<input type="file" name="uploadify" id="uploadify" />
+			
+				<div class="nailthumb-container square" style="float:left; width:210px; height:270px;">
+					<img src="./images/example-slide-1.jpg" />
+				</div>
+				<div class="nailthumb-container square" style="float:left; width:210px; height:270px;">
+					<img src="./images/example-slide-1.jpg" />
+				</div>
+				
+					
 			</div><!--div class="col-lg-8"-->
 			
 			

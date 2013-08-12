@@ -55,7 +55,12 @@ public class Upload extends HttpServlet {
 		try {
 
 			fileList = upload.parseRequest(request);
-
+			System.out.println(request.getParameterMap());
+			System.out.println(((String[])(request.getParameterMap().get("Filename")))[0]); 
+			System.out.println(((String[])(request.getParameterMap().get("Upload")))[0]);
+			System.out.println(request); 
+			System.out.println(fileList);
+			
 		} catch (FileUploadException ex) {
 
 			return;
