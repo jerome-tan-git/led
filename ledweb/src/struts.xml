@@ -23,6 +23,7 @@
 		
         <action name="newProduct" class="ledweb.action.AddProduct">
         	<param name="savePath">./UploadedImages</param>
+        	
         	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
     		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
@@ -65,6 +66,13 @@
     		<result name="input" type="freemarker">/WEB-INF/login.ftl</result>
     		<result name="success" type="redirect">/productList.do</result>
 		</action>
+		
+		<action name="fileManagement" class="ledweb.action.FileManagement">
+			<param name="savePath">./CKImages</param>
+			<param name="contextPath">http://localhost:8080/ledweb/</param>
+    		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+		</action>
     </package>
      <package name="mobile" extends="struts-default" namespace="/m">
     	<action name="index" class="ledweb.action.MHome">
@@ -76,6 +84,8 @@
     		<result name="input" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
 		</action>
+		
+
     </package>
 
 </struts>
