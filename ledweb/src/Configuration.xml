@@ -36,9 +36,9 @@
 
             <!-- <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> mac-->
             <!-- <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> -->
-            <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" /> <!-- office -->
+            <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" /> <!-- office 
             <property name="username" value="hive"/>
-            <property name="password" value="hive"/>
+            <property name="password" value="hive"/>-->
 
             </dataSource>
         </environment>
