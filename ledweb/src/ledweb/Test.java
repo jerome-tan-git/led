@@ -15,6 +15,7 @@ import ledweb.model.Spec;
 import ledweb.model.Student;
 import ledweb.model.Teacher;
 import ledweb.model.Type;
+import ledweb.model.TypeGroup;
 import ledweb.model.User;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.ILedBenefitsOperation;
@@ -23,6 +24,7 @@ import ledweb.model.mapper.IProductOperation;
 import ledweb.model.mapper.IProductSpecOperation;
 import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
+import ledweb.model.mapper.ITypeGroupOperation;
 import ledweb.model.mapper.ITypeOperation;
 import ledweb.model.mapper.IUserOperation;
 import ledweb.model.mapper.TeacherMapper;
@@ -208,21 +210,28 @@ public class Test {
 			// userOperation.deleteUser(5);
 			// session.commit();
 			
+			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
+			TypeGroup tg = new TypeGroup();
+			tg.setGroupID("aaaa");
+			tg.setGroupName("groupName");
 			
-			
-			LEDbenefits ledBenefits = new LEDbenefits();
-			ledBenefits.setArticle("test add function mybatis2update!!!!!   ");
-			ledBenefits.setBenefit1("t_b1_2update");
-			ledBenefits.setBenefit2("t_b2_2update");
-			ledBenefits.setBenefit3("t_b3 2update");
-			System.out.print(ledBenefits.toString()+"\n");
-			
-			ILedBenefitsOperation ledBenefitsOperation = session.getMapper(ILedBenefitsOperation.class); 
-//			ledBenefitsOperation.addLEDbenefits(ledBenefits);
-			ledBenefitsOperation.updateLEDbenefits(ledBenefits);
-//			ledBenefitsOperation.deleteLEDbenefits(0);
-//			ledBenefitsOperation.selectLEDbenefitsByID();
+			ITGO.addTypeGroup(tg);
 			session.commit();
+			
+			
+//			LEDbenefits ledBenefits = new LEDbenefits();
+//			ledBenefits.setArticle("test add function mybatis2update!!!!!   ");
+//			ledBenefits.setBenefit1("t_b1_2update");
+//			ledBenefits.setBenefit2("t_b2_2update");
+//			ledBenefits.setBenefit3("t_b3 2update");
+//			System.out.print(ledBenefits.toString()+"\n");
+//			
+//			ILedBenefitsOperation ledBenefitsOperation = session.getMapper(ILedBenefitsOperation.class); 
+////			ledBenefitsOperation.addLEDbenefits(ledBenefits);
+//			ledBenefitsOperation.updateLEDbenefits(ledBenefits);
+////			ledBenefitsOperation.deleteLEDbenefits(0);
+////			ledBenefitsOperation.selectLEDbenefitsByID();
+//			session.commit();
 //			 IUserOperation userOperation = session
 //						 .getMapper(IUserOperation.class);
 //						 User user = userOperation.selectUserByID(4);
