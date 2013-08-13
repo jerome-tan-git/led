@@ -13,6 +13,9 @@
         <typeAlias alias="Order" type="ledweb.model.Order"/>
         <typeAlias alias="ProductSpec" type="ledweb.model.ProductSpec"/>
         <typeAlias alias="ProductType" type="ledweb.model.ProductType"/>
+        
+        <typeAlias alias="LEDbenefits" type="ledweb.model.LEDbenefits"/>
+
     </typeAliases> 
 
     <environments default="development">
@@ -43,5 +46,7 @@
         <mapper resource="ledweb/model/ProductType.xml"/>
         <mapper resource="ledweb/model/Order.xml"/>
         <mapper resource="ledweb/model/mapper/TeacherMapper.xml"/>
+        
+        <mapper resource="ledweb/model/LEDbenefits.xml"/>
     </mappers>
 </configuration>

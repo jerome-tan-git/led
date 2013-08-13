@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
         $('#right_scroll div').click(function(){
         
             //get the width of the items ( i like making the jquery part dynamic, so if you change the width in the css you won't have o change it here too ) '
-            var item_width = $('#carousel_ul li').outerWidth() + 30;
+            var item_width = $('#carousel_ul li').outerWidth() + 60;
             
             //calculae the new left indent of the unordered list
             var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
@@ -54,7 +54,7 @@ jQuery(document).ready(function() {
         //when user clicks the image for sliding left
         $('#left_scroll div').click(function(){
             
-            var item_width = $('#carousel_ul li').outerWidth() + 30;
+            var item_width = $('#carousel_ul li').outerWidth() + 60;
             
             /* same as for sliding right except that it's current left indent + the item width (for the sliding right it's - item_width) */
             var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
