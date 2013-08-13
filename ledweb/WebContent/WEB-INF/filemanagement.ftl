@@ -115,7 +115,7 @@ border-color: #dFb5b4;
 	<div class="row" style="padding-top:70px">
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
-		  <div class="bs-sidebar affix" style="">
+		  <div class="bs-sidebar pull-right">
             <ul class="nav bs-sidenav">           
 			    <li class="">
 			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
@@ -134,24 +134,43 @@ border-color: #dFb5b4;
 			    <li class="">
 			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
 		  		</a></li>
+				<li class="">
+			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
+		  		</a></li>
 			</ul>
-          </div> <!-- -->
+          </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>
 			<div class="col-lg-8">
-			
-				<div class="nailthumb-container square" style="float:left; width:210px; height:270px;">
-					<img src="./images/example-slide-1.jpg" />
-				</div>
-				<div class="nailthumb-container square" style="float:left; width:210px; height:270px;">
-					<img src="./images/example-slide-1.jpg" />
-				</div>
-				
-					
+				<div class="row">
+					<div class="col-lg-12 well">
+						<div class="row" style="border-bottom: 1px solid #ccc; margin-bottom:10px">
+							<div class="col-lg-6" >
+								<h2>Uploaded files</h2>
+							</div>
+							<div class="col-lg-6" style="padding-top:20px">
+								<form id="commentForm" action="" class="form-inline" class="form-control" method="post" enctype="multipart/form-data" style="pull-right">
+									<input name="newImage" type="file" class="form-control" style="width:300px"></input>
+									<button type="submit" class="btn btn-primary" name="upload" value="1">Submit</button> 
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+							<#list imageFiles as f>
+							<div style="float:left; width:212px; height:270px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
+								<div class="nailthumb-container square">
+									<img src="./${savePath}/${(f.name)!""}" />
+								</div>
+								<div style="margin-top:10px; color:#ccc"> 
+								<input type="text" value="${contextPath}${savePath}/${(f.name)!""}" class="form-control"   />
+								</div>
+							</div>
+							</#list>
+								
+					</div>
+				</div>							
 			</div><!--div class="col-lg-8"-->
-			
-			
-			
-			
+	
 	</div>
 	
 </body>

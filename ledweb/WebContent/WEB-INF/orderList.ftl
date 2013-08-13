@@ -123,7 +123,7 @@ function showConfirm(productName, productID)
 	<div class="row" style="padding-top:70px">
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
-		  <div class="bs-sidebar affix" style="">
+		  		 <div class="bs-sidebar pull-right">
             <ul class="nav bs-sidenav">           
 			    <li class="">
 			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
@@ -142,8 +142,11 @@ function showConfirm(productName, productID)
 			    <li class="">
 			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
 		  		</a></li>
+				<li class="">
+			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
+		  		</a></li>
 			</ul>
-          </div> <!-- -->
+          </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>
 			<div class="col-lg-8">
 			<!-- a product-->
