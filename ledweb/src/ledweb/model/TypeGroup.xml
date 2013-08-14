@@ -16,7 +16,7 @@
 		select * from TypeGroup where GroupID = #{groupID} and IsDelete = 0
 	</select>
 
-	<select id="selectAllTypeGroupss" resultMap="typeGroupResultMap">
+	<select id="selectAllTypeGroups" resultMap="typeGroupResultMap">
 		select * from TypeGroup where IsDelete = 0
 	</select>
 

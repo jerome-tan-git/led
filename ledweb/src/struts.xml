@@ -73,6 +73,15 @@
     		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/filemanagement.ftl</result>
 		</action>
+		
+		<action name="typeManagement" class="ledweb.action.TypeManagement">
+    		<result name="input" type="freemarker">/WEB-INF/typemanagement.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/typemanagement.ftl</result>
+		</action>
+		
+		
+		
+		
     </package>
      <package name="mobile" extends="struts-default" namespace="/m">
     	<action name="index" class="ledweb.action.MHome">

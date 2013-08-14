@@ -211,12 +211,13 @@ public class Test {
 			// session.commit();
 			
 			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
-			TypeGroup tg = new TypeGroup();
-			tg.setGroupID("aaaa");
-			tg.setGroupName("groupName");
-			
-			ITGO.addTypeGroup(tg);
-			session.commit();
+			System.out.println(ITGO.selectAllTypeGroups());
+//			TypeGroup tg = new TypeGroup();
+//			tg.setGroupID("aaaa");
+//			tg.setGroupName("groupName");
+//			
+//			ITGO.addTypeGroup(tg);
+//			session.commit();
 			
 			
 //			LEDbenefits ledBenefits = new LEDbenefits();
