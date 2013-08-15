@@ -16,7 +16,7 @@ public class MobileDetector  extends AbstractInterceptor {
 		HttpServletRequest req = ServletActionContext.getRequest();
 		HttpServletResponse resp = ServletActionContext.getResponse();
 		String userAgent= "user agent:" + req.getHeader("User-Agent");
-		if (userAgent.toLowerCase().indexOf("iphone")!=-1)  
+		if (userAgent.toLowerCase().indexOf("iphone")!=-1 || userAgent.toLowerCase().indexOf("android")!=-1)  
 		{
 			String servletPath = req.getServletPath();
 			resp.sendRedirect(req.getContextPath()+"/m"+servletPath);

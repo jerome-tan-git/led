@@ -14,4 +14,5 @@ public interface ITypeOperation {
 	public int deleteType(String id);
 	public int realDeleteType(String id);
 	public List<Type> selectAllTypes();
+	public List<Type> selectTypesByTypeGroup(String id);
 }

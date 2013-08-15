@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ITypeGroupOperation">
+	<resultMap type="TypeGroup" id="typeGroupResultMap">
+		<id property="groupID" column="GroupID" />
+		<result property="groupName" column="GroupName" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+	</resultMap>
+
+	<select id="selectTypeGroupByID" parameterType="String" resultType="Type">
+		select * from TypeGroup where GroupID = #{groupID} and IsDelete = 0
+	</select>
+
+	<select id="selectAllTypeGroups" resultMap="typeGroupResultMap">
+		select * from TypeGroup where IsDelete = 0
+	</select>
+
+	<insert id="addTypeGroup" parameterType="TypeGroup">
+		insert into TypeGroup(GroupID,GroupName,Reserve1,Reserve2,Reserve3)
+		values(#{groupID},#{groupName},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateTypeGroup" parameterType="TypeGroup" >
+		REPLACE INTO TypeGroup(GroupID, GroupName, Reserve1, Reserve2, Reserve3) VALUES (#{groupID},#{groupName},#{reserve1},#{reserve1},#{reserve1});  
+    </update>
+	
+	<delete id="deleteTypeGroup" parameterType="String">
+         update TypeGroup set 
+        IsDelete=1
+        where TypeID=#{typeID}
+    </delete>
+	
+	
+	<delete id="realDeleteTypeGroup" parameterType="String">
+         delete from TypeGroup where GroupID=#{groupID};
+    </delete>
+	
+</mapper>
