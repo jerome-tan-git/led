@@ -15,6 +15,9 @@
         <typeAlias alias="ProductType" type="ledweb.model.ProductType"/>
         
         <typeAlias alias="LEDbenefits" type="ledweb.model.LEDbenefits"/>
+        <typeAlias alias="Glossary" type="ledweb.model.Glossary"/>
+        <typeAlias alias="AboutUS" type="ledweb.model.AboutUs"/>
+        <typeAlias alias="ContactUs" type="ledweb.model.ContactUs"/>
 
     </typeAliases> 
 
@@ -23,20 +26,12 @@
         <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
             <property name="driver" value="com.mysql.jdbc.Driver"/>
-
-            <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> 
-            		<property name="username" value="hive"/>
-            		<property name="password" value="123!@#QWEqwe"/>
-            
-           
-            <!-- <property name="url" value="jdbc:mysql://localhost:3306/mydb" />  -->
-            <!--  <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" />--> <!-- office -->
-            <!-- <property name="username" value="hive"/> -->
-            <!-- <property name="password" value="hive"/> -->
-
             <!-- <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> mac-->
-            <!-- <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> -->
-            <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" /> <!-- office 
+            <property name="url" value="jdbc:mysql://localhost:3306/mydb" /> 
+            <property name="username" value="hive"/>     		
+            <property name="password" value="123!@#QWEqwe"/>
+            
+            <!-- office <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" /> 
             <property name="username" value="hive"/>
             <property name="password" value="hive"/>-->
 
@@ -56,5 +51,8 @@
         <mapper resource="ledweb/model/mapper/TeacherMapper.xml"/>
         
         <mapper resource="ledweb/model/LEDbenefits.xml"/>
+        <mapper resource="ledweb/model/Glossary.xml"/>
+        <mapper resource="ledweb/model/AboutUs.xml"/>
+        <mapper resource="ledweb/model/ContactUs.xml"/>
     </mappers>
 </configuration>

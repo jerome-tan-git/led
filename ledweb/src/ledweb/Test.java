@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import ledweb.model.AboutUs;
 import ledweb.model.Category;
+import ledweb.model.ContactUs;
+import ledweb.model.Glossary;
 import ledweb.model.LEDbenefits;
 import ledweb.model.Order;
 import ledweb.model.Product;
@@ -16,7 +19,10 @@ import ledweb.model.Student;
 import ledweb.model.Teacher;
 import ledweb.model.Type;
 import ledweb.model.User;
+import ledweb.model.mapper.IAboutUsOperation;
 import ledweb.model.mapper.ICategoryOperation;
+import ledweb.model.mapper.IContactUsOperation;
+import ledweb.model.mapper.IGlossaryOperation;
 import ledweb.model.mapper.ILedBenefitsOperation;
 import ledweb.model.mapper.IOrderOperation;
 import ledweb.model.mapper.IProductOperation;
@@ -207,33 +213,74 @@ public class Test {
 			// .getMapper(IUserOperation.class);
 			// userOperation.deleteUser(5);
 			// session.commit();
-			
-			
-			
-			LEDbenefits ledBenefits = new LEDbenefits();
-			ledBenefits.setArticle("test add function mybatis2update!!!!!   ");
-			ledBenefits.setBenefit1("t_b1_2update");
-			ledBenefits.setBenefit2("t_b2_2update");
-			ledBenefits.setBenefit3("t_b3 2update");
-			System.out.print(ledBenefits.toString()+"\n");
-			
-			ILedBenefitsOperation ledBenefitsOperation = session.getMapper(ILedBenefitsOperation.class); 
-//			ledBenefitsOperation.addLEDbenefits(ledBenefits);
-			ledBenefitsOperation.updateLEDbenefits(ledBenefits);
-//			ledBenefitsOperation.deleteLEDbenefits(0);
-//			ledBenefitsOperation.selectLEDbenefitsByID();
-			session.commit();
 //			 IUserOperation userOperation = session
-//						 .getMapper(IUserOperation.class);
-//						 User user = userOperation.selectUserByID(4);
-//						 user.setUserAddress("google");
-//						 userOperation.updateUser(user);
-//						 session.commit();
-//						 IUserOperation userOperation = session
-//						 .getMapper(IUserOperation.class);
-//						 userOperation.deleteUser(5);
-//						 session.commit();
+//			 .getMapper(IUserOperation.class);
+//			 User user = userOperation.selectUserByID(4);
+//			 user.setUserAddress("google");
+//			 userOperation.updateUser(user);
+//			 session.commit();
+//			 IUserOperation userOperation = session
+//			 .getMapper(IUserOperation.class);
+//			 userOperation.deleteUser(5);
+//			 session.commit();
+			
+//			2013.8.13-----update???
+//			LEDbenefits ledBenefits = new LEDbenefits();
+//			ledBenefits.setArticle("test add function mybatis2update!!!!!   ");
+//			ledBenefits.setBenefit1("t_b1_2update");
+//			ledBenefits.setBenefit2("t_b2_2update");
+//			ledBenefits.setBenefit3("t_b3 2update");
+//			System.out.print(ledBenefits.toString()+"\n");
 //			
+//			ILedBenefitsOperation ledBenefitsOperation = session.getMapper(ILedBenefitsOperation.class); 
+////			ledBenefitsOperation.addLEDbenefits(ledBenefits);
+//			ledBenefitsOperation.updateLEDbenefits(ledBenefits);
+////			ledBenefitsOperation.deleteLEDbenefits(0);
+////			ledBenefitsOperation.selectLEDbenefitsByID();
+//			session.commit();
+
+//2013.8.14-----DONE
+//			Glossary glossary =  new Glossary();
+////			glossary.setIsDelete(0);
+////			glossary.setArticle("hello again,glossay .");
+//			
+//			IGlossaryOperation glossaryOperation = session.getMapper(IGlossaryOperation.class);
+////			glossaryOperation.addGlossary(glossary);
+////			glossaryOperation.deleteGlossary(0);
+////			glossaryOperation.updateGlossary(glossary);
+//			glossary=glossaryOperation.selectGlossary();
+//			
+//			session.commit();
+//			System.out.println(glossary.toString());
+
+//			2013.8.14-----DONE
+//			ContactUs con =  new ContactUs();
+////			con.setIsDelete(0);
+////			con.setArticle("hhhhhh,c2.");
+//			
+//			IContactUsOperation contactUsOperation = session.getMapper(IContactUsOperation.class);
+////			contactUsOperation.addContactUs(con);
+////			contactUsOperation.deleteContactUs(0);
+////			contactUsOperation.updateContactUs(con);
+//			con=contactUsOperation.selectContactUs();
+//			
+//			session.commit();
+//			System.out.println(con.toString());
+	
+//			2013.8.14-----DONE
+//			AboutUs con =  new AboutUs();
+////			con.setIsDelete(0);
+////			con.setArticle("hh,about us.");
+////			System.out.println(con.toString());
+//			
+//			IAboutUsOperation aboutUsOperation = session.getMapper(IAboutUsOperation.class);
+////			aboutUsOperation.addAboutUs(con);
+////			aboutUsOperation.deleteAboutUs(0);
+//			aboutUsOperation.updateAboutUs(con);
+////			con=aboutUsOperation.selectAboutUs();
+//			
+//			session.commit();
+//			System.out.println(con.toString());
 			
 			String a = null;
 			if (a==null || "".equals(a.trim()))
