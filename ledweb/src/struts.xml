@@ -6,6 +6,7 @@
 
 	<constant name="struts.custom.i18n.resources" value="global" />
 	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.devMode" value="true" />
 	  
 	
     <package name="welcomePackage" extends="struts-default" namespace="/">
@@ -72,6 +73,11 @@
 			<param name="contextPath">http://localhost:8080/ledweb/</param>
     		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+		</action>
+		
+		<action name="contactUsManagement" class="ledweb.action.ContactUsAction">
+     		<!-- <result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>   -->
+    		<result name="success" type="freemarker">/WEB-INF/contactUs.ftl</result>
 		</action>
     </package>
      <package name="mobile" extends="struts-default" namespace="/m">
