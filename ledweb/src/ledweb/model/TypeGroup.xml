@@ -25,13 +25,8 @@
 		values(#{groupID},#{groupName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
-	<update id="updateTypeType" parameterType="TypeGroup" >
-        update TypeGroup set 
-        GroupName=#{groupName},
-        Reserve1=#{reserve1},
-        Reserve2=#{reserve2},
-        Reserve3=#{reserve3},
-        where TypeID=#{typeID}
+	<update id="updateTypeGroup" parameterType="TypeGroup" >
+		REPLACE INTO TypeGroup(GroupID, GroupName, Reserve1, Reserve2, Reserve3) VALUES (#{groupID},#{groupName},#{reserve1},#{reserve1},#{reserve1});  
     </update>
 	
 	<delete id="deleteTypeGroup" parameterType="String">

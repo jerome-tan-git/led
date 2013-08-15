@@ -66,131 +66,63 @@
 {
 	color:#c09853;
 }
+
+input.validate_hidden 
+{ 
+	position:absolute; 
+	height:0; 
+	width:0; 
+	border:0; 
+}
 </style>
 
 
 
 <script>
 $().ready(
-	function() {$("#categoryForm").validate(
+	function() 
 	{
-		rules:
-		{
-
-			"categoryName":
+		$("#newTypeForm").validate
+		(
 			{
-				required:true,
+				rules:
+				{
+		
+					"selectedTypeGroupID":
+					{
+						required:true,
+					}
+				},
+				messages:
+				{
+					"selectedTypeGroupID":
+					{
+						required:"please select a category group"
+					}
+				},
+				errorLabelContainer:"#messageBox",
+				errorElement:"div",
+				onfocusout: false,
+				onkeyup: false,
+				focusCleanup: true,
+				focusInvalid: false,
+				wrapper:"li",
+				showErrors:function(errorMap,errorList) {
+			        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
+					this.defaultShowErrors();
+					if (this.numberOfInvalids()>0)
+					{
+						$('#close_btn').show();
+						$('#confirm_btn').hide();
+						$('#myModal').modal('show');
+					}
+				}
 			}
-		},
-		messages:
-		{
-			"categoryName":
-			{
-				required:"please input category name"
-			}
-		},
-		errorLabelContainer:"#messageBox",
-		errorElement:"div",
-		onfocusout: false,
-		onkeyup: false,
-		focusCleanup: true,
-		focusInvalid: false,
-		wrapper:"li",
-		showErrors:function(errorMap,errorList) {
-	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
-			this.defaultShowErrors();
-			if (this.numberOfInvalids()>0)
-			{
-				$('#close_btn').show();
-				$('#confirm_btn').hide();
-				$('#myModal').modal('show');
-			}
-		}
-	}
-	)
-	}
-);
-
-$().ready(
-	function() {$("#specForm").validate(
-	{
-		rules:
-		{
-
-			"specName":
-			{
-				required:true,
-			}
-		},
-		messages:
-		{
-			"specName":
-			{
-				required:"please input spec name"
-			}
-		},
-		errorLabelContainer:"#messageBox",
-		errorElement:"div",
-		onfocusout: false,
-		onkeyup: false,
-		focusCleanup: true,
-		focusInvalid: false,
-		wrapper:"li",
-		showErrors:function(errorMap,errorList) {
-	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
-			this.defaultShowErrors();
-			if (this.numberOfInvalids()>0)
-			{
-				$('#close_btn').show();
-				$('#confirm_btn').hide();
-				$('#myModal').modal('show');
-			}
-		}
-	}
-	)
+		)
 	}
 );
 
 
-$().ready(
-	function() {$("#typeForm").validate(
-	{
-		rules:
-		{
-
-			"typeName":
-			{
-				required:true,
-			}
-		},
-		messages:
-		{
-			"typeName":
-			{
-				required:"please input type name"
-			}
-		},
-		errorLabelContainer:"#messageBox",
-		errorElement:"div",
-		onfocusout: false,
-		onkeyup: false,
-		focusCleanup: true,
-		focusInvalid: false,
-		wrapper:"li",
-		showErrors:function(errorMap,errorList) {
-	        $("#summary").text("Your form contains " + this.numberOfInvalids() + " errors,see details below.");		        
-			this.defaultShowErrors();
-			if (this.numberOfInvalids()>0)
-			{
-				$('#close_btn').show();
-				$('#confirm_btn').hide();
-				$('#myModal').modal('show');
-			}
-		}
-	}
-	)
-	}
-);
 
 function showConfirm(deleteType, ID, name)
 {
@@ -213,7 +145,7 @@ function showConfirm(deleteType, ID, name)
 	}
 	$('#deletebutton').click(function()
 	{
-		window.location.href="./sysManagement.do?"+deleteType+"="+ID
+		window.location.href="./typeManagement.do?"+deleteType+"="+ID
 	});
 	$('#close_btn').hide();
 	$('#confirm_btn').show();
@@ -323,27 +255,68 @@ jQuery(document).ready(function() {
 			    <h3 class="panel-title">Types</h3>
 			  </div>
 			  <div class="col-lg-4">
-			    <span class="label label-danger pull-right" style="cursor:hand" onClick="window.location.href='./sysManagement.do'">New Type</span>
+			    <span class="label label-danger pull-right" style="cursor:hand;margin-left:20px" onClick="window.location.href='./typeManagement.do'">New Type Group</span> 
+			    <span class="label label-success pull-right" style="cursor:hand;margin-left:20px" onClick="window.location.href='./typeManagement.do'">New Type</span>
 			  </div>
 		  </div>
 		  
 		  </div>
 		  <div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-4 well" style="margin-left:15px">
+				  
+					<form name="typeGroupEditor" action="" id="categoryForm" method="post" class="form-inline">
+					<legend> Type groups</legend>
+						<div class="row">
+				  	<div class="col-lg-9" style="padding-right: 35px;">
+						<div class="form-group">
+						    <input type="text" class="form-control" name="typeGroupName" id="exampleInputEmail2" placeholder="Type group name" value="<#if typeGroupID??>${(selectedTypeGroup.groupName)!""}</#if>">
+						  </div>
+						  </div>
+						  <div class="col-lg-3">
+						  <button type="submit" class="btn btn-default" style="margin-left:-30px" name="submitTypeGroup" value="1">Submit</button>
+						  </div>
+						</div>
+					</form>
+					
 					<ul class="list-group">
 						  <#if typeGroups??>
 					    	<#list typeGroups as typegroup>
-							  <li style="padding-right:10px" class="list-group-item <#if typeGroupID??><#if typeGroupID==typegroup.groupID>selectedType</#if></#if>">			    
+							  <li  class="list-group-item <#if typeGroupID??><#if typeGroupID==typegroup.groupID>selectedType</#if></#if>">			    
 							    <a href="?typeGroupID=${typegroup.groupID}">${typegroup.groupName}</a>
 							    <span class="pull-right" style="cursor:hand" onClick="showConfirm('deleteTypeGroupID','${typegroup.groupID}','${typegroup.groupName}')"> <img src="./images/delete_2.png" /> </span>
 							  </li>
 							  </#list>
-						</#if>
-						  
-						</ul>
+						</#if>  
+					</ul>
 		    	</div><!--<div class="col-lg-8">-->
-		    	<div class="col-lg-8">
-		    		
+		    	<div class="col-lg-8" style="margin-left:-15px; padding-left:30px">
+		    	<div class="well">
+			    	<form name="typeGroupEditor" action="" id="newTypeForm" method="post" class="form-inline">
+			    	<legend> Types of: ${(selectedTypeGroup.groupName)!""}</legend>
+			    	<input type="text" class="validate_hidden" value="${(typeGroupID)!""}" name="selectedTypeGroupID"/>
+					<div class="row">
+					  	<div class="col-lg-9">
+							<div class="form-group">
+							    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Type group name" name="typeName" value="<#if typeID??>${(selectType.typeName)!""}</#if>">
+							  </div>
+							  </div>
+							  <div class="col-lg-3">
+							  <button type="submit" class="btn btn-default" name="submitType" value="1">Submit</button>
+							  </div>
+							</div>
+						</form>
+			    		<ul class="list-group">
+							  <#if typeGroupID??>
+						    	<#list selectedTypes as type>
+								  <li style="padding-right:10px" class="list-group-item <#if typeID??><#if typeID==type.typeID>selectedSpec</#if></#if>">			    
+								    <a href="?<#if typeGroupID??>typeGroupID=${(typeGroupID)!""}&</#if>typeID=${type.typeID}">${type.typeName}</a>
+								    <span class="pull-right" style="cursor:hand" onClick="showConfirm('deleteTypeID','${type.typeID}','${type.typeName}')"> <img src="./images/delete_2.png" /> </span>
+								  </li>
+								  </#list>
+							</#if>
+							  
+						</ul>
+						</div>
 		    	</div><!--<div class="col-lg-8">-->
             </div>	
 	  </div><!--div class="panel panel-danger"-->

@@ -209,9 +209,10 @@ public class Test {
 			// .getMapper(IUserOperation.class);
 			// userOperation.deleteUser(5);
 			// session.commit();
-			
-			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
-			System.out.println(ITGO.selectAllTypeGroups());
+			ITypeOperation ito = session.getMapper(ITypeOperation.class);
+			System.out.println(ito.selectTypesByTypeGroup("aaaa").size());
+//			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
+//			System.out.println(ITGO.selectAllTypeGroups());
 //			TypeGroup tg = new TypeGroup();
 //			tg.setGroupID("aaaa");
 //			tg.setGroupName("groupName");
@@ -245,11 +246,11 @@ public class Test {
 //						 session.commit();
 //			
 			
-			String a = null;
-			if (a==null || "".equals(a.trim()))
-			{
-				System.out.println("1");
-			}
+//			String a = null;
+//			if (a==null || "".equals(a.trim()))
+//			{
+//				System.out.println("1");
+//			}
 		} finally {
 			session.close();
 		}

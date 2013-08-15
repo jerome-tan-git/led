@@ -11,5 +11,5 @@ public interface ITypeGroupOperation {
 	public int updateTypeGroup(TypeGroup typeGroup);
 	public int deleteTypeGroup(String id);
 	public int realDeleteTypeGroup(String id);
-	public List<Type> selectTypeGroups();
+	public List<TypeGroup> selectTypeGroups();
 }

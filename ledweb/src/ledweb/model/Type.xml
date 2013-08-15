@@ -19,20 +19,19 @@
 	<select id="selectAllTypes" resultMap="typeResultMap">
 		select * from Type where IsDelete = 0
 	</select>
-
+	<select id="selectTypesByTypeGroup" parameterType="String"  resultMap="typeResultMap">
+		select * from Type where Reserve1 = #{typeGroupID}
+	</select>
 	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
 		keyProperty="id">
 		insert into Type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
 		values(#{typeID},#{typeName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
-	<update id="updateTypeType" parameterType="Type" >
-        update Type set 
-        TypeName=#{typeName},
-        Reserve1=#{reserve1},
-        Reserve2=#{reserve2},
-        Reserve3=#{reserve3},
-        where TypeID=#{typeID}
+
+	
+	<update id="updateType" parameterType="Type" >
+		REPLACE INTO Type(TypeID, TypeName, Reserve1, Reserve2, Reserve3) VALUES (#{typeID},#{typeName},#{reserve1},#{reserve1},#{reserve1});  
     </update>
 	
 	<delete id="deleteType" parameterType="String">
