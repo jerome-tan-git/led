@@ -15,11 +15,13 @@ import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
 import ledweb.model.Spec;
 import ledweb.model.Type;
+import ledweb.model.TypeGroup;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
 import ledweb.model.mapper.IProductSpecOperation;
 import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
+import ledweb.model.mapper.ITypeGroupOperation;
 import ledweb.model.mapper.ITypeOperation;
 
 import org.apache.commons.io.FileUtils;
@@ -50,7 +52,7 @@ public class AddProduct extends ActionSupport {
 
 
 	private Map<String, String> specValueMap;
-
+	private List<TypeGroup> allTypeGroups;
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
 	private String productID;
@@ -62,6 +64,14 @@ public class AddProduct extends ActionSupport {
 	private String savePath;
 	private String fileType;
 	private String selectedCategory;
+	
+	public List<TypeGroup> getAllTypeGroups() {
+		return allTypeGroups;
+	}
+
+	public void setAllTypeGroups(List<TypeGroup> allTypeGroups) {
+		this.allTypeGroups = allTypeGroups;
+	}
 
 	public String getModule() {
 		return module;
@@ -414,6 +424,12 @@ public class AddProduct extends ActionSupport {
 			ICategoryOperation ico = session
 					.getMapper(ICategoryOperation.class);
 			this.setAllCategories(ico.selectAllCategories());
+			
+			
+			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
+			this.setAllTypeGroups(ITGO.selectAllTypeGroups());
+			
+			
 		} catch (Exception e) {
 			logger.error("Add product init: " + e.getMessage());
 		} finally {

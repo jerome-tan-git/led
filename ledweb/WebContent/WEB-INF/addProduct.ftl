@@ -306,14 +306,27 @@ jQuery(document).ready(function() {
 	  </div>
 	<div class="row">
 		 <div class="col-lg-12">
-		 <#if allTypes??>
-			 <#list allTypes as type>
-				<label class="checkbox-inline">
-				  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
-				</label>
-				
-			</#list>
-		</#if>
+		 <#if allTypeGroups??>
+			 <#list allTypeGroups as typeGroup>
+			 <div class="row" style="margin-bottom:10px">
+			 	<div class="col-lg-3">
+			 	<span class="pull-right" style="font-size:14px;font-weight:bold">${(typeGroup.groupName)!""}:</span>
+			 	</div>
+			 	<div class="col-lg-9">
+			 	 <#if allTypes??>
+					 <#list allTypes as type>
+					 <#if type.reserve1==typeGroup.groupID>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
+						</label>
+						</#if>
+					</#list>
+				</#if>
+			 	</div>
+			 </div>
+			 </#list>
+		 </#if>
+		
 
 		</div>
 	</div>
