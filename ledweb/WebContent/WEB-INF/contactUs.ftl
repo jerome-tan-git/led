@@ -219,7 +219,7 @@ jQuery(document).ready(function() {
 	    <div class="form-group">
 	      <label for="exampleInputPassword">Contact Us</label>
 	      
-	      <textarea class="form-control" id="editor1" rows="3" name="contactUs" placeholder="Contact Us">
+	      <textarea class="form-control" id="editor1" rows="5" name="contactUs" placeholder="Contact Us">
 	      ${(contactUs.article)!""}
 	      </textarea>
 	    </div>
@@ -234,11 +234,11 @@ jQuery(document).ready(function() {
 </form>
 </div> 
 </div>
-<!--
+
 <script>
 CKEDITOR.replace( 'editor1' );
 
 </script>
--->
+
 </body>
 </html>

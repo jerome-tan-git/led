@@ -69,13 +69,13 @@ public class ContactUsAction  extends ActionSupport {
 //		if (this.display.trim().equals("1")) {
 //			this.showContactUsContent();
 //		}
-//		if ("submit".equals(this.getIsSubmit())) {
-////			logger.warn("product title: " + this.productName);
-////			if (this.productID == null || "".equals(this.productID.trim())) {
-////				this.productID = UUID.randomUUID().toString();
-////			}
-////			this.newProduct(this.productID);
-//		}
+		if ("submit".equals(this.getIsSubmit())) {
+			logger.warn("article: " + this.contactUs.getArticle());
+//			if (this.productID == null || "".equals(this.productID.trim())) {
+//				this.productID = UUID.randomUUID().toString();
+//			}
+//			this.newProduct(this.productID);
+		}
 ////		this.init();
 		this.showContactUsContent();
 		return SUCCESS;
@@ -85,6 +85,8 @@ public class ContactUsAction  extends ActionSupport {
 	private void init() {
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		try {
+			IContactUsOperation ico = session.getMapper(IContactUsOperation.class);
+			
 //			ISpecOperation iso = session.getMapper(ISpecOperation.class);
 //			this.setAllSpecs(iso.selectAllSpec());
 //			ITypeOperation ito = session.getMapper(ITypeOperation.class);
