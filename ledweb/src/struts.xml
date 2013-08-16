@@ -87,6 +87,11 @@
     		<result name="success" type="freemarker">/WEB-INF/contactUs.ftl</result>
 		</action>
 		
+		<action name="categories" class="ledweb.action.Categories">
+    		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
+		</action>
+		
 		<action name="typeManagement" class="ledweb.action.TypeManagement">
     		<result name="input" type="freemarker">/WEB-INF/typemanagement.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/typemanagement.ftl</result>

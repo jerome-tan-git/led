@@ -345,13 +345,13 @@ input, select, label {
             </div>
             <div id="sidebar" class="noprint" style="padding-top:50px;">
                 <div class="sb_box">
-                    <h3>News</h3>
+                    <h4>News</h4>
                     <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
                     <div class="cleaner"></div>
                     <cite>Juvin <a href="#"><span>- Product specialist</span></a></cite>
             </div>
                 <div class="sb_box">
-                	<h3>Categories</h3>
+                	<h4>Categories</h4>
                    <div class="container_16" style="margin: 0 auto;">
                    	<div class="grid_2 alpha">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
@@ -415,7 +415,7 @@ input, select, label {
                 
                 
                  <div class="sb_box">
-                	<h3>Featured products</h3>
+                	<h4>Featured products</h4>
                    <div class="container_16" style="margin: 0 auto;">
                    	<div class="grid_1 alpha">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
