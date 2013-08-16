@@ -15,11 +15,13 @@ import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
 import ledweb.model.Spec;
 import ledweb.model.Type;
+import ledweb.model.TypeGroup;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
 import ledweb.model.mapper.IProductSpecOperation;
 import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
+import ledweb.model.mapper.ITypeGroupOperation;
 import ledweb.model.mapper.ITypeOperation;
 
 import org.apache.commons.io.FileUtils;
@@ -47,10 +49,10 @@ public class AddProduct extends ActionSupport {
 	private List<String> specValues;
 	private String module = "product management";
 	private String oldImage;
-
+	private String productPrice;
 
 	private Map<String, String> specValueMap;
-
+	private List<TypeGroup> allTypeGroups;
 	private List<String> selectedTypes;
 	private List<String> testSelectTypes;
 	private String productID;
@@ -63,10 +65,26 @@ public class AddProduct extends ActionSupport {
 	private String fileType;
 	private String selectedCategory;
 
+	public String getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(String productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public List<TypeGroup> getAllTypeGroups() {
+		return allTypeGroups;
+	}
+
+	public void setAllTypeGroups(List<TypeGroup> allTypeGroups) {
+		this.allTypeGroups = allTypeGroups;
+	}
+
 	public String getModule() {
 		return module;
 	}
-	
+
 	public String getProductDesc() {
 		return productDesc;
 	}
@@ -260,11 +278,6 @@ public class AddProduct extends ActionSupport {
 						new String[] { "product name" }));
 			}
 
-			if (this.product.getPrice() == 0) {
-				this.addFieldError("product.price", this.getText(
-						"struts.messages.error.field.is.empty",
-						new String[] { "product price" }));
-			}
 		}
 	}
 
@@ -273,8 +286,8 @@ public class AddProduct extends ActionSupport {
 		try {
 			IProductOperation po = session.getMapper(IProductOperation.class);
 			this.setProduct(po.selectProductByID(this.productID));
-			logger.warn("Get product ID: " + this.productID);
-			logger.warn("Get product: " + this.getProduct());
+			// logger.warn("Get product ID: " + this.productID);
+			// logger.warn("Get product: " + this.getProduct());
 
 			this.specValueMap = new HashMap<String, String>();
 
@@ -288,7 +301,7 @@ public class AddProduct extends ActionSupport {
 			for (ProductType type : this.product.getTypes()) {
 				this.selectedTypes.add(type.getTypeID() + "");
 
-				logger.warn("add type: " + type.getTypeID());
+				// logger.warn("add type: " + type.getTypeID());
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
@@ -300,8 +313,14 @@ public class AddProduct extends ActionSupport {
 	}
 
 	private void newProduct(String _newProductID) {
+		this.product = new Product();
 		this.product.setProductDesc(this.getProductDesc());
 		this.product.setProductName(this.getProductName());
+		try {
+			this.product.setPrice(Float.parseFloat(this.getProductPrice()));
+		} catch (Exception e) {
+			this.product.setPrice(0f);
+		}
 		if (this.specIDs != null) {
 			this.specValueMap = new HashMap<String, String>();
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
@@ -360,7 +379,6 @@ public class AddProduct extends ActionSupport {
 		}
 		List<ProductType> pts = new ArrayList<ProductType>();
 
-		logger.warn("Selected types: " + this.testSelectTypes);
 		for (String typeID : this.testSelectTypes) {
 			ProductType pt = new ProductType();
 			pt.setProductID(_newProductID);
@@ -370,7 +388,7 @@ public class AddProduct extends ActionSupport {
 
 		}
 		this.setSelectedTypes(this.testSelectTypes);
-		logger.warn("Product Type size: " + pts.size());
+
 		// Insert into DB
 		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
 		try {
@@ -414,6 +432,11 @@ public class AddProduct extends ActionSupport {
 			ICategoryOperation ico = session
 					.getMapper(ICategoryOperation.class);
 			this.setAllCategories(ico.selectAllCategories());
+
+			ITypeGroupOperation ITGO = session
+					.getMapper(ITypeGroupOperation.class);
+			this.setAllTypeGroups(ITGO.selectAllTypeGroups());
+
 		} catch (Exception e) {
 			logger.error("Add product init: " + e.getMessage());
 		} finally {
@@ -428,10 +451,6 @@ public class AddProduct extends ActionSupport {
 
 	@Override
 	public String execute() {
-
-		if (this.productID != null && !this.productID.trim().equals("")) {
-			this.showProduct();
-		}
 		if ("submit".equals(this.getIsSubmit())) {
 			logger.warn("product title: " + this.productName);
 			if (this.productID == null || "".equals(this.productID.trim())) {
@@ -439,6 +458,10 @@ public class AddProduct extends ActionSupport {
 			}
 			this.newProduct(this.productID);
 		}
+		if (this.productID != null && !this.productID.trim().equals("")) {
+			this.showProduct();
+		}
+
 		this.init();
 		return SUCCESS;
 	}

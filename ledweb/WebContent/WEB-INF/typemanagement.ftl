@@ -145,7 +145,7 @@ function showConfirm(deleteType, ID, name)
 	}
 	$('#deletebutton').click(function()
 	{
-		window.location.href="./typeManagement.do?"+deleteType+"="+ID
+		window.location.href="./typeManagement.do?<#if typeGroupID??>typeGroupID=${(typeGroupID)!""}&</#if>"+deleteType+"="+ID
 	});
 	$('#close_btn').hide();
 	$('#confirm_btn').show();
@@ -256,7 +256,7 @@ jQuery(document).ready(function() {
 			  </div>
 			  <div class="col-lg-4">
 			    <span class="label label-danger pull-right" style="cursor:hand;margin-left:20px" onClick="window.location.href='./typeManagement.do'">New Type Group</span> 
-			    <span class="label label-success pull-right" style="cursor:hand;margin-left:20px" onClick="window.location.href='./typeManagement.do'">New Type</span>
+			    <span class="label label-success pull-right" style="cursor:hand;margin-left:20px" onClick="window.location.href='./typeManagement.do<#if typeGroupID??>?typeGroupID=${(typeGroupID)!""}&</#if>'">New Type</span>
 			  </div>
 		  </div>
 		  

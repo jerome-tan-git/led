@@ -10,9 +10,12 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
+		<association property="typeGroup" column="reserve1" javaType="TypeGroup" 
+			select="ledweb.model.mapper.ITypeGroupOperation.selectTypeGroupByID">
+		</association>
 	</resultMap>
 
-	<select id="selectTypeByID" parameterType="String" resultType="Type">
+	<select id="selectTypeByID" parameterType="String" resultMap="typeResultMap">
 		select * from Type where TypeID = #{typeID} and IsDelete = 0
 	</select>
 

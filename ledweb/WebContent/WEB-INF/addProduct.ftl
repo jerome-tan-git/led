@@ -25,7 +25,6 @@ $().ready(
 		{
 			"product.price": 
 			{
-				required:true,
 				number:true,
 				min:0.01
 			},
@@ -38,7 +37,6 @@ $().ready(
 		{
 			"product.price": 
 			{
-				required:"please input product price",
 				number:"product price must be a number",
 				min:"product price must be greater than 0.01"
 				
@@ -230,7 +228,7 @@ jQuery(document).ready(function() {
 	    <div class="col-lg-6">
 			    <div class="form-group">
 			      <label for="exampleInputEmail">Product Price</label>
-			      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
+			      <input type="text" class="form-control" name="productPrice" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
 			    </div>
 		    </div>
 	    </div>
@@ -306,14 +304,27 @@ jQuery(document).ready(function() {
 	  </div>
 	<div class="row">
 		 <div class="col-lg-12">
-		 <#if allTypes??>
-			 <#list allTypes as type>
-				<label class="checkbox-inline">
-				  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
-				</label>
-				
-			</#list>
-		</#if>
+		 <#if allTypeGroups??>
+			 <#list allTypeGroups as typeGroup>
+			 <div class="row" style="margin-bottom:10px">
+			 	<div class="col-lg-3">
+			 	<span class="pull-right" style="font-size:14px;font-weight:bold">${(typeGroup.groupName)!""}:</span>
+			 	</div>
+			 	<div class="col-lg-9">
+			 	 <#if allTypes??>
+					 <#list allTypes as type>
+					 <#if type.reserve1==typeGroup.groupID>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
+						</label>
+						</#if>
+					</#list>
+				</#if>
+			 	</div>
+			 </div>
+			 </#list>
+		 </#if>
+		
 
 		</div>
 	</div>

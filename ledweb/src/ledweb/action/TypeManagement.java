@@ -33,7 +33,16 @@ public class TypeManagement extends ActionSupport {
 	private String deleteTypeGroupID;
 	private String submitType;
 	private String selectedTypeGroupID;
+	private String deleteTypeID;
 	
+	public String getDeleteTypeID() {
+		return deleteTypeID;
+	}
+
+	public void setDeleteTypeID(String deleteTypeID) {
+		this.deleteTypeID = deleteTypeID;
+	}
+
 	public String getSelectedTypeGroupID() {
 		return selectedTypeGroupID;
 	}
@@ -272,6 +281,21 @@ public class TypeManagement extends ActionSupport {
 		}
 	}
 
+	
+	private void deleteType()
+	{
+		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		try {
+			ITypeOperation ITO = sqlSession
+					.getMapper(ITypeOperation.class);
+			ITO.realDeleteType(this.getDeleteTypeID());
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+		}
+	}
+	
+	
 	@Override
 	public String execute() {
 		if (this.getSubmitTypeGroup() != null
@@ -283,6 +307,9 @@ public class TypeManagement extends ActionSupport {
 		} else if (this.getSubmitType() != null
 				&& !this.getSubmitType().trim().equals("")) {
 			this.typeModify();
+		} else if (this.getDeleteTypeID()!=null && !this.getDeleteTypeID().trim().equals(""))
+		{
+			this.deleteType();
 		}
 		this.init();
 		return SUCCESS;
