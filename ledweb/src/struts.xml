@@ -76,7 +76,7 @@
 		</action>
 		
 		<action name="contactUsManagement" class="ledweb.action.ContactUsAction">
-     		<!-- <result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>   -->
+     		<result name="input" type="freemarker">/WEB-INF/contactUs.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/contactUs.ftl</result>
 		</action>
 		
