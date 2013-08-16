@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import ledweb.model.Category;
+import ledweb.model.ContactUs;
 import ledweb.model.LEDbenefits;
 import ledweb.model.Order;
 import ledweb.model.Product;
@@ -18,6 +19,7 @@ import ledweb.model.Type;
 import ledweb.model.TypeGroup;
 import ledweb.model.User;
 import ledweb.model.mapper.ICategoryOperation;
+import ledweb.model.mapper.IContactUsOperation;
 import ledweb.model.mapper.ILedBenefitsOperation;
 import ledweb.model.mapper.IOrderOperation;
 import ledweb.model.mapper.IProductOperation;
@@ -209,8 +211,8 @@ public class Test {
 			// .getMapper(IUserOperation.class);
 			// userOperation.deleteUser(5);
 			// session.commit();
-			ITypeOperation ito = session.getMapper(ITypeOperation.class);
-			System.out.println(ito.selectTypesByTypeGroup("aaaa").size());
+//			ITypeOperation ito = session.getMapper(ITypeOperation.class);
+//			System.out.println(ito.selectTypesByTypeGroup("aaaa").size());
 //			ITypeGroupOperation ITGO = session.getMapper(ITypeGroupOperation.class);
 //			System.out.println(ITGO.selectAllTypeGroups());
 //			TypeGroup tg = new TypeGroup();
@@ -220,6 +222,12 @@ public class Test {
 //			ITGO.addTypeGroup(tg);
 //			session.commit();
 			
+			ContactUs conus =  new ContactUs();
+			conus.setArticle("lkjhgh");
+			IContactUsOperation ico = session.getMapper(IContactUsOperation.class);
+//			ico.addContactUs(conus);
+			ico.updateContactUs(conus);
+			session.commit();
 			
 //			LEDbenefits ledBenefits = new LEDbenefits();
 //			ledBenefits.setArticle("test add function mybatis2update!!!!!   ");
