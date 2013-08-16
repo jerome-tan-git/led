@@ -10,9 +10,15 @@
 	  
 	
     <package name="welcomePackage" extends="struts-default" namespace="/">
+	     
     	<interceptors>  
         	<interceptor name="browser" class="ledweb.action.MobileDetector"></interceptor>  
     	</interceptors>
+    	
+    	<global-results>
+	            <!-- <result name="login" type="redirect">/Login.action</result> -->
+	            <result name="error" type="freemarker">/WEB-INF/error.ftl</result>
+	        </global-results>
         <action name="welcome" class="ledweb.action.WelcomeAction">
             <result name="success">/success.jsp</result>
             <result name="input">/Login.jsp</result>
@@ -55,12 +61,13 @@
     		<result name="success" type="freemarker">/WEB-INF/index.ftl</result>
 		</action>
 		
-		<action name="productdetail" class="ledweb.action.Product">
+		<action name="productdetail" class="ledweb.action.ProductDetail">
 			<interceptor-ref name="browser">
 				<param name="includeMethods">execute</param>
 			</interceptor-ref>  
     		<result name="input" type="freemarker">/WEB-INF/product.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
+    		
 		</action>
 		
 		<action name="login" class="ledweb.action.Login">

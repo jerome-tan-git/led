@@ -231,59 +231,6 @@ input, select, label {
 				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL3528F3-60</label>&nbsp;
 				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL5050F3-30</label>&nbsp;
 				  		</div>
-				  		<div class="clear"></div>	  		
-				  		<div class="grid_1"  style="margin-top:12px">
-					  		<span style="float:right"><b>Specs:</b></span>
-				  		</div>
-				  		<div class="grid_10" style="margin-top:10px">
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Light Source:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px">
-						  		LED	
-					  		</div>
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Item Type:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px">
-						  		Light Strips
-					  		</div>
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Place of Origin:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px;">
-						  		Jiangsu China (Mainland)
-					  		</div>
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Brand Name:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px;">
-						  		RISING
-					  		</div>
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Model Number:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px;">
-						  		5050 smd
-					  		</div>
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Quality:</span>
-					  		</div>
-					  		<div class="grid_6" style="margin-left:-5px;">
-						  		high
-					  		</div>
-					  		<div class="clear"></div>
-				  		</div>
 				  		<div class="clear"></div>
 				  		<div class="grid_2 prefix_3">
 					  		&nbsp;
@@ -296,6 +243,65 @@ input, select, label {
 				  		<div class="clear"></div>
 				  	</div><!--div class="grid_11"-->
 				  	<div class="clear"></div>
+				  	
+				  	<!-- Specs -->
+				  	<div class="grid_10 omega" style="padding-top:20px;padding-bottom:5px;">
+				  		<div class="grid_10 omega"><b>Specifications:</b></div>
+				  		<div class="clear"></div>
+				  		<div class="grid_10 omega" style="margin-top:10px;padding-top:5px;padding-bottom:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+				  			<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Item Type:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px">
+						  		Light Strips
+					  		</div>
+					  		
+				  			<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Place of Origin:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px;">
+						  		Jiangsu China (Mainland)
+					  		</div>
+					  		
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Brand Name:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px;">
+						  		RISING
+					  		</div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Model Number:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px;">
+						  		5050 smd
+					  		</div>
+					  		
+					  		<div class="clear"></div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Quality:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px;">
+						  		high
+					  		</div>
+					  		
+					  		<div class="grid_2">
+						  		<span style="float:right;margin-right:-0px; color:#999">Light Source:</span>
+					  		</div>
+					  		<div class="grid_3" style="margin-left:-5px">
+						  		LED	
+					  		</div>
+					  		
+						</div>
+				  		<div class="clear"></div>
+				  	</div>
+				  	<!-- Specs -->
+				  	
+				  	
+				  	
 				  	<div class="grid_10 omega" style="padding-top:20px">
 				  		<div class="grid_10 omega"><b>Features:</b></div>
 				  		<div class="clear"></div>
