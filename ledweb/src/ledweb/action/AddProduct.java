@@ -400,13 +400,16 @@ public class AddProduct extends ActionSupport {
 
 			sqlSession.commit();
 			// Product Spec
+
 			IProductSpecOperation ipso = sqlSession
 					.getMapper(IProductSpecOperation.class);
 			ipso.deleteAllProductSpec(_newProductID);
 			logger.warn("new product ID: " + _newProductID);
-			ipso.batchAddProductSpec(pss);
-
+			if (pss.size() > 0) {
+				ipso.batchAddProductSpec(pss);
+			}
 			sqlSession.commit();
+
 			// Product type
 			IProductTypeOperation ipto = sqlSession
 					.getMapper(IProductTypeOperation.class);

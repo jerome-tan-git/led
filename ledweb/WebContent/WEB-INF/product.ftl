@@ -217,21 +217,29 @@ input, select, label {
 					 	</div>
 				  	</div>
 				  	<div class="grid_11">
+				  	<#if product.price gt 0>
 				  		<div class="grid_1">
 					  		<span style="float:right"><b>Price:</b></span>
 				  		</div>
 				  		<div class="grid_5">
-					  		<h4>$198.00</h4>
+					  		<h4>$${(product.price)!""}</h4>
 				  		</div>
 				  		<div class="clear"></div>
-				  		<div class="grid_1" >
-					  		<span style="float:right"><b>Models:</b></span>
-				  		</div>
-				  		<div class="grid_5 omega">
-				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL3528F3-60</label>&nbsp;
-				  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />MH-FL5050F3-30</label>&nbsp;
-				  		</div>
-				  		<div class="clear"></div>
+				  	</#if>
+				  	<#if typeMap??>
+					  	<#list typeMap?keys as mKey>
+					  		<div class="grid_1" >
+						  		<span style="float:right"><b>${mKey}</b></span>
+					  		</div>
+					  		<div class="grid_5 omega">
+					  		 <#assign item = typeMap[mKey]>   
+					  		 	<#list item as itemValue>
+						  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
+					  			</#list>
+					  		</div>
+					  		<div class="clear"></div>
+					  	</#list>
+				  	</#if>
 				  		<div class="grid_2 prefix_3">
 					  		&nbsp;
 				  		</div>
@@ -248,52 +256,23 @@ input, select, label {
 				  	<div class="grid_10 omega" style="padding-top:20px;padding-bottom:5px;">
 				  		<div class="grid_10 omega"><b>Specifications:</b></div>
 				  		<div class="clear"></div>
+				  		
 				  		<div class="grid_10 omega" style="margin-top:10px;padding-top:5px;padding-bottom:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
-				  			<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Item Type:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px">
-						  		Light Strips
-					  		</div>
-					  		
-				  			<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Place of Origin:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px;">
-						  		Jiangsu China (Mainland)
-					  		</div>
-					  		
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Brand Name:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px;">
-						  		RISING
-					  		</div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Model Number:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px;">
-						  		5050 smd
-					  		</div>
-					  		
-					  		<div class="clear"></div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Quality:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px;">
-						  		high
-					  		</div>
-					  		
-					  		<div class="grid_2">
-						  		<span style="float:right;margin-right:-0px; color:#999">Light Source:</span>
-					  		</div>
-					  		<div class="grid_3" style="margin-left:-5px">
-						  		LED	
-					  		</div>
+				  			 <#if product.specs??> 
+				  			 <#assign productSpecs = product.specs>
+		  						<#list productSpecs as specItem> 
+						  			<div class="grid_2">
+								  		<span style="float:right;margin-right:-0px; color:#999">${(specItem.spec.specName)!""}:</span> 
+							  		</div>
+							  		<div class="grid_3" style="margin-left:-5px">
+								  		${(specItem.specValue)!""}
+							  		</div>
+								  	<#if specItem_index%2==1>
+							  			<div class="clear"></div>
+							  		</#if>
+						  		</#list>
+					  		</#if>	
+				  			
 					  		
 						</div>
 				  		<div class="clear"></div>
@@ -303,46 +282,10 @@ input, select, label {
 				  	
 				  	
 				  	<div class="grid_10 omega" style="padding-top:20px">
-				  		<div class="grid_10 omega"><b>Features:</b></div>
-				  		<div class="clear"></div>
-				  		<div class="grid_10 omega">
-					  		<ul>
-								<li>Flexible, thin thickness, light in the weight, with 3M tape backside, easy to be shaped and installed.</li>
-								<li>Can produce any color, fullfill multi-color changing by controller simply.</li>
-								<li>Long lifespan up to 50000hrs and less energy consumed,slow failure, less maintenance /replacing cost, the economic choice.</li>
-								<li>No pollution, colorful, widely used for Building/Commercial Decorative Lighting,</li>
-								<li>Low operating temperature, Rohs approval, recyle without hazardous gasse and materials, green choice.</li>
-								<li>DC input voltage, much more safe and durable than traditional light sources</li>
-							</ul>
+				  		<!-- product description -->
+						${(product.productDesc)!""}
 						</div>
-					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
-					<div class="clear"></div>
-					
-					<div class="grid_10 omega" style="padding-top:20px">
-				  		<div class="grid_10 omega"><b>Application and Cautions:</b></div>
-				  		<div class="clear"></div>
-				  		<div class="grid_10 omega">
-					  		<ul>
-								<li>Widely used for Building /Commercial Decorative Lighting, landscape/architectural decorative lighting.</li>
-								<li>Can produce any color, fullfill multi-color changing by controller simply.</li>
-							</ul>
-						</div>
-					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
-					<div class="clear"></div>
-					
-					<div class="grid_10 omega" style="padding-top:20px">
-				  		<div class="grid_10 omega"><b>Packaging & Delivery:</b></div>
-				  		<div class="clear"></div>
-				  		<div class="grid_10 omega">
-					  		<ul>
-								<li>Packaging Detail: rising package/customer design</li>
-								<li>Delivery Detail: acording to order after 30% T/T</li>
-							</ul>
-						</div>
-					</div><!--div class="grid_10 omega" style="padding-top:20px"-->
-					<div class="clear"></div>
-					
-				 </div>				 
+				</div>				 
 				<div class="cleaner h40 noprint" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
                 <h3 class="noprint">Similar products</h3>
                 
