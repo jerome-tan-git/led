@@ -207,7 +207,7 @@ input, select, label {
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main"> 
           	<div id="content" style="padding-top:40px;">
-				<h2>LED Strip Light</h2>
+				<h2>${(product.productName)!""}</h2>
 				<div class="container_16">
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				

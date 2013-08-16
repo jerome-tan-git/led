@@ -25,7 +25,6 @@ $().ready(
 		{
 			"product.price": 
 			{
-				required:true,
 				number:true,
 				min:0.01
 			},
@@ -38,7 +37,6 @@ $().ready(
 		{
 			"product.price": 
 			{
-				required:"please input product price",
 				number:"product price must be a number",
 				min:"product price must be greater than 0.01"
 				
@@ -230,7 +228,7 @@ jQuery(document).ready(function() {
 	    <div class="col-lg-6">
 			    <div class="form-group">
 			      <label for="exampleInputEmail">Product Price</label>
-			      <input type="text" class="form-control" name="product.price" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
+			      <input type="text" class="form-control" name="productPrice" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
 			    </div>
 		    </div>
 	    </div>

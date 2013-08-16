@@ -12,7 +12,7 @@
 		<result property="reserve3" column="Reserve3" />
 	</resultMap>
 
-	<select id="selectTypeGroupByID" parameterType="String" resultType="Type">
+	<select id="selectTypeGroupByID" parameterType="String" resultType="TypeGroup">
 		select * from TypeGroup where GroupID = #{groupID} and IsDelete = 0
 	</select>
 

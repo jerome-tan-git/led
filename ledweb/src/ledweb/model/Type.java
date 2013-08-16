@@ -7,7 +7,13 @@ public class Type {
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-	
+	private TypeGroup typeGroup;
+	public TypeGroup getTypeGroup() {
+		return typeGroup;
+	}
+	public void setTypeGroup(TypeGroup typeGroup) {
+		this.typeGroup = typeGroup;
+	}
 	public String getTypeID() {
 		return typeID;
 	}
