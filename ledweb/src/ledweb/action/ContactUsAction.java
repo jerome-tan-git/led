@@ -55,9 +55,6 @@ public class ContactUsAction  extends ActionSupport {
 			logger.warn("Get contactUs versionID: " + this.contactUs.getVersionID());
 			logger.warn("Get contactUs article: " + this.contactUs.getArticle());
 			
-			System.out.println("Get contactUs versionID: " + this.contactUs.getVersionID());
-			System.out.println("Get contactUs article: " + this.contactUs.getArticle());
-
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {

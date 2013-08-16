@@ -161,6 +161,11 @@ jQuery(document).ready(function() {
 				<li class="">
 			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
 		  		</a></li>
+		  		<li class="">
+		  		<!-- module=contact management????-->
+			    <a href="./contactUsManagement.do" <#if module??><#if module=="contact management">style="background-color: #e5e3e9;"</#if></#if>"">
+			    	Page management
+		  		</a></li>
 			</ul>
           </div> 
 	</div>
@@ -174,16 +179,17 @@ jQuery(document).ready(function() {
 	    		<div class="col-lg-10">
 	    			<div class="row" style="border-bottom: 1px solid #ccc">
 		    			<div class="col-lg-12">
-		    				<span style="font-size:18pt; color:#999;">Add product</font>
-		    				<a href="./newProduct.do"><img style="margin-left: 13;" src="./images/1375609012_Black_New-Page.png" class="pull-right"></img></a>
-		    				
-		    				<a href="./productList.do"><img  src="./images/1375604792_list.png" class="pull-right"></img></a>
-		    				
-		    				
+		    				<span style="font-size:18pt; color:#999;">Static Page Management</font>
+		    				<a href="./newProduct.do">
+		    					<img style="margin-left: 13;" src="./images/1375609012_Black_New-Page.png" class="pull-right">
+		    					</img>
+		    				</a>
+		    				<a href="./productList.do">
+		    					<img  src="./images/1375604792_list.png" class="pull-right"></img>
+		    				</a>
 		    			</div>
 		    			<!--div class="col-lg-8" style="padding-right:5px"> 
 		    			
-		    				
 		    			</div-->
 	    			</div>
 	    		</div>
@@ -205,7 +211,7 @@ jQuery(document).ready(function() {
     	    <div class="panel panel-info">
      		<div class="panel-heading">
      		
-	    	<h3 class="panel-title">Basic Info</h3>
+	    	<h3 class="panel-title">Contact Us Page</h3>
 	  </div>
     
 	
