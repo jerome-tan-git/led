@@ -219,7 +219,7 @@ jQuery(document).ready(function() {
 	    <div class="form-group">
 	      <label for="exampleInputPassword">Contact Us</label>
 	      
-	      <textarea class="form-control" id="editor1" rows="5" name="contactUs" placeholder="Contact Us">
+	      <textarea class="form-control" id="editor1" rows="5" name="article" placeholder="Contact Us Article">
 	      ${(contactUs.article)!""}
 	      </textarea>
 	    </div>
