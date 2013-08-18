@@ -312,7 +312,7 @@ public class AddProduct extends ActionSupport {
 
 	}
 
-	private void newProduct(String _newProductID) {
+	private void newProduct(String _newProductID) { 
 		this.product = new Product();
 		this.product.setProductDesc(this.getProductDesc());
 		this.product.setProductName(this.getProductName());

@@ -1,11 +1,75 @@
 package ledweb.action;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
+
+import ledweb.ModelSessionFactory;
+import ledweb.model.Category;
+import ledweb.model.mapper.ICategoryOperation;
+
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Categories extends ActionSupport{
+public class Categories extends ActionSupport {
+	private List<Category> categories;
+	private String categoryID;
+	private Category selectedCategory;
+
+	public Category getSelectedCategory() {
+		return selectedCategory;
+	}
+
+	public void setSelectedCategory(Category selectedCategory) {
+		this.selectedCategory = selectedCategory;
+	}
+
+	public String getCategoryID() {
+		return categoryID;
+	}
+
+	public void setCategoryID(String categoryID) {
+		this.categoryID = categoryID;
+	}
+
+	Logger log = Logger.getLogger(Categories.class);
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	private void init(String _categoryID) {
+		SqlSession session = ModelSessionFactory.getSession().openSession();
+		try {
+			ICategoryOperation ico = session
+					.getMapper(ICategoryOperation.class);
+			this.categories = ico.selectAllCategories();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		if (_categoryID == null || _categoryID.trim().equals("")) {
+			if (this.getCategories() != null && this.getCategories().size() > 0) {
+				this.setCategoryID(this.getCategories().get(0).getCategoryID());
+				this.setSelectedCategory(this.getCategories().get(0));
+			}
+
+		} else {
+			for (Category category : this.categories) {
+				if (category.getCategoryID().trim().equals(_categoryID)) {
+					this.setSelectedCategory(category);
+					break;
+				}
+			}
+		}
+	}
+
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+		this.init(this.getCategoryID());
 		return SUCCESS;
 	}
 }

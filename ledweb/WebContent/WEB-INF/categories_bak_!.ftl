@@ -254,6 +254,57 @@ jQuery(document).ready(function() {
 		background-position: center -20px;
 	}
     
+    #Div1
+    {
+      float:left; width:150px; height:180px;
+    }
+    #Div2
+    {
+       width:600px;height:180px; float:left;
+    }
+     #Div3
+    {
+       width:210px;height:180px; float:left;
+    }
+    
+     .non
+	 {
+	 	border-right:1px solid #eee;
+	 }
+	.non-select  {
+		cursor:pointer;
+	    border-right:1px solid #eee;
+	}
+	 
+	#tabnav ul li {
+	    display:inline;
+	    margin-left:10px;
+	}
+	 
+	#tabnav ul li a {
+	    background:#fff;    
+	    padding:5px 10px 5px 10px;
+	    border:1px solid #999;
+	}
+	 
+	#tabnav ul li a:hover {
+	    background:#666;    
+	}
+	 
+	.here {
+	    border-top:1px solid #eee;
+	    border-left:0px solid #eee;
+	    border-bottom:1px solid #eee;
+	    background-image: url(./images/tabbg.png);
+  		background-repeat: repeat-y;
+  		cursor:pointer;
+	}
+	
+	
+	
+	.non-select:hover {
+	    background:#eee;
+	}
 </style>
 </head>
 <body>
@@ -268,7 +319,7 @@ jQuery(document).ready(function() {
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
-        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
+        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px; padding-left:50px">
 				 <ul>
 					<li class="bar"><a  href="/">Home</a></li>
 					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
@@ -284,7 +335,7 @@ jQuery(document).ready(function() {
 				</li>
 				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
 				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
-
+ 
 				</li>
 				</ul>
 				<br style="clear: left" />
@@ -294,118 +345,52 @@ jQuery(document).ready(function() {
     </div> <!-- end of header -->
     
     <div id="templatemo_middle" class="img_hand" >
-    	 <div id="slides">
-	      <img src="images/slide-2.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-	      <img src="images/slide-3.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-	      <img src="images/slide-4.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-	      <img src="images/slide-1.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
-	    </div>
-
-      
-        <div class="cleaner"></div>
     </div> <!-- end of middle -->
     
 	<div id="templatemo_main_wrapper">
-    	<div id="templatemo_main">
-	    	<div class="container_12">
-		    	<div class="grid_12">
-				  <div id='carousel_container' style="height:260px;margin: 0 auto;">
-					  <div id='left_scroll'><div class="arrow left"></div></div>
-					    <div id='carousel_inner'>
-					        <ul id='carousel_ul'>
-					        <li><a href='#'>
-								<div class="grid_3">
-									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-									    <div class="nailthumb-container">
-											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
-										</div>
-									</div>
-									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 5</h5></div>
-										<p>
-											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-										</p>
-										<a href="#" class="more"></a>
-									</div>			
-									</div>
-								</a></li>
-								
-								<li><a href='#'>
-					            	<div class="grid_3">
-										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-										    <div class="nailthumb-container">
-												<img src="images/tripelights.jpg" alt="Image 01" />
-											</div>
-										
-										</div>
-										<div style="margin: 0 auto;width:190px">
-											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
-											<p>
-												Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-											</p>
-											<a href="#" class="more"></a>
-										</div>					
-									  </div>
-								</li>
-					            <li><a href='#'>
-					            <div class="grid_3">
-									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-									    <div class="nailthumb-container">
-											<img src="images/downlights30814bl.jpg" alt="Image 01" class="image_frame"/> 
-										</div>
-									</div>
-									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Down lights 2</h5></div>
-										<p>
-											The CR Series is an amazing combination of price and performance. Built upon technical innovations in optical, electronics, mechanical and thermal design, the CR Series provides amazing color accuracy and advanced dimming capabilities.
-										</p>
-										<a href="#" class="more"></a>
-									</div>
-								 </div>
-								</a></li>
-					            <li><a href='#'>
-					            	<div class="grid_3">
-										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-										    <div class="nailthumb-container">
-												<img src="images/rope_light.jpg" alt="Image 01" class="image_frame"/> 
-											</div>	
-										</div>
-										<div style="margin: 0 auto;width:190px">
-											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Rope Lights 3</h5></div>
-											<p>
-												WideLoyal, A leading manufacturer and supplier in LED rope light, rope light, LED strip light, flexi light, holiday light, decoration light and accessories.
-											</p>
-											<a href="#" class="more"></a>
-										</div>
-									</div>
-								</a></li>
-					            <li><a href='#'>
-					            				  
-								<div class="grid_3">
-									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-									    <div class="nailthumb-container">
-											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
-										</div>
-									</div>
-									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 4</h5></div>
-										<p>
-											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-										</p>
-										<a href="#" class="more"></a>
-									</div>			
-									</div>
-								</a></li>
-								
-
-								
-					        </ul>
-					    </div>
-					  <div id='right_scroll'><div class="arrow right"></div></div>
-				  </div><!--div id='carousel_container' style="height:260px"-->
-			  </div><!--div class="container_12"-->
-			</div>	  
-        </div><!--div id="templatemo_main"-->
+	<div class="container_12" style="height:700px;padding-top:20px"> 
+		<div id="Div1" style="height:600px;">
+			<div class="grid_2" style="height:35px"></div>
+	    		<div class="clear"></div>
+	    		<div class="grid_2 non-select" style="height:35px"></div>
+	    		<div class="clear"></div>
+	    		
+	    		<div class="grid_2 here" style="height:35px">
+	    			<span style="float:right; padding-top:10px; padding-right:9px;"><h6>Down lights</h6></span>
+	    		</div>
+	    		<div class="clear"></div>
+	    		
+	    		<div class="grid_2 non-select" style="height:35px">
+	    			<span style="float:right; padding-top:10px; padding-right:9px;"><h6>Strip lights</h6></span>
+	    		</div>
+	    		<div class="clear"></div>
+	    		
+				<div class="grid_2 non-select" style="height:35px">
+	    			<span style="float:right; padding-top:10px; padding-right:9px;"><h6>Rope lights</h6></span>
+	    		</div>
+	    		<div class="clear"></div>
+	    		
+	    		<div class="grid_2 non-select" style="height:35px">
+	    			<span style="float:right; padding-top:10px; padding-right:9px;"><h6>LED puck lights</h6></span>
+	    		</div>
+	    		<div class="clear"></div>
+	    		
+	    		<div class="grid_2 non" style="height:235px"></div>
+	    		<div class="clear"></div>
+    	 </div><!-- <div id="Div1" style="height:600px;"> -->
+    	 <div id="Div2" style="height:600px;">
+    	 </div>
+    	 <div id="Div3" style="height:600px;background-color:blue">
+    	 <div class="sb_box" style="padding-top:20px">
+                    <h4>News</h4>
+                    <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
+                    <div class="cleaner"></div>
+                    <cite>Juvin <a href="#"><span>- Product specialist</span></a></cite>
+            </div><!-- news -->
+    	 	
+    	 </div>
+	</div><!-- <div class="container_12"> -->
+    	 
     </div> <!-- end of main wrapper -->
     
 </div> <!-- end of wrapper -->
