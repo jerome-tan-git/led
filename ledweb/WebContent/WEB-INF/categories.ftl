@@ -314,8 +314,12 @@ input, select, label {
 						
 						</div>
 						</a>
-						<div style="margin: 0 auto;"><a href="./productdetail.do?productID=${(product.productID)!"#"}" title="${(product.productName)!""}">
-							<div style="padding-top:10px; margin-left:10px; width:130px; text-align:center; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; "><h5 style="font-size: 14px;font-weight: 700;">${(product.productName)!""}</h5></div>
+						<div style="margin: 0 auto;">
+							<div style="padding-top:10px; margin-left:10px; width:130px; text-align:center; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">
+								<a href="./productdetail.do?productID=${(product.productID)!"#"}" title="${(product.productName)!""}">
+									<h5 style="font-size: 14px;font-weight: 700;">${(product.productName)!""}</h5>
+								</a>
+							</div>
 							
 						</div>					
 					  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
