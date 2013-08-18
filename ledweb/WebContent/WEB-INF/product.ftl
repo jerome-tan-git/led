@@ -218,7 +218,7 @@ input, select, label {
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
-								<img src="images/stripl.jpg" alt="Image 01">
+								<img onerror="this.src='./images/no.jpg'" src="${(product.productImage)!""}" alt="Image 01">
 						 	</div>
 					 	</div>
 				  	</div>
@@ -240,7 +240,7 @@ input, select, label {
 					  		<div class="grid_5 omega">
 					  		 <#assign item = typeMap[mKey]>   
 					  		 	<#list item as itemValue>
-						  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
+						  			<label><input type="radio" name="${mKey}" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
 					  			</#list>
 					  		</div>
 					  		<div class="clear"></div>
@@ -292,7 +292,7 @@ input, select, label {
 				  	
 				  	
 				  	
-				  	<div class="grid_10 omega" style="padding-top:20px">
+				  	<div class="grid_10 omega" style="padding-top:20px;padding-left:10px">
 				  		<!-- product description -->
 						${(product.productDesc)!""}
 						</div>

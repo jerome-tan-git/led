@@ -163,7 +163,7 @@ border-color: #dFb5b4;
 									<img src="./${savePath}/${(f.name)!""}" />
 								</div>
 								<div style="margin-top:10px; color:#ccc"> 
-								<input type="text" value="${contextPath}${savePath}/${(f.name)!""}" class="form-control"   />
+								<input type="text" value="${savePath}/${(f.name)!""}" class="form-control"   />
 								</div>
 							</div>
 							</#list>
