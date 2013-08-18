@@ -206,9 +206,15 @@ input, select, label {
     
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main"> 
-          	<div id="content" style="padding-top:40px;">
-				<h2>${(product.productName)!""}</h2>
+          	<div id="content" style="">
 				<div class="container_16">
+					<div class="grid_16" style="padding-top:10px; padding-bottom:20px;">
+						<a href="./">Home</a> &gt; <a href="./category.do?categoryID=${(product.categoryID)!"#"}">${(product.category.categoryName)!""}</a>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_16">
+						<h2>${(product.productName)!""}</h2>
+					</div>
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
@@ -253,13 +259,16 @@ input, select, label {
 				  	<div class="clear"></div>
 				  	
 				  	<!-- Specs -->
+				  	 <#if product.specs??> 
+				  			 
+				  	<#assign productSpecs = product.specs>
+				  	<#if (productSpecs?size>0)>
 				  	<div class="grid_10 omega" style="padding-top:20px;padding-bottom:5px;">
 				  		<div class="grid_10 omega"><b>Specifications:</b></div>
 				  		<div class="clear"></div>
 				  		
 				  		<div class="grid_10 omega" style="margin-top:10px;padding-top:5px;padding-bottom:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
-				  			 <#if product.specs??> 
-				  			 <#assign productSpecs = product.specs>
+				  			
 		  						<#list productSpecs as specItem> 
 						  			<div class="grid_2">
 								  		<span style="float:right;margin-right:-0px; color:#999">${(specItem.spec.specName)!""}:</span> 
@@ -271,12 +280,14 @@ input, select, label {
 							  			<div class="clear"></div>
 							  		</#if>
 						  		</#list>
-					  		</#if>	
+						  
 				  			
 					  		
 						</div>
 				  		<div class="clear"></div>
 				  	</div>
+				  	</#if>
+					</#if>	
 				  	<!-- Specs -->
 				  	
 				  	

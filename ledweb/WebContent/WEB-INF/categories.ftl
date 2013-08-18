@@ -300,66 +300,26 @@ input, select, label {
 	 			 	<h3>${(selectedCategory.categoryName)!""}</h3>
 	 			 </div><!-- <div class="grid_16"> -->
 	 			 <div class="clear"></div>
-    	 		 <div class="grid_3" style="margin-left:-15px">
-					<a href="#" style="">
-					<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
-							<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
-						</div>
-					
-					</div>
-					</a>
-					<div style="margin: 0 auto;"><a href="#">
-						<div style="padding-top:10px; text-align:center"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
+	 			 
+	 			 
+	 			 <#if products??>
+	 			 <#list products as product>
+	    	 		 <div class="grid_3" style="margin-left:-15px">
+						<a href="./productdetail.do?productID=${(product.productID)!"#"}" style="">
+						<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
+						    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
+								<img alt="Image 01" src="${(product.productImage)!""}"  onerror="this.src='./images/no.jpg'" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
+							</div>
 						
-					</div>					
-				  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
-				  <div class="grid_3" style="margin-left:-15px">
-					<a href="#" style="">
-					<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
-							<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
 						</div>
-					
-					</div>
-					</a>
-					<div style="margin: 0 auto;"><a href="#">
-						<div style="padding-top:10px; text-align:center"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
-						
-					</div>					
-				  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
-				  
-				  <div class="grid_3" style="margin-left:-15px">
-					<a href="#" style="">
-					<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
-							<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
-						</div>
-					
-					</div>
-					</a>
-					<div style="margin: 0 auto;"><a href="#">
-						<div style="padding-top:10px; text-align:center"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
-						
-					</div>					
-				  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
-				  
-				  	 <div class="clear"></div>
-				  
-				    <div class="grid_3" style="margin-left:-15px">
-					<a href="#" style="">
-					<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-					    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
-							<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
-						</div>
-					
-					</div>
-					</a>
-					<div style="margin: 0 auto;"><a href="#">
-						<div style="padding-top:10px; text-align:center"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
-						
-					</div>					
-				  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
+						</a>
+						<div style="margin: 0 auto;"><a href="./productdetail.do?productID=${(product.productID)!"#"}" title="${(product.productName)!""}">
+							<div style="padding-top:10px; margin-left:10px; width:130px; text-align:center; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; "><h5 style="font-size: 14px;font-weight: 700;">${(product.productName)!""}</h5></div>
+							
+						</div>					
+					  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
+					  </#list>
+				 </#if>
 				  
 				  
     	 	</div> <!-- <div class="container_16"> -->
@@ -368,13 +328,11 @@ input, select, label {
     	 <div class="sb_box" style="padding-top:60px;margin-right:-60px">
                     <h4>News</h4>
                     <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
-                    <div class="cleaner"></div>
-                    <cite>Juvin <a href="#"><span>- Product specialist</span></a></cite>
-            </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
+           	 </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
     	 	
     	 	<h4>Featured products</h4>
 				<div class="container_16" style="margin: 0 auto;">
-                   	<div class="grid_1 alpha">
+                   	<div class="grid_1 alpha" style="margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 93.33333333333333px; height: 70px; top: 0px; left: -11.666666666666664px;" src="images/feature1.jpg">
@@ -382,7 +340,7 @@ input, select, label {
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_1" style="margin-left:48px">
+                   	<div class="grid_1" style="margin-left:48px;margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature2.jpg">
@@ -390,7 +348,7 @@ input, select, label {
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px">
+                   	<div class="grid_1 omega" style="margin-left:48px;margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 93.45360824742268px; top: -11.72680412371134px; left: 0px;" src="images/feature3.jpg">
@@ -398,9 +356,9 @@ input, select, label {
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
+                   	<div class="cleaner"></div>
                    	
-                   	<div class="grid_1 alpha">
+                   	<div class="grid_1 alpha" style="margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature4.jpg">
@@ -408,7 +366,7 @@ input, select, label {
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_1" style="margin-left:48px">
+                   	<div class="grid_1" style="margin-left:48px;margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 92.93515358361775px; height: 70px; top: 0px; left: -11.467576791808874px;" src="images/feature5.jpg">
@@ -416,7 +374,7 @@ input, select, label {
 						 	</div>
 					 	</div>
                    	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px">
+                   	<div class="grid_1 omega" style="margin-left:48px;margin-top:10px">
                    		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
 								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature6.jpg">
