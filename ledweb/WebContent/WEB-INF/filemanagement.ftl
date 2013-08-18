@@ -156,6 +156,7 @@ border-color: #dFb5b4;
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
+							<#if imageFiles??>
 							<#list imageFiles as f>
 							<div style="float:left; width:212px; height:270px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
 								<div class="nailthumb-container square">
@@ -166,6 +167,7 @@ border-color: #dFb5b4;
 								</div>
 							</div>
 							</#list>
+							</#if>
 								
 					</div>
 				</div>							
