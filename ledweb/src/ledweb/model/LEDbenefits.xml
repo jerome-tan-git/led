@@ -33,9 +33,10 @@
         LEDbenefit2=#{benefit2},
         LEDbenefit3=#{benefit3},
         LEDbenefit4=#{benefit4},
-        LEDbenefit5=#{benefit5},
+        LEDbenefit5=#{benefit5}
         where IsActive=1
     </update>
+    
 	
 	<delete id="deleteLEDbenefits" parameterType="String">
 		<!--  SET SQL_SAFE_UPDATES = 0;-->
