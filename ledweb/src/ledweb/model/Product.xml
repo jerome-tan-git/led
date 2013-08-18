@@ -32,6 +32,12 @@
 		select * from Product where IsDelete = 0;
 	</select>
 
+	<select id="selectFeaturedProducts" resultMap="resultListProduct">
+		select * from Product where IsDelete = 0 and Reserve1='1';
+	</select>
+
+
+
 	<insert id="addProduct" parameterType="Product">
 		insert into Product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
 		values(#{productID},#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
