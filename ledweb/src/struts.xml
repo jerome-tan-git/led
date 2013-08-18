@@ -96,7 +96,7 @@
 		</action>
 		
 		
-		<action name="category" class="ledweb.action.Categories">
+		<action name="categories" class="ledweb.action.Categories">
     		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
 		</action>
