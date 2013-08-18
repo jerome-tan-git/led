@@ -14,7 +14,7 @@
 
 	</resultMap>
 
-	<select id="selectCategoryByID" parameterType="int" resultType="Category">
+	<select id="selectCategoryByID" parameterType="String" resultType="Category">
 		select * from Category where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
 
