@@ -94,7 +94,10 @@
      		<result name="input" type="freemarker">/WEB-INF/glossary.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/glossary.ftl</result>
 		</action>
-		
+		<action name="benefitsManagement" class="ledweb.action.LEDbenefitsAction">
+     		<result name="input" type="freemarker">/WEB-INF/benefits.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/benefits.ftl</result>
+		</action>
 		
 		<action name="category" class="ledweb.action.Categories">
     		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
