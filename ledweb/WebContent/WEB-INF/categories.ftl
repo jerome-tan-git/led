@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>

@@ -50,7 +50,7 @@ public class AddProduct extends ActionSupport {
 	private String module = "product management";
 	private String oldImage;
 	private String productPrice;
-
+	private String featuredProduct;
 	private Map<String, String> specValueMap;
 	private List<TypeGroup> allTypeGroups;
 	private List<String> selectedTypes;
@@ -64,6 +64,14 @@ public class AddProduct extends ActionSupport {
 	private String savePath;
 	private String fileType;
 	private String selectedCategory;
+
+	public String getFeaturedProduct() {
+		return featuredProduct;
+	}
+
+	public void setFeaturedProduct(String featuredProduct) {
+		this.featuredProduct = featuredProduct;
+	}
 
 	public String getProductPrice() {
 		return productPrice;
@@ -316,6 +324,14 @@ public class AddProduct extends ActionSupport {
 		this.product = new Product();
 		this.product.setProductDesc(this.getProductDesc());
 		this.product.setProductName(this.getProductName());
+		if(this.getFeaturedProduct()==null)
+		{
+			this.product.setReserve1("0");
+		}
+		else 
+		{
+			this.product.setReserve1("1");
+		}
 		try {
 			this.product.setPrice(Float.parseFloat(this.getProductPrice()));
 		} catch (Exception e) {
@@ -354,9 +370,9 @@ public class AddProduct extends ActionSupport {
 
 		this.getProduct().setProductID(_newProductID);
 		this.getProduct().setCategoryID(this.selectedCategory);
-		logger.warn("Select category: " + this.selectedCategory);
-		logger.warn("Real image path: " + this.getRealSavePath()
-				+ File.separator + newFileName);
+//		logger.warn("Select category: " + this.selectedCategory);
+//		logger.warn("Real image path: " + this.getRealSavePath()
+//				+ File.separator + newFileName);
 		if (this.getNewImage() != null) {
 			if (new File(this.getRealSavePath() + File.separator + newFileName)
 					.exists()) {
@@ -366,7 +382,7 @@ public class AddProduct extends ActionSupport {
 		} else if (this.getOldImage() != null) {
 			this.getProduct().setProductImage(this.getOldImage());
 		}
-		logger.warn("Product desc: " + this.getProduct().getProductDesc());
+//		logger.warn("Product desc: " + this.getProduct().getProductDesc());
 		List<ProductSpec> pss = new ArrayList<ProductSpec>();
 		if (this.getSpecIDs() != null) {
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
@@ -415,7 +431,7 @@ public class AddProduct extends ActionSupport {
 					.getMapper(IProductTypeOperation.class);
 			ipto.deleteAllProductType(_newProductID);
 			ipto.batchAddProductType(pts);
-			logger.warn(pts);
+//			logger.warn(pts);
 			sqlSession.commit();
 
 		} catch (Exception e) {
