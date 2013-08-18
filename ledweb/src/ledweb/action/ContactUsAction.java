@@ -1,6 +1,5 @@
 package ledweb.action;
 
-import java.util.UUID;
 
 import ledweb.ModelSessionFactory;
 import ledweb.model.ContactUs;
