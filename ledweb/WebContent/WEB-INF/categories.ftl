@@ -332,57 +332,24 @@ input, select, label {
            	 </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
     	 	
     	 	<h4>Featured products</h4>
-				<div class="container_16" style="margin: 0 auto;">
-                   	<div class="grid_1 alpha" style="margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 93.33333333333333px; height: 70px; top: 0px; left: -11.666666666666664px;" src="images/feature1.jpg">
-								asfsdf
+				  <div class="container_16" style="margin: 0 auto;">
+                   <#if featuredProducts??>
+	                   <#list featuredProducts as fproduct>
+	                   	<div class="grid_1 alpha" style="margin-top:10px;<#if fproduct_index %3 !=0>margin-left:48px</#if>">
+	                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+								<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
+									<a href="./productdetail.do?productID=${(fproduct.productID)!""}"><img alt="Image 01" onerror="this.src='./images/no.jpg'" class="nailthumb-image" src="${(fproduct.productImage)}"></a>
+									${(fproduct.productName)!""}
+							 	</div>
 						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1" style="margin-left:48px;margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature2.jpg">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px;margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 93.45360824742268px; top: -11.72680412371134px; left: 0px;" src="images/feature3.jpg">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="cleaner"></div>
+	                   	</div>
+	                   	<#if fproduct_index %3 ==2>
+	                   		<div class="cleaner"></div>
+	                   	</#if>
+	                   	</#list>
+                   	</#if>
+                   	</div><!--div class="container_16"-->
                    	
-                   	<div class="grid_1 alpha" style="margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature4.jpg">
-								asfsdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1" style="margin-left:48px;margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 92.93515358361775px; height: 70px; top: 0px; left: -11.467576791808874px;" src="images/feature5.jpg">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px;margin-top:10px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-								<img alt="Image 01" class="nailthumb-image" style="position: relative; width: 70px; height: 70px; top: 0px; left: 0px;" src="images/feature6.jpg">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
                  
                    	
                    	

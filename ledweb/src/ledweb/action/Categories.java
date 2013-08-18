@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 import ledweb.ModelSessionFactory;
+import ledweb.Util;
 import ledweb.model.Category;
 import ledweb.model.Product;
 import ledweb.model.mapper.ICategoryOperation;
@@ -18,6 +19,16 @@ public class Categories extends ActionSupport {
 	private String categoryID;
 	private Category selectedCategory;
 	private List<Product> products;
+	private List<Product> featuredProducts;
+	
+	public List<Product> getFeaturedProducts() {
+		return featuredProducts;
+	}
+
+	public void setFeaturedProducts(List<Product> featuredProducts) {
+		this.featuredProducts = featuredProducts;
+	}
+
 	public Category getSelectedCategory() {
 		return selectedCategory;
 	}
@@ -82,7 +93,7 @@ public class Categories extends ActionSupport {
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-		
+		this.featuredProducts = Util.getFeaturedProducts();
 	}
 
 	@Override
