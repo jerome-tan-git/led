@@ -364,7 +364,7 @@ input, select, label {
             </div>
                 <div class="sb_box">
                 	<h4>Categories</h4>
-                   <div class="container_16" style="margin: 0 auto;">
+                   <div class="container_16" style="margin: 0 auto; width:280px">
                    	<div class="grid_2 alpha">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
@@ -428,7 +428,7 @@ input, select, label {
                 
                  <div class="sb_box">
                 	<h4>Featured products</h4>
-                   <div class="container_16" style="margin: 0 auto;">
+                   <div class="container_16" style="margin: 0 auto; width:280px">
                    <#if featuredProducts??>
 	                   <#list featuredProducts as fproduct>
 	                   	<div class="grid_1 alpha" style="margin-top:10px;<#if fproduct_index %3 !=0>margin-left:48px</#if>">
