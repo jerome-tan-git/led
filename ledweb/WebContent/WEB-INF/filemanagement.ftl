@@ -154,23 +154,39 @@ border-color: #dFb5b4;
 								</form>
 							</div>
 						</div>
+						<form id="commentForm" action="" class="form-inline" class="form-control" method="post">
 						<div class="row">
+							
 							<div class="col-lg-12">
 							<#if imageFiles??>
+							
 							<#list imageFiles as f>
-							<div style="float:left; width:212px; height:270px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
-								<div class="nailthumb-container square">
-									<img src="./${savePath}/${(f.name)!""}" />
+							
+								<div style="float:left; width:212px; height:290px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
+									<div class="nailthumb-container square">
+										<img src="./${savePath}/${(f.name)!""}" />
+									</div>
+									<div style="margin-top:10px; color:#ccc"> 
+									<input type="text" value="${savePath}/${(f.name)!""}" class="form-control"   />
+									<div style="padding-top:10px; padding-left:5px">
+									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="homeImageUrl" value="${savePath}/${(f.name)!""}" />carrousel</label>
+									</div>
+									</div>
 								</div>
-								<div style="margin-top:10px; color:#ccc"> 
-								<input type="text" value="${contextPath}${savePath}/${(f.name)!""}" class="form-control"   />
-								</div>
-							</div>
-							</#list>
-							</#if>
 								
+							</#list>
+							
+							
+							</#if>
+							
 					</div>
-				</div>							
+				</div>
+				<div class="row">
+				<div class="col-lg-11">		
+					<button type="submit" class="btn btn-primary pull-right" name="indexImage" value="1">Submit</button> 
+					</form>			
+				</div>		
+				</div>
 			</div><!--div class="col-lg-8"-->
 	
 	</div>

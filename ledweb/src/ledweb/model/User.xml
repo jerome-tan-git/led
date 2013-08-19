@@ -17,22 +17,22 @@
 	</resultMap>
 
 	<select id="selectUserByID" parameterType="int" resultType="User">
-		select * from User where UserID = #{userID} and IsDelete = 0
+		select * from user where UserID = #{userID} and IsDelete = 0
 	</select>
 
 	<select id="selectUsers" parameterType="string" resultMap="resultListUser">
-		select * from User where UserName like #{userName}
+		select * from user where UserName like #{userName}
 	</select>
 
 
 	<insert id="addUser" parameterType="User" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into User(UserName,Phone,Password,Address,Reserve1,Reserve2,Reserve3)
+		insert into user(UserName,Phone,Password,Address,Reserve1,Reserve2,Reserve3)
 		values(#{userName},#{phone},#{password},#{address},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateUser" parameterType="User" >
-        update User set 
+        update user set 
         UserName=#{userName},
         Phone=#{phone},
         Password=#{password},
@@ -44,7 +44,7 @@
     </update>
 	
 	<delete id="deleteUser" parameterType="int">
-         update User set 
+         update user set 
         IsDelete=1
         where UserID=#{userID}
     </delete>

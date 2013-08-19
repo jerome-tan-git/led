@@ -18,22 +18,22 @@
 	</resultMap>
 
 	<select id="selectProductSpecByID" parameterType="String" resultMap="resultListProductSpec">
-		select * from ProductSpec where ProductSpecID = #{productSpecID} and IsDelete = 0
+		select * from productspec where ProductSpecID = #{productSpecID} and IsDelete = 0
 	</select>
 
 	<select id="selectProductSpecByProductID" parameterType="String" resultMap="resultListProductSpec">
-		select * from ProductSpec where ProductID = #{productID} and IsDelete = 0
+		select * from productspec where ProductID = #{productID} and IsDelete = 0
 	</select>
 
 
 	<insert id="addProductSpec" parameterType="ProductSpec" useGeneratedKeys="true"
 		keyProperty="productSpecID">
-		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3)
+		insert into productspec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3)
 		values(#{productID},#{specID},#{specValue},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateProductSpec" parameterType="ProductSpec" >
-        update ProductSpec set 
+        update productspec set 
         ProductID=#{productID},
         SpecID=#{specID},
         SpecValue=#{specValue},
@@ -44,24 +44,24 @@
     </update>
 	
 	<update id="deleteProductSpec" parameterType="String">
-         update ProductSpec set 
+         update productspec set 
         IsDelete=1
         where ProductSpecID=#{productSpecID}
     </update>
     
 	<update id="deleteAllProductSpec" parameterType="String">
-         update ProductSpec set 
+         update productspec set 
         IsDelete=1
         where ProductID=#{productID}
     </update>
     <delete id="deleteProductSpecBySpecID" parameterType="String">
-         update ProductSpec set 
+         update productspec set 
         IsDelete=1
         where SpecID=#{SpecID}
     
     </delete>
     <insert id="batchAddProductSpec"  parameterType="java.util.List">
-    		insert into ProductSpec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 
+    		insert into productspec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 
     		values
     		<foreach collection="list" item="item" index="index" separator="," >  
         			(#{item.productID},#{item.specID},

@@ -13,31 +13,31 @@
 	</resultMap>
 
 	<select id="selectTypeGroupByID" parameterType="String" resultType="TypeGroup">
-		select * from TypeGroup where GroupID = #{groupID} and IsDelete = 0
+		select * from typegroup where GroupID = #{groupID} and IsDelete = 0
 	</select>
 
 	<select id="selectAllTypeGroups" resultMap="typeGroupResultMap">
-		select * from TypeGroup where IsDelete = 0
+		select * from typegroup where IsDelete = 0
 	</select>
 
 	<insert id="addTypeGroup" parameterType="TypeGroup">
-		insert into TypeGroup(GroupID,GroupName,Reserve1,Reserve2,Reserve3)
+		insert into typegroup(GroupID,GroupName,Reserve1,Reserve2,Reserve3)
 		values(#{groupID},#{groupName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateTypeGroup" parameterType="TypeGroup" >
-		REPLACE INTO TypeGroup(GroupID, GroupName, Reserve1, Reserve2, Reserve3) VALUES (#{groupID},#{groupName},#{reserve1},#{reserve1},#{reserve1});  
+		REPLACE INTO typegroup(GroupID, GroupName, Reserve1, Reserve2, Reserve3) VALUES (#{groupID},#{groupName},#{reserve1},#{reserve1},#{reserve1});  
     </update>
 	
 	<delete id="deleteTypeGroup" parameterType="String">
-         update TypeGroup set 
+         update typegroup set 
         IsDelete=1
         where TypeID=#{typeID}
     </delete>
 	
 	
 	<delete id="realDeleteTypeGroup" parameterType="String">
-         delete from TypeGroup where GroupID=#{groupID};
+         delete from typegroup where GroupID=#{groupID};
     </delete>
 	
 </mapper>

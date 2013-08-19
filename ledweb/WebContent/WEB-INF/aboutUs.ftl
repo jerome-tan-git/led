@@ -25,6 +25,7 @@ $().ready(
 		{
 			"product.price": 
 			{
+				required:true,
 				number:true,
 				min:0.01
 			},
@@ -37,6 +38,7 @@ $().ready(
 		{
 			"product.price": 
 			{
+				required:"please input product price",
 				number:"product price must be a number",
 				min:"product price must be greater than 0.01"
 				
@@ -159,8 +161,13 @@ jQuery(document).ready(function() {
 				<li class="">
 			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
 		  		</a></li>
+		  		<li class="">
+		  		<!-- module=contact management????-->
+			    <a href="./contactUsManagement.do" <#if module??><#if module=="contact management">style="background-color: #e5e3e9;"</#if></#if>"">
+			    	Page management
+		  		</a></li>
 			</ul>
-          </div> <!-- <div class="bs-sidebar pull-right"> -->
+          </div> 
 	</div>
   <div class="col-lg-8">
 	<div class="well">
@@ -172,16 +179,21 @@ jQuery(document).ready(function() {
 	    		<div class="col-lg-10">
 	    			<div class="row" style="border-bottom: 1px solid #ccc">
 		    			<div class="col-lg-12">
-		    				<span style="font-size:18pt; color:#999;">Add product</font>
-		    				<a href="./newProduct.do"><img style="margin-left: 13;" src="./images/1375609012_Black_New-Page.png" class="pull-right"></img></a>
-		    				
-		    				<a href="./productList.do"><img  src="./images/1375604792_list.png" class="pull-right"></img></a>
-		    				
-		    				
+		    				<span style="font-size:18pt; color:#999;">Static Page Management</font>
+		
+		    				<a href="./contactUsManagement.do">
+		    					<img style="margin-left: 13;" src="./images/contactus.png" class="pull-right"></img>
+		    				</a>
+		    				<a href="./glossaryManagement.do">
+		    					<img style="margin-left: 13;" src="./images/glossary.png" class="pull-right"></img>
+		    				</a>
+		    				<a href="./benefitsManagement.do">
+		    					<img style="margin-left: 13;" src="./images/benifit.png" class="pull-right">
+		    					</img>
+		    				</a>
 		    			</div>
 		    			<!--div class="col-lg-8" style="padding-right:5px"> 
 		    			
-		    				
 		    			</div-->
 	    			</div>
 	    		</div>
@@ -203,149 +215,21 @@ jQuery(document).ready(function() {
     	    <div class="panel panel-info">
      		<div class="panel-heading">
      		
-	    	<h3 class="panel-title">Basic Info</h3>
+	    	<h3 class="panel-title">About Us Page</h3>
 	  </div>
     
-    <div class="form-group">
-      <label for="exampleInputEmail">Product Title</label>
-      <input type="text" class="form-control" name="productName" placeholder="Product Title" value="${(product.productName)!""}" />
-      <input type="hidden" name="productID" value="${(productID)!""}"/>
-    </div>
-    
-    <div class="row">
-	    <div class="col-lg-6">
-		    <div class="form-group">
-		      <label for="exampleInputEmail">Product Category</label>
-			      <select class="form-control" name="selectedCategory">
-				      <#if allCategories??>
-				      	<#list allCategories as category>
-				        	  <option <#if product??><#if category.categoryID==product.categoryID>selected</#if></#if> value="${category.categoryID}">${category.categoryName}</option>
-				          </#list>
-				       </#if>   
-			        </select>
-		    </div><!-- <div class="form-group"> -->
-	    </div><!-- <div class="col-lg-6">-->
-		    <div class="col-lg-6">
-				<div class="form-group">
-			      <label for="exampleInputEmail">Product Price</label>
-			      <input type="text" class="form-control" name="productPrice" placeholder="Product Price"  value="${((product.price)!0)?string('#.00')}"/>
-			    </div>
-		    </div>
-		    
-	    </div>
-	    
+	
+
 	    <div class="form-group">
-	      <label for="exampleInputPassword">Product Description</label>
-	      <textarea class="form-control" id="editor1" rows="3" name="productDesc" placeholder="Product Description">${(product.productDesc)!""}</textarea>
+	      <label for="exampleInputPassword">About Us</label>
+	      
+	      <textarea class="form-control" id="editor1" rows="5" name="article" placeholder="About Us Article">
+	      ${(aboutUs.article)!""}
+	      </textarea>
 	    </div>
-	       <div class="row">
-	       <div class="col-lg-4">
-		    <div class="form-group">
-		      <label for="exampleInputFile">Product Image</label>
-		      <input type="file" id="exampleInputFile" name="newImage"/>
-		      <input type="hidden" name="oldImage" value="${(product.productImage)!""}" />
-		    </div>
-		    </div>
-		    
-		    <div class="col-lg-8">
-			    <#if (product.productImage)??> 
-			    <#assign a="${product.productImage?trim}">
-			    	<#if a!="">
-			    		 <div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px">
-			    		 	<div class="nailthumb-container square">
-			    		 		<img src="${(product.productImage)!""}" onerror="this.src='./images/no.jpg'" />
-			    		 	</div>
-			    		 </div>
-			    	</#if>
-			    </#if>
-		    </div>
-		    </div>   		
+ 		
     </div>
-    <div class="panel panel-success">
-         <div class="panel-heading ">
-	    <h3 class="panel-title">Select Specs</h3>
-	  </div>
-	  <#if allSpecs??>
-	  	<#list allSpecs as sp>
-	  	<#if specValueMap??>
-	  		<#assign keys = specValueMap?keys>
-	  	</#if>
-	  		<#if sp_index%4==0>
-	  		<div class="row">
-	  		</#if>
-			<div class="col-lg-3">
-				<div class="form-group">
-					<div class="checkbox">
-					<label>
-						<input type="checkbox"  name="specIDs" value="${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??>checked</#if></#if> id="specIDs_${sp.specID}"/>${sp.specName}
-					</label>
-					
-					</div>
-					<div>
-					<input type="text" name="specValues" class="form-control input-small" 
-					id="specValue_${sp.specID}" <#if specValueMap??><#if specValueMap.get(sp.specID)??><#else> disabled </#if><#else> disabled </#if> 
-					placeholder="Enter email" 
-					value="<#if specValueMap??><#if specValueMap.get(sp.specID)??>${specValueMap.get(sp.specID)}</#if></#if>">
-					</div>
-				</div>
-			</div>
-			  <#if sp_index%4==3>
-		  		</div>
-		  		<#else>
-			  		<#if sp_index+1==allSpecs?size>
-			  			</div>
-			  		</#if>
-	  	  	</#if>
-	  	</#list>
-	</#if>
-	</div>
-
-	    <div class="panel panel-warning">
-             <div class="panel-heading">
-	   			 <h3 class="panel-title">Select Types</h3>
-	  		</div>
-	<div class="row">
-		 <div class="col-lg-12">
-		 <#if allTypeGroups??>
-			 <#list allTypeGroups as typeGroup>
-			 <div class="row" style="margin-bottom:10px">
-			 	<div class="col-lg-3">
-			 	<span class="pull-right" style="font-size:14px;font-weight:bold">${(typeGroup.groupName)!""}:</span>
-			 	</div>
-			 	<div class="col-lg-9">
-			 	 <#if allTypes??>
-					 <#list allTypes as type>
-					 <#if type.reserve1==typeGroup.groupID>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="types_${type.typeID}" name="testSelectTypes" <#if selectedTypes??>${selectedTypes?seq_contains(type.typeID?string)?string("checked", "")}</#if> value="${type.typeID}"> ${type.typeName}
-						</label>
-						</#if>
-					</#list>
-				</#if>
-			 	</div>
-			 </div>
-			 </#list>
-		 </#if>
-		
-
-		</div>
-	</div>
-
-	</div><!-- <div class="panel panel-warning">-->
-
-
-    <div class="panel panel-danger">
-             <div class="panel-heading">
-	   			 <h3 class="panel-title">Featured product</h3>
-	  		</div>
-		<div class="row">
-			 <div class="col-lg-12">
-			 	<label class="checkbox-inline"><input type="checkbox" name="featuredProduct" value="1" <#if product.reserve1=="1">checked</#if> /> featured product </label>
-			</div>
-		</div>
-		
-		</div>
-
+  
 
     <button type="submit" name="isSubmit" value="submit" class="btn btn-primary pull-right">Submit</button>
     </div>
@@ -354,9 +238,11 @@ jQuery(document).ready(function() {
 </form>
 </div> 
 </div>
+
 <script>
 CKEDITOR.replace( 'editor1' );
 
 </script>
+
 </body>
 </html>

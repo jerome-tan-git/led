@@ -15,22 +15,22 @@
 	</resultMap>
 
 	<select id="selectCategoryByID" parameterType="String" resultType="Category">
-		select * from Category where CategoryID = #{categoryID} and IsDelete = 0
+		select * from category where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
 
 	<select id="selectAllCategories" resultType="Category">
-		select * from Category where IsDelete = 0
+		select * from category where IsDelete = 0
 	</select>
 
 
 	<insert id="addCategory" parameterType="Category" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Category(CategoryID, CategoryName,Reserve1,Reserve2,Reserve3)
+		insert into category(CategoryID, CategoryName,Reserve1,Reserve2,Reserve3)
 		values(#{categoryID},#{categoryName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateCategory" parameterType="Category" >
-        update Category set 
+        update category set 
         CategoryName=#{categoryName},
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
@@ -39,12 +39,12 @@
     </update>
 	
 	<delete id="deleteCategory" parameterType="String">
-         update Category set 
+         update category set 
         IsDelete=1
         where CategoryID=#{categoryID}
     </delete>
 	<delete id="realDeleteCategory" parameterType="String">
-         delete from Category 
+         delete from category 
         where CategoryID=#{categoryID}
     </delete>
 </mapper>

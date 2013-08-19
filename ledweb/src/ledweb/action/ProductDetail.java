@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import ledweb.ModelSessionFactory;
+import ledweb.Util;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
@@ -22,6 +23,7 @@ public class ProductDetail extends ActionSupport {
 	private Product product;
 	private String productID;
 	private HashMap<String, List<Type>> typeMap;
+	private List<Product> featuredProducts;
 	Logger log = Logger.getLogger(ProductDetail.class);
 	
 	
@@ -31,6 +33,14 @@ public class ProductDetail extends ActionSupport {
 
 	public HashMap<String, List<Type>> getTypeMap() {
 		return typeMap;
+	}
+
+	public List<Product> getFeaturedProducts() {
+		return featuredProducts;
+	}
+
+	public void setFeaturedProducts(List<Product> featuredProducts) {
+		this.featuredProducts = featuredProducts;
 	}
 
 	public void setTypeMap(HashMap<String, List<Type>> typeMap) {
@@ -86,6 +96,7 @@ public class ProductDetail extends ActionSupport {
 	@Override
 	public String execute() { 
 		this.setProductID(ServletActionContext.getRequest().getParameter("productID"));
+		this.featuredProducts = Util.getFeaturedProducts();
 		if (this.getProductID()!=null && !this.getProductID().trim().equals(""))
 		{
 			

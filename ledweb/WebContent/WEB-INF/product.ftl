@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
@@ -206,13 +207,19 @@ input, select, label {
     
 	<div id="templatemo_main_wrapper">
     	<div id="templatemo_main"> 
-          	<div id="content" style="padding-top:40px;">
-				<h2>${(product.productName)!""}</h2>
+          	<div id="content" style="">
 				<div class="container_16">
+					<div class="grid_16" style="padding-top:10px; padding-bottom:20px;">
+						<a href="./">Home</a> &gt; <a href="./category.do?categoryID=${(product.categoryID)!"#"}">${(product.category.categoryName)!""}</a>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_16">
+						<h2>${(product.productName)!""}</h2>
+					</div>
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
-								<img src="images/stripl.jpg" alt="Image 01">
+								<img onerror="this.src='./images/no.jpg'" src="${(product.productImage)!""}" alt="Image 01">
 						 	</div>
 					 	</div>
 				  	</div>
@@ -234,7 +241,7 @@ input, select, label {
 					  		<div class="grid_5 omega">
 					  		 <#assign item = typeMap[mKey]>   
 					  		 	<#list item as itemValue>
-						  			<label><input type="radio" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
+						  			<label><input type="radio" name="${mKey}" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
 					  			</#list>
 					  		</div>
 					  		<div class="clear"></div>
@@ -253,13 +260,16 @@ input, select, label {
 				  	<div class="clear"></div>
 				  	
 				  	<!-- Specs -->
+				  	 <#if product.specs??> 
+				  			 
+				  	<#assign productSpecs = product.specs>
+				  	<#if (productSpecs?size>0)>
 				  	<div class="grid_10 omega" style="padding-top:20px;padding-bottom:5px;">
 				  		<div class="grid_10 omega"><b>Specifications:</b></div>
 				  		<div class="clear"></div>
 				  		
 				  		<div class="grid_10 omega" style="margin-top:10px;padding-top:5px;padding-bottom:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
-				  			 <#if product.specs??> 
-				  			 <#assign productSpecs = product.specs>
+				  			
 		  						<#list productSpecs as specItem> 
 						  			<div class="grid_2">
 								  		<span style="float:right;margin-right:-0px; color:#999">${(specItem.spec.specName)!""}:</span> 
@@ -271,17 +281,19 @@ input, select, label {
 							  			<div class="clear"></div>
 							  		</#if>
 						  		</#list>
-					  		</#if>	
+						  
 				  			
 					  		
 						</div>
 				  		<div class="clear"></div>
 				  	</div>
+				  	</#if>
+					</#if>	
 				  	<!-- Specs -->
 				  	
 				  	
 				  	
-				  	<div class="grid_10 omega" style="padding-top:20px">
+				  	<div class="grid_10 omega" style="padding-top:20px;padding-left:10px">
 				  		<!-- product description -->
 						${(product.productDesc)!""}
 						</div>
@@ -352,7 +364,7 @@ input, select, label {
             </div>
                 <div class="sb_box">
                 	<h4>Categories</h4>
-                   <div class="container_16" style="margin: 0 auto;">
+                   <div class="container_16" style="margin: 0 auto; width:280px">
                    	<div class="grid_2 alpha">
                    		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
@@ -416,62 +428,23 @@ input, select, label {
                 
                  <div class="sb_box">
                 	<h4>Featured products</h4>
-                   <div class="container_16" style="margin: 0 auto;">
-                   	<div class="grid_1 alpha">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature1.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfsdf
+                   <div class="container_16" style="margin: 0 auto; width:280px">
+                   <#if featuredProducts??>
+	                   <#list featuredProducts as fproduct>
+	                   	<div class="grid_1 alpha" style="margin-top:10px;<#if fproduct_index %3 !=0>margin-left:48px</#if>">
+	                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+								<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
+									<a href="./productdetail.do?productID=${(fproduct.productID)!""}"><img alt="Image 01" onerror="this.src='./images/no.jpg'" class="nailthumb-image" src="${(fproduct.productImage)}"></a>
+									${(fproduct.productName)!""}
+							 	</div>
 						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1" style="margin-left:48px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature2.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature3.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	<div class="grid_1 alpha">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature4.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfsdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1" style="margin-left:48px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature5.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_1 omega" style="margin-left:48px">
-                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/feature6.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	
-                   	
-                   </div><!--div class="container_16"-->
+	                   	</div>
+	                   	<#if fproduct_index %3 ==2>
+	                   		<div class="cleaner"></div>
+	                   	</#if>
+	                   	</#list>
+                   	</#if>
+                   	</div><!--div class="container_16"-->
                     <div class="cleaner"></div>
                 </div>
                 
