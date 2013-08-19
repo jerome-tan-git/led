@@ -18,19 +18,19 @@
 	</resultMap>
 
 	<select id="selectOrderByID" parameterType="String" resultType="Order">
-		select * from `Order` where OrderID = #{orderID} and IsDelete = 0
+		select * from `order` where OrderID = #{orderID} and IsDelete = 0
 	</select>
 
 
 
 	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into `Order`(OrderID,ProductID,UserID,Quantity,TypeID,OrderDate,Message,Status,Reserve1,Reserve2,Reserve3)
+		insert into `order`(OrderID,ProductID,UserID,Quantity,TypeID,OrderDate,Message,Status,Reserve1,Reserve2,Reserve3)
 		values(#{orderID}#{productID},#{userID},#{quantity},#{typeID},#{orderDate},#{message},#{status},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateOrder" parameterType="Order" >
-        update `Order` set 
+        update `order` set 
         ProductID=#{productID},
         UserID=#{userID},
         Quantity=#{quantity},
@@ -45,7 +45,7 @@
     </update>
 	
 	<delete id="deleteOrder" parameterType="String">
-         update `Order` set 
+         update `order` set 
         IsDelete=1
         where OrderID=#{orderID}
     </delete>

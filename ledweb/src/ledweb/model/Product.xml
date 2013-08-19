@@ -23,28 +23,28 @@
 	</resultMap>
 	
 	<select id="selectProductByID" parameterType="String" resultMap="resultListProduct">
-		select * from Product where ProductID = #{productID} and IsDelete = 0
+		select * from product where ProductID = #{productID} and IsDelete = 0
 	</select>
 	<select id="selectProductsByCategoryID"  parameterType="String" resultMap="resultListProduct">
-		select * from Product where CategoryID = #{categoryID} and IsDelete = 0
+		select * from product where CategoryID = #{categoryID} and IsDelete = 0
 	</select>
 	<select id="selectAllProducts" resultMap="resultListProduct">
-		select * from Product where IsDelete = 0;
+		select * from product where IsDelete = 0;
 	</select>
 
 	<select id="selectFeaturedProducts" resultMap="resultListProduct">
-		select * from Product where IsDelete = 0 and Reserve1='1';
+		select * from product where IsDelete = 0 and Reserve1='1';
 	</select>
 
 
 
 	<insert id="addProduct" parameterType="Product">
-		insert into Product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
+		insert into product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
 		values(#{productID},#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateProduct" parameterType="Product" >
-        update Product set 
+        update product set 
         CategoryID=#{categoryID},
         ProductName=#{productName},
         ProductDesc=#{productDesc},
@@ -57,7 +57,7 @@
     </update>
 	
 	<delete id="realDeleteProduct" parameterType="String">
-        delete Product from Product 
+        delete from product 
         where ProductID=#{productID}
     </delete>
 	

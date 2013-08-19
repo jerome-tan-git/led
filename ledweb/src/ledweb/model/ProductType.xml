@@ -55,22 +55,22 @@
 	</select>
 -->
 	<select id="selectProductTypeByID" parameterType="String" resultMap="resultListProductType">
-		select * from ProductType where ProductTypeID = #{productTypeID} and IsDelete = 0
+		select * from producttype where ProductTypeID = #{productTypeID} and IsDelete = 0
 	</select>
 
 	<select id="selectProductTypeByProductID" parameterType="String" resultMap="resultListProductType">
-		select * from ProductType where ProductID = #{productID} and IsDelete = 0
+		select * from producttype where ProductID = #{productID} and IsDelete = 0
 	</select>
 
 
 	<insert id="addProductType" parameterType="ProductType" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into ProductType(ProductID,TypeID,Price,Reserve1,Reserve2,Reserve3)
+		insert into producttype(ProductID,TypeID,Price,Reserve1,Reserve2,Reserve3)
 		values(#{productID},#{typeID},#{price},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<insert id="batchAddProductType"  parameterType="java.util.List">
-    		insert into ProductType(ProductID,TypeID,Price,Reserve1,Reserve2,Reserve3) 
+    		insert into producttype(ProductID,TypeID,Price,Reserve1,Reserve2,Reserve3) 
     		values
     		<foreach collection="list" item="item" index="index" separator="," >  
         			(#{item.productID},#{item.typeID},
@@ -79,7 +79,7 @@
     		</foreach> 
     </insert> 
 	<update id="updateProductType" parameterType="ProductType" >
-        update ProductType set 
+        update producttype set 
         ProductID=#{productID},
         TypeID=#{typeID},
         Price=#{price},
@@ -90,19 +90,19 @@
     </update>
 	
 	<delete id="deleteProductType" parameterType="int">
-         update ProductType set 
+         update producttype set 
         IsDelete=1
         where ProductTypeID=#{productTypeID}
     </delete>
 	
 	<delete id="deleteAllProductType" parameterType="String">
-         update ProductType set 
+         update producttype set 
         IsDelete=1
         where ProductID=#{productID}
     </delete>
     
 	<delete id="deleteProductTypeByTypeID" parameterType="String">
-		update ProductType set 
+		update producttype set 
         IsDelete=1
         where TypeID=#{typeID}
 	</delete>

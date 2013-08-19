@@ -13,22 +13,22 @@
 	</resultMap>
 
 	<select id="selectSpecByID" parameterType="String" resultType="Spec">
-		select * from Spec where SpecID = #{specID} and IsDelete = 0
+		select * from spec where SpecID = #{specID} and IsDelete = 0
 	</select>
 	
 	<select id="selectAllSpec" resultMap="resultListSpec">
-		select * from Spec where IsDelete = 0
+		select * from spec where IsDelete = 0
 	</select>
 
 
 	<insert id="addSpec" parameterType="Spec" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Spec(SpecID, SpecName,Reserve1,Reserve2,Reserve3)
+		insert into spec(SpecID, SpecName,Reserve1,Reserve2,Reserve3)
 		values(#{specID},#{specName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateSpec" parameterType="Spec" >
-        update Spec set 
+        update spec set 
         SpecName=#{specName},
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
@@ -37,13 +37,13 @@
     </update>
 	
 	<delete id="deleteSpec" parameterType="String">
-         update Spec set 
+         update spec set 
         IsDelete=1
         where SpecID=#{specID}
     </delete>
 	
 	<delete id="realDeleteSpec" parameterType="String">
-        delete from Spec where SpecID=#{specID}
+        delete from spec where SpecID=#{specID}
     </delete>
 	
 </mapper>
