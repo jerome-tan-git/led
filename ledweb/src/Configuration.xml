@@ -18,6 +18,7 @@
         <typeAlias alias="Glossary" type="ledweb.model.Glossary"/>
         <typeAlias alias="AboutUS" type="ledweb.model.AboutUs"/>
         <typeAlias alias="ContactUs" type="ledweb.model.ContactUs"/>
+        <typeAlias alias="HomeImage" type="ledweb.model.HomeImage"/>
 
     </typeAliases> 
 
@@ -54,5 +55,6 @@
         <mapper resource="ledweb/model/Glossary.xml"/>
         <mapper resource="ledweb/model/AboutUs.xml"/>
         <mapper resource="ledweb/model/ContactUs.xml"/>
+        <mapper resource="ledweb/model/HomeImage.xml"/>
     </mappers>
 </configuration>
