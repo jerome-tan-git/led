@@ -103,8 +103,13 @@
     		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
 		</action>
 		
-		<action name="contactUs" class="ledweb.action.ContactUsAction">
+		<action name="contactUs" class="ledweb.action.CustomerAction">
+			<result name="input" type="redirect">/WEB-INF/emailSent.do</result>
+			<!-- <result name="input" type="redirect">/WEB-INF/contactUsWeb.do</result> -->
     		<result name="success" type="freemarker">/WEB-INF/contactUsWeb.ftl</result>
+		</action>
+		<action name="emailSent" class="ledweb.action.EmailSentAction">
+    		<result name="success" type="freemarker">/WEB-INF/emailSent.ftl</result>
 		</action>
 		<!-- 
 		<action name="aboutUs" class="ledweb.action.AboutUsAction">

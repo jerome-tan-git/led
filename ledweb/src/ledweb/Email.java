@@ -73,7 +73,7 @@ public class Email {
 
             if(_content.equals(""))
             	_content = "Ops, xiaoPei, empty email content!";
-            message.setText(_content+"\n NOTE: this mail is from customer "+this.customerName+", Phone: "
+            message.setText(_content+"\n NOTE: this mail is from customer: "+this.customerName+", Phone: "
             		+this.customerPhone+", Email: "+this.customerMail+"\n");
             message.setSubject("Customer Email");
             message.saveChanges();

@@ -317,14 +317,12 @@ input, select, label {
     	 	<div class="container_16" style="padding-top:40px; padding-left:40px;">
 	 			 <div class="grid_16">
 	 			 
-	 			 <!--	
-	 			 <h3>${(selectedCategory.categoryName)!""}</h3>
-	 			 -->
+
 	 			 <!-- test -->
 	 			 <h3>Email enquiry</h3>
 	 			 <!-- End of test -->
 	 			 
-	 			 </div><!-- <div class="grid_16"> -->
+	 			 </div>
 	 			 <div class="clear"></div>
 	 			 
 	 			 <!--
@@ -351,55 +349,78 @@ input, select, label {
 					  </#list>
 				 </#if>
 				  -->
-				 <!-- test -->
-				  <div class="grid_3" style="margin-left:-15px">
-						<a href="" style="">
-						<div style="margin: 0 auto;width:130px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-						    <div class="nailthumb-container" style="overflow: hidden; padding: 0px; width: 190px; height: 100px;">
-									<img alt="Image 01" src="${(product.productImage)!""}"  onerror="this.src='./images/no.jpg'" class="nailthumb-image" style="position: relative; width: 190px; height: 190px; top: -45px; left: 0px;">
-								</div>
-						</div>
-						</a>
+				 
+				 
+		 			 <!-- test -->
+	    	 	<div class="grid_3" style="margin-left:-15px">
+	    	 		<form id="customerForm1" action="" method="post" enctype="multipart/form-data">	
 						
-						  <div class="col-lg-8">
-							<div class="well">
-								<form id="commentForm" action="" method="post" enctype="multipart/form-data">
-								
-								 <fieldset>
-										<div style="margin: 0 auto;">
-												<div style="padding-top:10px; margin-left:10px; width:130px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">
-													<h5 style="font-size: 14px;font-weight: 700;">Name</h5>
-												</div>
-												<div class="form-group">
-											      <label for="exampleInputEmail"> Title</label>
-											      <input type="text" class="form-control" name="customerName" placeholder="Customer Name" value="${(product.productName)!""}" />
-											  </div>
-										</div>
-										<div style="margin: 0 auto;">
-												<div style="padding-top:10px; margin-left:10px; width:130px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">
-													<h5 style="font-size: 14px;font-weight: 700;">Phone</h5>
-												</div>
-										</div>
-										<div style="margin: 0 auto;">
-												<div style="padding-top:10px; margin-left:10px; width:130px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">
-													<h5 style="font-size: 14px;font-weight: 700;">Email</h5>
-												</div>
-										</div>
-										<div style="margin: 0 auto;">
-												<div style="padding-top:10px; margin-left:10px; width:130px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; ">
-													<h5 style="font-size: 14px;font-weight: 700;">Enquiry</h5>
-												</div>
-										</div>	
-										
-										<button type="submit" name="isSubmit" value="submit" class="btn btn-primary pull-right">Send</button>
-								    
-								  </fieldset>
-								</form>		
-						</div>
-						</div>		
+							<div style="margin: 0 auto;width:450px; height:60px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+						    
+								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<h5 style="font-size: 14px;font-weight: 700;">Name</h5>
+								</div>
+								<div style="padding-top:8px; margin-left:10px; width:250px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<input type="text" class="form-control" name="name" placeholder="Your Name" value="${(customer.name)!""}" />
+								</div>
+						
+							</div>
+							
+							<div style="margin: 0 auto;width:450px; height:60px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+						    
+								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<h5 style="font-size: 14px;font-weight: 700;">Phone</h5>
+								</div>
+								<div style="padding-top:8px; margin-left:10px; width:250px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<input type="text" class="form-control" name="phone" placeholder="Your Phone Number" value="${(customer.phone)!""}" />
+								</div>
+						
+							</div>
+							
+							<div style="margin: 0 auto;width:450px; height:60px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+						
+								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<h5 style="font-size: 14px;font-weight: 700;">Email</h5>
+								</div>
+								<div style="padding-top:8px; margin-left:10px; width:250px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<input type="text" class="form-control" name="email" placeholder="Your Email Adress" value="${(customer.email)!""}" />
+								</div>
+						
+							</div>
+							
+							<div style="margin: 0 auto;width:450px; height:160px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+						    
+								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<h5 style="font-size: 14px;font-weight: 700;">Enquiry</h5>
+								</div>
+								<div style="padding-top:8px; margin-left:10px; width:250px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								float:left;">
+									<textarea class="form-control" id="editor1" rows="8" name="enquiry" placeholder="">
+	 									    ${(customer.enquiry)!""}
+									</textarea>
+								</div>
+						
+							</div>
+							
+							<button type="submit" name="isSubmit" value="submit" class="btn btn-primary pull-right">Send</button>
+						
+						</form>	
+							
+							
+							<!--  panel panel-warning-->		
 					 </div>
-				  
-				 <!-- End of test -->
+					 <!-- End of test -->
+				 
+				 
+				 
+				 
 				  
     	 	</div> <!-- <div class="container_16"> -->
     	 </div><!-- <div id="Div2" style="height:600px;"> -->
@@ -407,7 +428,7 @@ input, select, label {
     	 <div class="sb_box" style="padding-top:60px;margin-right:-60px">
                     <h4>News</h4>
                     <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
-           	 </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
+           	 </div>
     	 	<div class="sb_box" style="margin-right:-60px">
     	 	<h4>Featured products</h4>
 				  <div class="container_16" style="margin: 0 auto; width:280px">
