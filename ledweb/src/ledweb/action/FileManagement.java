@@ -2,11 +2,16 @@ package ledweb.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import ledweb.ImageFileFilter;
+import ledweb.ModelSessionFactory;
+import ledweb.model.HomeImage;
+import ledweb.model.mapper.IHomeImageOperation;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
@@ -24,6 +29,26 @@ public class FileManagement extends ActionSupport {
 	private String desc;
 	private String[] mobileImageUrl;
 	private String[] homeImageUrl;
+	private List<String> pcImages=new ArrayList<String>();
+	private List<String> mobileImages=new ArrayList<String>();
+	
+
+	public List<String> getPcImages() {
+		return pcImages;
+	}
+
+	public void setPcImages(List<String> pcImages) {
+		this.pcImages = pcImages;
+	}
+
+	public List<String> getMobileImages() {
+		return mobileImages;
+	}
+
+	public void setMobileImages(List<String> mobileImages) {
+		this.mobileImages = mobileImages;
+	}
+
 	public String[] getHomeImageUrl() {
 		return homeImageUrl;
 	}
@@ -57,8 +82,6 @@ public class FileManagement extends ActionSupport {
 	public void setIndexImage(String indexImage) {
 		this.indexImage = indexImage;
 	}
-
-	
 
 	public String getModule() {
 		return module;
@@ -130,6 +153,7 @@ public class FileManagement extends ActionSupport {
 
 	public String execute() {
 		// if ()
+		SqlSession session = ModelSessionFactory.getSession().openSession();
 		if (this.getUpload() != null && this.getUpload().trim().equals("1")) {
 			String newFileName = "";
 			if (this.getNewImage() != null) {
@@ -148,16 +172,60 @@ public class FileManagement extends ActionSupport {
 			}
 		} else if (this.indexImage != null
 				&& this.indexImage.trim().equals("1")) {
-			log.warn(this.homeImageUrl.length);
+			
+			try {
+				IHomeImageOperation IHIO = session
+						.getMapper(IHomeImageOperation.class);
+				IHIO.realDeleteImage();
+				for (String homeImage : this.getHomeImageUrl()) {
+					HomeImage hi = new HomeImage();
+					hi.setImageURL(homeImage);
+					hi.setType("home");
+					IHIO.addHomeImage(hi);
+				}
+				for (String homeImage : this.getMobileImageUrl()) {
+					HomeImage hi = new HomeImage();
+					hi.setImageURL(homeImage);
+					hi.setType("mobile");
+					IHIO.addHomeImage(hi);
+				}
+				session.commit();
+			} catch (Exception e) {
+				log.warn(e.getMessage());
+			}
+
+			
 		}
 		File folder = new File(this.getRealSavePath());
 		if (folder.exists() && folder.isDirectory()) {
 			File[] files = folder.listFiles(new ImageFileFilter());
 			for (File f : files) {
 				this.setImageFiles(files);
-				
+
 			}
 		}
+		IHomeImageOperation IHIO = session.getMapper(IHomeImageOperation.class);
+		List<HomeImage> pci = (IHIO.selectImageURLByType("home"));
+		List<HomeImage> moi = (IHIO.selectImageURLByType("mobile"));
+		for (HomeImage str:pci)
+		{
+			this.getPcImages().add(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
+//			str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
+//			log.warn(str.getImageURL());
+		}
+		
+		
+		for (HomeImage str:moi)
+		{
+			this.getMobileImages().add(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
+//			str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
+//			log.warn(str.getImageURL());
+		}
+		log.warn(this.getPcImages());
+		// log.warn(this.homeImageUrl.length);
+		
+		
+		
 		return SUCCESS;
 	}
 }

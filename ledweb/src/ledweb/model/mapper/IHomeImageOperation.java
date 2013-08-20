@@ -8,4 +8,5 @@ public interface IHomeImageOperation {
 	public List<HomeImage> selectAllImageURL();
 	public int addHomeImage(HomeImage images);
 	public int realDeleteImage();
+	public List<HomeImage> selectImageURLByType(String type);
 }

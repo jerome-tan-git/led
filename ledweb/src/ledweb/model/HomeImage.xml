@@ -12,9 +12,12 @@
 		select * from homeimage
 	</select>
 	
+	<select id="selectImageURLByType" resultMap="resultHomeImage" parameterType="String">
+		select * from homeimage where Type=#{type}
+	</select>
+	
 	<insert id="addHomeImage" parameterType="HomeImage">
 		insert into `homeimage` (`ImageURL`,`Type`) values (#{imageURL},#{type}); 
-    		 
 	</insert>
 	
 	
