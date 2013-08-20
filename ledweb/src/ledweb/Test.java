@@ -170,15 +170,16 @@ public class Test {
 			//
 			IHomeImageOperation o = session
 					.getMapper(IHomeImageOperation.class);
-//			List<HomeImage> images = new ArrayList<HomeImage>();
-//			for (int i = 0; i < 5; i++) {
-//				HomeImage x = new HomeImage();
-//				x.setImageURL(i+"");
-//				o.addHomeImage(x);
-//			}
+			List<HomeImage> images = new ArrayList<HomeImage>();
+			for (int i = 0; i < 5; i++) {
+				HomeImage x = new HomeImage();
+				x.setImageURL(i+"");
+				x.setType("home");
+				o.addHomeImage(x); 
+			}
 //			o.realDeleteImage();
-			List<HomeImage> a1 = o.selectAllImageURL();
-			System.out.println(a1);
+//			List<HomeImage> a1 = o.selectAllImageURL();
+//			System.out.println(a1);
 			session.commit();
 			// List<Product> p = o.selectProductsByCategoryID(1);
 			// System.out.println(p.size());
@@ -198,7 +199,7 @@ public class Test {
 			// ps.setProductID(10);
 			// ps.setSpecID(1);
 			// ps.setSpecValue("aaaa");
-			// specs.add(ps);
+			// specs.add(ps);	
 			// ProductSpec ps1 = new ProductSpec();
 			// ps1.setProductID(10);
 			// ps1.setSpecID(2);

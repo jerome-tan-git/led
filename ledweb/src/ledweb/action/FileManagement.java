@@ -21,6 +21,45 @@ public class FileManagement extends ActionSupport {
 	private String savePath;
 	private File[] imageFiles;
 	private String module = "file management";
+	private String desc;
+	private String[] mobileImageUrl;
+	private String[] homeImageUrl;
+	public String[] getHomeImageUrl() {
+		return homeImageUrl;
+	}
+
+	public void setHomeImageUrl(String[] homeImageUrl) {
+		this.homeImageUrl = homeImageUrl;
+	}
+
+	public String[] getMobileImageUrl() {
+		return mobileImageUrl;
+	}
+
+	public void setMobileImageUrl(String[] mobileImageUrl) {
+		this.mobileImageUrl = mobileImageUrl;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	private String indexImage;
+
+	public String getIndexImage() {
+		return indexImage;
+	}
+
+	public void setIndexImage(String indexImage) {
+		this.indexImage = indexImage;
+	}
+
+	
+
 	public String getModule() {
 		return module;
 	}
@@ -32,8 +71,8 @@ public class FileManagement extends ActionSupport {
 	public void setContextPath(String contextPath) {
 		this.contextPath = contextPath;
 	}
+
 	private String contextPath;
-	 
 
 	public File[] getImageFiles() {
 		return imageFiles;
@@ -50,11 +89,13 @@ public class FileManagement extends ActionSupport {
 	public void setSavePath(String savePath) {
 		this.savePath = savePath;
 	}
+
 	public String getRealSavePath() {
 		return ServletActionContext.getServletContext().getRealPath(savePath);
 	}
+
 	private Logger log = Logger.getLogger(FileManagement.class);
-	
+
 	public String getUpload() {
 		return upload;
 	}
@@ -63,7 +104,7 @@ public class FileManagement extends ActionSupport {
 		this.upload = upload;
 	}
 
-	public File getNewImage() { 
+	public File getNewImage() {
 		return newImage;
 	}
 
@@ -87,11 +128,10 @@ public class FileManagement extends ActionSupport {
 		this.newImageFileName = newImageFileName;
 	}
 
-	public String execute() {	
-//		if ()
-		if(this.getUpload()!=null && this.getUpload().trim().equals("1"))
-		{
-			String newFileName="";
+	public String execute() {
+		// if ()
+		if (this.getUpload() != null && this.getUpload().trim().equals("1")) {
+			String newFileName = "";
 			if (this.getNewImage() != null) {
 				newFileName = System.currentTimeMillis() + "_"
 						+ this.getNewImageFileName();
@@ -102,21 +142,20 @@ public class FileManagement extends ActionSupport {
 				}
 				try {
 					FileUtils.copyFile(this.getNewImage(), savefile);
-					log.warn(savefile);
-					log.warn(this.getSavePath() + "/" + newFileName);
 				} catch (IOException e) {
 					log.error(e.getMessage());
 				}
 			}
+		} else if (this.indexImage != null
+				&& this.indexImage.trim().equals("1")) {
+			log.warn(this.homeImageUrl.length);
 		}
 		File folder = new File(this.getRealSavePath());
-		if (folder.exists() && folder.isDirectory())
-		{
+		if (folder.exists() && folder.isDirectory()) {
 			File[] files = folder.listFiles(new ImageFileFilter());
-			for (File f: files)
-			{
+			for (File f : files) {
 				this.setImageFiles(files);
-				log.warn(f.getName()); 
+				
 			}
 		}
 		return SUCCESS;
