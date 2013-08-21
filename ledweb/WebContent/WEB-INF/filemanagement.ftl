@@ -170,8 +170,13 @@ border-color: #dFb5b4;
 									<div style="margin-top:10px; color:#ccc"> 
 									<input type="text" value="${savePath}/${(f.name)!""}" class="form-control"   />
 									<div style="padding-top:10px; padding-left:5px">
-									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="homeImageUrl" value="${savePath}/${(f.name)!""}" <#if pcImages??>${pcImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel desktop</label><br/>
-									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="mobileImageUrl" value="${savePath}/${(f.name)!""}"<#if mobileImages??>${mobileImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel mobile</label>
+									<label class="checkbox-inline" style="color:#666">
+										<input type="checkbox" name="homeImageUrl" value="${savePath}/${(f.name)!""}" <#if pcImages??>${pcImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel desktop
+									</label>
+										<br/>
+									<label class="checkbox-inline" style="color:#666">
+										<input type="checkbox" name="mobileImageUrl" value="${savePath}/${(f.name)!""}"<#if mobileImages??>${mobileImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel mobile
+									</label> 
 									</div>
 									</div>
 								</div>

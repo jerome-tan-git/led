@@ -4,9 +4,9 @@ public class Category {
 	private String categoryID;
 	private String categoryName;
 	private int isDelete;
-	private String reserve1="";
-	private String reserve2="";
-	private String reserve3="";
+	private String reserve2 = "";
+	private String reserve1 = "";
+	private String reserve3 = System.currentTimeMillis()+"";
 	
 
 	public String getCategoryID() {
@@ -43,7 +43,7 @@ public class Category {
 		return reserve3;
 	}
 	public void setReserve3(String reserve3) {
-		this.reserve3 = reserve3;
+		this.reserve3 = System.currentTimeMillis()+"";
 	}
 	/**
 	 * 	private int categoryID;

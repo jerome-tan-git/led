@@ -48,7 +48,7 @@ input, select, label {
 	padding:0;
 	width:13px;
 	height:13px;
-	vertical-align:middle;
+	vertical-align:middle; 
 	font:13px Helvetica, Arial, sans-serif;
 }
 	#slides {
