@@ -29,9 +29,8 @@ public class FileManagement extends ActionSupport {
 	private String desc;
 	private String[] mobileImageUrl;
 	private String[] homeImageUrl;
-	private List<String> pcImages=new ArrayList<String>();
-	private List<String> mobileImages=new ArrayList<String>();
-	
+	private List<String> pcImages = new ArrayList<String>();
+	private List<String> mobileImages = new ArrayList<String>();
 
 	public List<String> getPcImages() {
 		return pcImages;
@@ -172,29 +171,37 @@ public class FileManagement extends ActionSupport {
 			}
 		} else if (this.indexImage != null
 				&& this.indexImage.trim().equals("1")) {
-			
+
 			try {
 				IHomeImageOperation IHIO = session
 						.getMapper(IHomeImageOperation.class);
 				IHIO.realDeleteImage();
-				for (String homeImage : this.getHomeImageUrl()) {
-					HomeImage hi = new HomeImage();
-					hi.setImageURL(homeImage);
-					hi.setType("home");
-					IHIO.addHomeImage(hi);
+				String[] mobileImages = ServletActionContext.getRequest()
+						.getParameterValues("mobileImageUrl");
+
+				String[] homeImages = ServletActionContext.getRequest()
+						.getParameterValues("homeImageUrl");
+				if (homeImages != null) {
+					for (String homeImage : homeImages) {
+						HomeImage hi = new HomeImage();
+						hi.setImageURL(homeImage);
+						hi.setType("home");
+						IHIO.addHomeImage(hi);
+					}
 				}
-				for (String homeImage : this.getMobileImageUrl()) {
-					HomeImage hi = new HomeImage();
-					hi.setImageURL(homeImage);
-					hi.setType("mobile");
-					IHIO.addHomeImage(hi);
+				if (mobileImageUrl != null) {
+					for (String homeImage : mobileImages) {
+						HomeImage hi = new HomeImage();
+						hi.setImageURL(homeImage);
+						hi.setType("mobile");
+						IHIO.addHomeImage(hi);
+					}
 				}
 				session.commit();
 			} catch (Exception e) {
-				log.warn(e.getMessage());
+				e.printStackTrace();
 			}
 
-			
 		}
 		File folder = new File(this.getRealSavePath());
 		if (folder.exists() && folder.isDirectory()) {
@@ -207,25 +214,25 @@ public class FileManagement extends ActionSupport {
 		IHomeImageOperation IHIO = session.getMapper(IHomeImageOperation.class);
 		List<HomeImage> pci = (IHIO.selectImageURLByType("home"));
 		List<HomeImage> moi = (IHIO.selectImageURLByType("mobile"));
-		for (HomeImage str:pci)
-		{
-			this.getPcImages().add(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
-//			str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
-//			log.warn(str.getImageURL());
+		for (HomeImage str : pci) {
+			this.getPcImages().add(
+					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
+			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
+			// ""));
+			// log.warn(str.getImageURL());
 		}
-		
-		
-		for (HomeImage str:moi)
-		{
-			this.getMobileImages().add(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
-//			str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/", ""));
-//			log.warn(str.getImageURL());
+
+		for (HomeImage str : moi) {
+			this.getMobileImages().add(
+					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
+			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
+			// ""));
+			// log.warn(str.getImageURL());
 		}
-		log.warn(this.getPcImages());
+		// log.warn(this.getPcImages());
+		// log.warn(this.getMobileImages());
 		// log.warn(this.homeImageUrl.length);
-		
-		
-		
+
 		return SUCCESS;
 	}
 }
