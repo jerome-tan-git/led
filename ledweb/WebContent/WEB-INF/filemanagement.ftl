@@ -24,7 +24,7 @@ border-left: 5px solid #eee;
 background-color: #fefbed;
 border-color: #f1e7bc;
 }
-.bs-callout-gray {
+.bs-callout-gray { 
 background-color: #fefefe;
 border-color: #d0e3f0;
 }
