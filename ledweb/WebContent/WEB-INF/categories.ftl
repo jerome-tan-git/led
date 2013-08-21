@@ -322,7 +322,11 @@ input, select, label {
 							</div>
 							
 						</div>					
-					  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
+					  </div>
+					  <#if product_index%3 ==2> 
+	                   		<div class="cleaner"></div>
+	                   	</#if>
+	                   	<!--  <div class="grid_3" style="margin-left:-15px">-->
 					  </#list>
 				 </#if>
 				  

@@ -6,11 +6,13 @@ import java.util.List;
 
 import ledweb.ModelSessionFactory;
 import ledweb.Util;
+import ledweb.model.Category;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
 import ledweb.model.Type;
 import ledweb.model.TypeGroup;
+import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,6 +26,26 @@ public class ProductDetail extends ActionSupport {
 	private String productID;
 	private HashMap<String, List<Type>> typeMap;
 	private List<Product> featuredProducts;
+	private List<Product> relatedProducts;
+	private List<Category> categories;
+	
+	
+	
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<Product> getRelatedProducts() {
+		return relatedProducts;
+	}
+
+	public void setRelatedProducts(List<Product> relatedProducts) {
+		this.relatedProducts = relatedProducts;
+	}
 	Logger log = Logger.getLogger(ProductDetail.class);
 	
 	
@@ -67,7 +89,7 @@ public class ProductDetail extends ActionSupport {
 		try
 		{
 			IProductOperation IPO = session.getMapper(IProductOperation.class);
-			product = IPO.selectProductByID(this.getProductID());
+			product = IPO.selectProductByID	(this.getProductID());
 			
 			//log.warn(product.getTypes().size());
 			for(ProductType type: product.getTypes())
@@ -86,6 +108,22 @@ public class ProductDetail extends ActionSupport {
 			{
 				log.warn(pspec.getSpec().getSpecName()+" : " + pspec.getSpecValue());  
 			}
+			//get similar product
+			
+			List<Product> categoryProduct = IPO.selectProductsByCategoryID(product.getCategoryID());
+			this.relatedProducts = new ArrayList<Product>();
+			for (Product prod: categoryProduct)
+			{
+				if (!prod.getProductID().equals(product.getProductID()))
+				{
+					this.relatedProducts.add(prod);  
+				}
+			}
+			
+			//get categories
+			ICategoryOperation ICO = session.getMapper(ICategoryOperation.class);
+			this.setCategories(ICO.selectAllCategories());
+			
 		}
 		catch(Exception e)
 		{
