@@ -5,15 +5,19 @@
 <mapper namespace="ledweb.model.mapper.IHomeImageOperation">
 	<resultMap type="HomeImage" id="resultHomeImage">		
 		<result property="imageURL" column="ImageURL" />
+		<result property="type" column="Type" />
 	</resultMap>
 
 	<select id="selectAllImageURL" resultMap="resultHomeImage">
 		select * from homeimage
 	</select>
 	
+	<select id="selectImageURLByType" resultMap="resultHomeImage" parameterType="String">
+		select * from homeimage where Type=#{type}
+	</select>
+	
 	<insert id="addHomeImage" parameterType="HomeImage">
-		insert into `homeimage` (`ImageURL`) values (#{imageURL}); 
-    		 
+		insert into `homeimage` (`ImageURL`,`Type`) values (#{imageURL},#{type}); 
 	</insert>
 	
 	

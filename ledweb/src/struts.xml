@@ -104,7 +104,7 @@
 		</action>
 		
 		<action name="contactUs" class="ledweb.action.CustomerAction">
-			<result name="input" type="redirect">/WEB-INF/emailSent.do</result>
+			<result name="input" type="redirect">/emailSent.do</result>
 			<!-- <result name="input" type="redirect">/WEB-INF/contactUsWeb.do</result> -->
     		<result name="success" type="freemarker">/WEB-INF/contactUsWeb.ftl</result>
 		</action>

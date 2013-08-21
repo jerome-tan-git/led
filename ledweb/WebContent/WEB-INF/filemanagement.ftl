@@ -140,6 +140,7 @@ border-color: #dFb5b4;
 			</ul>
           </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>
+			<form id="commentForm" action="" class="form-inline" class="form-control" method="post" enctype="multipart/form-data" style="pull-right">
 			<div class="col-lg-8">
 				<div class="row">
 					<div class="col-lg-12 well">
@@ -148,13 +149,13 @@ border-color: #dFb5b4;
 								<h2>Uploaded files</h2>
 							</div>
 							<div class="col-lg-6" style="padding-top:20px">
-								<form id="commentForm" action="" class="form-inline" class="form-control" method="post" enctype="multipart/form-data" style="pull-right">
+						
 									<input name="newImage" type="file" class="form-control" style="width:300px"></input>
 									<button type="submit" class="btn btn-primary" name="upload" value="1">Submit</button> 
-								</form>
+								
 							</div>
 						</div>
-						<form id="commentForm" action="" class="form-inline" class="form-control" method="post">
+						
 						<div class="row">
 							
 							<div class="col-lg-12">
@@ -162,14 +163,15 @@ border-color: #dFb5b4;
 							
 							<#list imageFiles as f>
 							
-								<div style="float:left; width:212px; height:290px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
+								<div style="float:left; width:212px; height:310px;border: 1px solid #ccc; padding-top: 5px; padding-left:5px; padding-right:5px; margin-right:10px; margin-bottom:10px">
 									<div class="nailthumb-container square">
-										<img src="./${savePath}/${(f.name)!""}" />
+										<a href="./${savePath}/${(f.name)!""}" target="blank"><img src="./${savePath}/${(f.name)!""}" /></a>
 									</div>
 									<div style="margin-top:10px; color:#ccc"> 
 									<input type="text" value="${savePath}/${(f.name)!""}" class="form-control"   />
 									<div style="padding-top:10px; padding-left:5px">
-									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="homeImageUrl" value="${savePath}/${(f.name)!""}" />carrousel</label>
+									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="homeImageUrl" value="${savePath}/${(f.name)!""}" <#if pcImages??>${pcImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel desktop</label><br/>
+									<label class="checkbox-inline" style="color:#666"><input type="checkbox" name="mobileImageUrl" value="${savePath}/${(f.name)!""}"<#if mobileImages??>${mobileImages?seq_contains(f.name)?string("checked","")}</#if> />carrousel mobile</label>
 									</div>
 									</div>
 								</div>
