@@ -19,7 +19,7 @@
 	</select>
 
 	<select id="selectAllCategories" resultType="Category">
-		select * from category where IsDelete = 0
+		select * from category where IsDelete = 0 order by Reserve3 DESC;
 	</select>
 
 

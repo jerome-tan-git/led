@@ -48,7 +48,7 @@ input, select, label {
 	padding:0;
 	width:13px;
 	height:13px;
-	vertical-align:middle;
+	vertical-align:middle; 
 	font:13px Helvetica, Arial, sans-serif;
 }
 	#slides {
@@ -302,55 +302,25 @@ input, select, label {
                 <h3 class="noprint">Similar products</h3>
                 
                 <div class="container_16 noprint">
-                	<div class="grid_2">
-	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/strip_1.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
-							 </div>
+                <#list relatedProducts as prod>
+				<div class="grid_2">
+					<div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+						<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+							<img alt="Image 01" src="${(prod.productImage)!""}" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
 						</div>
 					</div>
-					<div class="grid_3">
-						<h6><a href="#">Flexible LED strip lights</a></h6>
-						$35.00
-					</div>
-                	
-                	<div class="grid_2">
-	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/strip_2.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
-							 </div>
-						</div>
 					</div>
 					<div class="grid_3">
-						<h6><a href="#">Battery operated led rope strip light</a></h6>
-						$124.00
+					<h6><a href="./productdetail.do?productID=${(prod.productID)!""}">${(prod.productName)!""}</a></h6>
+						<#if prod.price gt 0>
+							$${(prod.price)!""}
+						</#if>
 					</div>
-                	 <div class="clear" style="margin-bottom:20px"></div>
-                	 
-                	 <div class="grid_2">
-	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/strip_3.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
-							 </div>
-						</div>
-					</div>
-					<div class="grid_3">
-						<h6><a href="#">Flexible High Intensity Smd5050 Led</a></h6>
-						$37.00
-					</div>
-                	
-                	<div class="grid_2">
-	                    <div style="float:right;width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="product_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/strip_4.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;" />
-							 </div>
-						</div>
-					</div>
-					<div class="grid_3">
-						<h6><a href="#">sunbitlight-LED flex neon light</a></h6>
-						$125.00
-					</div>
-                	 <div class="clear" style="margin-bottom:20px"></div>
+					<#if prod_index %2==1>					
+						<div class="clear" style="margin-bottom:20px"></div>
+					</#if>
+				</#list>
+                
                 </div><!--div class="container_16"-->
                 <div class="clear"></div>
                 
@@ -365,59 +335,29 @@ input, select, label {
                 <div class="sb_box">
                 	<h4>Categories</h4>
                    <div class="container_16" style="margin: 0 auto; width:280px">
-                   	<div class="grid_2 alpha">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/tripelights.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfsdf
+                   <#if categories??>
+	                   <#list categories as cat>
+	                   	<div class="grid_2 	<#if cat_index%2==1>omega<#else>alpha</#if>" <#if cat_index%2==1> style="margin-left:40px"</#if>>
+	                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
+								<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
+									<img  alt="Image 01" src="${(cat.reserve2)!""}" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+							 	</div>
 						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/downlights30814bl.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>Stripe lights</h6></div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>Down lights</h6></div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
+						 	<div style="padding-left:10px; padding-top:5px">
+							 	<h6><b>${(cat.categoryName)!""}</b></h6>
+							 </div>
+	                   	</div>
+	                   	<#if cat_index%2==1>
+	                   	<div class="cleaner" style="margin-bottom:10px"></div>
+	                   	</#if>
+	                   	</#list>
+	                   	
+                   	</#if>
                    	
                    	
                    	
-                   	<div class="grid_2 alpha">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/rope_light.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfsdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:120px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-							<div class="category_small" style="overflow: hidden; padding: 0px; width: 270px; height: 270px;">
-								<img alt="Image 01" src="images/PuckLight.jpg" class="nailthumb-image" style="position: relative; width: 270px; height: 270px; top: 0px; left: 0px;">
-								asfasdf
-						 	</div>
-					 	</div>
-                   	</div>
-                   	<div class="cleaner" style="margin-bottom:10px"></div>
-                   	
-                   	<div class="grid_2 alpha" >
-                   		<div style="width:130px;text-align:center"><h6>Rope lights</h6></div>
-                   	</div>
-                   	<div class="grid_2 omega" style="margin-left:40px">
-                   		<div style="width:130px;text-align:center"><h6>LED Puck lights</h6></div>
-                   	</div>
-                   	<div class="cleaner"></div>
+                  
+                  
                    	
                    	
                    	
