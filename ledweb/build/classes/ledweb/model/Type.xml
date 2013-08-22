@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ITypeOperation">
+	<resultMap type="Type" id="typeResultMap">
+		<id property="typeID" column="TypeID" />
+		<result property="typeName" column="TypeName" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+		<association property="typeGroup" column="reserve1" javaType="TypeGroup" 
+			select="ledweb.model.mapper.ITypeGroupOperation.selectTypeGroupByID">
+		</association>
+	</resultMap>
+
+	<select id="selectTypeByID" parameterType="String" resultMap="typeResultMap">
+		select * from type where TypeID = #{typeID} and IsDelete = 0
+	</select>
+
+	<select id="selectAllTypes" resultMap="typeResultMap">
+		select * from type where IsDelete = 0
+	</select>
+	<select id="selectTypesByTypeGroup" parameterType="String"  resultMap="typeResultMap">
+		select * from type where Reserve1 = #{typeGroupID}
+	</select>
+	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
+		values(#{typeID},#{typeName},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+
+	
+	<update id="updateType" parameterType="Type" >
+		REPLACE INTO type(TypeID, TypeName, Reserve1, Reserve2, Reserve3) VALUES (#{typeID},#{typeName},#{reserve1},#{reserve1},#{reserve1});  
+    </update>
+	
+	<delete id="deleteType" parameterType="String">
+         update type set 
+        IsDelete=1
+        where TypeID=#{typeID}
+    </delete>
+	
+	
+	<delete id="realDeleteType" parameterType="String">
+         delete from type where TypeID=#{typeID};
+    </delete>
+	
+</mapper>

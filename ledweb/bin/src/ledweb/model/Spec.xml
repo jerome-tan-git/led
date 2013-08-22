@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ISpecOperation">
+	<resultMap type="Spec" id="resultListSpec">
+		<id property="specID" column="SpecID" />
+		<result property="specName" column="SpecName" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+	</resultMap>
+
+	<select id="selectSpecByID" parameterType="String" resultType="Spec">
+		select * from spec where SpecID = #{specID} and IsDelete = 0
+	</select>
+	
+	<select id="selectAllSpec" resultMap="resultListSpec">
+		select * from spec where IsDelete = 0
+	</select>
+
+
+	<insert id="addSpec" parameterType="Spec" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into spec(SpecID, SpecName,Reserve1,Reserve2,Reserve3)
+		values(#{specID},#{specName},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateSpec" parameterType="Spec" >
+        update spec set 
+        SpecName=#{specName},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where SpecID=#{specID}
+    </update>
+	
+	<delete id="deleteSpec" parameterType="String">
+         update spec set 
+        IsDelete=1
+        where SpecID=#{specID}
+    </delete>
+	
+	<delete id="realDeleteSpec" parameterType="String">
+        delete from spec where SpecID=#{specID}
+    </delete>
+	
+</mapper>

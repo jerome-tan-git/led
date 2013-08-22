@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="ledweb.model.mapper.TeacherMapper">  
+    <resultMap type="Teacher" id="teacher">  
+        <id property="id" column="t_id" javaType="int" jdbcType="INTEGER"/>  
+        <result property="name" column="t_name" javaType="string" jdbcType="VARCHAR"/>  
+        <collection property="students" column="t_s_id" ofType="Student">  
+            <id property="id" column="s_id" javaType="int" jdbcType="INTEGER"/>  
+            <result property="name" column="s_name" javaType="string" jdbcType="VARCHAR"/>  
+        </collection>  
+    </resultMap>  
+      
+    <select id="one2many" parameterType="int" resultMap="teacher">  
+        select t.t_id,t.t_name,s.t_s_id,s.s_id,s.s_name  
+        from teacher t join student s on t.t_id = s.t_s_id where t.t_id = #{id}  
+    </select>  
+</mapper>  

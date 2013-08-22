@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IAboutUsOperation">
+	<resultMap type="AboutUs" id="resultAboutUs">
+		<id column="VersionID" property="versionID" />
+		<result column="IsDelete" property="isDelete" />
+		<result column="Article" property="article" />
+	</resultMap>
+
+	<select id="selectAboutUs" parameterType="String" resultType="AboutUs">
+		select * from `aboutUs` where IsDelete = 0
+	</select>
+
+	<!-- SetOthersInvalid by delete-->
+	<insert id="addAboutUs" parameterType="AboutUs" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into `aboutUs`(IsDelete,Article) values(0,#{article})
+	</insert>
+	
+	<update id="updateAboutUs" parameterType="Glossary"  >
+        update `aboutUs` set Article=#{article}  where IsDelete=0
+    </update>
+	
+	<delete id="deleteAboutUs" parameterType="String">
+		<!--  SET SQL_SAFE_UPDATES = 0;-->
+	    update `aboutUs` set IsDelete=1 where IsDelete=0
+    </delete>
+	
+</mapper>

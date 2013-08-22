@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IOrderOperation">
+	<resultMap type="Order" id="resultListOrder">
+		<id column="OrderID" property="orderID" />
+		<result column="ProductID" property="productID" />
+		<result column="UserID" property="userID" />
+		<result column="Quantity" property="quantity" />
+		<result column="OrderDate" property="orderDate" />
+		<result column="Message" property="message" />
+		<result column="Status" property="status" />
+		<result column="IsDelete" property="isDelete" />
+		<result column="Reserve1" property="reserve1" />
+		<result column="Reserve2" property="reserve2" />
+		<result column="Reserve3" property="reserve3" />
+	</resultMap>
+
+	<select id="selectOrderByID" parameterType="String" resultType="Order">
+		select * from `order` where OrderID = #{orderID} and IsDelete = 0
+	</select>
+
+
+
+	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into `order`(OrderID,ProductID,UserID,Quantity,TypeID,OrderDate,Message,Status,Reserve1,Reserve2,Reserve3)
+		values(#{orderID}#{productID},#{userID},#{quantity},#{typeID},#{orderDate},#{message},#{status},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateOrder" parameterType="Order" >
+        update `order` set 
+        ProductID=#{productID},
+        UserID=#{userID},
+        Quantity=#{quantity},
+        TypeID=#{typeID},
+        Message=#{message},
+        OrderDate=#{orderDate},
+        Status=#{status},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where OrderID=#{orderID}
+    </update>
+	
+	<delete id="deleteOrder" parameterType="String">
+         update `order` set 
+        IsDelete=1
+        where OrderID=#{orderID}
+    </delete>
+	
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IProductOperation">
+	<resultMap type="Product" id="resultListProduct">
+		<result property="productID" column="ProductID" />
+		<result property="categoryID" column="CategoryID" />
+		<result property="productName" column="ProductName" />
+		<result property="productDesc" column="ProductDesc" />
+		<result property="productImage" column="ProductImage" />
+		<result property="price" column="Price" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+		<association property="category" column="CategoryID" javaType="Category" 
+			select="ledweb.model.mapper.ICategoryOperation.selectCategoryByID">
+		</association>
+		<collection property="types" column="ProductID" ofType="ProductType" select="ledweb.model.mapper.IProductTypeOperation.selectProductTypeByProductID"/>
+		<collection property="specs" column="ProductID" ofType="ProductSpec" select="ledweb.model.mapper.IProductSpecOperation.selectProductSpecByProductID"/>
+				
+	</resultMap>
+	
+	<select id="selectProductByID" parameterType="String" resultMap="resultListProduct">
+		select * from product where ProductID = #{productID} and IsDelete = 0
+	</select>
+	<select id="selectProductsByCategoryID"  parameterType="String" resultMap="resultListProduct">
+		select * from product where CategoryID = #{categoryID} and IsDelete = 0
+	</select>
+	<select id="selectAllProducts" resultMap="resultListProduct">
+		select * from product where IsDelete = 0;
+	</select>
+
+	<select id="selectFeaturedProducts" resultMap="resultListProduct">
+		select * from product where IsDelete = 0 and Reserve1='1';
+	</select>
+
+
+
+	<insert id="addProduct" parameterType="Product">
+		insert into product(ProductID, CategoryID,ProductName,Price,ProductDesc,ProductImage,Reserve1,Reserve2,Reserve3)
+		values(#{productID},#{categoryID},#{productName},#{price},#{productDesc},#{productImage},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateProduct" parameterType="Product" >
+        update product set 
+        CategoryID=#{categoryID},
+        ProductName=#{productName},
+        ProductDesc=#{productDesc},
+        ProductImage=#{productImage},
+        Price=#{price},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where ProductID=#{productID}
+    </update>
+	
+	<delete id="realDeleteProduct" parameterType="String">
+        delete from product 
+        where ProductID=#{productID}
+    </delete>
+	
+</mapper>
