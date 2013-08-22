@@ -17,6 +17,18 @@ public class Util {
 		return UUID.randomUUID().toString();
 	}
 
+	public static Product getProductByID(String _ID)
+	{
+		Product product= null;
+		SqlSession session = ModelSessionFactory.getSession().openSession();
+		try {
+			IProductOperation ipo = session.getMapper(IProductOperation.class);
+			product = ipo.selectProductByID(_ID);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return product;
+	}
 	public static List<Product> getFeaturedProducts() {
 		List<Product> result = new ArrayList<Product>();
 		SqlSession session = ModelSessionFactory.getSession().openSession();
