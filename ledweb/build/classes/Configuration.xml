@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases> 
+        <typeAlias alias="User" type="ledweb.model.User"/> 
+        <typeAlias alias="Teacher" type="ledweb.model.Teacher"/> 
+        <typeAlias alias="Student" type="ledweb.model.Student"/>
+        <typeAlias alias="Product" type="ledweb.model.Product"/>
+        <typeAlias alias="Category" type="ledweb.model.Category"/>    
+        <typeAlias alias="Spec" type="ledweb.model.Spec"/>
+        <typeAlias alias="Type" type="ledweb.model.Type"/>
+        <typeAlias alias="Order" type="ledweb.model.Order"/>
+        <typeAlias alias="ProductSpec" type="ledweb.model.ProductSpec"/>
+        <typeAlias alias="ProductType" type="ledweb.model.ProductType"/>
+        <typeAlias alias="TypeGroup" type="ledweb.model.TypeGroup"/>
+        <typeAlias alias="LEDbenefits" type="ledweb.model.LEDbenefits"/>
+        <typeAlias alias="Glossary" type="ledweb.model.Glossary"/>
+        <typeAlias alias="AboutUS" type="ledweb.model.AboutUs"/>
+        <typeAlias alias="ContactUs" type="ledweb.model.ContactUs"/>
+        <typeAlias alias="HomeImage" type="ledweb.model.HomeImage"/>
+
+    </typeAliases> 
+
+    <environments default="development">
+        <environment id="development">
+        <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            
+            <!--<property name="url" value="jdbc:mysql://localhost:3306/mydb" /> 
+            <property name="username" value="hive"/>     		
+            <property name="password" value="123!@#QWEqwe"/>-->
+            
+            <property name="url" value="jdbc:mysql://192.168.103.18:3306/mydb" /> 
+            <property name="username" value="hive"/>
+            <property name="password" value="hive"/>
+
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers>
+        <mapper resource="ledweb/model/User.xml"/>
+        <mapper resource="ledweb/model/Product.xml"/>
+        <mapper resource="ledweb/model/Category.xml"/>
+        <mapper resource="ledweb/model/Spec.xml"/>
+        <mapper resource="ledweb/model/ProductSpec.xml"/>
+        <mapper resource="ledweb/model/Type.xml"/>
+        <mapper resource="ledweb/model/ProductType.xml"/>
+        <mapper resource="ledweb/model/Order.xml"/>
+        <mapper resource="ledweb/model/mapper/TeacherMapper.xml"/>
+        <mapper resource="ledweb/model/TypeGroup.xml"/>
+        <mapper resource="ledweb/model/LEDbenefits.xml"/>
+        <mapper resource="ledweb/model/Glossary.xml"/>
+        <mapper resource="ledweb/model/AboutUs.xml"/>
+        <mapper resource="ledweb/model/ContactUs.xml"/>
+        <mapper resource="ledweb/model/HomeImage.xml"/>
+    </mappers>
+</configuration>
