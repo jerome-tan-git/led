@@ -25,12 +25,45 @@ jQuery(document).ready(function() {
 });
 
 jQuery(document).ready(function() {
-    jQuery('.category_small').nailthumb({width:120,height:120}); 
+    jQuery('.category_small').nailthumb({width:120,height:120});  
 });
 
 jQuery(document).ready(function() {
     jQuery('.product_small').nailthumb({width:70,height:70}); 
 });
+
+
+function SetCookie(name,value)
+{
+    var Days = 30; 
+    var exp  = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+
+
+function addCompare(productID, productName)
+{
+	SetCookie(productID, productName);
+	alert(document.cookie.length);
+}
+
+
+function getCookie(name)        
+{
+    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+     if(arr != null) return unescape(arr[2]); return null;
+
+}
+
+function delCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
 </script>
 
 <style>
@@ -253,7 +286,7 @@ input, select, label {
 				  		<div class="clear"></div>
 				  		
 				  		<div class="grid_2 prefix_3 noprint">
-					  		<img src="./images/addcart.png" />
+					  		<a href="./productdetail.do?productID=${(product.productID)!""}&addCompare=${(product.productID)!""}"><img src="./images/addcart.png" /></a>
 				  		</div>
 				  		<div class="clear"></div>
 				  	</div><!--div class="grid_11"-->
@@ -326,12 +359,20 @@ input, select, label {
                 
             </div>
             <div id="sidebar" class="noprint" style="padding-top:50px;">
-                <div class="sb_box">
-                    <h4>News</h4>
-                    <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
-                    <div class="cleaner"></div>
-                    <cite>Juvin <a href="#"><span>- Product specialist</span></a></cite>
-            </div>
+            <#if comparedProduct??>
+	            <#if comparedProduct?size gt 0>
+	                <div class="sb_box">
+	                    <h4>Compare products</h4>
+	                    <#list comparedProduct as cprod>
+	                    <div>
+	                    <div style="width:230px;float:left;width:130px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;"><span style="font-size:14px">${(cprod.productName)!""}</span></div>
+	                    <div style="width:50px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
+	                    </div>
+	                    <div class="cleaner"></div>
+	                    </#list>
+	            </div>
+	            </#if>
+            </#if>
                 <div class="sb_box">
                 	<h4>Categories</h4>
                    <div class="container_16" style="margin: 0 auto; width:280px">
@@ -344,7 +385,7 @@ input, select, label {
 							 	</div>
 						 	</div>
 						 	<div style="padding-left:10px; padding-top:5px">
-							 	<h6><b>${(cat.categoryName)!""}</b></h6>
+							 	<a href="./category.do?categoryID=${(cat.categoryID)!"#"}"><h6><b>${(cat.categoryName)!""}</b></h6></a>
 							 </div>
 	                   	</div>
 	                   	<#if cat_index%2==1>
@@ -353,14 +394,6 @@ input, select, label {
 	                   	</#list>
 	                   	
                    	</#if>
-                   	
-                   	
-                   	
-                  
-                  
-                   	
-                   	
-                   	
                    </div><!--div class="container_16"-->
                     <div class="cleaner"></div>
                 </div>

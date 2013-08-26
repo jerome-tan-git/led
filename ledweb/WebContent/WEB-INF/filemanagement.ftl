@@ -22,7 +22,7 @@ border-left: 5px solid #eee;
 
 .bs-callout-warning {
 background-color: #fefbed;
-border-color: #f1e7bc;
+border-color: #f1e7bc; 
 }
 .bs-callout-gray { 
 background-color: #fefefe;
