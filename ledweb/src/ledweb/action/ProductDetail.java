@@ -194,7 +194,33 @@ public class ProductDetail extends ActionSupport {
 							.getRequest().getParameter("addCompare"), "compare");
 					addCompare.setMaxAge(60 * 60 * 24 * 14);
 					ServletActionContext.getResponse().addCookie(addCompare);
-					log.warn("aaaa");
+
+				}
+				if (ServletActionContext.getRequest()
+						.getParameter("deleteCompare") != null
+						&& !ServletActionContext.getRequest()
+								.getParameter("deleteCompare").trim().equals(""))
+				{
+					String deleteID = ServletActionContext.getRequest().getParameter("deleteCompare").trim();
+					Cookie cookie = new Cookie(deleteID,null);
+					cookie.setMaxAge(0);
+					
+					ServletActionContext.getResponse().addCookie(cookie);
+					int removeIndex = -1;
+					for (int i=0;i<this.getComparedProduct().size();i++)
+					{
+						Product x = this.getComparedProduct().get(i);
+						if (x.getProductID().equals(deleteID))
+						{
+							removeIndex = i;
+							break;
+						}
+					}
+					if (removeIndex != -1)
+					{
+						this.getComparedProduct().remove(removeIndex);
+					}
+					log.warn("delete ID: " +  deleteID);
 				}
 				return SUCCESS;
 			}

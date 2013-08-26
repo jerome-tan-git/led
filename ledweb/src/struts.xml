@@ -103,6 +103,10 @@
     		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
 		</action>
 		
+		<action name="compare" class="ledweb.action.Compare">
+    		<result name="success" type="freemarker">/WEB-INF/compare.ftl</result>
+		</action>
+		
 		<action name="contactUs" class="ledweb.action.CustomerAction">
 			<result name="input" type="redirect">/emailSent.do</result>
 			<!-- <result name="input" type="redirect">/WEB-INF/contactUsWeb.do</result> -->

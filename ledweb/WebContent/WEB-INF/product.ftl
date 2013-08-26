@@ -365,8 +365,8 @@ input, select, label {
 	                    <h4>Compare products</h4>
 	                    <#list comparedProduct as cprod>
 	                    <div>
-	                    <div style="width:230px;float:left"><span style="font-size:14px">${(cprod.productName)!""}</span></div>
-	                    <div style="width:50px;float:right"></div>
+	                    <div style="width:230px;float:left;width:130px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;"><span style="font-size:14px">${(cprod.productName)!""}</span></div>
+	                    <div style="width:50px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
 	                    </div>
 	                    <div class="cleaner"></div>
 	                    </#list>

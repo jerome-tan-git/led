@@ -214,7 +214,7 @@ input, select, label {
 	}
 	 
 	#tabnav ul li a:hover {
-	    background:#666;    
+	    background:#fff;    
 	}
 	 
 	.here {
@@ -227,11 +227,7 @@ input, select, label {
 	}
 	
 	
-	
-	.non-select:hover {
-	    background:#eee;
 
-	}
     
     
     
