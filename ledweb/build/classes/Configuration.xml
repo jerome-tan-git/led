@@ -10,7 +10,7 @@
         <typeAlias alias="Category" type="ledweb.model.Category"/>    
         <typeAlias alias="Spec" type="ledweb.model.Spec"/>
         <typeAlias alias="Type" type="ledweb.model.Type"/>
-        <typeAlias alias="Order" type="ledweb.model.Order"/>
+        <typeAlias alias="Order" type="ledweb.model.Order"/> 
         <typeAlias alias="ProductSpec" type="ledweb.model.ProductSpec"/>
         <typeAlias alias="ProductType" type="ledweb.model.ProductType"/>
         <typeAlias alias="TypeGroup" type="ledweb.model.TypeGroup"/>
