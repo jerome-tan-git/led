@@ -37,7 +37,7 @@
             <property name="password" value="hive"/>
 
             </dataSource>
-        </environment> 
+        </environment>
     </environments>
     
     <mappers>
