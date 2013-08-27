@@ -1,5 +1,7 @@
 package ledweb.model;
 
+import ledweb.Util;
+
 public class Category {
 	private String categoryID;
 	private String categoryName;
@@ -34,7 +36,7 @@ public class Category {
 		this.reserve1 = reserve1;
 	}
 	public String getReserve2() {
-		return reserve2;
+		return Util.replaceNoImage(this.reserve2);
 	}
 	public void setReserve2(String reserve2) {
 		this.reserve2 = reserve2;

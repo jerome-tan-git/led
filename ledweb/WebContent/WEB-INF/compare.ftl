@@ -284,7 +284,7 @@ input, select, label {
     
 	<div id="templatemo_main_wrapper" style="height:700px">
     	<div class="container_16" style="height:700px;padding-top:60px">
-    	<div class="grid_3">&nbsp;</div> 
+    	<div class="grid_2">&nbsp;</div> 
     	<#if compareProduct??>
     	
     	<#list compareProduct as product>
@@ -301,29 +301,17 @@ input, select, label {
 		</#list>
 		<div class="clear"></div>
 		
-		<div class="grid_3" style="margin-top:20px;">
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h5>a<h5></div>
-			
-			
-									
+		<div class="grid_2" style="margin-top:20px;">
+			<#list allSpecs as specs>
+				<div class="jerome" style="text-align:right"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div><h6><b>${(specs.specName)!""}</b><h6></div>
+			</#list>
 		</div>
 		<#list compareProduct as product>
-			
 			<div class="grid_3" style="margin-top:20px;">
-				
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				<div class="jerome"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>a</div>
-				
+				<#assign specs = product.specs>
+				<#list specs as spec>
+					<div class="jerome" style="text-align:center"><div style="border-bottom:1px solid #ccc;position:absolute;top:0;width:180px;">&nbsp;</div>${(spec.specValue)!"1"}</div>
+				</#list>
 			</div>
 			
 
