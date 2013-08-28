@@ -18,7 +18,8 @@
     	<global-results>
 	            <!-- <result name="login" type="redirect">/Login.action</result> -->
 	            <result name="error" type="freemarker">/WEB-INF/error.ftl</result>
-	        </global-results>
+	    </global-results>
+        
         <action name="welcome" class="ledweb.action.WelcomeAction">
             <result name="success">/success.jsp</result>
             <result name="input">/Login.jsp</result>
@@ -99,9 +100,6 @@
     		<result name="success" type="freemarker">/WEB-INF/benefits.ftl</result>
 		</action>
 		
-		<action name="aboutUs" class="ledweb.action.ContactUsAction">
-    		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
-		</action>
 		
 		<action name="compare" class="ledweb.action.Compare">
     		<result name="success" type="freemarker">/WEB-INF/compare.ftl</result>
@@ -115,7 +113,6 @@
 		<action name="emailSent" class="ledweb.action.EmailSentAction">
     		<result name="success" type="freemarker">/WEB-INF/emailSent.ftl</result>
 		</action>
-		<!-- 
 		<action name="aboutUs" class="ledweb.action.AboutUsAction">
     		<result name="success" type="freemarker">/WEB-INF/aboutUsWeb.ftl</result>
 		</action>
@@ -125,7 +122,7 @@
 		<action name="benefits" class="ledweb.action.LEDbenefitsAction">
     		<result name="success" type="freemarker">/WEB-INF/benefitsWeb.ftl</result>
 		</action>
-		 -->
+		
 		<action name="category" class="ledweb.action.Categories">
     		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
