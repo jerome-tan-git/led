@@ -86,7 +86,7 @@ function showConfirm(productName, productID)
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
-    <a href="../" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="../" class="navbar-brand">Lyrc Lighting backend</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -94,21 +94,6 @@ function showConfirm(productName, productID)
     </button>
     <div class="nav-collapse collapse bs-navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="../getting-started">Getting started</a>
-        </li>
-        <li>
-          <a href="../css">CSS</a>
-        </li>
-        <li class="active">
-          <a href="../components">Components</a>
-        </li>
-        <li>
-          <a href="../javascript">JavaScript</a>
-        </li>
-        <li>
-          <a href="../customize">Customize</a>
-        </li>
       </ul>
     </div>
   </div>

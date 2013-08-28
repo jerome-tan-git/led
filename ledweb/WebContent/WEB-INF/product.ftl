@@ -286,7 +286,7 @@ input, select, label {
 				  		<div class="clear"></div>
 				  		
 				  		<div class="grid_2 prefix_3 noprint">
-					  		<a href="./productdetail.do?productID=${(product.productID)!""}&addCompare=${(product.productID)!""}"><img src="./images/addcart.png" /></a>
+					  		<a href="./productdetail.do?productID=${(product.productID)!""}&addCompare=${(product.productID)!""}"><img src="./images/addtocompare.png" /></a>
 				  		</div>
 				  		<div class="clear"></div>
 				  	</div><!--div class="grid_11"-->
@@ -364,9 +364,9 @@ input, select, label {
 	                <div class="sb_box">
 	                    <h4>Compare products</h4>
 	                    <#list comparedProduct as cprod>
-	                    <div>
-	                    <div style="width:230px;float:left;width:130px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;"><span style="font-size:14px">${(cprod.productName)!""}</span></div>
-	                    <div style="width:50px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
+	                    <div style="margin: 0 0 5px;padding: 0 0 3px;border-bottom: 1px dotted #efefef;height:15px">
+	                    <div style="width:230px;float:left;width:160px;overflow:hidden;text-overflow:ellipsis; white-space:nowrap;"><a href="./productdetail.do?productID=${(cprod.productID)!""}"><span style="font-size:12px;color:#881212">${(cprod.productName)!""}</span></a></div>
+	                    <div style="width:20px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
 	                    </div>
 	                    <div class="cleaner"></div>
 	                    </#list>
