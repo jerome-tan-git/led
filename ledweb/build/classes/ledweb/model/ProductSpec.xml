@@ -50,8 +50,7 @@
     </update>
     
 	<update id="deleteAllProductSpec" parameterType="String">
-         delete productspec 
-        where ProductID=#{productID}
+         delete from productspec where ProductID=#{productID}
     </update>
     <delete id="deleteProductSpecBySpecID" parameterType="String">
          update productspec set 

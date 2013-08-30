@@ -305,7 +305,7 @@ jQuery(document).ready(function() {
 	    <#if homeImages?size gt 0>
 	    <div id="slides">
 		    <#list homeImages as image>
-			      <img src="${(image.imageURL)!""}" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">	    
+			      <img src="${(image.imageURL)!""}" alt="" onclick="window.location.href='${(image.targetURL)!"#"}'">	    
 			</#list>
 		   </div>
 	   </#if>

@@ -246,9 +246,13 @@ input, select, label {
 						<a href="./">Home</a> &gt; <a href="./category.do?categoryID=${(product.categoryID)!"#"}">${(product.category.categoryName)!""}</a>
 					</div>
 					<div class="clear"></div>
-					<div class="grid_16">
+					<div class="grid_10">
 						<h2>${(product.productName)!""}</h2>
 					</div>
+					<div class="grid_2" style="padding-top:20px">
+						<img src="./images/1377781716_print.png" style="cursor:pointer" onclick="window.open('./printProduct.do?productID=${(product.productID)!"#"}','newwindow','height=1000,width=1050,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"/>
+					</div>
+					<div class="clear"></div>
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
@@ -361,7 +365,7 @@ input, select, label {
             <div id="sidebar" class="noprint" style="padding-top:50px;">
             <#if comparedProduct??>
 	            <#if comparedProduct?size gt 0>
-	                <div class="sb_box">
+	                <div class="sb_box" style="padding-bottom:5px">
 	                    <h4>Compare products</h4>
 	                    <#list comparedProduct as cprod>
 	                    <div style="margin: 0 0 5px;padding: 0 0 3px;border-bottom: 1px dotted #efefef;height:15px">
@@ -369,8 +373,12 @@ input, select, label {
 	                    <div style="width:20px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
 	                    </div>
 	                    <div class="cleaner"></div>
+	                    
 	                    </#list>
+	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do"><img src="./images/btcompare.png" /></a>
+	                    </div>
 	            </div>
+	            
 	            </#if>
             </#if>
                 <div class="sb_box">

@@ -3,7 +3,9 @@ package ledweb.action;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ledweb.ImageFileFilter;
 import ledweb.ModelSessionFactory;
@@ -29,8 +31,36 @@ public class FileManagement extends ActionSupport {
 	private String desc;
 	private String[] mobileImageUrl;
 	private String[] homeImageUrl;
+	private String[] targetURL;
+	private String[] imageFileName;
 	private List<String> pcImages = new ArrayList<String>();
 	private List<String> mobileImages = new ArrayList<String>();
+	private Map<String, String> targetURLMap = new HashMap<String, String>();
+	private Map<String, String> showTargetURLMap = new HashMap<String, String>();
+
+	public Map<String, String> getShowTargetURLMap() {
+		return showTargetURLMap;
+	}
+
+	public void setShowTargetURLMap(Map<String, String> showTargetURLMap) {
+		this.showTargetURLMap = showTargetURLMap;
+	}
+
+	public String[] getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String[] imageFileName) {
+		this.imageFileName = imageFileName;
+	}
+
+	public String[] getTargetURL() {
+		return targetURL;
+	}
+
+	public void setTargetURL(String[] targetURL) {
+		this.targetURL = targetURL;
+	}
 
 	public List<String> getPcImages() {
 		return pcImages;
@@ -181,11 +211,37 @@ public class FileManagement extends ActionSupport {
 
 				String[] homeImages = ServletActionContext.getRequest()
 						.getParameterValues("homeImageUrl");
+				// String[] targetURLs = ServletActionContext.getRequest()
+				// .getParameterValues("targetUrl");
+				// if(this.targetURL!=null)
+				// {
+				// log.warn("targetURL length:" + targetURL.length);
+				// log.warn("imageFileName length:" + imageFileName.length);
+				// }
+				int count = 0;
+				for (String imageFile : imageFileName) {
+					this.targetURLMap.put(imageFile, this.targetURL[count]);
+					count++;
+				}
+
+				// log.warn(this.targetURLMap);
+
 				if (homeImages != null) {
 					for (String homeImage : homeImages) {
 						HomeImage hi = new HomeImage();
 						hi.setImageURL(homeImage);
+						String fileName = homeImage;
+						if (fileName.indexOf("/") != -1) {
+							fileName = fileName.substring(fileName
+									.lastIndexOf("/") + 1);
+						}
+						String targetURL = this.targetURLMap.get(fileName);
 						hi.setType("home");
+						if (targetURL == null || targetURL.trim().equals("")) {
+							hi.setTargetURL("#");
+						} else {
+							hi.setTargetURL(targetURL);
+						}
 						IHIO.addHomeImage(hi);
 					}
 				}
@@ -193,7 +249,20 @@ public class FileManagement extends ActionSupport {
 					for (String homeImage : mobileImages) {
 						HomeImage hi = new HomeImage();
 						hi.setImageURL(homeImage);
+
+						String fileName = homeImage;
+						if (fileName.indexOf("/") != -1) {
+							fileName = fileName.substring(fileName
+									.lastIndexOf("/") + 1);
+						}
+						String targetURL = this.targetURLMap.get(fileName);
 						hi.setType("mobile");
+						if (targetURL == null || targetURL.trim().equals("")) {
+							hi.setTargetURL("#");
+						} else {
+							hi.setTargetURL(targetURL);
+						}
+
 						IHIO.addHomeImage(hi);
 					}
 				}
@@ -217,6 +286,10 @@ public class FileManagement extends ActionSupport {
 		for (HomeImage str : pci) {
 			this.getPcImages().add(
 					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
+			this.getShowTargetURLMap().put(
+					str.getImageURL().replaceAll(this.getSavePath() + "/", ""),
+					str.getTargetURL());
+
 			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
 			// ""));
 			// log.warn(str.getImageURL());
@@ -225,10 +298,14 @@ public class FileManagement extends ActionSupport {
 		for (HomeImage str : moi) {
 			this.getMobileImages().add(
 					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
+			this.getShowTargetURLMap().put(
+					str.getImageURL().replaceAll(this.getSavePath() + "/", ""),
+					str.getTargetURL());
 			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
 			// ""));
 			// log.warn(str.getImageURL());
 		}
+		log.warn(this.getShowTargetURLMap());
 		// log.warn(this.getPcImages());
 		// log.warn(this.getMobileImages());
 		// log.warn(this.homeImageUrl.length);
