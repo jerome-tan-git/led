@@ -250,7 +250,7 @@ input, select, label {
 						<h2>${(product.productName)!""}</h2>
 					</div>
 					<div class="grid_2" style="padding-top:20px">
-						<img src="./images/1377781716_print.png" onclick="window.open('./printProduct.do?productID=${(product.productID)!"#"}','newwindow','height=1000,width=1050,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"/>
+						<img src="./images/1377781716_print.png" style="cursor:pointer" onclick="window.open('./printProduct.do?productID=${(product.productID)!"#"}','newwindow','height=1000,width=1050,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"/>
 					</div>
 					<div class="clear"></div>
 					<div class="grid_5" style="margin-left:-3px">

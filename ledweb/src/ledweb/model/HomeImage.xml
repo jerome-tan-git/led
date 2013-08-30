@@ -6,6 +6,7 @@
 	<resultMap type="HomeImage" id="resultHomeImage">		
 		<result property="imageURL" column="ImageURL" />
 		<result property="type" column="Type" />
+		<result property="targetURL" column="TargetURL" />
 	</resultMap>
 
 	<select id="selectAllImageURL" resultMap="resultHomeImage">
@@ -17,7 +18,7 @@
 	</select>
 	
 	<insert id="addHomeImage" parameterType="HomeImage">
-		insert into `homeimage` (`ImageURL`,`Type`) values (#{imageURL},#{type}); 
+		insert into `homeimage` (`ImageURL`,`Type`,`TargetURL`) values (#{imageURL},#{type},#{targetURL}); 
 	</insert>
 	
 	

@@ -23,6 +23,9 @@ jQuery(document).ready(function() {
 <body onload="window.print();">
 <#if product??>
 <div class="container_12">
+	<div class="grid_12" style="margin-bottom:10px;border-bottom:3px solid #000;text-align:right">
+		Lyrc lighting
+	</div>
 	<div class="grid_4">
 		<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 			<div class="nailthumb-container">
@@ -69,16 +72,23 @@ jQuery(document).ready(function() {
 	</div>
 	<div class="clear"></div>
 	<div class="grid_12">
-		<div style="margin-top:10px; border-top:1px solid #000;border-bottom:1px solid #000">
+		<div style="margin-top:10px; border-top:1px solid #000;border-bottom:3px solid #000">
 			${(product.productDesc)!""}
 		</div>
-	<div>
-	<div class="clear"></div>
-	<div class="grid_12">
-	
 	</div>
 	
+	
+	<div class="clear"></div>
+	<div class="grid_8">
+	&nbsp;
+	</div>
+	<div class="grid_4" style="text-align:right;">
+	<div>Lyrc lighting</div>
+	<div>Tel:192380912</div>
+	<div>Addr:L fa2fsa</div>
+	</div>
 </div>
+
 </#if>
 </body>
 </html>
