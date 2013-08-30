@@ -360,7 +360,7 @@ public class AddProduct extends ActionSupport {
 			}
 			try {
 				FileUtils.copyFile(this.getNewImage(), savefile);
-				logger.warn(this.getSavePath() + "/" + newFileName);
+				logger.warn("Image path: " + savefile.getAbsolutePath()); 
 			} catch (IOException e) {
 				logger.error(e.getMessage());
 			}

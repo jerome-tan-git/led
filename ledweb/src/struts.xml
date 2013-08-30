@@ -123,7 +123,9 @@
 		<action name="benefits" class="ledweb.action.LEDbenefitsAction">
     		<result name="success" type="freemarker">/WEB-INF/benefitsWeb.ftl</result>
 		</action>
-
+		<action name="printProduct" class="ledweb.action.PrintProduct">
+        	<result name="success" type="freemarker">/WEB-INF/printProduct.ftl</result>
+   		</action>
 		<action name="category" class="ledweb.action.Categories">
     		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>

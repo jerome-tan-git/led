@@ -18,9 +18,14 @@
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
+    
 });
+function printpage()
+{
+		setTimeout(window.print(),50000);
+}
 </script>
-<body onload="window.print();">
+<body>
 <#if product??>
 <div class="container_12">
 	<div class="grid_12" style="margin-bottom:10px;border-bottom:3px solid #000;text-align:right">
@@ -29,7 +34,7 @@ jQuery(document).ready(function() {
 	<div class="grid_4">
 		<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 			<div class="nailthumb-container">
-				<img src="${(product.productImage)!""}" />
+				<img id="productImage" src="${(product.productImage)!""}"/>
 			</div>
 		</div>
 	</div>
@@ -91,4 +96,7 @@ jQuery(document).ready(function() {
 
 </#if>
 </body>
+<script>
+setTimeout("window.print()",2000);
+</script>
 </html>
