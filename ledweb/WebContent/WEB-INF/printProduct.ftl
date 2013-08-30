@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
 });
 </script>
-<body>
+<body onload="window.print();">
 <#if product??>
 <div class="container_12">
 	<div class="grid_4">
@@ -68,11 +68,16 @@ jQuery(document).ready(function() {
 	  	</div>
 	</div>
 	<div class="clear"></div>
-	<div class="grid_12" style="margin-top:10px; border-top:1px solid #000">
-		<div>
+	<div class="grid_12">
+		<div style="margin-top:10px; border-top:1px solid #000;border-bottom:1px solid #000">
 			${(product.productDesc)!""}
 		</div>
 	<div>
+	<div class="clear"></div>
+	<div class="grid_12">
+	
+	</div>
+	
 </div>
 </#if>
 </body>
