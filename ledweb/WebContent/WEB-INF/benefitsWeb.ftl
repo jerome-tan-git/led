@@ -21,16 +21,49 @@
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script>
 jQuery(document).ready(function() {
-    jQuery('.nailthumb-container').nailthumb({width:130,height:130});
+    jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
 });
 
 jQuery(document).ready(function() {
-    jQuery('.category_small').nailthumb({width:120,height:120}); 
+    jQuery('.category_small').nailthumb({width:120,height:120});  
 });
 
 jQuery(document).ready(function() {
     jQuery('.product_small').nailthumb({width:70,height:70}); 
 });
+
+
+function SetCookie(name,value)
+{
+    var Days = 30; 
+    var exp  = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+
+<!-- 
+function addCompare(productID, productName)
+{
+	SetCookie(productID, productName);
+	alert(document.cookie.length);
+}
+-->
+
+function getCookie(name)        
+{
+    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+     if(arr != null) return unescape(arr[2]); return null;
+
+}
+
+function delCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
 </script>
 
 <style>
@@ -48,7 +81,7 @@ input, select, label {
 	padding:0;
 	width:13px;
 	height:13px;
-	vertical-align:middle;
+	vertical-align:middle; 
 	font:13px Helvetica, Arial, sans-serif;
 }
 	#slides {
@@ -165,78 +198,6 @@ input, select, label {
     {
     	cursor:pointer;
     }
-    
-    
-     #Div1
-    {
-      float:left; width:150px; height:180px;
-    }
-    #Div2
-    {
-       width:530px;height:180px; float:left;
-    }
-     #Div3
-    {
-       width:220px;height:180px; float:left;
-    }
-    
-     .non
-	 {
-	 	border-right:1px solid #eee;
-	 	background-image: url(./images/longbg.png); 
-  		background-repeat: repeat-y;
-  		background-position:right bottom;
-	 }
-	.non-select  {
-		cursor:pointer;
-	    border-right:1px solid #eee;
-	    background-image: url(./images/bgright.png); 
-  		background-repeat: repeat-y;
-  		background-position:right;
-	}
-	 
-	 	.non-top  {
-		cursor:pointer;
-	    border-right:1px solid #eee;
-	    background-image: url(./images/bgrightshort.png); 
-  		background-repeat: repeat-y;
-  		background-position:right;
-	}
-	#tabnav ul li {
-	    display:inline;
-	    margin-left:10px;
-	}
-	 
-	#tabnav ul li a {
-	    background:#fff;    
-	    padding:5px 10px 5px 10px;
-	    border:1px solid #999;
-	}
-	 
-	#tabnav ul li a:hover {
-	    background:#666;    
-	}
-	 
-	.here {
-	    border-top:1px solid #eee;
-	    border-left:0px solid #eee;
-	    border-bottom:1px solid #eee;
-	    background-image: url(./images/tabbg.png);
-  		background-repeat: repeat-y;
-  		cursor:pointer;
-	}
-	
-	
-	
-	.non-select:hover {
-	    background:#eee;
-
-	}
-    
-    
-    
-    
-    
 </style>
 </head>
 <body>
@@ -254,7 +215,7 @@ input, select, label {
 	        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
 							 <ul>
 								<li class="bar"><a  href="./">Home</a></li>
-								<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
+								<li class="bar"><a  href="./">Products</a> 
 								  <ul>
 									  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
 									  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
@@ -262,130 +223,57 @@ input, select, label {
 									  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
 								  </ul>
 								</li>
-								<li class="bar wide">
-									<a  href="./benefits.do">LED in the house</a>
-									<ul>
+								<li class="bar wide"><a  href="./benefits.do">LED in the house</a>
+										<ul>
 										  <li><a href="./benefits.do" style="font-size:15px !important">Benefits of LED</a></li>
 										  <li><a href="./glossary.do" style="font-size:15px !important">LED glossary</a></li>
-										  
-									</ul>
+										</ul>
 								</li>
 								<li class="bar"><a href="./aboutUs.do">About us</a></li>
 								<li class="bar"><a href="./contactUs.do">Contact us</a></li>
-							 </ul>
+							</ul>
 							<br style="clear: left" />
 						</div>		
         	</div>
        </div>
-    </div> 
-    <!-- end of header -->
+    </div> <!-- end of header -->
 
-<!-- EMAIL ENQUIRY -->  
-	<div id="templatemo_main_wrapper" style="height:700px">
-    	<div class="container_12" style="height:700px;padding-top:20px; ">
-    	 
-    <div id="Div2" style="height:600px;">
-    		<div class="container_16" style="padding-top:40px; padding-left:40px; ">
-	 			 <div class="grid_16"><h3>Email enquiry</h3></div>
-					<div class="clear"></div>
-	 
-	 
-		 			 <!-- test -->
-	    	 	<!--<div class="grid_3" style="margin-left:-15px">-->
-	    	 	<!--<div class="grid_16" style="margin-left:-50px">-->
-	    	 	<!--<div class="grid_16" style="text-align:left">-->
-	    	 		<form id="customerForm1" action="" method="post" enctype="multipart/form-data" style="float:left; margin-left:-50px; ">	
-						
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
-						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Name</h5>
-								</div>
-								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<input type="text" class="form-control" style="width:280px" name="name" placeholder="Your Name" value="${(customer.name)!""}" />
-								</div>
-						
-							</div>
-							
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
-						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Phone</h5>
-								</div>
-								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<input type="text" class="form-control"  style="width:280px" name="phone" placeholder="Your Phone Number" value="${(customer.phone)!""}" />
-								</div>
-						
-							</div>
-							
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
-						
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Email</h5>
-								</div>
-								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<!--<input type="text" id="email" name="email" class="validate-email required input_field" placeholder="Your Email Adress1" /> -->
-									<input type="text" class="form-control"  style="width:280px" name="email" placeholder="Your Email Adress" value="${(customer.email)!""}" />
-								</div>
-						
-							</div>
-							
-							<div style="margin: 0 auto;width:500px; height:160px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
-						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Enquiry</h5>
-								</div>
-								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:left;">
-									<textarea class="form-control" id="editor1" style="width:280px" rows="10" name="enquiry" placeholder="">
-	 									    ${(customer.enquiry)!""}
-									</textarea>
-								</div>
-						
-							</div>
-							<div class="clear"></div>
-							
-							
-							<div style="margin: 0 auto;width:600px; height:160px; border:0px solid #ccc; padding: 5px 5px 5px 5px; ">
-						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
-								float:right;">
-										<button type="submit" name="isSubmit" value="submit" class="btn btn-primary pull-right" >Send</button>		
-								</div>
-						
-							</div>
-							<!--  <button type="submit" name="isSubmit" value="submit" class="btn btn-primary pull-right" >Send</button> -->
-						
-						</form>	
-							
-							
-							<!--  panel panel-warning-->		
-					 <!--</div>-->
-					 <!-- End of test -->
-				 
-				 
-				 
-				 
-				  
-    	 	</div> <!-- <div class="container_16"> -->
-    </div><!-- <div id="Div2" style="height:600px;"> --> 
-    	 
-    	 <div id="Div3" style="height:600px;">
-	    	 	<div class="sb_box" style="margin-right:-60px; padding-top:50px;">
-	    	 				${(contactUs.article)!""}
-	 			  </div>
+    
+	<div id="templatemo_main_wrapper">
+    	<div id="templatemo_main"> 
+        <div id="content" style="">
+					<div class="container_16">
+						<div class="grid_16" style="padding-top:10px; padding-bottom:20px;">
+							<a href="./">Home</a> &gt; <a href="./benefits.do">LED benefits</a>
+						</div>
+						<div class="clear"></div>
+					  <!--<div class="grid_11">-->
+					  <div class="grid_16">
+					  	<span style="float:right; padding-top:10px; padding-right:9px;">
+				    			${(benefits.article)!""}
+				    	</span>
+					  </div>
+					 	<div class="clear"></div>
+		
+					</div>				 	        
+                
+      	</div>
+      <!--
+            <div id="sidebar" class="noprint" style="padding-top:50px;">
+                <div class="sb_box">
+                	<img  alt="Image 19" src="./images/city4.jpeg" class="nailthumb-image" style="position: 
+                						relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+                  <img  alt="Image 20" src="./images/city2.jpeg" class="nailthumb-image" style="position: 
+                						relative; width: 270px; height: 270px; top: 0px; left: 0px;">
+                </div>				
+                <div class="cleaner"></div>
+             </div>
+        -->        
+                
+        </div> <!-- end of sidebar -->
+        <div class="cleaner"></div>
        </div>
-    	 	
-    </div>
-	</div><!-- <div class="container_12"> -->
-    </div> <!-- end of main wrapper -->
+ 		 </div> <!-- end of main wrapper -->
     
 </div> <!-- end of wrapper -->
 
@@ -400,8 +288,8 @@ input, select, label {
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-						</ul>
-      </div>
+			</ul>
+        </div>
         
         <div class="col_4">
         	<h5>Partners</h5>
@@ -469,5 +357,5 @@ input, select, label {
 
   
   
-</body> 
+</body>
 </html>

@@ -116,6 +116,7 @@
 		<action name="aboutUs" class="ledweb.action.AboutUsAction">
     		<result name="success" type="freemarker">/WEB-INF/aboutUsWeb.ftl</result>
 		</action>
+		
 		<action name="glossary" class="ledweb.action.GlossaryAction">
     		<result name="success" type="freemarker">/WEB-INF/glossaryWeb.ftl</result>
 		</action>

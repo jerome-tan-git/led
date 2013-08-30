@@ -223,7 +223,13 @@ input, select, label {
 									  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
 								  </ul>
 								</li>
-								<li class="bar wide"><a  href="./">LED in the house</a></li>
+								<li class="bar wide"><a  href="./benefits.do">LED in the house</a>
+									<ul>
+									  <li><a href="./benefits.do" style="font-size:15px !important">Benefits of LED</a></li>
+									  <li><a href="./glossary.do" style="font-size:15px !important">LED glossary</a></li>
+							  
+									</ul>
+								</li>
 								<li class="bar"><a href="./aboutUs.do">About us</a></li>
 								<li class="bar"><a href="./contactUs.do">Contact us</a></li>
 							</ul>
@@ -242,7 +248,8 @@ input, select, label {
 							<a href="./">Home</a> &gt; <a href="./aboutUs.do">About us</a>
 						</div>
 						<div class="clear"></div>
-					  <div class="grid_11">
+					  <!--<div class="grid_11">-->
+					  <div class="grid_16">
 					  	<span style="float:right; padding-top:10px; padding-right:9px;">
 				    			${(aboutUs.article)!""}
 				    	</span>
@@ -252,7 +259,7 @@ input, select, label {
 					</div>				 	        
                 
       	</div>
-      
+      <!--
             <div id="sidebar" class="noprint" style="padding-top:50px;">
                 <div class="sb_box">
                 	<img  alt="Image 19" src="./images/city4.jpeg" class="nailthumb-image" style="position: 
@@ -262,7 +269,7 @@ input, select, label {
                 </div>				
                 <div class="cleaner"></div>
              </div>
-                
+         -->       
                 
         </div> <!-- end of sidebar -->
         <div class="cleaner"></div>

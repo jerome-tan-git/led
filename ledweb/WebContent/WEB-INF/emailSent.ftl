@@ -324,12 +324,16 @@ input, select, label {
 		 			 <!-- test -->
 	    	 	<div class="grid_3" style="margin-left:-15px">
 	    	 		
-	    	 		
-							<div style="border: 1px solid #eeeeee; padding:10px 10px 10px 10px; width:320px">
-			    		 	<div class="nailthumb-container square">
-			    		 		<img src="'./images/no.jpg'" />
+							<div style="border: 0px solid #eeeeee; padding:10px 10px 10px 10px; width:400px">
+							
+			    		 	<div style="float:left;padding-top:40px; padding-left:40px;">
+			    		 		<img src="./images/emailSent.png" width="70%" />
 			    		 	</div>
-			    		 </div>
+			    		 	<div style="padding-top:70px; padding-left:40px;">
+			    		 		<h5>The mail has been sent!</h5>
+			    		 	</div>
+			    		
+			    		</div>
 							
 					 </div>
 					 <!-- End of test -->
