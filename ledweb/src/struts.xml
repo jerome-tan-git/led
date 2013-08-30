@@ -115,6 +115,11 @@
 		<action name="emailSent" class="ledweb.action.EmailSentAction">
     		<result name="success" type="freemarker">/WEB-INF/emailSent.ftl</result>
 		</action>
+		
+		<action name="printProduct" class="ledweb.action.PrintProduct">
+    		<result name="success" type="freemarker">/WEB-INF/printProduct.ftl</result>
+		</action>
+		
 		<!-- 
 		<action name="aboutUs" class="ledweb.action.AboutUsAction">
     		<result name="success" type="freemarker">/WEB-INF/aboutUsWeb.ftl</result>

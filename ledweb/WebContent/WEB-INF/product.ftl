@@ -246,9 +246,13 @@ input, select, label {
 						<a href="./">Home</a> &gt; <a href="./category.do?categoryID=${(product.categoryID)!"#"}">${(product.category.categoryName)!""}</a>
 					</div>
 					<div class="clear"></div>
-					<div class="grid_16">
+					<div class="grid_10">
 						<h2>${(product.productName)!""}</h2>
 					</div>
+					<div class="grid_2" style="padding-top:20px">
+						<img src="./images/1377781716_print.png" onclick="window.open(\"WebForm1.aspx\", \"newwindow\", \"height=50, width=100,toolbar =no,menubar=no, scrollbars=no, resizable=no, location=no, status=no\") "/>
+					</div>
+					<div class="clear"></div>
 					<div class="grid_5" style="margin-left:-3px">
 						<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
 							<div class="nailthumb-container">
