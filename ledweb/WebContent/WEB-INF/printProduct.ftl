@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
 <#if product??>
 <div class="container_12">
 	<div class="grid_12" style="margin-bottom:10px;border-bottom:3px solid #000;text-align:right">
-		Lyrc lighting
+		<img src="./images/logo.png" height="20px"/>Lyrc lighting
 	</div>
 	<div class="grid_4">
 		<div style="width:270px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
