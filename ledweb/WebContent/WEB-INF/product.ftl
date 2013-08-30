@@ -365,7 +365,7 @@ input, select, label {
             <div id="sidebar" class="noprint" style="padding-top:50px;">
             <#if comparedProduct??>
 	            <#if comparedProduct?size gt 0>
-	                <div class="sb_box">
+	                <div class="sb_box" style="padding-bottom:5px">
 	                    <h4>Compare products</h4>
 	                    <#list comparedProduct as cprod>
 	                    <div style="margin: 0 0 5px;padding: 0 0 3px;border-bottom: 1px dotted #efefef;height:15px">
@@ -373,8 +373,12 @@ input, select, label {
 	                    <div style="width:20px;float:right"><a href="./productdetail.do?productID=${(product.productID)!""}&deleteCompare=${(cprod.productID)!""}"><img src="./images/close.gif" width="10px" height="10px" /></a></div>
 	                    </div>
 	                    <div class="cleaner"></div>
+	                    
 	                    </#list>
+	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do"><img src="./images/btcompare.png" /></a>
+	                    </div>
 	            </div>
+	            
 	            </#if>
             </#if>
                 <div class="sb_box">
