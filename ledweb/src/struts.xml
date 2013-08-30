@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.devMode" value="true" />
+
+
+    <package name="welcomePackage" extends="struts-default" namespace="/">
+
+    	<interceptors>  
+        	<interceptor name="browser" class="ledweb.action.MobileDetector"></interceptor>  
+    	</interceptors>
+    	
+    	<global-results>
+	            <!-- <result name="login" type="redirect">/Login.action</result> -->
+	            <result name="error" type="freemarker">/WEB-INF/error.ftl</result>
+	    </global-results>
+        
+        <action name="welcome" class="ledweb.action.WelcomeAction">
+            <result name="success">/success.jsp</result>
+            <result name="input">/Login.jsp</result>
+        </action>
+        
+        <action name="Action1" class="ledweb.action.Action1">
+    		<result type="freemarker">/WEB-INF/fm.ftl</result>
+		</action>
+
+        <action name="newProduct" class="ledweb.action.AddProduct">
+        	<param name="savePath">./UploadedImages</param>
+        	
+        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
+    		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
+		</action>
+
+
+		<action name="sysManagement" class="ledweb.action.SystemMan">
+        	<param name="savePath">./UploadedImages</param>
+        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
+    		<result name="input" type="freemarker">/WEB-INF/system.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/system.ftl</result>
+		</action>
+
+		<action name="productList" class="ledweb.action.ProductList">
+    		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
+		</action>
+		<action name="orderManagement" class="ledweb.action.Order">
+    		<result name="input" type="freemarker">/WEB-INF/orderList.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/orderList.ftl</result>
+		</action>
+
+		<action name="index" class="ledweb.action.Home">
+			<interceptor-ref name="browser">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>  
+    		<result name="input" type="freemarker">/WEB-INF/index.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/index.ftl</result>
+		</action>
+
+		<action name="productdetail" class="ledweb.action.ProductDetail">
+			<interceptor-ref name="browser">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>  
+    		<result name="input" type="freemarker">/WEB-INF/product.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
+    		
+		</action>
+
+		<action name="login" class="ledweb.action.Login">
+    		<result name="input" type="freemarker">/WEB-INF/login.ftl</result>
+    		<result name="success" type="redirect">/productList.do</result>
+		</action>
+
+		<action name="fileManagement" class="ledweb.action.FileManagement">
+			<param name="savePath">./CKImages</param>
+			<param name="contextPath">http://localhost:8080/ledweb/</param>
+    		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/filemanagement.ftl</result>
+		</action>
+
+		<action name="contactUsManagement" class="ledweb.action.ContactUsAction">
+     		<result name="input" type="freemarker">/WEB-INF/contactUs.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/contactUs.ftl</result>
+		</action>
+		<action name="aboutUsManagement" class="ledweb.action.AboutUsAction">
+     		<result name="input" type="freemarker">/WEB-INF/aboutUs.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/aboutUs.ftl</result>
+		</action>
+		<action name="glossaryManagement" class="ledweb.action.GlossaryAction">
+     		<result name="input" type="freemarker">/WEB-INF/glossary.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/glossary.ftl</result>
+		</action>
+		<action name="benefitsManagement" class="ledweb.action.LEDbenefitsAction">
+     		<result name="input" type="freemarker">/WEB-INF/benefits.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/benefits.ftl</result>
+		</action>
+
+
+		<action name="compare" class="ledweb.action.Compare">
+    		<result name="success" type="freemarker">/WEB-INF/compare.ftl</result>
+		</action>
+
+		<action name="contactUs" class="ledweb.action.CustomerAction">
+			<result name="input" type="redirect">/emailSent.do</result>
+			<!-- <result name="input" type="redirect">/WEB-INF/contactUsWeb.do</result> -->
+    		<result name="success" type="freemarker">/WEB-INF/contactUsWeb.ftl</result>
+		</action>
+		<action name="emailSent" class="ledweb.action.EmailSentAction">
+    		<result name="success" type="freemarker">/WEB-INF/emailSent.ftl</result>
+		</action>
+		<action name="aboutUs" class="ledweb.action.AboutUsAction">
+    		<result name="success" type="freemarker">/WEB-INF/aboutUsWeb.ftl</result>
+		</action>
+
+		<action name="glossary" class="ledweb.action.GlossaryAction">
+    		<result name="success" type="freemarker">/WEB-INF/glossaryWeb.ftl</result>
+		</action>
+		<action name="benefits" class="ledweb.action.LEDbenefitsAction">
+    		<result name="success" type="freemarker">/WEB-INF/benefitsWeb.ftl</result>
+		</action>
+
+		<action name="category" class="ledweb.action.Categories">
+    		<result name="input" type="freemarker">/WEB-INF/categories.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/categories.ftl</result>
+		</action>
+
+		<action name="typeManagement" class="ledweb.action.TypeManagement">
+    		<result name="input" type="freemarker">/WEB-INF/typemanagement.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/typemanagement.ftl</result>
+		</action>
+    </package>
+     <package name="mobile" extends="struts-default" namespace="/m">
+    	<action name="index" class="ledweb.action.MHome">
+    		<result name="input" type="freemarker">/WEB-INF/m_index.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/m_index.ftl</result>
+		</action>
+
+		<action name="productDetail" class="ledweb.action.MHome">
+    		<result name="input" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/m_productdetail.ftl</result>
+		</action>
+
+
+    </package>
+
+</struts>
