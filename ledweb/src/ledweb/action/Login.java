@@ -1,5 +1,8 @@
 package ledweb.action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport{
@@ -38,6 +41,8 @@ public class Login extends ActionSupport{
 			if (this.getUsername()!=null && this.getUsername().trim().toLowerCase().equals("root")
 					&& this.getPassword() != null && this.getPassword().trim().toLowerCase().equals("123456"))
 			{
+				Map session = ActionContext.getContext().getSession();
+				session.put("login", true);
 				return SUCCESS;
 			}
 		}

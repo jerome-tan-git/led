@@ -13,11 +13,17 @@
 
     	<interceptors>  
         	<interceptor name="browser" class="ledweb.action.MobileDetector"></interceptor>  
+        	<interceptor name="loginJudge" class="ledweb.action.UsrLoginInterceptor"></interceptor>
+        	<interceptor-stack name="myDefaultStack">
+                 <interceptor-ref name="loginJudge"></interceptor-ref>
+                 <interceptor-ref name="defaultStack"></interceptor-ref>
+             </interceptor-stack>
     	</interceptors>
     	
     	<global-results>
 	            <!-- <result name="login" type="redirect">/Login.action</result> -->
 	            <result name="error" type="freemarker">/WEB-INF/error.ftl</result>
+	            <result name="login" type="redirect">/login.do</result>
 	    </global-results>
         
         <action name="welcome" class="ledweb.action.WelcomeAction">
@@ -30,26 +36,31 @@
 		</action>
 
         <action name="newProduct" class="ledweb.action.AddProduct">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
         	<param name="savePath">./UploadedImages</param>
-        	
         	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
+        	
     		<result name="input" type="freemarker">/WEB-INF/addProduct.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/addProduct.ftl</result>
 		</action>
 
 
 		<action name="sysManagement" class="ledweb.action.SystemMan">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
         	<param name="savePath">./UploadedImages</param>
         	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
+        	
     		<result name="input" type="freemarker">/WEB-INF/system.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/system.ftl</result>
 		</action>
 
 		<action name="productList" class="ledweb.action.ProductList">
+			
     		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
 		</action>
 		<action name="orderManagement" class="ledweb.action.Order">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
     		<result name="input" type="freemarker">/WEB-INF/orderList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/orderList.ftl</result>
 		</action>
@@ -77,6 +88,8 @@
 		</action>
 
 		<action name="fileManagement" class="ledweb.action.FileManagement">
+
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>	
 			<param name="savePath">./CKImages</param>
 			<param name="contextPath">http://localhost:8080/ledweb/</param>
     		<result name="input" type="freemarker">/WEB-INF/filemanagement.ftl</result>
@@ -84,18 +97,22 @@
 		</action>
 
 		<action name="contactUsManagement" class="ledweb.action.ContactUsAction">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
      		<result name="input" type="freemarker">/WEB-INF/contactUs.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/contactUs.ftl</result>
 		</action>
 		<action name="aboutUsManagement" class="ledweb.action.AboutUsAction">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>	
      		<result name="input" type="freemarker">/WEB-INF/aboutUs.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/aboutUs.ftl</result>
 		</action>
 		<action name="glossaryManagement" class="ledweb.action.GlossaryAction">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>	
      		<result name="input" type="freemarker">/WEB-INF/glossary.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/glossary.ftl</result>
 		</action>
 		<action name="benefitsManagement" class="ledweb.action.LEDbenefitsAction">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
      		<result name="input" type="freemarker">/WEB-INF/benefits.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/benefits.ftl</result>
 		</action>
@@ -132,6 +149,9 @@
 		</action>
 
 		<action name="typeManagement" class="ledweb.action.TypeManagement">
+			<interceptor-ref name="loginJudge">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>		
     		<result name="input" type="freemarker">/WEB-INF/typemanagement.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/typemanagement.ftl</result>
 		</action>
