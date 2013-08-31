@@ -214,7 +214,7 @@ input, select, label {
 	}
 	 
 	#tabnav ul li a:hover {
-	    background:#666;    
+	    background:#fff;    
 	}
 	 
 	.here {
@@ -227,11 +227,7 @@ input, select, label {
 	}
 	
 	
-	
-	.non-select:hover {
-	    background:#eee;
 
-	}
     
     
     
@@ -322,7 +318,11 @@ input, select, label {
 							</div>
 							
 						</div>					
-					  </div><!--  <div class="grid_3" style="margin-left:-15px">-->
+					  </div>
+					  <#if product_index%3 ==2> 
+	                   		<div class="cleaner"></div>
+	                   	</#if>
+	                   	<!--  <div class="grid_3" style="margin-left:-15px">-->
 					  </#list>
 				 </#if>
 				  
@@ -336,7 +336,7 @@ input, select, label {
            	 </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
     	 	<div class="sb_box" style="margin-right:-60px">
     	 	<h4>Featured products</h4>
-				  <div class="container_16" style="margin: 0 auto;">
+				  <div class="container_16" style="margin: 0 auto; width:280px">
                    <#if featuredProducts??>
 	                   <#list featuredProducts as fproduct>
 	                   	<div class="grid_1 alpha" style="margin-top:10px;<#if fproduct_index %3 !=0>margin-left:48px</#if>">

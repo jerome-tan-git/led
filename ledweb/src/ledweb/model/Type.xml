@@ -16,36 +16,34 @@
 	</resultMap>
 
 	<select id="selectTypeByID" parameterType="String" resultMap="typeResultMap">
-		select * from Type where TypeID = #{typeID} and IsDelete = 0
+		select * from type where TypeID = #{typeID} and IsDelete = 0
 	</select>
 
 	<select id="selectAllTypes" resultMap="typeResultMap">
-		select * from Type where IsDelete = 0
+		select * from type where IsDelete = 0
 	</select>
 	<select id="selectTypesByTypeGroup" parameterType="String"  resultMap="typeResultMap">
-		select * from Type where Reserve1 = #{typeGroupID}
+		select * from type where Reserve1 = #{typeGroupID}
 	</select>
 	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into Type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
+		insert into type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
 		values(#{typeID},#{typeName},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
-	
-
-	
+		
 	<update id="updateType" parameterType="Type" >
-		REPLACE INTO Type(TypeID, TypeName, Reserve1, Reserve2, Reserve3) VALUES (#{typeID},#{typeName},#{reserve1},#{reserve1},#{reserve1});  
+		REPLACE INTO type(TypeID, TypeName, Reserve1, Reserve2, Reserve3) VALUES (#{typeID},#{typeName},#{reserve1},#{reserve1},#{reserve1});  
     </update>
 	
 	<delete id="deleteType" parameterType="String">
-         update Type set 
+         update type set 
         IsDelete=1
         where TypeID=#{typeID}
     </delete>
 	
 	
 	<delete id="realDeleteType" parameterType="String">
-         delete from Type where TypeID=#{typeID};
+         delete from type where TypeID=#{typeID};
     </delete>
 	
 </mapper>

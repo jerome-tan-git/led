@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IProductSpecOperation">
+	<resultMap type="ProductSpec" id="resultListProductSpec">
+		<id property="productSpecID" column="ProductSpecID" />
+		<result property="productID" column="ProductID" />
+		<result property="specID" column="SpecID" />
+		<result property="specValue" column="SpecValue" />
+		<result property="isDelete" column="IsDelete" />
+		<result property="reserve1" column="Reserve1" />
+		<result property="reserve2" column="Reserve2" />
+		<result property="reserve3" column="Reserve3" />
+		<association property="spec" column="SpecID" javaType="Spec" 
+			select="ledweb.model.mapper.ISpecOperation.selectSpecByID">
+		</association>
+	</resultMap>
+
+	<select id="selectProductSpecByID" parameterType="String" resultMap="resultListProductSpec">
+		select * from productspec where ProductSpecID = #{productSpecID} and IsDelete = 0
+	</select>
+
+	<select id="selectProductSpecByProductID" parameterType="String" resultMap="resultListProductSpec">
+		select * from productspec where ProductID = #{productID} and IsDelete = 0
+	</select>
+
+
+	<insert id="addProductSpec" parameterType="ProductSpec" useGeneratedKeys="true"
+		keyProperty="productSpecID">
+		insert into productspec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3)
+		values(#{productID},#{specID},#{specValue},#{reserve1},#{reserve2},#{reserve3})
+	</insert>
+	
+	<update id="updateProductSpec" parameterType="ProductSpec" >
+        update productspec set 
+        ProductID=#{productID},
+        SpecID=#{specID},
+        SpecValue=#{specValue},
+        Reserve1=#{reserve1},
+        Reserve2=#{reserve2},
+        Reserve3=#{reserve3},
+        where SpecID=#{specID}
+    </update>
+	
+	<update id="deleteProductSpec" parameterType="String">
+         update productspec set 
+        IsDelete=1
+        where ProductSpecID=#{productSpecID}
+    </update>
+    
+	<update id="deleteAllProductSpec" parameterType="String">
+         update productspec set 
+        IsDelete=1
+        where ProductID=#{productID}
+    </update>
+    <delete id="deleteProductSpecBySpecID" parameterType="String">
+         update productspec set 
+        IsDelete=1
+        where SpecID=#{SpecID}
+    
+    </delete>
+    <insert id="batchAddProductSpec"  parameterType="java.util.List">
+    		insert into productspec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 
+    		values
+    		<foreach collection="list" item="item" index="index" separator="," >  
+        			(#{item.productID},#{item.specID},
+        			#{item.specValue},#{item.reserve1},
+        			#{item.reserve2},#{item.reserve3})  
+    		</foreach> 
+    </insert> 
+</mapper>

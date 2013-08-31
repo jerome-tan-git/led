@@ -18,12 +18,18 @@
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
-<script type="text/javascript" language="javascript" src="js/	jquery.carouFredSel-6.2.1-packed.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.backgroundSize.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:190,height:100});
 });
+jQuery(document).ready(function() {
+
+	$("#templatemo_wrapper").css( "background-size", "contain" );
+});
 </script>
+
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -38,8 +44,8 @@ jQuery(document).ready(function() {
             var item_width = $('#carousel_ul li').outerWidth() + 60;
             
             //calculae the new left indent of the unordered list
-            var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
-            
+            //var left_indent = parseInt($('#carousel_ul').css('left')) - item_width;
+			var left_indent = -480; 
             //make the sliding effect using jquery's anumate function '
             $('#carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){    
                 
@@ -57,8 +63,8 @@ jQuery(document).ready(function() {
             var item_width = $('#carousel_ul li').outerWidth() + 60;
             
             /* same as for sliding right except that it's current left indent + the item width (for the sliding right it's - item_width) */
-            var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
-            
+            //var left_indent = parseInt($('#carousel_ul').css('left')) + item_width;
+            var left_indent = -20;
             $('#carousel_ul:not(:animated)').animate({'left' : left_indent},500,function(){    
             
             /* when sliding to left we are moving the last item before the first list item */            
@@ -256,7 +262,7 @@ jQuery(document).ready(function() {
     
 </style>
 </head>
-<body>
+<body id="body_id">
 
 <div id="templatemo_wrapper">
 
@@ -271,13 +277,14 @@ jQuery(document).ready(function() {
         	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
 				 <ul>
 					<li class="bar"><a  href="/">Home</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
+					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a>
+					<#if realCategories ??> 
 					  <ul>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
+					  	<#list realCategories as category>
+						  <li><a href="./category.do?categoryID=${(category.categoryID)!"#"}" style="font-size:15px !important">${(category.categoryName)!""}</a></li>
+						 </#list>
 					  </ul>
+					  </#if>
 				</li>
 				<li class="bar wide">
 					<a  href="http://www.dynamicdrive.com">LED in the house</a>
@@ -294,13 +301,15 @@ jQuery(document).ready(function() {
     </div> <!-- end of header -->
     
     <div id="templatemo_middle" class="img_hand" >
-    	 <div id="slides">
-	      <img src="images/slide-2.png" onClick="window.location.href='http://www.baidu.com'" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-	      <img src="images/slide-3.png" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-	      <img src="images/slide-4.png" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-	      <img src="images/slide-1.png" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
-	    </div>
-
+    <#if homeImages??>
+	    <#if homeImages?size gt 0>
+	    <div id="slides">
+		    <#list homeImages as image>
+			      <img src="${(image.imageURL)!""}" alt="" onclick="window.location.href='${(image.targetURL)!"#"}'">	    
+			</#list>
+		   </div>
+	   </#if>
+	</#if>
       
         <div class="cleaner"></div>
     </div> <!-- end of middle -->
@@ -310,98 +319,39 @@ jQuery(document).ready(function() {
 	    	<div class="container_12">
 		    	<div class="grid_12">
 				  <div id='carousel_container' style="height:260px;margin: 0 auto;">
-					  <div id='left_scroll'><div class="arrow left"></div></div>
+				     <#if showArrow>
+					  	<div id='left_scroll'><div class="arrow left"></div></div>
+					  </#if>
 					    <div id='carousel_inner'>
 					        <ul id='carousel_ul'>
-					        <li><a href='#'>
+					        
+					        
+					        <#if categories??>
+					        <#list categories as category>
+					        	<li><a href='./category.do?categoryID=${(category.categoryID)!""}'>
 								<div class="grid_3">
 									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
 									    <div class="nailthumb-container">
-											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
+											<img src="${(category.reserve2)!""}" alt="Image 01" class="image_frame"/>
 										</div>
 									</div>
 									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 5</h5></div>
+										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">${(category.categoryName)!""}</h5></div></a>
 										<p>
-											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
+											${(category.reserve1)!""}
 										</p>
 										<a href="#" class="more"></a>
 									</div>			
 									</div>
 								</a></li>
-								
-								<li><a href='#'>
-					            	<div class="grid_3">
-										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-										    <div class="nailthumb-container">
-												<img src="images/tripelights.jpg" alt="Image 01" />
-											</div>
-										
-										</div>
-										<div style="margin: 0 auto;width:190px">
-											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Strip lights 1</h5></div>
-											<p>
-												Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-											</p>
-											<a href="#" class="more"></a>
-										</div>					
-									  </div>
-								</li>
-					            <li><a href='#'>
-					            <div class="grid_3">
-									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-									    <div class="nailthumb-container">
-											<img src="images/downlights30814bl.jpg" alt="Image 01" class="image_frame"/> 
-										</div>
-									</div>
-									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Down lights 2</h5></div>
-										<p>
-											The CR Series is an amazing combination of price and performance. Built upon technical innovations in optical, electronics, mechanical and thermal design, the CR Series provides amazing color accuracy and advanced dimming capabilities.
-										</p>
-										<a href="#" class="more"></a>
-									</div>
-								 </div>
-								</a></li>
-					            <li><a href='#'>
-					            	<div class="grid_3">
-										<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-										    <div class="nailthumb-container">
-												<img src="images/rope_light.jpg" alt="Image 01" class="image_frame"/> 
-											</div>	
-										</div>
-										<div style="margin: 0 auto;width:190px">
-											<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">Rope Lights 3</h5></div>
-											<p>
-												WideLoyal, A leading manufacturer and supplier in LED rope light, rope light, LED strip light, flexi light, holiday light, decoration light and accessories.
-											</p>
-											<a href="#" class="more"></a>
-										</div>
-									</div>
-								</a></li>
-					            <li><a href='#'>
-					            				  
-								<div class="grid_3">
-									<div style="margin: 0 auto;width:190px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff">
-									    <div class="nailthumb-container">
-											<img src="images/PuckLight.jpg" alt="Image 01" class="image_frame"/>
-										</div>
-									</div>
-									<div style="margin: 0 auto;width:190px">
-										<div style="padding-top:10px"><h5 style="font-size: 14px;font-weight: 700;">LED Puck Lights 4</h5></div>
-										<p>
-											Strip Lights Parts and Accessories. You won't find a larger selection of Strip Lights, plus customer reviews, live chat support & a 30-day Guarantee
-										</p>
-										<a href="#" class="more"></a>
-									</div>			
-									</div>
-								</a></li>
-								
-
+								</#list>
+								</#if>								
 								
 					        </ul>
 					    </div>
-					  <div id='right_scroll'><div class="arrow right"></div></div>
+					  <#if showArrow>
+					  	<div id='right_scroll'><div class="arrow right"></div></div>
+					  </#if>
 				  </div><!--div id='carousel_container' style="height:260px"-->
 			  </div><!--div class="container_12"-->
 			</div>	  
@@ -417,31 +367,33 @@ jQuery(document).ready(function() {
         	<h5>Pages</h5>
             <ul class="footer_list">
             	<li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">Products</a></li>
+                <li><a href="portfolio.html">LED in the house</a></li>
+                <li><a href="blog.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
 			</ul>
         </div>
         
         <div class="col_4">
-        	<h5>Partners</h5>
+        	<h5>Products</h5>
             <ul class="footer_list">
-            	<li><a href="http://www.flashmo.com/">Free Flash Templates</a></li>
-                <li><a href="http://www.bestmoban.com/">Free CSS Templates</a></li>
-                <li><a href="http://www.flashmo.com/store">Preminum Templates</a></li>
-                <li><a href="http://www.koflash.com/">Website Gallery</a></li>
-                <li><a href="http://www.webdesignmo.com/blog/">Web Design Resources</a></li>
+            
+            
+            	<#if categories??>
+				<#list categories as category>
+				<li><a href='./category.do?categoryID=${(category.categoryID)!""}'>${(category.categoryName)!""}</a></li>
+				</#list>
+				</#if>								
+            
 			</ul>             
         </div>
         
-        <div class="col_4">
-        	<h5>Twitter</h5>
-            <ul class="twitter_post">
-	            <li>Suspendisse at scelerisque urna. Aenean tincidunt massa in tellus varius ultricies.</li>
-                <li>Proin dignissim, diam nec <a href="#">@TemplateMo</a> enim lorem tempus orci, ac ante purus in justo.</li>
-			</ul>
-        </div>
+	      <div class="col_4">
+	        	<h5>Terms and Conditions</h5>
+	            <ul class="footer_list">
+	            	<li><a href="home.html">Terms and Conditions</a></li>
+				</ul>
+	        </div>
         
         <div class="col_4 col_l">
         	<h5>Follow Us</h5>

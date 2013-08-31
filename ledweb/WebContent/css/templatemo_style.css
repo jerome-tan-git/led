@@ -9,8 +9,8 @@ body {
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 13px;
 	line-height: 1.3em; 
-	background-color: #fff;
-	background-image: url(../images/templatemo_body.png);
+	background-color: #f2f2f2;
+	background-image: url(../images/3.png);
 	background-repeat: repeat-x;
 	background-position: top;
 }
@@ -87,7 +87,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 #templatemo_wrapper {
 	width: 100%;
-	background: url(../images/templatemo_wrapper.jpg) top center no-repeat;
+	background: url(../images/templatemo_wrapper.png) top center no-repeat;
 }
 
 #templatemo_header {
@@ -108,11 +108,12 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 #site_title h1 a { 
 	display: block; 
 	font-size: 12px; 
-	font-family: Georgia, "Times New Roman", Times, serif; width: 217px; 
-	height: 52px; 
+	font-family: Georgia, "Times New Roman", Times, serif; 
+	width: 217px; 
+	height: 60px; 
 	color: #acacac; 
 	text-indent: -10000px; 
-	background: url(../images/templatemo_logo.png) no-repeat center left; 
+	background: url(../images/logo_new.png) no-repeat center left; 
 }
 
 #templatemo_menu { 
@@ -547,7 +548,7 @@ a.nivo-prevNav {
 
 #templatemo_footer_wrapper {
 	width: 100%;
-	background: #e9e9e9 url(../images/templatemo_footer_bg_repeat.png) repeat-x top
+	background: url(../images/31.png) repeat-x 0px 10px
 }
 
 #templatemo_footer {
@@ -555,7 +556,7 @@ a.nivo-prevNav {
 	margin: 0 auto;
 	padding: 10px 10px 40px;
 	color: #666;
-	background: url(../images/templatemo_footer_bg.png) center top no-repeat;
+	background: url(../images/templatemo_footer_bg.png) center 0px no-repeat;
 }
 
 .col_4 { 

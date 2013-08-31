@@ -1,12 +1,14 @@
 package ledweb.model;
 
+import ledweb.Util;
+
 public class Category {
 	private String categoryID;
 	private String categoryName;
 	private int isDelete;
-	private String reserve1="";
-	private String reserve2="";
-	private String reserve3="";
+	private String reserve2 = "";
+	private String reserve1 = "";
+	private String reserve3 = System.currentTimeMillis()+"";
 	
 
 	public String getCategoryID() {
@@ -34,7 +36,7 @@ public class Category {
 		this.reserve1 = reserve1;
 	}
 	public String getReserve2() {
-		return reserve2;
+		return Util.replaceNoImage(this.reserve2);
 	}
 	public void setReserve2(String reserve2) {
 		this.reserve2 = reserve2;
@@ -43,7 +45,7 @@ public class Category {
 		return reserve3;
 	}
 	public void setReserve3(String reserve3) {
-		this.reserve3 = reserve3;
+		this.reserve3 = System.currentTimeMillis()+"";
 	}
 	/**
 	 * 	private int categoryID;
