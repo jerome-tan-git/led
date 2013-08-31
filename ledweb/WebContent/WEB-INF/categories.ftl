@@ -330,11 +330,7 @@ input, select, label {
     	 	</div> <!-- <div class="container_16"> -->
     	 </div><!-- <div id="Div2" style="height:600px;"> -->
     	 <div id="Div3" style="height:600px;">
-    	 <div class="sb_box" style="padding-top:60px;margin-right:-60px">
-                    <h4>News</h4>
-                    <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
-           	 </div><!-- <div class="sb_box" style="padding-top:60px;margin-right:-60px"> -->
-    	 	<div class="sb_box" style="margin-right:-60px">
+		<div class="sb_box" style="padding-top:60px;margin-right:-60px">
     	 	<h4>Featured products</h4>
 				  <div class="container_16" style="margin: 0 auto; width:280px">
                    <#if featuredProducts??>

@@ -50,6 +50,8 @@ public class Util {
 		
 		Properties prop = new Properties();
 		try {
+			classPath = classPath.replaceAll("%20", " ");
+			
 			FileInputStream fis = new FileInputStream(classPath+"./config.properties");
 			prop.load(fis);
 			result = prop.getProperty(_key);
