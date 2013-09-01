@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Lyrc management tool | Add product</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css" />
 <link rel="stylesheet" type="text/css" href="css/global.css" />
@@ -340,7 +340,7 @@ jQuery(document).ready(function() {
 	  		</div>
 		<div class="row">
 			 <div class="col-lg-12">
-			 	<label class="checkbox-inline"><input type="checkbox" name="featuredProduct" value="1" <#if product.reserve1=="1">checked</#if> /> featured product </label>
+			 	<label class="checkbox-inline"><input type="checkbox" name="featuredProduct" value="1" <#if product??><#if product.reserve1=="1">checked</#if></#if> /> featured product </label>
 			</div>
 		</div>
 		

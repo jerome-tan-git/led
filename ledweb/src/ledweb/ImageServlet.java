@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -43,8 +47,35 @@ public class ImageServlet extends HttpServlet {
 
 		String spec = request.getParameter("spec");// 输出图片的类型的标志
 
-		String imagePath = "/images/login-bg_1.png";// 图片相对web应用的位置
+		String imagePath = "/images/login-bg_0.png";// 图片相对web应用的位置
+		if (request.getSession().getAttribute("image") == null
+				|| request.getSession().getAttribute("image").toString().trim()
+						.equals("")) {
+			File imageFolder = new File(getServletContext().getRealPath(
+					"/images"));
+			File[] listFiles = null;
+			List<File> fileArray = new ArrayList<File>();
+			if (imageFolder.isDirectory()) {
+				listFiles = imageFolder.listFiles();
+			}
+			if (listFiles != null) {
+				for (File x : listFiles) {
+					if (x.getName().startsWith("login-bg_")) {
+						fileArray.add(x);
+						// System.out.println(x.exists());
+					}
 
+				}
+				Random r = new Random(10);
+
+				Collections.shuffle(fileArray);
+				imagePath = "/images/" + fileArray.get(0).getName();
+				request.getSession().putValue("image", imagePath);
+			}
+
+		} else {
+			imagePath = request.getSession().getValue("image").toString();
+		}
 		OutputStream output = response.getOutputStream();// 得到输出流
 		if (imagePath.toLowerCase().endsWith(".jpg"))// 使用编码处理文件流的情况：
 		{
@@ -61,8 +92,7 @@ public class ImageServlet extends HttpServlet {
 			JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(output);
 			encoder.encode(image);// 对图片进行输出编码
 			imageIn.close();// 关闭文件流
-		} else
-		if (imagePath.toLowerCase().endsWith(".gif"))// 不使用编码处理文件流的情况：
+		} else if (imagePath.toLowerCase().endsWith(".gif"))// 不使用编码处理文件流的情况：
 		{
 			response.setContentType(GIF);
 			ServletContext context = getServletContext();// 得到背景对象
@@ -79,8 +109,7 @@ public class ImageServlet extends HttpServlet {
 			bis.close();
 			bos.flush();// 清空输出缓冲流
 			bos.close();
-		}
-		else if (imagePath.toLowerCase().endsWith(".png"))// 不使用编码处理文件流的情况：
+		} else if (imagePath.toLowerCase().endsWith(".png"))// 不使用编码处理文件流的情况：
 		{
 			response.setContentType(PNG);
 			ServletContext context = getServletContext();// 得到背景对象

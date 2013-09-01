@@ -1,11 +1,24 @@
 package ledweb.action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport{
 	private String username;
 	private String password;
 	private String login;
+	private String psd;
+	
+	public String getPsd() {
+		return psd;
+	}
+
+	public void setPsd(String psd) {
+		this.psd = psd;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -33,14 +46,22 @@ public class Login extends ActionSupport{
 	@Override
     public String execute()
     {
+		Map session = ActionContext.getContext().getSession(); 
+		
 		if (this.getLogin()!=null && this.getLogin().trim().equals("1"))
 		{
 			if (this.getUsername()!=null && this.getUsername().trim().toLowerCase().equals("root")
-					&& this.getPassword() != null && this.getPassword().trim().toLowerCase().equals("123456"))
+					&& this.getPassword() != null && this.getPassword().trim().toLowerCase().equals(this.getPsd()))
 			{
+				
+				session.put("login", true);
 				return SUCCESS;
 			}
 		}
-        return INPUT;
+		else
+		{
+			session.remove("image");
+		}
+        return INPUT; 
     }
 }

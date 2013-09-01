@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap In Action - Landing Page Example</title>
+  <title>Lyrc management tool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +72,7 @@
 				</div>
 			 </div>
               <div class="margin-base-vertical">
-                  <small class="text-muted"><a href="http://www.flickr.com/photos/erwlas/6133364748/">Background picture by erwlas @flickr</a>. Used under <a href="http://creativecommons.org/licenses/by/2.0/deed.en">Creative Commons - Attribution</a>.</small>
+                  
               </div>
 
           </div><!-- //main content -->

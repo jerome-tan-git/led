@@ -19,6 +19,7 @@
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+<script type="text/javascript" language="javascript" src="js/global.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
@@ -336,7 +337,9 @@ input, select, label {
 						</div>
 				</div>				 
 				<div class="cleaner h40 noprint" style="border-bottom:1px solid #ccc; margin-bottom:40px"></div>
-                <h3 class="noprint">Similar products</h3>
+				<#if relatedProducts?size gt 0>
+                	<h3 class="noprint">Similar products</h3>
+                </#if>
                 
                 <div class="container_16 noprint">
                 <#list relatedProducts as prod>
@@ -375,7 +378,7 @@ input, select, label {
 	                    <div class="cleaner"></div>
 	                    
 	                    </#list>
-	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do"><img src="./images/btcompare.png" /></a>
+	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do" target="blank"><img src="./images/btcompare.png" /></a>
 	                    </div>
 	            </div>
 	            
