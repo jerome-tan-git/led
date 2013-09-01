@@ -277,23 +277,26 @@ jQuery(document).ready(function() {
         	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
 				 <ul>
 					<li class="bar"><a  href="/">Home</a></li>
-					<#assign fcat = realCategories[0] /> 
+					<#assign fcat = allCategories[0] /> 
 					<li class="bar"><a  href="./category.do?categoryID=${(fcat.categoryID)!"#"}" >Products</a>
-					<#if realCategories ??> 
+					<#if allCategories ??> 
 					  <ul>
-					  	<#list realCategories as category>
+					  	<#list allCategories as category>
 						  <li><a href="./category.do?categoryID=${(category.categoryID)!"#"}" style="font-size:15px !important">${(category.categoryName)!""}</a></li>
 						 </#list>
 					  </ul>
 					  </#if>
 				</li>
 				<li class="bar wide">
-					<a  href="http://www.dynamicdrive.com">LED in the house</a>
-				</li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
-
-				</li>
+				<a  href="./benefits.do">LED in the house</a>
+				<ul>
+					  <li><a href="./benefits.do" style="font-size:15px !important">Benefits of LED</a></li>
+					  <li><a href="./glossary.do" style="font-size:15px !important">LED glossary</a></li>
+					  
+				</ul>
+			</li>
+			<li class="bar"><a href="./aboutUs.do">About us</a></li>
+			<li class="bar"><a href="./contactUs.do">Contact us</a></li>
 				</ul>
 				<br style="clear: left" />
 				</div>		

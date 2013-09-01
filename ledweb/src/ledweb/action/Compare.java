@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 
 import ledweb.ModelSessionFactory;
 import ledweb.Util;
+import ledweb.model.Category;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
 import ledweb.model.Spec;
@@ -24,7 +25,14 @@ public class Compare extends ActionSupport {
 	private Logger log = Logger.getLogger(Home.class);
 	private List<Product> compareProduct = new ArrayList<Product>();
 	private List<Spec> allSpecs = new ArrayList<Spec>();
-
+	private List<Category> allCategories;
+	
+	public List<Category> getAllCategories() {
+		return allCategories;
+	}
+	public void setAllCategories(List<Category> allCategories) {
+		this.allCategories = allCategories;
+	}
 	public List<Spec> getAllSpecs() { 
 		return allSpecs;
 	}
@@ -43,6 +51,7 @@ public class Compare extends ActionSupport {
 
 	@Override
 	public String execute() {
+		this.allCategories = Util.getAllCategories();
 		Cookie[] cookie = ServletActionContext.getRequest().getCookies();
 		for (Cookie c : cookie) {
 			if (c.getValue() != null) {

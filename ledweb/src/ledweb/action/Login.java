@@ -2,6 +2,8 @@ package ledweb.action;
 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -10,7 +12,7 @@ public class Login extends ActionSupport{
 	private String password;
 	private String login;
 	private String psd;
-	
+	private Logger log = Logger.getLogger(Login.class); 
 	public String getPsd() {
 		return psd;
 	}
@@ -53,7 +55,6 @@ public class Login extends ActionSupport{
 			if (this.getUsername()!=null && this.getUsername().trim().toLowerCase().equals("root")
 					&& this.getPassword() != null && this.getPassword().trim().toLowerCase().equals(this.getPsd()))
 			{
-				
 				session.put("login", true);
 				return SUCCESS;
 			}
@@ -61,6 +62,8 @@ public class Login extends ActionSupport{
 		else
 		{
 			session.remove("image");
+//			log.warn("remove session");
+			
 		}
         return INPUT; 
     }

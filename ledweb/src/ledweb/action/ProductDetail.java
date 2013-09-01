@@ -34,7 +34,14 @@ public class ProductDetail extends ActionSupport {
 	private List<Category> categories;
 	private String addCompare;
 	private List<Product> comparedProduct = new ArrayList<Product>();
-
+	private List<Category> allCategories;
+	
+	public List<Category> getAllCategories() {
+		return allCategories;
+	}
+	public void setAllCategories(List<Category> allCategories) {
+		this.allCategories = allCategories;
+	}
 	public List<Product> getComparedProduct() {
 		return comparedProduct;
 	}
@@ -151,6 +158,7 @@ public class ProductDetail extends ActionSupport {
 
 	@Override
 	public String execute() {
+		this.allCategories = Util.getAllCategories();
 		this.setProductID(ServletActionContext.getRequest().getParameter(
 				"productID"));
 		this.featuredProducts = Util.getFeaturedProducts();

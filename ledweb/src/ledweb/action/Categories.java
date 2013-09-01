@@ -20,7 +20,14 @@ public class Categories extends ActionSupport {
 	private Category selectedCategory;
 	private List<Product> products;
 	private List<Product> featuredProducts;
+	private List<Category> allCategories;
 	
+	public List<Category> getAllCategories() {
+		return allCategories;
+	}
+	public void setAllCategories(List<Category> allCategories) {
+		this.allCategories = allCategories;
+	}
 	public List<Product> getFeaturedProducts() {
 		return featuredProducts;
 	}
@@ -98,6 +105,7 @@ public class Categories extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		this.allCategories = Util.getAllCategories();
 		this.init(this.getCategoryID());
 		return SUCCESS;
 	}

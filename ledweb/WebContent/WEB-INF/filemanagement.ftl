@@ -83,7 +83,7 @@ border-color: #dFb5b4;
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
-    <a href="../" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="./login.do" class="navbar-brand">Lyrc Lighting backend</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -91,21 +91,6 @@ border-color: #dFb5b4;
     </button>
     <div class="nav-collapse collapse bs-navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="../getting-started">Getting started</a>
-        </li>
-        <li>
-          <a href="../css">CSS</a>
-        </li>
-        <li class="active">
-          <a href="../components">Components</a>
-        </li>
-        <li>
-          <a href="../javascript">JavaScript</a>
-        </li>
-        <li>
-          <a href="../customize">Customize</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -119,24 +104,39 @@ border-color: #dFb5b4;
             <ul class="nav bs-sidenav">           
 			    <li class="">
 			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
-			    	Product management </a>
+			    	Products </a>
 			    	</li>
 			    <li class="">
 			    	<a href="./sysManagement.do" <#if module??><#if module=="system management">style="background-color: #e5e3e9;"</#if></#if>">
-			    	System management
+			    	System
 		  			</a>
 				</li>
 			    <li class="">
 		  			 <a href="./userManagement.do" <#if module??><#if module=="user management">style="background-color: #e5e3e9;"</#if></#if>">
-		  			 User management
+		  			 Users
 		  			</a>
 		  		</li>
 			    <li class="">
-			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
+			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Orders
 		  		</a></li>
 				<li class="">
-			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
+			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">Files
 		  		</a></li>
+		  		<li class="">
+			    	<a href="./benefitsManagement.do" <#if module??><#if module=="benifits">style="background-color: #e5e3e9;"</#if></#if>"">LED benifits
+		  		</a></li>
+		  		<li class="">
+			    	<a href="./glossaryManagement.do" <#if module??><#if module=="glossary">style="background-color: #e5e3e9;"</#if></#if>"">Glossary
+		  		</a></li>
+		  		<li class="">
+			    	<a href="./aboutUsManagement.do" <#if module??><#if module=="about us">style="background-color: #e5e3e9;"</#if></#if>"">About us
+		  		</a></li>
+		  		<li class="">
+			    	<a href="./contactUsManagement.do" <#if module??><#if module=="contact us">style="background-color: #e5e3e9;"</#if></#if>"">Contact us
+		  		</a></li>
+		  		<li class="">
+			    	<a href="./typeManagement.do" <#if module??><#if module=="type">style="background-color: #e5e3e9;"</#if></#if>"">Types
+		  		</a></li>		  		
 			</ul>
           </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 import ledweb.ModelSessionFactory;
+import ledweb.Util;
 import ledweb.model.Category;
 import ledweb.model.HomeImage;
 import ledweb.model.mapper.ICategoryOperation;
@@ -20,7 +21,14 @@ public class Home extends ActionSupport{
 	private List<Category> realCategories;
 	private Logger log = Logger.getLogger(Home.class);
 	private boolean showArrow;
-
+	private List<Category> allCategories;
+		
+		public List<Category> getAllCategories() {
+			return allCategories;
+		}
+		public void setAllCategories(List<Category> allCategories) {
+			this.allCategories = allCategories;
+		}
 	public List<Category> getRealCategories() {
 		return realCategories;
 	}
@@ -55,6 +63,7 @@ public class Home extends ActionSupport{
 
 	@Override
 	public String execute() throws Exception {
+		this.allCategories = Util.getAllCategories();
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		try
 		{

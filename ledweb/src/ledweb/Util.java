@@ -10,7 +10,9 @@ import java.util.UUID;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
+import ledweb.model.Category;
 import ledweb.model.Product;
+import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
 
 public class Util {
@@ -19,7 +21,21 @@ public class Util {
 	public static String getUUID() {
 		return UUID.randomUUID().toString();
 	}
-
+	public static List<Category> getAllCategories()
+	{
+		SqlSession session = ModelSessionFactory.getSession().openSession();
+		List<Category> allCategories = new ArrayList<Category>();
+		try
+		{
+			ICategoryOperation ICO = session.getMapper(ICategoryOperation.class);
+			allCategories = ICO.selectAllCategories();
+		}
+		catch(Exception e)
+		{
+			log.error(e.getMessage());
+		}
+		return allCategories;
+	}
 	public static Product getProductByID(String _ID) {
 		Product product = null;
 		SqlSession session = ModelSessionFactory.getSession().openSession();
