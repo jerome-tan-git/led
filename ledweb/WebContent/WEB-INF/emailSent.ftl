@@ -251,77 +251,45 @@ input, select, label {
         		</h1>
         	</div>
         	<div id="site_title" class="grid_9">
-        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
-				 <ul>
-					<li class="bar"><a  href="./">Home</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
-					  <ul>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
-					  </ul>
-				</li>
-				<li class="bar wide">
-					<a  href="http://www.dynamicdrive.com">LED in the house</a>
-				</li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
-
-				</li>
-				</ul>
-				<br style="clear: left" />
-				</div>		
+	        	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
+							 <ul>
+								<li class="bar"><a  href="./">Home</a></li>
+								<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
+								  <ul>
+									  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
+									  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
+									  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
+									  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
+								  </ul>
+								</li>
+								<li class="bar wide">
+									<a  href="./benefits.do">LED in the house</a>
+									<ul>
+										  <li><a href="./benefits.do" style="font-size:15px !important">Benefits of LED</a></li>
+										  <li><a href="./glossary.do" style="font-size:15px !important">LED glossary</a></li>
+										  
+									</ul>
+								</li>
+								<li class="bar"><a href="./aboutUs.do">About us</a></li>
+								<li class="bar"><a href="./contactUs.do">Contact us</a></li>
+							 </ul>
+							<br style="clear: left" />
+						</div>		
         	</div>
-        </div>
+       </div>
     </div> 
     <!-- end of header -->
 
-<!-- CATEGORY DISPLAY -->  
+<!-- EMAIL ENQUIRY -->  
 	<div id="templatemo_main_wrapper" style="height:700px">
-    	<div class="container_12" style="height:700px;padding-top:20px"> 
-		  	<div id="Div1" style="height:600px;">
-					<div class="grid_2" style="height:35px"></div>
-	    		<div class="clear"></div>
-	    		<div class="grid_2 non-top" style="height:35px"></div>
-	    		<div class="clear"></div>
-	    		
-	    		
-	    		<!--
-	    		<#if categories??>
-	    			<#list categories as category>
-			    		<div class="grid_2 <#if categoryID==category.categoryID>here <#else> non-select </#if>" style="height:35px">
-			    			<span style="float:right; padding-top:10px; padding-right:9px;">
-			    			<a href="?categoryID=${(category.categoryID)!"#"}">
-			    			<h6>${(category.categoryName)!""} </h6>
-			    			</a></span>
-			    		</div>
-			    		<div class="clear"></div>
-		    		</#list>
-	    		</#if>
-	    		-->
-	    		<!-- test -->
-	    		<div class="grid_2" style="height:35px">
-			    			<span style="float:right; padding-top:10px; padding-right:9px;">
-			    			<h5>${(contactUs.article)!""}</h5>
-			    			</span>
-			    </div>
-			    <div class="clear"></div>
-			    <!-- End of test -->		
-			    		
-	    		
-	    		<div class="grid_2 non" style="height:235px"></div>
-	    		<div class="clear"></div>
-    	 </div><!-- <div id="Div1" style="height:600px;"> -->
-    	 <div id="Div2" style="height:600px;">
-    	 	<div class="container_16" style="padding-top:40px; padding-left:40px;">
-	 			 <div class="grid_16">
-
-	 			 </div>
-	 			 <div class="clear"></div>
-	 			
-				 
-		 			 <!-- test -->
+    	<div class="container_12" style="height:700px;padding-top:20px; ">
+    	 
+    <div id="Div2" style="height:600px;">
+    		<div class="container_16" style="padding-top:40px; padding-left:40px; ">
+	 			 <div class="grid_16" style="float:right"><h3></h3></div>
+					<div class="clear"></div>
+	 
+	  			<!-- test -->
 	    	 	<div class="grid_3" style="margin-left:-15px">
 	    	 		
 							<div style="border: 0px solid #eeeeee; padding:10px 10px 10px 10px; width:400px">
@@ -340,44 +308,17 @@ input, select, label {
 				 
 				 
 				 
-				 
 				  
     	 	</div> <!-- <div class="container_16"> -->
-    	 </div><!-- <div id="Div2" style="height:600px;"> -->
+    </div><!-- <div id="Div2" style="height:600px;"> --> 
+    	 
     	 <div id="Div3" style="height:600px;">
-    	 <div class="sb_box" style="padding-top:60px;margin-right:-60px">
-                    <h4>News</h4>
-                    <p class="testimonial">Proin cursus elementum facilisis. Suspendisse malesuada tempor erat, at auctor augue volutpat vel. In lobortis sem ac mi sagittis accumsan. </p>
-           	 </div>
-    	 	<div class="sb_box" style="margin-right:-60px">
-    	 	<h4>Featured products</h4>
-				  <div class="container_16" style="margin: 0 auto; width:280px">
-                   <#if featuredProducts??>
-	                   <#list featuredProducts as fproduct>
-	                   	<div class="grid_1 alpha" style="margin-top:10px;<#if fproduct_index %3 !=0>margin-left:48px</#if>">
-	                   		<div style="width:70px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">				
-								<div class="product_small" style="overflow: hidden; padding: 0px; width: 70px; height: 70px;">
-									<a href="./productdetail.do?productID=${(fproduct.productID)!""}"><img alt="Image 01" onerror="this.src='./images/no.jpg'" class="nailthumb-image" src="${(fproduct.productImage)}"></a>
-									${(fproduct.productName)!""}
-							 	</div>
-						 	</div>
-	                   	</div>
-	                   	<#if fproduct_index %3 ==2>
-	                   		<div class="cleaner"></div>
-	                   	</#if>
-	                   	</#list>
-                   	</#if>
-                   	</div><!--div class="container_16"-->
-                   	
-                 </div>
-                   	
-                   	
-                   	
-                   </div><!-- featured products -->
+	    	 	<div class="sb_box" style="float:right; margin-right:-120px; padding-top:50px; width:200px" >
+	    	 				${(contactUs.article)!""}
+	 			  </div>
+       </div>
     	 	
-    	 	
-    	 	
-    	 </div>
+    </div>
 	</div><!-- <div class="container_12"> -->
     </div> <!-- end of main wrapper -->
     
@@ -394,8 +335,8 @@ input, select, label {
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
-			</ul>
-        </div>
+						</ul>
+      </div>
         
         <div class="col_4">
         	<h5>Partners</h5>
@@ -463,5 +404,5 @@ input, select, label {
 
   
   
-</body>
+</body> 
 </html>

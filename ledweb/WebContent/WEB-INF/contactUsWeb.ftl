@@ -296,57 +296,63 @@ input, select, label {
 	    	 	<!--<div class="grid_16" style="text-align:left">-->
 	    	 		<form id="customerForm1" action="" method="post" enctype="multipart/form-data" style="float:left; margin-left:-50px; ">	
 						
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+							<div style="margin: 0 auto;width:500px; height:40px; border:0px solid #ccc; padding: 5px 5px 5px 5px; ">
 						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								<div style="padding-top:10px; margin-left:10px; width:80px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Name</h5>
+									<h5 style="font-size: 14px;font-weight: 700;">Name:</h5>
 								</div>
 								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<input type="text" class="form-control" style="width:280px" name="name" placeholder="Your Name" value="${(customer.name)!""}" />
+									<input type="text" class="form-control" style="width:250px; height:25px" name="name" placeholder="Your Name" 
+										value="${(customer.name)!""}" />
 								</div>
 						
 							</div>
 							
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+							<div style="margin: 0 auto;width:500px; height:40px; border:0px solid #ccc; padding: 5px 5px 5px 5px; ">
 						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								<div style="padding-top:10px; margin-left:10px; width:80px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Phone</h5>
+									<h5 style="font-size: 14px;font-weight: 700;">Phone:</h5>
 								</div>
 								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<input type="text" class="form-control"  style="width:280px" name="phone" placeholder="Your Phone Number" value="${(customer.phone)!""}" />
+									<input type="text" class="form-control"  style="width:250px; height:25px" name="phone" placeholder="Your Phone Number" 
+										value="${(customer.phone)!""}" />
 								</div>
 						
 							</div>
 							
-							<div style="margin: 0 auto;width:500px; height:50px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+							<div style="margin: 0 auto;width:500px; height:40px; border:0px solid #ccc; padding: 5px 5px 5px 5px; ">
 						
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								<div style="padding-top:10px; margin-left:10px; width:80px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Email</h5>
+									<h5 style="font-size: 14px;font-weight: 700;">Email:</h5>
 								</div>
 								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<!--<input type="text" id="email" name="email" class="validate-email required input_field" placeholder="Your Email Adress1" /> -->
-									<input type="text" class="form-control"  style="width:280px" name="email" placeholder="Your Email Adress" value="${(customer.email)!""}" />
+									<input type="text" name="email"  class="validate-email required input_field"
+										style="width:250px; height:25px" placeholder="Your Email Adress" value="${(customer.email)!""}" />
+									<!--<input type="text" class="form-control"  style="width:200px" name="email" placeholder="Your Email Adress0" value="${(customer.email)!""}" />-->
 								</div>
 						
 							</div>
 							
-							<div style="margin: 0 auto;width:500px; height:160px; border:1px solid #ccc; padding: 5px 5px 5px 5px; ">
+							<div style="margin: 0 auto;width:500px; height:200px; border:0px solid #ccc; padding: 5px 5px 5px 5px; ">
 						    
-								<div style="padding-top:10px; margin-left:10px; width:100px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
+								<div style="padding-top:10px; margin-left:10px; width:80px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<h5 style="font-size: 14px;font-weight: 700;">Enquiry</h5>
+									<h5 style="font-size: 14px;font-weight: 700;">Enquiry:</h5>
 								</div>
 								<div style="padding-top:8px; margin-left:10px; width:350px; text-align:left; overflow:hidden;text-overflow:ellipsis; white-space:nowrap; 
 								float:left;">
-									<textarea class="form-control" id="editor1" style="width:280px" rows="10" name="enquiry" placeholder="">
+								
+									<textarea class="form-control" id="editor1" style="width:340px" rows="12" name="enquiry" placeholder="">
 	 									    ${(customer.enquiry)!""}
 									</textarea>
+									
+									
 								</div>
 						
 							</div>
@@ -378,7 +384,7 @@ input, select, label {
     </div><!-- <div id="Div2" style="height:600px;"> --> 
     	 
     	 <div id="Div3" style="height:600px;">
-	    	 	<div class="sb_box" style="margin-right:-60px; padding-top:50px;">
+	    	 	<div class="sb_box" style="float:right; margin-right:-120px; padding-top:50px; width:200px" >
 	    	 				${(contactUs.article)!""}
 	 			  </div>
        </div>
