@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.backgroundSize.js"></script>
+<script type="text/javascript" language="javascript" src="js/global.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:150,height:150});

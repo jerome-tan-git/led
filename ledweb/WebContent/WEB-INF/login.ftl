@@ -72,7 +72,7 @@
 				</div>
 			 </div>
               <div class="margin-base-vertical">
-                  <small class="text-muted"><a href="http://www.flickr.com/photos/erwlas/6133364748/">Background picture by erwlas @flickr</a>. Used under <a href="http://creativecommons.org/licenses/by/2.0/deed.en">Creative Commons - Attribution</a>.</small>
+                  
               </div>
 
           </div><!-- //main content -->

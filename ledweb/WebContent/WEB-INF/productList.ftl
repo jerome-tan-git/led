@@ -86,7 +86,7 @@ function showConfirm(productName, productID)
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
-    <a href="../" class="navbar-brand">Lyrc Lighting backend</a>
+    <a href="./login.do" class="navbar-brand">Lyrc Lighting backend</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -144,12 +144,23 @@ function showConfirm(productName, productID)
 				
 				<div class="col-lg-9">
 					<div class="row">
-						<div class="col-lg-9">
+						<div class="col-lg-8">
 				      		<a href="./newProduct.do?productID=${product.productID}" style="color:#666"><h3>${product.productName!""}</h3></a>
 				      	</div>
-				      	<div class="col-lg-3">
-				      		 <a href="./newProduct.do?productID=${product.productID}" ><img class="pull-right" src="./images/1375543402_edit.png" /></a><div class="pull-right"> &nbsp;&nbsp;</div>
-				      		<a href="#" data-toggle="tooltip" title="first tooltip" onClick="showConfirm('${product.productName!""}','${product.productID!""}')"><img class="pull-right" src="./images/1375543476_cancel.png" /></a>
+				      	<div class="col-lg-4">
+				      		
+				      		<a href="./newProduct.do?productID=${product.productID}" >
+				      			<img class="pull-right" src="./images/1375543402_edit.png" />
+				      		</a>
+				      		<div class="pull-right"> &nbsp;&nbsp;</div>
+				      		
+				      		<a href="#" data-toggle="tooltip" title="first tooltip" onClick="showConfirm('${product.productName!""}','${product.productID!""}')">
+				      			<img class="pull-right" src="./images/1375543476_cancel.png" />
+				      		</a>
+				      		<div class="pull-right"> &nbsp;&nbsp;</div>
+				      		<a href="./newProduct.do" data-toggle="tooltip">
+				      			<img style="margin-top:-10px"class="pull-right" src="./images/1375609012_Black_New-Page.png" />
+				      		</a>
 				      	</div>
 			      	</div>
 			      <p>

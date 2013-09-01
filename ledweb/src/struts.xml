@@ -83,6 +83,7 @@
 		</action>
 
 		<action name="login" class="ledweb.action.Login">
+			<param name="psd">123qwe</param>
     		<result name="input" type="freemarker">/WEB-INF/login.ftl</result>
     		<result name="success" type="redirect">/productList.do</result>
 		</action>

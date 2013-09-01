@@ -20,14 +20,12 @@
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.backgroundSize.js"></script>
+<script type="text/javascript" language="javascript" src="js/global.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:190,height:100});
 });
-jQuery(document).ready(function() {
 
-	$("#templatemo_wrapper").css( "background-size", "contain" );
-});
 </script>
 
 
