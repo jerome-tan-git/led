@@ -378,7 +378,7 @@ input, select, label {
 	                    <div class="cleaner"></div>
 	                    
 	                    </#list>
-	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do"><img src="./images/btcompare.png" /></a>
+	                    <div style="text-align:right;padding-top:2px"><a href="./compare.do" target="blank"><img src="./images/btcompare.png" /></a>
 	                    </div>
 	            </div>
 	            

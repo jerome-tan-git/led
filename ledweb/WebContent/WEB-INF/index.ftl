@@ -277,7 +277,8 @@ jQuery(document).ready(function() {
         	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
 				 <ul>
 					<li class="bar"><a  href="/">Home</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a>
+					<#assign fcat = realCategories[0] /> 
+					<li class="bar"><a  href="./category.do?categoryID=${(fcat.categoryID)!"#"}" >Products</a>
 					<#if realCategories ??> 
 					  <ul>
 					  	<#list realCategories as category>
@@ -380,7 +381,7 @@ jQuery(document).ready(function() {
             
             
             	<#if categories??>
-				<#list categories as category>
+				<#list realCategories as category>
 				<li><a href='./category.do?categoryID=${(category.categoryID)!""}'>${(category.categoryName)!""}</a></li>
 				</#list>
 				</#if>								
