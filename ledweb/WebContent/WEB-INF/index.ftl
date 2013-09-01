@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Luvarc lighting!</title>
+<title>Lyrc lighting!</title>
 <meta name="keywords" content="platinum, web design theme, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Platinum Theme is a free CSS template provided by bestmoban.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -21,6 +21,8 @@
 <script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.backgroundSize.js"></script>
 <script type="text/javascript" language="javascript" src="js/global.js"></script>
+<link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:190,height:100});
