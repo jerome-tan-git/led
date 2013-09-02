@@ -253,7 +253,7 @@ input, select, label {
 						<div class="clear"></div>
 					  <!--<div class="grid_11">-->
 					  <div class="grid_16">
-					  	<span style="float:right; padding-top:10px; padding-right:9px;">
+					  	<span style="padding-top:10px; padding-right:9px;">
 				    			${(benefits.article)!""}
 				    	</span>
 					  </div>
