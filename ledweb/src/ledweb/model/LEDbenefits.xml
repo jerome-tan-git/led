@@ -15,19 +15,19 @@
 	</resultMap>
 
 	<select id="selectLEDbenefitsByID" parameterType="String" resultType="LEDbenefits">
-		select * from `LEDbenefits` where IsActive = 1
+		select * from `ledbenefits` where IsActive = 1
 	</select>
-<!-- select * from `LEDbenefits` where VersionID = #{versionID} and IsActive = 1 -->
+<!-- select * from `ledbenefits` where VersionID = #{versionID} and IsActive = 1 -->
 
 
 	<insert id="addLEDbenefits" parameterType="LEDbenefits" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into `LEDbenefits`(IsActive,Article,LEDbenefit1,LEDbenefit2,LEDbenefit3,LEDbenefit4,LEDbenefit5)
+		insert into `ledbenefits`(IsActive,Article,LEDbenefit1,LEDbenefit2,LEDbenefit3,LEDbenefit4,LEDbenefit5)
 		values(1,#{article},#{benefit1},#{benefit2},#{benefit3},#{benefit4},#{benefit5})
 	</insert>
 	
 	<update id="updateLEDbenefits" parameterType="LEDbenefits"  >
-        update `LEDbenefits` set 
+        update `ledbenefits` set 
         Article=#{article},
         LEDbenefit1=#{benefit1},
         LEDbenefit2=#{benefit2},
@@ -40,7 +40,7 @@
 	
 	<delete id="deleteLEDbenefits" parameterType="String">
 		<!--  SET SQL_SAFE_UPDATES = 0;-->
-	    update `LEDbenefits` set IsActive=0 where IsActive=1
+	    update `ledbenefits` set IsActive=0 where IsActive=1
     </delete>
 	
 </mapper>
