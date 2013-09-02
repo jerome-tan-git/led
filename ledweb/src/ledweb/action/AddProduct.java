@@ -320,16 +320,13 @@ public class AddProduct extends ActionSupport {
 
 	}
 
-	private void newProduct(String _newProductID) { 
+	private void newProduct(String _newProductID) {
 		this.product = new Product();
 		this.product.setProductDesc(this.getProductDesc());
 		this.product.setProductName(this.getProductName());
-		if(this.getFeaturedProduct()==null)
-		{
+		if (this.getFeaturedProduct() == null) {
 			this.product.setReserve1("0");
-		}
-		else 
-		{
+		} else {
 			this.product.setReserve1("1");
 		}
 		try {
@@ -360,19 +357,19 @@ public class AddProduct extends ActionSupport {
 			}
 			try {
 				FileUtils.copyFile(this.getNewImage(), savefile);
-				logger.warn("Image path: " + savefile.getAbsolutePath()); 
+				logger.warn("Image path: " + savefile.getAbsolutePath());
 			} catch (IOException e) {
 				logger.error(e.getMessage());
 			}
 		}
 
-		logger.warn("Test selected types: " + this.testSelectTypes.size());
+		// logger.warn("Test selected types: " + this.testSelectTypes.size());
 
 		this.getProduct().setProductID(_newProductID);
 		this.getProduct().setCategoryID(this.selectedCategory);
-//		logger.warn("Select category: " + this.selectedCategory);
-//		logger.warn("Real image path: " + this.getRealSavePath()
-//				+ File.separator + newFileName);
+		// logger.warn("Select category: " + this.selectedCategory);
+		// logger.warn("Real image path: " + this.getRealSavePath()
+		// + File.separator + newFileName);
 		if (this.getNewImage() != null) {
 			if (new File(this.getRealSavePath() + File.separator + newFileName)
 					.exists()) {
@@ -382,7 +379,7 @@ public class AddProduct extends ActionSupport {
 		} else if (this.getOldImage() != null) {
 			this.getProduct().setProductImage(this.getOldImage());
 		}
-//		logger.warn("Product desc: " + this.getProduct().getProductDesc());
+		// logger.warn("Product desc: " + this.getProduct().getProductDesc());
 		List<ProductSpec> pss = new ArrayList<ProductSpec>();
 		if (this.getSpecIDs() != null) {
 			for (int i = 0; i < this.getSpecIDs().size(); i++) {
@@ -394,15 +391,16 @@ public class AddProduct extends ActionSupport {
 			}
 		}
 		List<ProductType> pts = new ArrayList<ProductType>();
+		if (this.testSelectTypes != null) {
+			for (String typeID : this.testSelectTypes) {
+				ProductType pt = new ProductType();
+				pt.setProductID(_newProductID);
+				pt.setPrice(this.getProduct().getPrice());
+				pt.setTypeID(typeID);
+				pts.add(pt);
 
-		for (String typeID : this.testSelectTypes) {
-			ProductType pt = new ProductType();
-			pt.setProductID(_newProductID);
-			pt.setPrice(this.getProduct().getPrice());
-			pt.setTypeID(typeID);
-			pts.add(pt);
-
-		}
+			}
+		} 
 		this.setSelectedTypes(this.testSelectTypes);
 
 		// Insert into DB
@@ -431,7 +429,7 @@ public class AddProduct extends ActionSupport {
 					.getMapper(IProductTypeOperation.class);
 			ipto.deleteAllProductType(_newProductID);
 			ipto.batchAddProductType(pts);
-//			logger.warn(pts);
+			// logger.warn(pts);
 			sqlSession.commit();
 
 		} catch (Exception e) {

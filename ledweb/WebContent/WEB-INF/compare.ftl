@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Luvarc lighting!</title>
+<title>Lyrc lighting!</title>
 <meta name="keywords" content="platinum, web design theme, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Platinum Theme is a free CSS template provided by bestmoban.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -288,8 +288,8 @@ input, select, label {
     </div> <!-- end of header -->
 
     
-	<div id="templatemo_main_wrapper" style="height:700px">
-    	<div class="container_16" style="height:700px;padding-top:60px">
+	<div id="templatemo_main_wrapper">
+    	<div class="container_16" style="padding-top:60px">
     	<div class="grid_2">&nbsp;</div> 
     	<#if compareProduct??>
     	

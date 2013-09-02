@@ -150,9 +150,7 @@
 		</action>
 
 		<action name="typeManagement" class="ledweb.action.TypeManagement">
-			<interceptor-ref name="loginJudge">
-				<param name="includeMethods">execute</param>
-			</interceptor-ref>		
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
     		<result name="input" type="freemarker">/WEB-INF/typemanagement.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/typemanagement.ftl</result>
 		</action>

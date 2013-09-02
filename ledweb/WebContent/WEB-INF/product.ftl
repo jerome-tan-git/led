@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Luvarc lighting!</title>
+<title>Lyrc lighting!</title>
 <meta name="keywords" content="platinum, web design theme, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Platinum Theme is a free CSS template provided by bestmoban.com" />
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -214,23 +214,28 @@ input, select, label {
         	</div>
         	<div id="site_title" class="grid_9">
         	<div id="smoothmenu1" class="ddsmoothmenu" style="padding-top:20px;">
-				 <ul>
-					<li class="bar"><a  href="./">Home</a></li>
-					<li class="bar"><a  href="http://www.dynamicdrive.com">Products</a> 
-					  <ul>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Down lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Strip lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">Rope Lights</a></li>
-						  <li><a href="./productdetail.do" style="font-size:15px !important">LED Puck Lights</a></li>
-					  </ul>
+					<ul>
+						<li class="bar"><a  href="./">Home</a></li>
+						<#assign fcat = allCategories[0] /> 
+						<li class="bar"><a  href="./category.do?categoryID=${(fcat.categoryID)!"#"}" >Products</a>
+						<#if allCategories ??> 
+						  <ul>
+						  	<#list allCategories as category>
+							  <li><a href="./category.do?categoryID=${(category.categoryID)!"#"}" style="font-size:15px !important">${(category.categoryName)!""}</a></li>
+							 </#list>
+						  </ul>
+						  </#if>
+					</li>
+					<li class="bar wide">
+					<a  href="./benefits.do">LED in the house</a>
+					<ul>
+						  <li><a href="./benefits.do" style="font-size:15px !important">Benefits of LED</a></li>
+						  <li><a href="./glossary.do" style="font-size:15px !important">LED glossary</a></li>
+						  
+					</ul>
 				</li>
-				<li class="bar wide">
-					<a  href="http://www.dynamicdrive.com">LED in the house</a>
-				</li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">About us</a></li>
-				<li class="bar"><a href="http://www.dynamicdrive.com">Contact us</a>
-
-				</li>
+				<li class="bar"><a href="./aboutUs.do">About us</a></li>
+				<li class="bar"><a href="./contactUs.do">Contact us</a></li>
 				</ul>
 				<br style="clear: left" />
 				</div>		
@@ -239,7 +244,7 @@ input, select, label {
     </div> <!-- end of header -->
 
     
-	<div id="templatemo_main_wrapper">
+	<div id="templatemo_main_wrapper"> 
     	<div id="templatemo_main"> 
           	<div id="content" style="">
 				<div class="container_16">
@@ -248,7 +253,7 @@ input, select, label {
 					</div>
 					<div class="clear"></div>
 					<div class="grid_10">
-						<h2>${(product.productName)!""}</h2>
+						<h3 style="line-height: 1.1em;">${(product.productName)!""}</h3>
 					</div>
 					<div class="grid_2" style="padding-top:20px">
 						<img src="./images/1377781716_print.png" style="cursor:pointer" onclick="window.open('./printProduct.do?productID=${(product.productID)!"#"}','newwindow','height=1000,width=1050,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')"/>

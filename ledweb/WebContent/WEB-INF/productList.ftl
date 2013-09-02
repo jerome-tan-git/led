@@ -205,10 +205,7 @@ function showConfirm(productName, productID)
 
 				</div>
 				 </#if>
-			 	<br /><b>Description:</b>
-			 	<div class="bs-callout bs-callout-info">
-			      ${product.productDesc!""}
-			     </div>
+			 	 
 				 <br />
 				  
 				 

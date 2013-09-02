@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import ledweb.ModelSessionFactory;
 import ledweb.Util;
@@ -35,7 +36,7 @@ public class TypeManagement extends ActionSupport {
 	private String selectedTypeGroupID;
 	private String deleteTypeID;
 	private String module = "type";
-	
+	private Logger log = Logger.getLogger(TypeManagement.class);
 	public String getModule() {
 		return module;
 	}
@@ -167,6 +168,9 @@ public class TypeManagement extends ActionSupport {
 	}
 
 	private void init() {
+		String groupID = ServletActionContext.getRequest().getParameter("typeGroupID");
+		this.setTypeGroupID(groupID);
+//		String groupID = 
 		SqlSession slqSession = ModelSessionFactory.getSession().openSession();
 		try {
 			// get types
@@ -189,7 +193,8 @@ public class TypeManagement extends ActionSupport {
 			this.setTypeGroups(typeGroups);
 
 			// get selected types
-
+			
+			
 			if (this.getTypeGroupID() != null
 					&& !this.getTypeGroupID().trim().equals("")) {
 				ITypeOperation ito_1 = slqSession

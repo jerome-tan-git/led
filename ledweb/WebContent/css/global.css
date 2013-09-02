@@ -32,6 +32,7 @@ body {
   display: block;
   color: #716b7a;
   padding: 5px 20px;
+  width:200px;
 }
 .bs-sidebar .nav > li > a:hover,
 .bs-sidebar .nav > li > a:focus {
