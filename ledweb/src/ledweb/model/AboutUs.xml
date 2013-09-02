@@ -10,22 +10,22 @@
 	</resultMap>
 
 	<select id="selectAboutUs" parameterType="String" resultType="AboutUs">
-		select * from `aboutUs` where IsDelete = 0
+		select * from `aboutus` where IsDelete = 0
 	</select>
 
 	<!-- SetOthersInvalid by delete-->
 	<insert id="addAboutUs" parameterType="AboutUs" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into `aboutUs`(IsDelete,Article) values(0,#{article})
+		insert into `aboutus`(IsDelete,Article) values(0,#{article})
 	</insert>
 	
 	<update id="updateAboutUs" parameterType="Glossary"  >
-        update `aboutUs` set Article=#{article}  where IsDelete=0
+        update `aboutus` set Article=#{article}  where IsDelete=0
     </update>
 	
 	<delete id="deleteAboutUs" parameterType="String">
 		<!--  SET SQL_SAFE_UPDATES = 0;-->
-	    update `aboutUs` set IsDelete=1 where IsDelete=0
+	    update `aboutus` set IsDelete=1 where IsDelete=0
     </delete>
 	
 </mapper>
