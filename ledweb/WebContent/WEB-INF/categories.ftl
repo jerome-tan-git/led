@@ -370,38 +370,40 @@ input, select, label {
     
 </div> <!-- end of wrapper -->
 
-<div id="templatemo_footer_wrapper" class="noprint">
+<div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
     	<a class="goto_top"></a>
     	<div class="col_4">
         	<h5>Pages</h5>
             <ul class="footer_list">
             	<li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">Products</a></li>
+                <li><a href="portfolio.html">LED in the house</a></li>
+                <li><a href="blog.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
 			</ul>
         </div>
         
         <div class="col_4">
-        	<h5>Partners</h5>
+        	<h5>Products</h5>
             <ul class="footer_list">
-            	<li><a href="http://www.flashmo.com/">Free Flash Templates</a></li>
-                <li><a href="http://www.bestmoban.com/">Free CSS Templates</a></li>
-                <li><a href="http://www.flashmo.com/store">Preminum Templates</a></li>
-                <li><a href="http://www.koflash.com/">Website Gallery</a></li>
-                <li><a href="http://www.webdesignmo.com/blog/">Web Design Resources</a></li>
+            
+            
+            	<#if categories??>
+				<#list categories as category>
+				<li><a href='./category.do?categoryID=${(category.categoryID)!""}'>${(category.categoryName)!""}</a></li>
+				</#list>
+				</#if>								
+            
 			</ul>             
         </div>
         
-        <div class="col_4">
-        	<h5>Twitter</h5>
-            <ul class="twitter_post">
-	            <li>Suspendisse at scelerisque urna. Aenean tincidunt massa in tellus varius ultricies.</li>
-                <li>Proin dignissim, diam nec <a href="#">@TemplateMo</a> enim lorem tempus orci, ac ante purus in justo.</li>
-			</ul>
-        </div>
+	      <div class="col_4">
+	        	<h5>Terms and Conditions</h5>
+	            <ul class="footer_list">
+	            	<li><a href="home.html">Terms and Conditions</a></li>
+				</ul>
+	        </div>
         
         <div class="col_4 col_l">
         	<h5>Follow Us</h5>
