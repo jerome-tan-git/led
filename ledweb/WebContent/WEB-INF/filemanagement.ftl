@@ -191,11 +191,12 @@ border-color: #dFb5b4;
 				<div class="row">
 				<div class="col-lg-11">		
 					<button type="submit" class="btn btn-primary pull-right" name="indexImage" value="1">Submit</button> 
-					</form>			
+					</form>	
+						
 				</div>		
 				</div>
 			</div><!--div class="col-lg-8"-->
-	
+	<span style="font-size:1pt">${saveFilePath}</span>	
 	</div>
 	
 </body>

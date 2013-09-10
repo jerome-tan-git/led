@@ -123,26 +123,26 @@ jQuery(document).ready(function() {
 		<div class="col-lg-1"></div>
 		  <div class="col-lg-2">
 		 <div class="bs-sidebar pull-right">
-             <ul class="nav bs-sidenav">           
+            <ul class="nav bs-sidenav">           
 			    <li class="">
 			    	<a href="./productList.do" <#if module??><#if module=="product management">style="background-color: #e5e3e9;"</#if></#if>"> 
-			    	Product management </a>
+			    	Products </a>
 			    	</li>
 			    <li class="">
 			    	<a href="./sysManagement.do" <#if module??><#if module=="system management">style="background-color: #e5e3e9;"</#if></#if>">
-			    	System management
+			    	System
 		  			</a>
 				</li>
 			    <li class="">
 		  			 <a href="./userManagement.do" <#if module??><#if module=="user management">style="background-color: #e5e3e9;"</#if></#if>">
-		  			 User management
+		  			 Users
 		  			</a>
 		  		</li>
 			    <li class="">
-			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Order management
+			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Orders
 		  		</a></li>
 				<li class="">
-			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">File management
+			    	<a href="./fileManagement.do" <#if module??><#if module=="file management">style="background-color: #e5e3e9;"</#if></#if>"">Files
 		  		</a></li>
 		  		<li class="">
 			    	<a href="./benefitsManagement.do" <#if module??><#if module=="benifits">style="background-color: #e5e3e9;"</#if></#if>"">LED benifits
@@ -158,7 +158,7 @@ jQuery(document).ready(function() {
 		  		</a></li>
 		  		<li class="">
 			    	<a href="./typeManagement.do" <#if module??><#if module=="type">style="background-color: #e5e3e9;"</#if></#if>"">Types
-		  		</a></li>
+		  		</a></li>		  		
 			</ul>
           </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>

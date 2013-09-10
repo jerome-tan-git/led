@@ -37,6 +37,15 @@ public class FileManagement extends ActionSupport {
 	private List<String> mobileImages = new ArrayList<String>();
 	private Map<String, String> targetURLMap = new HashMap<String, String>();
 	private Map<String, String> showTargetURLMap = new HashMap<String, String>();
+	private String saveFilePath;
+	 
+	public String getSaveFilePath() {
+		return new File(this.getRealSavePath()).getAbsolutePath();
+	}
+
+	public void setSaveFilePath(String saveFilePath) {
+		this.saveFilePath = saveFilePath;
+	}
 
 	public Map<String, String> getShowTargetURLMap() {
 		return showTargetURLMap;
@@ -190,6 +199,7 @@ public class FileManagement extends ActionSupport {
 						+ this.getNewImageFileName();
 				File savefile = new File(new File(this.getRealSavePath()),
 						newFileName);
+
 				if (!savefile.getParentFile().exists()) {
 					savefile.getParentFile().mkdirs();
 				}
