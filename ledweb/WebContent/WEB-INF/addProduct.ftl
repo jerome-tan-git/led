@@ -353,7 +353,7 @@ jQuery(document).ready(function() {
   </fieldset>
 </form>
 </div> 
-</div>
+</div> 
 <script>
 CKEDITOR.replace( 'editor1' );
 
