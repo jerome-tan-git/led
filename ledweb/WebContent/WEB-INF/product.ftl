@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script type="text/javascript" language="javascript" src="js/global.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.leanModal.min.js"></script>
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
@@ -33,7 +34,11 @@ jQuery(document).ready(function() {
     jQuery('.product_small').nailthumb({width:70,height:70}); 
 });
 
+$(function() {
+	$("a[rel*=leanModal]").leanModal({top : 200, closeButton: ".modal_close" });		
+});
 
+		
 function SetCookie(name,value)
 {
     var Days = 30; 
@@ -65,12 +70,135 @@ function delCookie(name)
     if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
 }
 
+
+
+
+
 </script>
 
 <style>
 
+#signup .txt-fld {
+	position: relative;
+	padding: 14px 20px;
+	border-bottom: 1px solid #EEE;
+	text-align: right;
+}
+#signup .txt-fld label {
+	display: block;
+	float: left;
+	width: 150px;
+	padding-top: 8px;
+	color: #222;
+	font-size: 1.3em;
+	text-align: left;
+}
+
+#signup .txt-fld input {
+	width: 295px;
+	padding: 8px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size: 1.2em;
+	color: #222;
+	background: #F7F7F7;
+	font-family: "Helvetica Neue";
+	outline: none;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #E7E6E6;
+	border-bottom: 1px solid #E7E6E6;
+}
+
+#signup .btn-fld {
+	overflow: hidden;
+	padding: 12px 20px 12px 130px;
+}
+
+#signup button {
+	float: right;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	background: #70b8e1;
+	border: none;
+	width: auto;
+	overflow: visible;
+	font-size: 1.4em;
+	color: #FFF;
+	padding: 7px 10px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+#lean_overlay {
+	position: fixed;
+	z-index: 10000;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	display: none;
+}
+
+#signup-header {
+	background: url(./images/hd-bg.png);
+	padding: 18px 18px 14px 18px;
+	border-bottom: 1px solid #CCC;
+	border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+#signup-header h2 {
+	color: #444;
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: 3px;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
+}
+
+#signup-header p {
+	color: #444;
+	font-size: 1.3em;
+	margin: 0;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+	text-shadow: none;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
+}
+.modal_close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
+	width: 14px;
+	height: 14px;
+	background: url(./images/modal_close.png);
+	z-index: 2;
+}
+#signup {
+	width: 504px;
+	padding-bottom: 2px;
+	display: none;
+	background: #FFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7);
+	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+}
+
+
 @media print { 
-.noprint { display: none;color:green } 
+	.noprint { display: none;color:green } 
 } 
 
 input, select, label {
@@ -202,7 +330,35 @@ input, select, label {
 </style>
 </head>
 <body>
+<div id="signup" style="display: none; position: fixed; opacity: 1; z-index: 11000; left: 50%; margin-left: -202px; top: 200px;">
+			<div id="signup-ct">
+				<div id="signup-header">
+					<h2>Order form</h2>
+					<a class="modal_close" href="#"></a>
+				</div>
+				<form action="">
+     
+				  <div class="txt-fld">
+				    <label for="">Username</label>
+				    <input id="" class="good_input" name="" type="text">
 
+				  </div>
+				  <div class="txt-fld">
+				    <label for="">Email address</label>
+				    <input id="" name="" type="text">
+				  </div>
+				  <div class="txt-fld">
+				    <label for="">Password</label>
+				    <input id="" name="" type="text">
+
+				  </div>
+				  <div class="btn-fld">
+				  <button type="submit">Add to cart</button>
+					</div>
+				 </form>
+			</div>
+		</div>
+<div id="lean_overlay" style="display: none; opacity: 0.5;"></div>
 <div id="templatemo_wrapper">
 
     <div id="templatemo_header" class="noprint">
@@ -282,7 +438,7 @@ input, select, label {
 						  		<span style="float:right"><b>${mKey}</b></span>
 					  		</div>
 					  		<div class="grid_5 omega">
-					  		 <#assign item = typeMap[mKey]>   
+					  		 <#assign item = typeMap[mKey]>
 					  		 	<#list item as itemValue>
 						  			<label><input type="radio" name="${mKey}" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
 					  			</#list>
@@ -295,8 +451,10 @@ input, select, label {
 				  		</div>
 				  		<div class="clear"></div>
 				  		
-				  		<div class="grid_2 prefix_3 noprint">
+				  		<div class="grid_8 prefix_1 noprint">
+				  			<a id="go" rel="leanModal" name="signup" href="#signup"><img src="./images/addcart_1.png" style="cursor:pointer"/></a>
 					  		<a href="./productdetail.do?productID=${(product.productID)!""}&addCompare=${(product.productID)!""}"><img src="./images/addtocompare.png" /></a>
+					  		
 				  		</div>
 				  		<div class="clear"></div>
 				  	</div><!--div class="grid_11"-->
@@ -324,9 +482,6 @@ input, select, label {
 							  			<div class="clear"></div>
 							  		</#if>
 						  		</#list>
-						  
-				  			
-					  		
 						</div>
 				  		<div class="clear"></div>
 				  	</div>
@@ -520,6 +675,14 @@ input, select, label {
         <div class="cleaner"></div>
     </div>
 </div>
+
+
+
+<!-- dialog -->
+
+<!-- dialog -->
+
+
 <script>
     $(function() {
       $('#slides').slidesjs({
