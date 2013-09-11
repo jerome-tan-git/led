@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
 <link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.spinnercontrol.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
@@ -21,6 +22,8 @@
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
 <script type="text/javascript" language="javascript" src="js/global.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.spinnercontrol.js"></script>
+
 <script>
 jQuery(document).ready(function() {
     jQuery('.nailthumb-container').nailthumb({width:270,height:270}); 
@@ -37,43 +40,25 @@ jQuery(document).ready(function() {
 $(function() {
 	$("a[rel*=leanModal]").leanModal({top : 200, closeButton: ".modal_close" });		
 });
+$(function () {
+    $("#spinner").SpinnerControl({
+        typedata: { min: 0, max: 999, interval: 1 },
+        backColor:'#F7F7F7',
+        defaultVal: 0,
+        width: '50px'
+    });
+});
 
+function getNumber()
+{
+	alert(document.orderForm.orderNum.value);
+	$('.ValueDisplay').text('0');
+	$('#spinner').val('0');
+	
+}
 		
-function SetCookie(name,value)
-{
-    var Days = 30; 
-    var exp  = new Date(); 
-    exp.setTime(exp.getTime() + Days*24*60*60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-}
-
-
-function addCompare(productID, productName)
-{
-	SetCookie(productID, productName);
-	alert(document.cookie.length);
-}
-
-
-function getCookie(name)        
-{
-    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-     if(arr != null) return unescape(arr[2]); return null;
-
-}
-
-function delCookie(name)
-{
-    var exp = new Date();
-    exp.setTime(exp.getTime() - 1);
-    var cval=getCookie(name);
-    if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
-}
-
-
-
-
-
+		
+		
 </script>
 
 <style>
@@ -334,26 +319,27 @@ input, select, label {
 			<div id="signup-ct">
 				<div id="signup-header">
 					<h2>Order form</h2>
-					<a class="modal_close" href="#"></a>
+					<a class="modal_close" href="###"></a>
 				</div>
-				<form action="">
+				<form name="orderForm" action="" method="post">
      
-				  <div class="txt-fld">
+				  <div class="txt-fld" style="height: 37px;">
 				    <label for="">Username</label>
-				    <input id="" class="good_input" name="" type="text">
+				    <input id="spinner" name="orderNum" type="text" />
+
 
 				  </div>
 				  <div class="txt-fld">
 				    <label for="">Email address</label>
-				    <input id="" name="" type="text">
+				    <input id="" name="" type="text" />
 				  </div>
 				  <div class="txt-fld">
 				    <label for="">Password</label>
-				    <input id="" name="" type="text">
+				    <input id="" name="" type="text" />
 
 				  </div>
 				  <div class="btn-fld">
-				  <button type="submit">Add to cart</button>
+				 	 <button type="submit">Add to cart</button>
 					</div>
 				 </form>
 			</div>
