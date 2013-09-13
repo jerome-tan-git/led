@@ -12,8 +12,10 @@ import org.apache.log4j.Logger;
 
 import ledweb.model.Category;
 import ledweb.model.Product;
+import ledweb.model.Trade;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IProductOperation;
+import ledweb.model.mapper.ITradeOperation;
 
 public class Util {
 	static Logger log = Logger.getLogger(Util.class);
@@ -47,7 +49,18 @@ public class Util {
 		}
 		return product;
 	}
-
+	public static List<Trade> getAllTrades()
+	{
+		List<Trade> result = new ArrayList<Trade>();
+		SqlSession session = ModelSessionFactory.getSession().openSession();
+		try {
+			ITradeOperation ito = session.getMapper(ITradeOperation.class);
+			result = ito.selectAllTrade();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return result;
+	}
 	public static List<Product> getFeaturedProducts() {
 		List<Product> result = new ArrayList<Product>();
 		SqlSession session = ModelSessionFactory.getSession().openSession();

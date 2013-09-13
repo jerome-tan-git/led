@@ -19,6 +19,8 @@
         <typeAlias alias="AboutUS" type="ledweb.model.AboutUs"/>
         <typeAlias alias="ContactUs" type="ledweb.model.ContactUs"/>
         <typeAlias alias="HomeImage" type="ledweb.model.HomeImage"/>
+        <typeAlias alias="OrderType" type="ledweb.model.OrderType"/>
+        <typeAlias alias="Trade" type="ledweb.model.Trade"/>
 
     </typeAliases> 
 
@@ -56,5 +58,7 @@
         <mapper resource="ledweb/model/AboutUs.xml"/>
         <mapper resource="ledweb/model/ContactUs.xml"/>
         <mapper resource="ledweb/model/HomeImage.xml"/>
+        <mapper resource="ledweb/model/OrderType.xml"/>
+        <mapper resource="ledweb/model/Trade.xml"/>
     </mappers>
 </configuration>

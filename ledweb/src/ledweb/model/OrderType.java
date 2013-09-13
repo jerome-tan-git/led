@@ -1,36 +1,31 @@
 package ledweb.model;
 
 public class OrderType {
+	private int orderTypeID;
+	private String orderID;
 	private String typeID;
-	private String typeName;
-	private int isDelete;
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-	private TypeGroup typeGroup;
-	public TypeGroup getTypeGroup() {
-		return typeGroup;
+
+	public int getOrderTypeID() {
+		return orderTypeID;
 	}
-	public void setTypeGroup(TypeGroup typeGroup) {
-		this.typeGroup = typeGroup;
+	public void setOrderTypeID(int orderTypeID) {
+		this.orderTypeID = orderTypeID;
 	}
+	public String getOrderID() {
+		return orderID;
+	}
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+
 	public String getTypeID() {
 		return typeID;
 	}
 	public void setTypeID(String typeID) {
 		this.typeID = typeID;
-	}
-	public String getTypeName() {
-		return typeName;
-	}
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
-	public int getIsDelete() {
-		return isDelete;
-	}
-	public void setIsDelete(int isDelete) {
-		this.isDelete = isDelete;
 	}
 	public String getReserve1() {
 		return reserve1;

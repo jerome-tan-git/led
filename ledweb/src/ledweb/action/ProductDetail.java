@@ -14,6 +14,7 @@ import ledweb.model.Category;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
+import ledweb.model.Trade;
 import ledweb.model.Type;
 import ledweb.model.TypeGroup;
 import ledweb.model.mapper.ICategoryOperation;
@@ -38,7 +39,14 @@ public class ProductDetail extends ActionSupport {
 	private String[] addOrder;
 	private String selectedTypes;
 	private String selectedProduct;
+	private List<Trade> trades;
 	
+	public List<Trade> getTrades() {
+		return trades;
+	}
+	public void setTrades(List<Trade> trades) {
+		this.trades = trades;
+	}
 	public String getSelectedTypes() {
 		return selectedTypes;
 	}
@@ -180,11 +188,11 @@ public class ProductDetail extends ActionSupport {
 	@Override
 	public String execute() {
 		this.allCategories = Util.getAllCategories();
+		this.trades =Util.getAllTrades();
 		this.setProductID(ServletActionContext.getRequest().getParameter(
 				"productID"));
 		this.featuredProducts = Util.getFeaturedProducts();
 		Cookie[] cookies = ServletActionContext.getRequest().getCookies();
-//		log.warn("x: "+this.getAddOrder());
 		if(ServletActionContext.getRequest().getParameterMap().get("addOrder")!=null)
 		{
 			String[] selectTypesStr = (String[])ServletActionContext.getRequest().getParameterValues("selectedTypes");

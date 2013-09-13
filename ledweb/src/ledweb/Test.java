@@ -13,12 +13,14 @@ import ledweb.model.HomeImage;
 //import ledweb.model.ContactUs;
 import ledweb.model.LEDbenefits;
 import ledweb.model.Order;
+import ledweb.model.OrderType;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
 import ledweb.model.ProductType;
 import ledweb.model.Spec;
 import ledweb.model.Student;
 import ledweb.model.Teacher;
+import ledweb.model.Trade;
 import ledweb.model.Type;
 import ledweb.model.TypeGroup;
 import ledweb.model.User;
@@ -27,10 +29,12 @@ import ledweb.model.mapper.IContactUsOperation;
 import ledweb.model.mapper.IHomeImageOperation;
 import ledweb.model.mapper.ILedBenefitsOperation;
 import ledweb.model.mapper.IOrderOperation;
+import ledweb.model.mapper.IOrderTypeOperation;
 import ledweb.model.mapper.IProductOperation;
 import ledweb.model.mapper.IProductSpecOperation;
 import ledweb.model.mapper.IProductTypeOperation;
 import ledweb.model.mapper.ISpecOperation;
+import ledweb.model.mapper.ITradeOperation;
 import ledweb.model.mapper.ITypeGroupOperation;
 import ledweb.model.mapper.ITypeOperation;
 import ledweb.model.mapper.IUserOperation;
@@ -168,18 +172,18 @@ public class Test {
 			// c.setTypeID(2);
 			// c.setUserID(1);
 			//
-			IHomeImageOperation o = session
-					.getMapper(IHomeImageOperation.class);
-//			List<HomeImage> images = new ArrayList<HomeImage>();
-//			for (int i = 0; i < 5; i++) {
-//				HomeImage x = new HomeImage();
-//				x.setImageURL(i+"");
-//				o.addHomeImage(x);
-//			}
-//			o.realDeleteImage();
-			List<HomeImage> a1 = o.selectAllImageURL();
-			System.out.println(a1);
-			session.commit();
+			// IHomeImageOperation o = session
+			// .getMapper(IHomeImageOperation.class);
+			// List<HomeImage> images = new ArrayList<HomeImage>();
+			// for (int i = 0; i < 5; i++) {
+			// HomeImage x = new HomeImage();
+			// x.setImageURL(i+"");
+			// o.addHomeImage(x);
+			// }
+			// o.realDeleteImage();
+			// List<HomeImage> a1 = o.selectAllImageURL();
+			// System.out.println(a1);
+			// session.commit();
 			// List<Product> p = o.selectProductsByCategoryID(1);
 			// System.out.println(p.size());
 			// ICategoryOperation co =
@@ -248,18 +252,18 @@ public class Test {
 			// ico.updateContactUs(conus);
 			// session.commit();
 
-//			LEDbenefits ledBenefits = new LEDbenefits();
-//			ledBenefits.setArticle("EEDDadd function");
-//			// ledBenefits.setBenefit1("12345");
-//			System.out.print(ledBenefits.toString() + "\n");
-//
-//			ILedBenefitsOperation ledBenefitsOperation = session
-//					.getMapper(ILedBenefitsOperation.class);
-//			// ledBenefitsOperation.addLEDbenefits(ledBenefits);
-//			ledBenefitsOperation.updateLEDbenefits(ledBenefits);
-//			// ledBenefitsOperation.deleteLEDbenefits(0);
-//			// ledBenefitsOperation.selectLEDbenefitsByID();
-//			session.commit();
+			// LEDbenefits ledBenefits = new LEDbenefits();
+			// ledBenefits.setArticle("EEDDadd function");
+			// // ledBenefits.setBenefit1("12345");
+			// System.out.print(ledBenefits.toString() + "\n");
+			//
+			// ILedBenefitsOperation ledBenefitsOperation = session
+			// .getMapper(ILedBenefitsOperation.class);
+			// // ledBenefitsOperation.addLEDbenefits(ledBenefits);
+			// ledBenefitsOperation.updateLEDbenefits(ledBenefits);
+			// // ledBenefitsOperation.deleteLEDbenefits(0);
+			// // ledBenefitsOperation.selectLEDbenefitsByID();
+			// session.commit();
 			// IUserOperation userOperation = session
 			// .getMapper(IUserOperation.class);
 			// User user = userOperation.selectUserByID(4);
@@ -271,11 +275,44 @@ public class Test {
 			// userOperation.deleteUser(5);
 			// session.commit();
 			//
-
-			String a = null;
-			if (a == null || "".equals(a.trim())) {
-				System.out.println("1");
-			}
+			ITradeOperation ito = session.getMapper(ITradeOperation.class);
+			List<Trade> a = ito.selectAllTrade();
+			System.out.println(a);
+//			List<Trade> a = ito.
+//			for (int i = 0; i < 5; i++) {
+//				Trade xxx = new Trade();
+//				xxx.setTradeName("aaaa");
+//				ito.addTrade(xxx);
+//				session.commit();
+//			}
+			// IOrderTypeOperation ioto =
+			// session.getMapper(IOrderTypeOperation.class);
+			// List<OrderType> xx = new ArrayList<OrderType>();
+			// for(int i=0;i<10;i++)
+			// {
+			// OrderType a = new OrderType();
+			// // a.setOrderTypeID("a");
+			// a.setOrderID("b");
+			// a.setTypeID("c");
+			// xx.add(a);
+			// }
+			// ioto.batchAddOrderType(xx);
+			// System.out.println(ioto.selectOrderTypesByOrderID("b"));
+			// session.commit();
+			// IOrderOperation ioo = session.getMapper(IOrderOperation.class);
+			// Order o = new Order();
+			// o.setOrderID("a");
+			// o.setMessage("message");
+			// o.setOrderDate("orderDate");
+			// o.setProductID("productID");
+			// o.setQuantity(1);
+			// ioo.addOrder(o);
+			// session.commit();
+			//
+			// String a = null;
+			// if (a == null || "".equals(a.trim())) {
+			// System.out.println("1");
+			// }
 		} finally {
 			session.close();
 		}

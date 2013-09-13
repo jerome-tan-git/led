@@ -40,7 +40,7 @@ jQuery(document).ready(function() {
 });
 
 $(function() {
-	$("a[rel*=leanModal]").leanModal({top : 200, closeButton: ".modal_close" });		
+	$("a[rel*=leanModal]").leanModal({top : 50, closeButton: ".modal_close" });		
 });
 
 
@@ -337,30 +337,64 @@ input, select, label {
 			<div id="signup-ct">
 				<div id="signup-header">
 					<h2>Order form</h2>
-					<br />
-					<p>${(product.productName)!""}</p>
-					<br />
+					
+					
 					<a class="modal_close" href="###"></a>
 				</div>
-				<form name="orderForm" action="" method="post" id="orderForm"> 
+				<form name="orderForm" action="" method="post" id="orderForm">
      			  <input type="hidden" name="selectedTypes" id="selectedTypes" />	 
      			  <input type="hidden" name="selectedProduct" id="selectedTypes" value="${(product.productID)!""}"/>
      			  <input type="hidden"  name="addOrder" value="1" />
 				  <div class="txt-fld" style="height: 37px;">
-				    <label for="">Username</label>
+				    <label for="">Quantity</label>
 		    		<input type="text" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:9pt;height:5px" />
 					<div id="slider-range-min" style="width:310px;margin-left:152px"></div>
-
 				  </div>
+				  
 				  <div class="txt-fld">
-				    <label for="">Email address</label>
+				    <label for="">Memo</label>
+				    <input id="" name="" type="text" />
+				  </div>
+				  
+				  <div class="txt-fld">
+				    <label for="">Address</label>
+				    <input id="" name="" type="text" />
+				  </div>
+				  
+				  <div class="txt-fld">
+				    <label for="">Suburb</label>
+				    <input id="" name="" type="text" />
+				  </div>
+				  				  
+				  <div class="txt-fld">
+				    <label for="">State</label>
 				    <input id="" name="" type="text" />
 				  </div>
 				  <div class="txt-fld">
-				    <label for="">Password</label>
+				    <label for="">Post Code</label>
 				    <input id="" name="" type="text" />
-
 				  </div>
+				  <div>
+				    <div class="container_16">
+					    <div class="grid_3"><label style="padding-left:10px; display: block;float: left;width: 150px;padding-top: 20px;color: #222;font-size: 1.3em;text-align: left;">
+					    	Trade
+					    </label></div>			    
+					    
+					    	<#list trades as trade>
+					    	<div class="grid_2" style="margin-left:-10px;padding-top:20px;">
+				    			<label style="font-size:1.3em;margin-right:10px"><input type="checkbox" name="Emitting" value="e789c746-f3a5-4bf0-8ac1-937a40a2a316">${trade.tradeName}</label>
+				    		</div>
+							<#if trade_index %3 == 2>
+							<div class="clear"></div>
+							<div class="grid_3">&nbsp;</div>
+							</#if>
+				    		</#list>
+						
+				    </div>
+				  </div>
+				  
+				 
+				  
 				  <div class="btn-fld">
 				 	 <button type="button" onClick="subOrder()">Add to cart</button>
 					</div>

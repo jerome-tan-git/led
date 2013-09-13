@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.ITradeOperation">
+	<resultMap type="Trade" id="resultListTrade">
+		<id column="TradeID" property="tradeID" />
+		<result column="TradeName" property="tradeName" />
+	</resultMap>
+
+	<select id="selectTradeByID" parameterType="int" resultType="Trade">
+		select * from `trade` where TradeID = #{tradeID}
+	</select>
+	<select id="selectAllTrade" resultMap="resultListTrade">
+		select * from `trade`	
+	</select>
+
+
+	<insert id="addTrade" parameterType="Trade" useGeneratedKeys="true"
+		keyProperty="id">
+		insert into `trade`(TradeName)
+		values(#{tradeName})
+	</insert>
+	
+	<update id="updateTrade" parameterType="Trade" >
+		REPLACE INTO ordertype(TradeID,TradeName) VALUES (#{tradeID},#{tradeName});  
+    </update>
+	
+	<delete id="deleteTrade" parameterType="int">
+        delete from `ordertype` where TradeID=#{TradeID}
+    </delete>
+	
+</mapper>

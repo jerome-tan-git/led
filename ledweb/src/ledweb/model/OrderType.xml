@@ -2,48 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ledweb.model.mapper.ITypeOperation">
-	<resultMap type="Type" id="typeResultMap">
-		<id property="typeID" column="TypeID" />
-		<result property="typeName" column="TypeName" />
-		<result property="isDelete" column="IsDelete" />
+<mapper namespace="ledweb.model.mapper.IOrderTypeOperation">
+	<resultMap type="OrderType" id="orderTypeResultMap">
+		<id property="orderTypeID" column="OrderTypeID" />
+		<result property="orderID" column="OrderID" />
+		<result property="typeID" column="TypeID" />
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
-		<association property="typeGroup" column="reserve1" javaType="TypeGroup" 
-			select="ledweb.model.mapper.ITypeGroupOperation.selectTypeGroupByID">
-		</association>
 	</resultMap>
 
-	<select id="selectTypeByID" parameterType="String" resultMap="typeResultMap">
-		select * from type where TypeID = #{typeID} and IsDelete = 0
+	<select id="selectOrderTypeByID" parameterType="String" resultMap="orderTypeResultMap">
+		select * from ordertype where OrderTypeID = #{orderTypeID}
 	</select>
 
-	<select id="selectAllTypes" resultMap="typeResultMap">
-		select * from type where IsDelete = 0
+	<select id="selectAllOrderType" resultMap="orderTypeResultMap">
+		select * from ordertype	
 	</select>
-	<select id="selectTypesByTypeGroup" parameterType="String"  resultMap="typeResultMap">
-		select * from type where Reserve1 = #{typeGroupID}
+	<select id="selectOrderTypesByOrderID" parameterType="String"  resultMap="orderTypeResultMap">
+		select * from ordertype where OrderID = #{orderID}
 	</select>
-	<insert id="addType" parameterType="Type" useGeneratedKeys="true"
+	<insert id="addOrderType" parameterType="OrderType" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into type(TypeID,TypeName,Reserve1,Reserve2,Reserve3)
-		values(#{typeID},#{typeName},#{reserve1},#{reserve2},#{reserve3})
+		insert into ordertype(OrderID,TypeID,Reserve1,Reserve2,Reserve3) values(#{orderID},#{typeID},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 		
-	<update id="updateType" parameterType="Type" >
-		REPLACE INTO type(TypeID, TypeName, Reserve1, Reserve2, Reserve3) VALUES (#{typeID},#{typeName},#{reserve1},#{reserve1},#{reserve1});  
+	<update id="updateOrderType" parameterType="OrderType" >
+		REPLACE INTO ordertype(OrderTypeID,OrderID, TypeID, Reserve1, Reserve2, Reserve3) VALUES (#{orderID},#{typeID},#{reserve1},#{reserve2},#{reserve3});  
     </update>
-	
-	<delete id="deleteType" parameterType="String">
-         update type set 
-        IsDelete=1
-        where TypeID=#{typeID}
+    
+	<delete id="realDeleteOrderType" parameterType="String">
+         delete from ordertype where OrderTypeID=#{orderTypeID};
     </delete>
-	
-	
-	<delete id="realDeleteType" parameterType="String">
-         delete from type where TypeID=#{typeID};
-    </delete>
-	
+    
+	<insert id="batchAddOrderType"  parameterType="java.util.List">
+    		insert into ordertype(OrderID,TypeID,Reserve1,Reserve2,Reserve3) 
+    		values
+    		<foreach collection="list" item="item" index="index" separator="," >  
+        			(#{item.orderID},#{item.typeID},#{item.reserve1},#{item.reserve2},#{item.reserve3})  
+    		</foreach> 
+    </insert> 
 </mapper>

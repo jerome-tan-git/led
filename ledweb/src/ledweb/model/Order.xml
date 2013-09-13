@@ -26,7 +26,7 @@
 	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true"
 		keyProperty="id">
 		insert into `order`(OrderID,ProductID,UserID,Quantity,TypeID,OrderDate,Message,Status,Reserve1,Reserve2,Reserve3)
-		values(#{orderID}#{productID},#{userID},#{quantity},#{typeID},#{orderDate},#{message},#{status},#{reserve1},#{reserve2},#{reserve3})
+		values(#{orderID},#{productID},#{userID},#{quantity},#{typeID},#{orderDate},#{message},#{status},#{reserve1},#{reserve2},#{reserve3})
 	</insert>
 	
 	<update id="updateOrder" parameterType="Order" >
