@@ -5,7 +5,7 @@ public class Order {
 	private String productID;
 	private String userID;
 	private int quantity;
-	private int typeID;
+	private String typeID;
 	private int isDelete;
 	private String message;
 	private String orderDate;
@@ -37,17 +37,17 @@ public class Order {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getTypeID() {
+	public String getTypeID() {
 		return typeID;
 	}
-	public void setTypeID(int typeID) {
+	public void setTypeID(String typeID) {
 		this.typeID = typeID;
 	}
 	public int getIsDelete() {
 		return isDelete;
 	}
 	public void setIsDelete(int isDelete) {
-		this.isDelete = isDelete;
+		this.isDelete = isDelete; 
 	}
 	public String getMessage() {
 		return message;

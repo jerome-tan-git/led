@@ -35,7 +35,28 @@ public class ProductDetail extends ActionSupport {
 	private String addCompare;
 	private List<Product> comparedProduct = new ArrayList<Product>();
 	private List<Category> allCategories;
+	private String[] addOrder;
+	private String selectedTypes;
+	private String selectedProduct;
 	
+	public String getSelectedTypes() {
+		return selectedTypes;
+	}
+	public void setSelectedTypes(String selectedTypes) {
+		this.selectedTypes = selectedTypes;
+	}
+	public String getSelectedProduct() {
+		return selectedProduct;
+	}
+	public void setSelectedProduct(String selectedProduct) {
+		this.selectedProduct = selectedProduct;
+	}
+	public String[] getAddOrder() {
+		return addOrder;
+	}
+	public void setAddOrder(String[] addOrder) {
+		this.addOrder = addOrder;
+	}
 	public List<Category> getAllCategories() {
 		return allCategories;
 	}
@@ -127,13 +148,13 @@ public class ProductDetail extends ActionSupport {
 				typeList.add(type.getType());
 				this.typeMap.put(type.getType().getTypeGroup().getGroupName()
 						.trim(), typeList);
-				log.warn(type.getType().getTypeGroup().getGroupName());
+//				log.warn(type.getType().getTypeGroup().getGroupName());
 			}
 
-			for (ProductSpec pspec : product.getSpecs()) {
-				log.warn(pspec.getSpec().getSpecName() + " : "
-						+ pspec.getSpecValue());
-			}
+//			for (ProductSpec pspec : product.getSpecs()) {
+//				log.warn(pspec.getSpec().getSpecName() + " : "
+//						+ pspec.getSpecValue());
+//			}
 			// get similar product
 
 			List<Product> categoryProduct = IPO
@@ -163,6 +184,13 @@ public class ProductDetail extends ActionSupport {
 				"productID"));
 		this.featuredProducts = Util.getFeaturedProducts();
 		Cookie[] cookies = ServletActionContext.getRequest().getCookies();
+//		log.warn("x: "+this.getAddOrder());
+		if(ServletActionContext.getRequest().getParameterMap().get("addOrder")!=null)
+		{
+			String[] selectTypesStr = (String[])ServletActionContext.getRequest().getParameterValues("selectedTypes");
+			String[] productIDStr  = (String[])ServletActionContext.getRequest().getParameterValues("selectedProduct");
+			 
+		}
 
 		if (this.getProductID() != null
 				&& !this.getProductID().trim().equals("")) {
@@ -203,7 +231,7 @@ public class ProductDetail extends ActionSupport {
 					addCompare.setMaxAge(60 * 60 * 24 * 14);
 					ServletActionContext.getResponse().addCookie(addCompare);
 
-				}
+				} 
 				if (ServletActionContext.getRequest()
 						.getParameter("deleteCompare") != null
 						&& !ServletActionContext.getRequest()
@@ -230,6 +258,10 @@ public class ProductDetail extends ActionSupport {
 					}
 					log.warn("delete ID: " +  deleteID);
 				}
+				
+
+				
+				
 				return SUCCESS;
 			}
 		} else {

@@ -14,15 +14,17 @@
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu-v.css" />
 <link rel="stylesheet" type="text/css" href="css/main.css" />
-<link rel="stylesheet" type="text/css" href="css/jquery.spinnercontrol.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.slides.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+
 <script type="text/javascript" language="javascript" src="js/global.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.leanModal.min.js"></script>
 <script type="text/javascript" language="javascript" src="js/jquery.spinnercontrol.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>
 
 <script>
 jQuery(document).ready(function() {
@@ -40,14 +42,7 @@ jQuery(document).ready(function() {
 $(function() {
 	$("a[rel*=leanModal]").leanModal({top : 200, closeButton: ".modal_close" });		
 });
-$(function () {
-    $("#spinner").SpinnerControl({
-        typedata: { min: 0, max: 999, interval: 1 },
-        backColor:'#F7F7F7',
-        defaultVal: 0,
-        width: '50px'
-    });
-});
+
 
 function getNumber()
 {
@@ -57,8 +52,31 @@ function getNumber()
 	
 }
 		
+$(function() {
+	$( "#slider-range-min" ).slider({
+		range: "min",
+		value: 1,
+		min: 1,
+		max: 200,
+		slide: function( event, ui ) {
+	        $( "#amount" ).val( ui.value );
+	      }
+	});
+	$( "#amount" ).val($( "#slider-range-min" ).slider( "value" ) );
+});	
 		
-		
+function subOrder()
+{
+	$('.form-radio').each(function(){
+		if(this.checked){
+			var x = $('#selectedTypes').val();
+			x+=","+$(this).val();
+			$('#selectedTypes').val(x);
+		}
+	});
+	alert($('#selectedTypes').val());
+	$('#orderForm').submit();
+}
 </script>
 
 <style>
@@ -73,7 +91,7 @@ function getNumber()
 	display: block;
 	float: left;
 	width: 150px;
-	padding-top: 8px;
+	padding-top: 13px;
 	color: #222;
 	font-size: 1.3em;
 	text-align: left;
@@ -319,14 +337,19 @@ input, select, label {
 			<div id="signup-ct">
 				<div id="signup-header">
 					<h2>Order form</h2>
+					<br />
+					<p>${(product.productName)!""}</p>
+					<br />
 					<a class="modal_close" href="###"></a>
 				</div>
-				<form name="orderForm" action="" method="post">
-     
+				<form name="orderForm" action="" method="post" id="orderForm"> 
+     			  <input type="hidden" name="selectedTypes" id="selectedTypes" />	 
+     			  <input type="hidden" name="selectedProduct" id="selectedTypes" value="${(product.productID)!""}"/>
+     			  <input type="hidden"  name="addOrder" value="1" />
 				  <div class="txt-fld" style="height: 37px;">
 				    <label for="">Username</label>
-				    <input id="spinner" name="orderNum" type="text" />
-
+		    		<input type="text" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:9pt;height:5px" />
+					<div id="slider-range-min" style="width:310px;margin-left:152px"></div>
 
 				  </div>
 				  <div class="txt-fld">
@@ -339,7 +362,7 @@ input, select, label {
 
 				  </div>
 				  <div class="btn-fld">
-				 	 <button type="submit">Add to cart</button>
+				 	 <button type="button" onClick="subOrder()">Add to cart</button>
 					</div>
 				 </form>
 			</div>
@@ -426,7 +449,7 @@ input, select, label {
 					  		<div class="grid_5 omega">
 					  		 <#assign item = typeMap[mKey]>
 					  		 	<#list item as itemValue>
-						  			<label><input type="radio" name="${mKey}" checked="checked" value="1" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
+						  			<label><input type="radio" name="${mKey}" <#if itemValue_index==0>checked</#if> value="${(itemValue.typeID)!""}" class="form-radio" name="reportType" />${(itemValue.typeName)!""}</label>&nbsp;
 					  			</#list>
 					  		</div>
 					  		<div class="clear"></div>
