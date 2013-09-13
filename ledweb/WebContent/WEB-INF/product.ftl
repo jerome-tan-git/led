@@ -85,7 +85,6 @@ function subOrder()
 	position: relative;
 	padding: 14px 20px;
 	border-bottom: 1px solid #EEE;
-	text-align: right;
 }
 #signup .txt-fld label {
 	display: block;
@@ -96,9 +95,35 @@ function subOrder()
 	font-size: 1.3em;
 	text-align: left;
 }
+.formTitle
+{
+	padding-right:10px; 
+	display: block;
+	float: left;
+	width: 150px;
+	padding-top: 14px;
+	color: #222;
+	font-size: 1.3em;
+	text-align: right;
+}
+#signup .txt-fld textarea {
+	padding: 8px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size: 1.2em;
+	color: #222;
+	background: #F7F7F7;
+	font-family: "Helvetica Neue";
+	outline: none;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #E7E6E6;
+	border-bottom: 1px solid #E7E6E6;
+	width: 467px;
+}
 
 #signup .txt-fld input {
-	width: 295px;
 	padding: 8px;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -187,7 +212,7 @@ function subOrder()
 	z-index: 2;
 }
 #signup {
-	width: 504px;
+	width: 670px;
 	padding-bottom: 2px;
 	display: none;
 	background: #FFF;
@@ -337,54 +362,128 @@ input, select, label {
 			<div id="signup-ct">
 				<div id="signup-header">
 					<h2>Order form</h2>
-					
-					
 					<a class="modal_close" href="###"></a>
 				</div>
 				<form name="orderForm" action="" method="post" id="orderForm">
      			  <input type="hidden" name="selectedTypes" id="selectedTypes" />	 
      			  <input type="hidden" name="selectedProduct" id="selectedTypes" value="${(product.productID)!""}"/>
      			  <input type="hidden"  name="addOrder" value="1" />
+     			  <div class="txt-fld" style="height:6px;background-color:#D0EAFF">
+				  	<div class="container_16">
+				  		<div class="grid_11">
+				    	<span style="display: block;color: #82A6CC;font-size: 1.3em;text-align:right;padding-right:20px"><strong><i>Order Info</i></strong></span>
+				    	</div>
+				    </div>
+				  </div>
 				  <div class="txt-fld" style="height: 37px;">
-				    <label for="">Quantity</label>
-		    		<input type="text" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:9pt;height:5px" />
-					<div id="slider-range-min" style="width:310px;margin-left:152px"></div>
+				   <div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    		Quantity
+				    	</div>
+				    	<div class="grid_8">
+						    <input type="text" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:13pt;height:5px" />
+							<div id="slider-range-min" style="width:476px;"></div>
+				    	</div>				    	
+				    </div>
 				  </div>
 				  
 				  <div class="txt-fld">
-				    <label for="">Memo</label>
-				    <input id="" name="" type="text" />
+				  <div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    		Message
+				    	</div>
+				    	<div class="grid_8">
+							<textarea rows="3">a</textarea>
+						</div>				    	
+				    </div>
+				    
+				    
+				  </div>
+				  
+				  <div class="txt-fld" style="height:6px;background-color:#E2FFEB">
+				  	<div class="container_16">
+				  		<div class="grid_11">
+				    	<span style="display: block;color: #7BBB78;font-size: 1.3em;text-align:right;padding-right:20px"><strong><i>User Info</i></strong></span>
+				    	</div>
+				    </div>
+				  </div>
+
+				  <div class="txt-fld">
+				  	<div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    	First name*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    	<div class="grid_2 formTitle">
+				    	Last name*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    </div>
+
 				  </div>
 				  
 				  <div class="txt-fld">
-				    <label for="">Address</label>
-				    <input id="" name="" type="text" />
+				  	<div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    	Suburb*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    	<div class="grid_2 formTitle">
+				    	State*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    </div>
+
 				  </div>
-				  
 				  <div class="txt-fld">
-				    <label for="">Suburb</label>
-				    <input id="" name="" type="text" />
+				    <div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    	Address*
+				    	</div>
+				    	<div class="grid_8">
+				    	<input id="" name="" type="text" style="width:467px"/>
+				    	</div>
+				    	
+				    </div>
+
 				  </div>
-				  				  
 				  <div class="txt-fld">
-				    <label for="">State</label>
-				    <input id="" name="" type="text" />
+				  	<div class="container_16">
+				  		<div class="grid_2 formTitle">
+				    	Post Code*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    	<div class="grid_2 formTitle">
+				    	Phone*
+				    	</div>
+				    	<div class="grid_3">
+				    	<input id="" name="" type="text" />
+				    	</div>
+				    </div>
+
 				  </div>
-				  <div class="txt-fld">
-				    <label for="">Post Code</label>
-				    <input id="" name="" type="text" />
-				  </div>
+
 				  <div>
 				    <div class="container_16">
-					    <div class="grid_3"><label style="padding-left:10px; display: block;float: left;width: 150px;padding-top: 20px;color: #222;font-size: 1.3em;text-align: left;">
+					    <div class="grid_3"><label style="padding-left:75px; display: block;float: left;width: 150px;padding-top: 20px;color: #222;font-size: 1.3em;text-align: left;">
 					    	Trade
 					    </label></div>			    
 					    
 					    	<#list trades as trade>
-					    	<div class="grid_2" style="margin-left:-10px;padding-top:20px;">
+					    	<div class="grid_2" style="margin-left:-20px;padding-top:20px;">
 				    			<label style="font-size:1.3em;margin-right:10px"><input type="checkbox" name="Emitting" value="e789c746-f3a5-4bf0-8ac1-937a40a2a316">${trade.tradeName}</label>
 				    		</div>
-							<#if trade_index %3 == 2>
+							<#if trade_index %5 == 4>
 							<div class="clear"></div>
 							<div class="grid_3">&nbsp;</div>
 							</#if>
