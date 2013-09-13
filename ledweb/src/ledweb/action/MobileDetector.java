@@ -1,7 +1,7 @@
 package ledweb.action;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse; 
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
