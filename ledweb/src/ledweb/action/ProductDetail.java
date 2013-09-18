@@ -334,9 +334,7 @@ public class ProductDetail extends ActionSupport {
 				userIDStr = userID;
 			}
 		}
-		this.setUser(Util.getUserByID(userIDStr));
-		this.setUserTrade(Util.getTradesByUserID(userIDStr));
-		this.setUseTradeID(Util.getTradesIDsByUserID(this.getUserTrade()));
+
 //		log.warn("user trade: " + this.getUserTrade());
 		if (ServletActionContext.getRequest().getParameterMap().get("addOrder") != null) {
 			// String[] selectTypesStr =
@@ -442,7 +440,9 @@ public class ProductDetail extends ActionSupport {
 
 			session.commit();
 		}
-
+		this.setUser(Util.getUserByID(userIDStr));
+		this.setUserTrade(Util.getTradesByUserID(userIDStr));
+		this.setUseTradeID(Util.getTradesIDsByUserID(this.getUserTrade()));
 		if (this.getProductID() != null
 				&& !this.getProductID().trim().equals("")) {
 

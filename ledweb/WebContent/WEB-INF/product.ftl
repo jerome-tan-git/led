@@ -482,7 +482,7 @@ input, select, label {
 					    	<#list trades as trade>
 					    	<div class="grid_2" style="margin-left:-20px;padding-top:20px;">
 				    			<label style="font-size:1.3em;margin-right:10px">
-				    				<input type="checkbox" name="trade" value="${trade.tradeID}"  <#if useTradeID??>${useTradeID}</#if>>
+				    				<input type="checkbox" name="trade" value="${trade.tradeID}"  <#if useTradeID??>${useTradeID?seq_contains("${trade.tradeID}")?string("checked","")}</#if>>
 				    			${trade.tradeName}
 				    		</label>
 				    		</div>
