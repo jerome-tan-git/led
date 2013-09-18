@@ -30,9 +30,7 @@
     </update>
 	
 	<delete id="deleteTypeGroup" parameterType="String">
-         update typegroup set 
-        IsDelete=1
-        where TypeID=#{typeID}
+         update typegroup set IsDelete=1 where TypeID=#{typeID}
     </delete>
 	
 	

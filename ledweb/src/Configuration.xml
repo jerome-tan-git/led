@@ -21,6 +21,8 @@
         <typeAlias alias="HomeImage" type="ledweb.model.HomeImage"/>
         <typeAlias alias="OrderType" type="ledweb.model.OrderType"/>
         <typeAlias alias="Trade" type="ledweb.model.Trade"/>
+        <typeAlias alias="UserTrade" type="ledweb.model.UserTrade"/>
+        
 
     </typeAliases> 
 
@@ -60,5 +62,6 @@
         <mapper resource="ledweb/model/HomeImage.xml"/>
         <mapper resource="ledweb/model/OrderType.xml"/>
         <mapper resource="ledweb/model/Trade.xml"/>
+        <mapper resource="ledweb/model/UserTrade.xml"/>
     </mappers>
 </configuration>

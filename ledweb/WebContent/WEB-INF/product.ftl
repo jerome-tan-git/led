@@ -379,9 +379,9 @@ input, select, label {
 				   <div class="container_16">
 				  		<div class="grid_2 formTitle">
 				    		Quantity
-				    	</div>
+				    	</div> 
 				    	<div class="grid_8">
-						    <input type="text" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:13pt;height:5px" />
+						    <input type="text" name="productQuantity" id="amount" style="border: 0; color: #333333; font-weight: bold; background-color:#fff; font-size:13pt;height:5px" />
 							<div id="slider-range-min" style="width:476px;"></div>
 				    	</div>				    	
 				    </div>
@@ -392,8 +392,8 @@ input, select, label {
 				  		<div class="grid_2 formTitle">
 				    		Message
 				    	</div>
-				    	<div class="grid_8">
-							<textarea rows="3">a</textarea>
+				    	<div class="grid_8" >
+							<textarea rows="3" name="orderMessage">a</textarea>
 						</div>				    	
 				    </div>
 				    
@@ -414,13 +414,13 @@ input, select, label {
 				    	First name*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderFName" type="text" value="${(user.userName)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	Last name*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderLName" type="text" value="${(user.reserve1)!""}"/>
 				    	</div>
 				    </div>
 
@@ -432,13 +432,13 @@ input, select, label {
 				    	Suburb*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderSuburb" type="text" value="${(user.reserve3)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	State*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderState" type="text" value="${(user.reserve4)!""}"/>
 				    	</div>
 				    </div>
 
@@ -449,7 +449,7 @@ input, select, label {
 				    	Address*
 				    	</div>
 				    	<div class="grid_8">
-				    	<input id="" name="" type="text" style="width:467px"/>
+				    	<input id="" name="orderAdd" type="text" style="width:467px" value="${(user.address)!""}"/> 
 				    	</div>
 				    	
 				    </div>
@@ -461,13 +461,13 @@ input, select, label {
 				    	Post Code*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderPostCode" type="text"  value="${(user.reserve2)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	Phone*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="" type="text" />
+				    	<input id="" name="orderPhone" type="text"  value="${(user.phone)!""}"/>
 				    	</div>
 				    </div>
 
@@ -481,7 +481,10 @@ input, select, label {
 					    
 					    	<#list trades as trade>
 					    	<div class="grid_2" style="margin-left:-20px;padding-top:20px;">
-				    			<label style="font-size:1.3em;margin-right:10px"><input type="checkbox" name="Emitting" value="e789c746-f3a5-4bf0-8ac1-937a40a2a316">${trade.tradeName}</label>
+				    			<label style="font-size:1.3em;margin-right:10px">
+				    				<input type="checkbox" name="trade" value="${trade.tradeID}"  <#if useTradeID??>${useTradeID}</#if>>
+				    			${trade.tradeName}
+				    		</label>
 				    		</div>
 							<#if trade_index %5 == 4>
 							<div class="clear"></div>

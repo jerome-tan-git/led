@@ -13,10 +13,13 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
-
+		<result property="reserve3" column="Reserve4" />
+		<result property="reserve3" column="Reserve5" />
+		<result property="reserve3" column="Reserve6" />
+		<result property="reserve3" column="Reserve7" />
 	</resultMap>
 
-	<select id="selectUserByID" parameterType="int" resultType="User">
+	<select id="selectUserByID" parameterType="string" resultType="User">
 		select * from user where UserID = #{userID} and IsDelete = 0
 	</select>
 
@@ -27,8 +30,8 @@
 
 	<insert id="addUser" parameterType="User" useGeneratedKeys="true"
 		keyProperty="id">
-		insert into user(UserName,Phone,Password,Address,Reserve1,Reserve2,Reserve3)
-		values(#{userName},#{phone},#{password},#{address},#{reserve1},#{reserve2},#{reserve3})
+		REPLACE INTO user(UserID,UserName,Phone,Password,Address,Reserve1,Reserve2,Reserve3, Reserve4, Reserve5, Reserve6, Reserve7)
+		values(#{userID},#{userName},#{phone},#{password},#{address},#{reserve1},#{reserve2},#{reserve3},#{reserve4},#{reserve5},#{reserve6},#{reserve7})
 	</insert>
 	
 	<update id="updateUser" parameterType="User" >
@@ -40,13 +43,15 @@
         Reserve1=#{reserve1},
         Reserve2=#{reserve2},
         Reserve3=#{reserve3},
+        Reserve4=#{reserve4},
+        Reserve5=#{reserve5},
+        Reserve6=#{reserve6},
+        Reserve7=#{reserve7},
         where UserID=#{userID}
     </update>
 	
-	<delete id="deleteUser" parameterType="int">
-         update user set 
-        IsDelete=1
-        where UserID=#{userID}
+	<delete id="deleteUser" parameterType="string">
+         delete from user where UserID=#{userID}
     </delete>
 	
 </mapper>

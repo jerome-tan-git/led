@@ -56,7 +56,6 @@
          update productspec set 
         IsDelete=1
         where SpecID=#{SpecID}
-    
     </delete>
     <insert id="batchAddProductSpec"  parameterType="java.util.List">
     		insert into productspec(ProductID,SpecID,SpecValue,Reserve1,Reserve2,Reserve3) 

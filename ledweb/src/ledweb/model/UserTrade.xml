@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ledweb.model.mapper.IUserTradeOperation">
+	<resultMap type="UserTrade" id="userTradeMap">
+		<id property="userTradeID" column="UserTradeID" />
+		<result property="userID" column="UserID" />
+		<result property="tradeID" column="TradeID" />
+		<association property="trade" column="TradeID" javaType="Trade" 
+			select="ledweb.model.mapper.ITradeOperation.selectTradeByID">
+		</association>
+	</resultMap>
+
+	<select id="selectUserTradeByID" parameterType="String" resultMap="userTradeMap">
+		select * from usertrade where UserTradeID = #{userTradeID}
+	</select>
+
+	<select id="selectByUserID" parameterType="String"  resultMap="userTradeMap">
+		select * from usertrade where UserID = #{userID}
+	</select>
+	
+	<delete id="realDeleteUserTrade" parameterType="String">
+         delete from usertrade where UserID=#{userID};
+    </delete>
+    
+	<insert id="batchAddUserTrade"  parameterType="java.util.List">
+    		insert into usertrade(UserID,TradeID) 
+    		values
+    		<foreach collection="list" item="item" index="index" separator="," >  
+        			(#{item.userID},#{item.tradeID})  
+    		</foreach> 
+    </insert> 
+</mapper>

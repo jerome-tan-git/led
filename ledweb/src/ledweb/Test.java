@@ -24,6 +24,7 @@ import ledweb.model.Trade;
 import ledweb.model.Type;
 import ledweb.model.TypeGroup;
 import ledweb.model.User;
+import ledweb.model.UserTrade;
 import ledweb.model.mapper.ICategoryOperation;
 import ledweb.model.mapper.IContactUsOperation;
 import ledweb.model.mapper.IHomeImageOperation;
@@ -38,6 +39,7 @@ import ledweb.model.mapper.ITradeOperation;
 import ledweb.model.mapper.ITypeGroupOperation;
 import ledweb.model.mapper.ITypeOperation;
 import ledweb.model.mapper.IUserOperation;
+import ledweb.model.mapper.IUserTradeOperation;
 import ledweb.model.mapper.TeacherMapper;
 
 import org.apache.ibatis.io.Resources;
@@ -275,9 +277,12 @@ public class Test {
 			// userOperation.deleteUser(5);
 			// session.commit();
 			//
-			ITradeOperation ito = session.getMapper(ITradeOperation.class);
-			List<Trade> a = ito.selectAllTrade();
-			System.out.println(a);
+			
+			
+			
+//			ITradeOperation ito = session.getMapper(ITradeOperation.class);
+//			List<Trade> a = ito.selectAllTrade();
+//			System.out.println(a);
 //			List<Trade> a = ito.
 //			for (int i = 0; i < 5; i++) {
 //				Trade xxx = new Trade();
@@ -313,6 +318,20 @@ public class Test {
 			// if (a == null || "".equals(a.trim())) {
 			// System.out.println("1");
 			// }
+			IUserTradeOperation i = session.getMapper(IUserTradeOperation.class);
+			List<UserTrade> x = new ArrayList<UserTrade>();
+			UserTrade ut = new UserTrade();
+			ut.setTradeID("a");
+			ut.setUserID("b");
+			x.add(ut);
+			
+			UserTrade ut1 = new UserTrade();
+			ut1.setTradeID("a1");
+			ut1.setUserID("b1");
+			x.add(ut1);
+			i.batchAddUserTrade(x);
+			session.commit();
+			
 		} finally {
 			session.close();
 		}

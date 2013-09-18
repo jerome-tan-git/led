@@ -59,7 +59,7 @@
     		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
 		</action>
-		<action name="orderManagement" class="ledweb.action.Order">
+		<action name="orderManagement" class="ledweb.action.OrderAction">
 			<interceptor-ref name="myDefaultStack"></interceptor-ref>
     		<result name="input" type="freemarker">/WEB-INF/orderList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/orderList.ftl</result>

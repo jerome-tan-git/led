@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Order extends ActionSupport{
+public class OrderAction extends ActionSupport{
 	private String module = "order management";
 	
 	public String getModule() {
