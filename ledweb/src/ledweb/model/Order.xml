@@ -15,13 +15,18 @@
 		<result column="Reserve1" property="reserve1" />
 		<result column="Reserve2" property="reserve2" />
 		<result column="Reserve3" property="reserve3" />
+		<association property="product" column="ProductID" javaType="Product"  select="ledweb.model.mapper.IProductOperation.selectProductByID">
+		</association>
+		<collection property="orderTypes" column="OrderID" ofType="OrderType" select="ledweb.model.mapper.IOrderTypeOperation.selectOrderTypesByOrderID"/>
 	</resultMap>
 
 	<select id="selectOrderByID" parameterType="String" resultType="Order">
 		select * from `order` where OrderID = #{orderID} and IsDelete = 0
 	</select>
 
-
+	<select id="selectOrderByUserID" parameterType="String" resultMap="resultListOrder"> 
+		select * from `order` where UserID = #{userID}
+	</select>
 
 	<insert id="addOrder" parameterType="Order" useGeneratedKeys="true"
 		keyProperty="id">

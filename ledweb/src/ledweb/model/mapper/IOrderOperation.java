@@ -12,4 +12,6 @@ public interface IOrderOperation {
 	public int addOrder(Order order);
 	public int updateOrder(Order order);
 	public int deleteOrder(int id);
+	public List<Order> selectOrderByUserID(String userID);
+	
 }

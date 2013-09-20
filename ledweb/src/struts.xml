@@ -135,6 +135,10 @@
     		<result name="success" type="freemarker">/WEB-INF/aboutUsWeb.ftl</result>
 		</action>
 
+		<action name="cart" class="ledweb.action.Cart">
+    		<result name="success" type="freemarker">/WEB-INF/cart.ftl</result>
+		</action>
+
 		<action name="glossary" class="ledweb.action.GlossaryAction">
     		<result name="success" type="freemarker">/WEB-INF/glossaryWeb.ftl</result>
 		</action>

@@ -74,8 +74,60 @@ function subOrder()
 			$('#selectedTypes').val(x);
 		}
 	});
-	alert($('#selectedTypes').val());
-	$('#orderForm').submit();
+	var needInput = false;
+	var needMessage = "";
+	if($('#orderFirstNameID').val()=="")
+	{
+		needMessage+="Please input first name\n";
+		needInput = true;
+	}
+	
+	if($('#orderLastNameID').val()=="")
+	{
+		needMessage+="Please input last name\n";
+		needInput = true;
+	}
+	
+	if($('#orderSuburbID').val()=="")
+	{
+		needMessage+="Please input suburb\n";
+		needInput = true;
+	}
+	
+	if($('#orderStateID').val()=="")
+	{
+		needMessage+="Please input state\n";
+		needInput = true;
+	}
+	
+	if($('#orderAddressID').val()=="")
+	{
+		needMessage+="Please input Address\n";
+		needInput = true;
+	}
+	
+	if($('#ordeCodeID').val()=="")
+	{
+		needMessage+="Please input post code\n";
+		needInput = true;
+	}
+	
+	if($('#ordePhoneID').val()=="")
+	{
+		needMessage+="Please input phone number\n";
+		needInput = true;
+	}
+	
+	
+	
+	if(needInput)
+	{
+		alert(needMessage);
+	}
+	else
+	{
+		$('#orderForm').submit();
+	}
 }
 </script>
 
@@ -414,13 +466,13 @@ input, select, label {
 				    	First name*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderFName" type="text" value="${(user.userName)!""}"/>
+				    	<input name="orderFName" id="orderFirstNameID" type="text" value="${(user.userName)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	Last name*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderLName" type="text" value="${(user.reserve1)!""}"/>
+				    	<input name="orderLName" id="orderLastNameID"type="text" value="${(user.reserve1)!""}"/>
 				    	</div>
 				    </div>
 
@@ -432,13 +484,13 @@ input, select, label {
 				    	Suburb*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderSuburb" type="text" value="${(user.reserve3)!""}"/>
+				    	<input  name="orderSuburb" id="orderSuburbID" type="text" value="${(user.reserve3)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	State*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderState" type="text" value="${(user.reserve4)!""}"/>
+				    	<input  name="orderState" id="orderStateID" type="text" value="${(user.reserve4)!""}"/>
 				    	</div>
 				    </div>
 
@@ -449,7 +501,7 @@ input, select, label {
 				    	Address*
 				    	</div>
 				    	<div class="grid_8">
-				    	<input id="" name="orderAdd" type="text" style="width:467px" value="${(user.address)!""}"/> 
+				    	<input  name="orderAdd" type="text" id="orderAddressID" style="width:467px" value="${(user.address)!""}"/> 
 				    	</div>
 				    	
 				    </div>
@@ -461,13 +513,13 @@ input, select, label {
 				    	Post Code*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderPostCode" type="text"  value="${(user.reserve2)!""}"/>
+				    	<input name="orderPostCode" type="text" id="ordeCodeID" value="${(user.reserve2)!""}"/>
 				    	</div>
 				    	<div class="grid_2 formTitle">
 				    	Phone*
 				    	</div>
 				    	<div class="grid_3">
-				    	<input id="" name="orderPhone" type="text"  value="${(user.phone)!""}"/>
+				    	<input  name="orderPhone" type="text"  id="ordePhoneID"  value="${(user.phone)!""}"/>
 				    	</div>
 				    </div>
 

@@ -10,6 +10,7 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
+		<association property="type" column="typeID" javaType="Type"  select="ledweb.model.mapper.ITypeOperation.selectTypeByID" /> 
 	</resultMap>
 
 	<select id="selectOrderTypeByID" parameterType="String" resultMap="orderTypeResultMap">

@@ -7,7 +7,14 @@ public class OrderType {
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
-
+	private Type type;
+	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	public int getOrderTypeID() {
 		return orderTypeID;
 	}

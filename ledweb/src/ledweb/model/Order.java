@@ -1,5 +1,7 @@
 package ledweb.model;
 
+import java.util.List;
+
 public class Order {
 	private String orderID;
 	private String productID;
@@ -13,6 +15,21 @@ public class Order {
 	private String reserve1="";
 	private String reserve2="";
 	private String reserve3="";
+	private Product product;
+	private List<OrderType> orderTypes;
+	
+	public List<OrderType> getOrderTypes() {
+		return orderTypes;
+	}
+	public void setOrderTypes(List<OrderType> orderTypes) {
+		this.orderTypes = orderTypes;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	public String getOrderID() {
 		return orderID;
 	}
