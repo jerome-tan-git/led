@@ -79,7 +79,7 @@
 			</interceptor-ref>  
     		<result name="input" type="freemarker">/WEB-INF/product.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/product.ftl</result>
-    		
+    		<result name="cart" type="redirect">cart.do</result> 
 		</action>
 
 		<action name="login" class="ledweb.action.Login">

@@ -268,6 +268,8 @@ jQuery(document).ready(function() {
 
     <div id="templatemo_header">
      	<div class="container_12">
+	     	<div class="grid_2 prefix_10" style="margin-top: -36px;"><a href="./cart.do"><img src="./images/c.png" /></a></div>
+	     	<div class="clear"></div> 
         	<div id="site_title" class="grid_3">
         		<h1>
         			<a href="./">Free CSS Templates</a>

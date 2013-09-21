@@ -306,11 +306,16 @@ public class ProductDetail extends ActionSupport {
 
 	@Override
 	public String execute() {
+		long start = System.currentTimeMillis();
 		this.allCategories = Util.getAllCategories();
+		log.warn("cat: " + (System.currentTimeMillis() - start));
 		this.trades = Util.getAllTrades();
+		log.warn("trade: " + (System.currentTimeMillis() - start));
 		this.setProductID(ServletActionContext.getRequest().getParameter(
 				"productID"));
+		log.warn("feature : " + (System.currentTimeMillis() - start));
 		this.featuredProducts = Util.getFeaturedProducts();
+		log.warn("info: " + (System.currentTimeMillis() - start));
 		Cookie[] cookies = ServletActionContext.getRequest().getCookies();
 		String userIDStr = null;
 		if (cookies == null) {
@@ -334,18 +339,9 @@ public class ProductDetail extends ActionSupport {
 				userIDStr = userID;
 			}
 		}
-
+//		log.warn("cookie: " + (System.currentTimeMillis() - start)); 
 //		log.warn("user trade: " + this.getUserTrade());
 		if (ServletActionContext.getRequest().getParameterMap().get("addOrder") != null) {
-			// String[] selectTypesStr =
-			// (String[])ServletActionContext.getRequest().getParameterValues("selectedTypes");
-			// String[] productIDStr =
-			// (String[])ServletActionContext.getRequest().getParameterValues("selectedProduct");
-			// String[] quantity =
-			// (String[])ServletActionContext.getRequest().getParameterValues("productQuantity");
-			// log.warn("quantity!!:" + this.selectedTypes);
-			// log.warn(this.getTrade().length);
-			// log.warn("P: "+this.geto);
 			String orderTypes = ServletActionContext.getRequest().getParameter(
 					"selectedTypes");
 			String orderQuantity = ServletActionContext.getRequest()
@@ -439,10 +435,13 @@ public class ProductDetail extends ActionSupport {
 			}
 
 			session.commit();
+			return "cart"; 
 		}
+//		log.warn("before get product1: " + (System.currentTimeMillis() - start)); 
 		this.setUser(Util.getUserByID(userIDStr));
 		this.setUserTrade(Util.getTradesByUserID(userIDStr));
 		this.setUseTradeID(Util.getTradesIDsByUserID(this.getUserTrade()));
+//		log.warn("before get product: " + (System.currentTimeMillis() - start));
 		if (this.getProductID() != null
 				&& !this.getProductID().trim().equals("")) {
 
@@ -506,7 +505,7 @@ public class ProductDetail extends ActionSupport {
 					}
 					log.warn("delete ID: " + deleteID);
 				}
-
+//				log.warn("after get product: " + (System.currentTimeMillis() - start));
 				return SUCCESS;
 			}
 		} else {

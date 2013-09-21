@@ -280,20 +280,21 @@ input, select, label {
 					  	<div><h3>Your Orders</h3></div>
 					  	
 					  	<#list orders as order>
-					  	<div style="height:150px;background-color: #DBEEFF;margin-bottom:10px;">
+					  	<div style="background-color: #DBEEFF;margin-bottom:10px;border-left: 5px solid #027CB6;">
 					  		<div class="grid_1 prefix_9">
-								<img src="./images/1375543476_cancel.png" style="padding-left: 67px;padding-top: 5px;" />					  		
+								<a href="?deleteOrder=${(order.orderID)!""}"><img src="./images/1375543476_cancel.png" style="padding-left: 63px;;padding-top: 3px;" /></a>					  		
 					  		</div>
 					  		<div class="clear"></div>
 						  	<div class="grid_9" style="margin-top:-4px; margin-left:15px;line-height: 1.7em;">
-						  		<span style="font-size:13pt;color: #333;">${(order.product.productName)!"--"} </span>
+						  		<span style="font-size:13pt;color: #333;"><a href="productdetail.do?productID=${(order.product.productID)!"#"}">${(order.product.productName)!""}</a></span>
 						  	</div>
-						  	<div class="grid_1" style="background-color:#00008B;height:28px;padding-top: 23px;text-align:center; width:50px;margin-top: -25px;" >
+						  	<div class="grid_1" style="background-color:#00008B;height:28px;padding-top: 23px;text-align:center; width:50px;margin-top: -23px;padding-bottom: 2px;" >
 						  		<span style="font-size:17pt;color: #fff;">${(order.quantity)!"0"}</span>
 						  		
  
 						  	</div>
 						  	<div class="clear"></div>
+						  	
 					  		<div class="grid_11" style="padding-top: 10px;"> 
 					  		<#assign oTypes = order.orderTypes>
 						  	<#list oTypes as ot>
@@ -305,16 +306,15 @@ input, select, label {
 							 	 <span>${(order.message)!""}</span>
 							 </div>
 							 <div class="clear"></div>
-							 <div class="grid_9" style="margin-top:10px">
-							 	&nbsp;
-							 </div>
-							 
-							 <div class="clear"></div>
+							<div class="grid_4 prefix_8" style="margin-left: -19px;margin-top: 29px;color: #A7A7A7;">
+						  	Order No.: ${(order.orderNo)!""}  
+						  	</div>
+						  	<div class="clear"></div>
 						</div>
 					  	</#list>
 					  	
 					  	</#if>
-					  	
+					  		
 					  </div>
 					 	<div class="clear"></div>
 		

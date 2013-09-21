@@ -29,7 +29,14 @@ public class Cart extends ActionSupport {
 	private String module = "about us";
 	private User user;
 	private List<Order> orders;
+	private String deleteOrder;
 	
+	public String getDeleteOrder() {
+		return deleteOrder;
+	}
+	public void setDeleteOrder(String deleteOrder) {
+		this.deleteOrder = deleteOrder;
+	}
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -109,6 +116,14 @@ public class Cart extends ActionSupport {
 		
 		if (userIDStr != null)
 		{
+			if (this.getDeleteOrder() != null && !this.getDeleteOrder().trim().equals(""))
+			{
+				System.out.println("delete order:" + this.getDeleteOrder()); 
+				SqlSession session = ModelSessionFactory.getSession().openSession();
+				IOrderOperation ioo = session.getMapper(IOrderOperation.class);
+				ioo.deleteOrder(this.getDeleteOrder());
+				session.commit();
+			}
 			User _user = Util.getUserByID(userIDStr);
 			if (_user!=null)
 			{

@@ -26,7 +26,7 @@
 	color: white;
 	padding: 8px 10px;
 	/*border-right: 1px solid #778;*/
-	color: #881212;
+	color: #04518c;
 	text-decoration: none;
 }
 
@@ -66,12 +66,12 @@ font-size: 12px;
 
 
 .ddsmoothmenu ul li a.selected { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
-background: #881212 ; 
+background: #04518c ;04518c
 color: white;
 }
 
 .ddsmoothmenu ul li a:hover{
-background: #881212; /*background of menu items during onmouseover (hover state)*/
+background: #04518c; /*background of menu items during onmouseover (hover state)*/
 color: white;
 }
 	

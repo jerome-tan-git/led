@@ -1,5 +1,7 @@
 package ledweb.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Order {
@@ -17,7 +19,18 @@ public class Order {
 	private String reserve3="";
 	private Product product;
 	private List<OrderType> orderTypes;
+	private String orderNo;
 	
+	public String getOrderNo() {
+		if (this.getOrderDate()!= null && !this.getOrderDate().trim().equals(""))
+		{
+			long x = Long.parseLong(this.getOrderDate());
+			Date aa = new Date(x);
+			SimpleDateFormat sdf=new SimpleDateFormat("yyMMddHHmmssSSS");
+			return sdf.format(aa);
+		}
+		return "N/A";
+	}
 	public List<OrderType> getOrderTypes() {
 		return orderTypes;
 	}
