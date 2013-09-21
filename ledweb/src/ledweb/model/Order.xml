@@ -17,13 +17,19 @@
 		<result column="Reserve3" property="reserve3" />
 		<association property="product" column="ProductID" javaType="Product"  select="ledweb.model.mapper.IProductOperation.selectProductByID">
 		</association>
+		<association property="user" column="UserID" javaType="User"  select="ledweb.model.mapper.IUserOperation.selectUserByID"></association>
 		<collection property="orderTypes" column="OrderID" ofType="OrderType" select="ledweb.model.mapper.IOrderTypeOperation.selectOrderTypesByOrderID"/>
+		
+		
 	</resultMap>
+	
 
 	<select id="selectOrderByID" parameterType="String" resultType="Order">
 		select * from `order` where OrderID = #{orderID} 
 	</select>
-
+	<select id="selectOrders" parameterType="String" resultMap="resultListOrder">
+		select * from `order` order by orderDate DESC
+	</select>
 	<select id="selectOrderByUserID" parameterType="String" resultMap="resultListOrder"> 
 		select * from `order` where UserID = #{userID} order by orderDate DESC
 	</select>

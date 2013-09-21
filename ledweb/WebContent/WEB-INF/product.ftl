@@ -445,7 +445,7 @@ input, select, label {
 				    		Message
 				    	</div>
 				    	<div class="grid_8" >
-							<textarea rows="3" name="orderMessage">a</textarea>
+							<textarea rows="3" name="orderMessage"></textarea>
 						</div>				    	
 				    </div>
 				    

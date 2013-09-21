@@ -398,7 +398,6 @@ public class ProductDetail extends ActionSupport {
 			u.setAddress(orderAdd);
 			u.setPhone(orderPhone);
 			u.setUserName(orderFName);
-			u.setUserName(orderLName);
 			u.setReserve1(orderLName);// last name
 			u.setReserve2(orderPostCode);// post code
 			u.setReserve3(orderSuburb);// order Suburb

@@ -20,13 +20,31 @@ public class Order {
 	private Product product;
 	private List<OrderType> orderTypes;
 	private String orderNo;
+	private String orderDateTime;
+	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public String getOrderDateTime() {
+		if (this.getOrderDate()!= null && !this.getOrderDate().trim().equals(""))
+		{
+			long x = Long.parseLong(this.getOrderDate());
+			Date aa = new Date(x);
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			return sdf.format(aa);
+		}
+		return "N/A";
+	}
 	public String getOrderNo() {
 		if (this.getOrderDate()!= null && !this.getOrderDate().trim().equals(""))
 		{
 			long x = Long.parseLong(this.getOrderDate());
 			Date aa = new Date(x);
-			SimpleDateFormat sdf=new SimpleDateFormat("yyMMddHHmmssSSS");
+			SimpleDateFormat sdf=new SimpleDateFormat("yyMMddHHmmss-SSS");
 			return sdf.format(aa);
 		}
 		return "N/A";

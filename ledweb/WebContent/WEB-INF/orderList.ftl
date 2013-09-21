@@ -149,27 +149,41 @@ function showConfirm(productName, productID)
           </div> <!-- <div class="bs-sidebar pull-right"> -->
 	</div>
 			<div class="col-lg-8">
+			<#list allOrder as order>
 			<!-- a product-->
 				<div class="bs-callout bs-callout-info">
-				<div class="row">
 
-				
+				<div class="row">
 				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-12">
-				      		<a href="./newProduct.do?productID=384f0c77-5b7a-42a6-bbe6-d89e1a127208" style="color:#666; font-size:16pt">aaaaa</a>
+						<div class="col-lg-11">
+				      		<a href="./productdetail.do?productID=${(order.product.productID)!""}" style="color:#666; font-size:16pt">${(order.product.productName)!""}</a>
+				      	</div>
+				      	<div class="col-lg-1" style="padding-left: 50px;margin-top: -6px;">
+				      		<a href="?deleteOrder=${(order.orderID)!""}""><img src="./images/1375543476_cancel.png" /></a>
 				      	</div>
 				      	
 			      	</div>
+			      	<div class="row" style="margin-top: 11px;margin-bottom: 12px;margin-left: -19px;;">
+			      	<div class="col-lg-12">
+						<span class="label label-default" style="margin-left: 4px;"><span style="color: #cccccc">Order No.: | </span><b>${(order.orderNo)!""}</b></span>
+					</div>
+				</div>
 			      <p>
-			      <span class="label label-info"><span style="color: #bce9f7">Quantity | </span><span><b>1000</b></span></span>
-			      <span class="label label-success"> <span style="color: #c9f0c9">Type |</span> <b>type name</b></span>
-			      <span class="label label-warning"><span style="color: #f1e7bc">Order Date | </span><b>2013-08-19</b></span>
+			      <span class="label label-info"><span style="color: #bce9f7">Quantity | </span><span><b>${(order.quantity)!""}</b></span></span>
+			      <span class="label label-success"> <span style="color: #c9f0c9">Type |</span> 
+			      	<#assign oTypes = order.orderTypes>
+						  	<#list oTypes as ot>
+						  		${(ot.type.typeGroup.groupName)!""} : <b>${(ot.type.typeName)!""}</b>, 
+						  	</#list>
+			      </span>
+			      <span class="label label-warning" style="margin-left: 4px;"><span style="color: #f1e7bc">Order Date | </span><b>${(order.orderDateTime)!""}</b></span>
+			      
 			      </p>
-	
+
 			      <b>Message:</b>
 			 		<div class="bs-callout bs-callout-warning">
-			 		<p> adf jaslkfjasja;sfja;sjf;asdf </p>
+			 		<p> ${(order.message)!""}</p>
 			 		</div>
 				 	<br />
 				 	<b>User Info:</b>
@@ -178,32 +192,52 @@ function showConfirm(productName, productID)
 			 			<div class="col-lg-2" style="padding-right:0px">
 			 				<span class="pull-right"><b>User name</b></span>
 			 			</div>
-			 			<div class="col-lg-1" >
-			 				<span class="pull-left">XXXXXX</span>
+			 			<div class="col-lg-10" >
+			 				<span class="pull-left">${(order.user.userName)!""} ${(order.user.reserve1)!""}</span>
 			 			</div>
 			 		</div>	
 			 		<div class="row">
 			 			<div class="col-lg-2" style="padding-right:0px">
 			 				<span class="pull-right"><b>Phone</b></span>
 			 			</div>
-			 			<div class="col-lg-1">
-			 				<span class="pull-left">123456789</span>
+			 			<div class="col-lg-10">
+			 				<span class="pull-left">${(order.user.phone)!""}</span>
 			 			</div>
-					</div>			
+					</div>
+					
+					<div class="row">			 			
+			 			<div class="col-lg-2" style="padding-right:0px">
+			 				<span class="pull-right"><b>State</b></span>
+			 			</div>
+			 			<div class="col-lg-10">
+			 				<span class="pull-left">${(order.user.reserve4)!""}</span>
+			 			</div>
+			 		</div>	
+						
 			 		<div class="row">			 			
+			 			<div class="col-lg-2" style="padding-right:0px">
+			 				<span class="pull-right"><b>Suburb</b></span>
+			 			</div>
+			 			<div class="col-lg-10">
+			 				<span class="pull-left">${(order.user.reserve3)!""}</span>
+			 			</div>
+			 		</div>
+			 			
+			 		<div class="row">	
 			 			<div class="col-lg-2" style="padding-right:0px">
 			 				<span class="pull-right"><b>Address</b></span>
 			 			</div>
-			 			<div class="col-lg-1">
-			 				<span class="pull-left">adffffffffasdfasssffff</span>
+			 			<div class="col-lg-10">
+			 				<span class="pull-left">${(order.user.address)!""}</span>
 			 			</div>
-			 		</div>	
-			 		<div class="row">	
+			 		</div>
+			 		
+			 		<div class="row">			 			
 			 			<div class="col-lg-2" style="padding-right:0px">
-			 				<span class="pull-right"><b>Email</b></span>
+			 				<span class="pull-right"><b>Post code</b></span>
 			 			</div>
-			 			<div class="col-lg-1">
-			 				<span class="pull-left">adfasfasfasdf</span>
+			 			<div class="col-lg-10">
+			 				<span class="pull-left">${(order.user.reserve2)!""}</span>
 			 			</div>
 			 		</div>
 			 		
@@ -219,6 +253,7 @@ function showConfirm(productName, productID)
 				
 				
 			    <!-- a product-->
+			    </#list>
 			</div><!--div class="col-lg-8"-->
 			
 			
