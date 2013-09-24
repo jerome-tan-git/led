@@ -1,6 +1,8 @@
 package ledweb.model;
 
-public class UserTrade {
+import java.io.Serializable;
+
+public class UserTrade implements Serializable{
 	public int userTradeID;
 	public String userID;
 	public String tradeID;

@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ledweb.model.mapper.IUserOperation">
+  
 	<resultMap type="User" id="resultListUser">
 		<id property="userID" column="UserID" />
 		<result property="userName" column="UserName" />
@@ -23,8 +24,8 @@
 		select * from user where UserID = #{userID} and IsDelete = 0
 	</select>
 
-	<select id="selectUsers" parameterType="string" resultMap="resultListUser">
-		select * from user where UserName like #{userName}
+	<select id="selectUsers" resultMap="resultListUser">
+		select * from user
 	</select>
 
 

@@ -1,13 +1,14 @@
 package ledweb.model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.List;
 
 import ledweb.Util;
 
 import org.apache.log4j.Logger;
 
-public class Product {
+public class Product implements Serializable{
 	private String productID;
 	private String categoryID;
 	private String productName;
@@ -31,7 +32,7 @@ public class Product {
 	private String reserve1 = "";
 	private String reserve2 = "";
 	private String reserve3 = "";
-	private Logger log = Logger.getLogger(Product.class);
+//	private Logger log = Logger.getLogger(Product.class);
 
 	public List<ProductSpec> getSpecs() {
 		return specs;

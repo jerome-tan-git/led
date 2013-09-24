@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import ledweb.ModelSessionFactory;
+import ledweb.MyCache;
 import ledweb.model.Category;
 import ledweb.model.Product;
 import ledweb.model.ProductSpec;
@@ -81,6 +82,7 @@ public class ProductList extends ActionSupport {
 			}
 		}
 		this.init();
+		MyCache.refresh();
 		return SUCCESS;
 	}
 }

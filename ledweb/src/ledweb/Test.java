@@ -318,18 +318,29 @@ public class Test {
 			// if (a == null || "".equals(a.trim())) {
 			// System.out.println("1");
 			// }
-			IUserTradeOperation i = session.getMapper(IUserTradeOperation.class);
-			List<UserTrade> x = new ArrayList<UserTrade>();
-			UserTrade ut = new UserTrade();
-			ut.setTradeID("a");
-			ut.setUserID("b");
-			x.add(ut);
+//			IUserTradeOperation i = session.getMapper(IUserTradeOperation.class);
+//			List<UserTrade> x = new ArrayList<UserTrade>();
+//			UserTrade ut = new UserTrade();
+//			ut.setTradeID("a");
+//			ut.setUserID("b");
+//			x.add(ut);
+//			
+//			UserTrade ut1 = new UserTrade();
+//			ut1.setTradeID("a1");
+//			ut1.setUserID("b1");
+//			x.add(ut1);
+//			i.batchAddUserTrade(x);
 			
-			UserTrade ut1 = new UserTrade();
-			ut1.setTradeID("a1");
-			ut1.setUserID("b1");
-			x.add(ut1);
-			i.batchAddUserTrade(x);
+			
+			IProductOperation ipo = session.getMapper(IProductOperation.class);
+			long start = System.currentTimeMillis();
+			List<Product> a = ipo.selectAllProducts();
+			System.out.println(System.currentTimeMillis() - start);
+			
+			
+			long start1 = System.currentTimeMillis();
+			List<Product> a1 = ipo.selectAllProducts();
+			System.out.println(System.currentTimeMillis() - start1);
 			session.commit();
 			
 		} finally {

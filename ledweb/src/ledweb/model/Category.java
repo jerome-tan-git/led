@@ -1,8 +1,10 @@
 package ledweb.model;
 
+import java.io.Serializable;
+
 import ledweb.Util;
 
-public class Category {
+public class Category implements Serializable{
 	private String categoryID;
 	private String categoryName;
 	private int isDelete;

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import ledweb.ModelSessionFactory;
+import ledweb.MyCache;
 import ledweb.model.Category;
 import ledweb.model.Spec;
 import ledweb.model.Type;
@@ -416,6 +417,7 @@ public class SystemMan extends ActionSupport {
 		}
 
 		this.init();
+		MyCache.refresh();
 		return SUCCESS;
 	}
 }

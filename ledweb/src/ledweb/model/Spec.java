@@ -1,6 +1,8 @@
 package ledweb.model;
 
-public class Spec {
+import java.io.Serializable;
+
+public class Spec implements Serializable{
 	private String specID;
 	private String specName;
 	private int isDelete;

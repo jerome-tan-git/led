@@ -31,52 +31,19 @@ public class Util {
 	}
 
 	public static List<Category> getAllCategories() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		List<Category> allCategories = new ArrayList<Category>();
-		try {
-			ICategoryOperation ICO = session
-					.getMapper(ICategoryOperation.class);
-			allCategories = ICO.selectAllCategories();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
-		return allCategories;
+		return MyCache.getInstance().getAllCategories();
 	}
 
 	public static Product getProductByID(String _ID) {
-		Product product = null;
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		try {
-			IProductOperation ipo = session.getMapper(IProductOperation.class);
-			product = ipo.selectProductByID(_ID);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
-		return product;
+		return MyCache.getInstance().getProductByID(_ID);
 	}
 
 	public static List<Trade> getAllTrades() {
-		List<Trade> result = new ArrayList<Trade>();
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		try {
-			ITradeOperation ito = session.getMapper(ITradeOperation.class);
-			result = ito.selectAllTrade();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
-		return result;
+		return TradeCache.getInstance().getAllTrade();
 	}
 
 	public static List<Product> getFeaturedProducts() {
-		List<Product> result = new ArrayList<Product>();
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		try {
-			IProductOperation ipo = session.getMapper(IProductOperation.class);
-			result = ipo.selectFeaturedProducts();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
-		return result;
+		return MyCache.getInstance().getFeaturedProducts();
 	}
 
 	public static String getProperties(String _key) {
@@ -146,9 +113,7 @@ public class Util {
 	
 
 	public static User getUserByID(String _userID) {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		IUserOperation iuo = session.getMapper(IUserOperation.class);
-		return iuo.selectUserByID(_userID);
+		return UserCache.getInstance().getUserByID(_userID);
 	}
 
 	public static void main(String[] args) {

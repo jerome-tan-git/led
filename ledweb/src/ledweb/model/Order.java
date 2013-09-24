@@ -1,10 +1,11 @@
 package ledweb.model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+public class Order implements Serializable{
 	private String orderID;
 	private String productID;
 	private String userID;

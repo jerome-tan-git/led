@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ledweb.model.mapper.IProductSpecOperation">
+  
 	<resultMap type="ProductSpec" id="resultListProductSpec">
 		<id property="productSpecID" column="ProductSpecID" />
 		<result property="productID" column="ProductID" />

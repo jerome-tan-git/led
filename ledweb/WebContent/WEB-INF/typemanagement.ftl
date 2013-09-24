@@ -217,11 +217,13 @@ jQuery(document).ready(function() {
 			    	System
 		  			</a>
 				</li>
+				<!--
 			    <li class="">
 		  			 <a href="./userManagement.do" <#if module??><#if module=="user management">style="background-color: #e5e3e9;"</#if></#if>">
 		  			 Users
 		  			</a>
 		  		</li>
+		  		-->
 			    <li class="">
 			    	<a href="./orderManagement.do" <#if module??><#if module=="order management">style="background-color: #e5e3e9;"</#if></#if>"">Orders
 		  		</a></li>

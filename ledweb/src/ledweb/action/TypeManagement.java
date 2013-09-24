@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import ledweb.ModelSessionFactory;
+import ledweb.MyCache;
 import ledweb.Util;
 import ledweb.model.Category;
 import ledweb.model.Spec;
@@ -326,6 +327,7 @@ public class TypeManagement extends ActionSupport {
 			this.deleteType();
 		}
 		this.init();
+		MyCache.refresh();
 		return SUCCESS;
 	}
 }

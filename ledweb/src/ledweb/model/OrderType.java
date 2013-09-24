@@ -1,6 +1,8 @@
 package ledweb.model;
 
-public class OrderType {
+import java.io.Serializable;
+
+public class OrderType implements Serializable{
 	private int orderTypeID;
 	private String orderID;
 	private String typeID;

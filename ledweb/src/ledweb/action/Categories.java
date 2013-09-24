@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 import ledweb.ModelSessionFactory;
+import ledweb.MyCache;
 import ledweb.Util;
 import ledweb.model.Category;
 import ledweb.model.Product;
@@ -72,13 +73,8 @@ public class Categories extends ActionSupport {
 
 	private void init(String _categoryID) {
 		SqlSession session = ModelSessionFactory.getSession().openSession();
-		try {
-			ICategoryOperation ico = session
-					.getMapper(ICategoryOperation.class);
-			this.categories = ico.selectAllCategories();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
+		long start = System.currentTimeMillis();
+		this.categories = Util.getAllCategories();
 		if (_categoryID == null || _categoryID.trim().equals("")) {
 			if (this.getCategories() != null && this.getCategories().size() > 0) {
 				this.setCategoryID(this.getCategories().get(0).getCategoryID());
@@ -93,20 +89,23 @@ public class Categories extends ActionSupport {
 				}
 			}
 		}
-		try {
-			IProductOperation ipo = session
-					.getMapper(IProductOperation.class);
-			this.products = ipo.selectProductsByCategoryID(this.getCategoryID());
-		} catch (Exception e) {
-			log.error(e.getMessage());
-		}
+		long start1 = System.currentTimeMillis();
+		log.warn("part1: "+(start1-start));
+		this.products = MyCache.getInstance().getProductsByCategory(this.getCategoryID());
+		long start2 = System.currentTimeMillis();
+		log.warn("part2: "+(start2-start1));
 		this.featuredProducts = Util.getFeaturedProducts();
 	}
 
 	@Override
 	public String execute() throws Exception {
+		long start = System.currentTimeMillis();
 		this.allCategories = Util.getAllCategories();
+		long start1 = System.currentTimeMillis();
+		log.warn("All category"+(start1 - start));
 		this.init(this.getCategoryID());
+		long start2 = System.currentTimeMillis();
+		log.warn("Init category"+(start2 - start1));
 		return SUCCESS;
 	}
 }

@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ledweb.model.mapper.ITypeGroupOperation">
+  
 	<resultMap type="TypeGroup" id="typeGroupResultMap">
 		<id property="groupID" column="GroupID" />
 		<result property="groupName" column="GroupName" />

@@ -1,6 +1,8 @@
 package ledweb.model;
 
-public class ProductSpec {
+import java.io.Serializable;
+
+public class ProductSpec implements Serializable{
 	
 	private int productSpecID;
 	private String productID;

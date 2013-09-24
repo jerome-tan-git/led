@@ -1,6 +1,8 @@
 package ledweb.model;
 
-public class TypeGroup {
+import java.io.Serializable;
+
+public class TypeGroup implements Serializable{
 	private String groupID;
 	private String groupName;
 	private String Reserve1="";
