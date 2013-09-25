@@ -397,11 +397,13 @@ jQuery(document).ready(function() {
 	      <div class="col_4">
 	        	<h5>Terms and Conditions</h5>
 	            <ul class="footer_list">
-	            	<li><a href="home.html">Terms and Conditions</a></li>
+	            	<li><a href="terms.do">Terms and Conditions</a></li>
+	            	<li><a href="policy.do">Privacy Policy</a></li>
 				</ul>
 	        </div>
         
         <div class="col_4 col_l">
+        <!--
         	<h5>Follow Us</h5>
             <div class="footer_social_button">
                 <a href="http://www.facebook.com/templatemo"><img src="images/facebook.png" title="facebook" alt="facebook" /></a>
@@ -414,7 +416,7 @@ jQuery(document).ready(function() {
             
         	Copyright  2048 <a href="#">Company Name</a> <br /> 
             Designed by <a href="http://www.bestmoban.com" target="_parent">Free CSS Templates</a>
-      		
+      		-->
 		</div> 
         
         <div class="cleaner"></div>

@@ -14,10 +14,10 @@
 		<result property="reserve1" column="Reserve1" />
 		<result property="reserve2" column="Reserve2" />
 		<result property="reserve3" column="Reserve3" />
-		<result property="reserve3" column="Reserve4" />
-		<result property="reserve3" column="Reserve5" />
-		<result property="reserve3" column="Reserve6" />
-		<result property="reserve3" column="Reserve7" />
+		<result property="reserve4" column="Reserve4" />
+		<result property="reserve5" column="Reserve5" />
+		<result property="reserve6" column="Reserve6" />
+		<result property="reserve7" column="Reserve7" />
 	</resultMap>
 
 	<select id="selectUserByID" parameterType="string" resultType="User">

@@ -5,20 +5,23 @@ import java.util.List;
 
 import ledweb.model.User;
 import ledweb.model.mapper.IUserOperation;
+import ledweb.model.mapper.IUserTradeOperation;
 
 import org.apache.ibatis.session.SqlSession;
 
 public class UserCache {
 	private static UserCache cache;
-	private HashMap<String,User> users = new HashMap<String, User>();
+	private HashMap<String,User> users;
 	private UserCache()
 	{
+		this.users = new HashMap<String, User>();
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		IUserOperation iuo = session.getMapper(IUserOperation.class);
 		List<User> us = iuo.selectUsers();
 		for (User u : us)
 		{
 			this.users.put(u.getUserID(), u);
+			
 		}
 	}
 	public User getUserByID(String _ID)

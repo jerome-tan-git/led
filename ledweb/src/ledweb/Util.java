@@ -67,6 +67,7 @@ public class Util {
 
 	public static String replaceNoImage(String _imagePath) {
 		String result = _imagePath;
+		System.out.println("get Image:" + _imagePath);
 		if (_imagePath == null) {
 			result = "./images/no.jpg";
 		} else if (_imagePath.trim().equals("")) {
@@ -81,9 +82,8 @@ public class Util {
 	}
 
 	public static List<UserTrade> getTradesByUserID(String _userID) {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
-		IUserTradeOperation iuto = session.getMapper(IUserTradeOperation.class);
-		return iuto.selectByUserID(_userID);
+
+		return UserTradeCache.getInstance().getTradeByUserID(_userID);
 		// return ito.s
 	}
 

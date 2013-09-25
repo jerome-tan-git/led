@@ -300,6 +300,13 @@ input, select, label {
 				<div style="text-align:center">
 					<h5>${(product.productName)!""}</h5>
 				</div>
+				
+			</div>
+		</#list>
+		<div class="clear"></div>
+		<div class="grid_2">&nbsp;</div> 
+    	<#list compareProduct as product>
+			<div class="grid_3">
 				<div style="margin: 0 auto;width:150px; border:1px solid #ccc; padding: 5px 5px 5px 5px; background-color:#fff;">
 					<div class="nailthumb-container">
 					 <img src="${(product.productImage)!""}" alt="Image 01">

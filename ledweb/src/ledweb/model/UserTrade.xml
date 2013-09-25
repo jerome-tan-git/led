@@ -12,8 +12,11 @@
 		</association>
 	</resultMap>
 
-	<select id="selectUserTradeByID" parameterType="String" resultMap="userTradeMap">
+	<select id="selectUserTradeByID" parameterType="int" resultMap="userTradeMap">
 		select * from usertrade where UserTradeID = #{userTradeID}
+	</select>
+	<select id="selectAllUserTrade" resultMap="userTradeMap">
+		select * from usertrade
 	</select>
 
 	<select id="selectByUserID" parameterType="String"  resultMap="userTradeMap">

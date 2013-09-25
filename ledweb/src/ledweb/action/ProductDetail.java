@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import ledweb.ModelSessionFactory;
 import ledweb.MyCache;
 import ledweb.UserCache;
+import ledweb.UserTradeCache;
 import ledweb.Util;
 import ledweb.model.Category;
 import ledweb.model.Order;
@@ -261,11 +262,9 @@ public class ProductDetail extends ActionSupport {
 	private Product selectProduct() {
 		Product product = null;
 		typeMap = new HashMap<String, List<Type>>();
-		log.warn("6.3");
 		try {
 		
 			product = MyCache.getInstance().getProductByID(this.getProductID());
-			log.warn("6.4");
 			// log.warn(product.getTypes().size());
 			for (ProductType type : product.getTypes()) {
 				List<Type> typeList = new ArrayList<Type>();
@@ -285,7 +284,6 @@ public class ProductDetail extends ActionSupport {
 			// + pspec.getSpecValue());
 			// }
 			// get similar product
-			log.warn("6.5");
 			List<Product> categoryProduct = MyCache.getInstance().getProductsByCategory(product.getCategoryID());
 					
 			this.relatedProducts = new ArrayList<Product>();
@@ -296,7 +294,6 @@ public class ProductDetail extends ActionSupport {
 			}
 
 			// get categories
-			log.warn("6.6");
 			this.setCategories(MyCache.getInstance().getAllCategories());
 
 		} catch (Exception e) {
@@ -307,24 +304,15 @@ public class ProductDetail extends ActionSupport {
 
 	@Override
 	public String execute() {
-		long start = System.currentTimeMillis();
+		
 		this.allCategories = Util.getAllCategories();
-		long start1 = System.currentTimeMillis();
-		log.warn("cat: " + (start1 - start));
 		
 		this.trades = Util.getAllTrades();
-		long start2 = System.currentTimeMillis();
-		log.warn("trade: " + (start2 - start1));
-		
 		this.setProductID(ServletActionContext.getRequest().getParameter(
 				"productID"));
-		long start3 = System.currentTimeMillis();
-		log.warn("set: " + (start3 - start2));
 		
 		this.featuredProducts = Util.getFeaturedProducts();
-		long start4 = System.currentTimeMillis();
-		log.warn("feature : " + (start4 - start3));
-		log.warn("1");
+		
 		Cookie[] cookies = ServletActionContext.getRequest().getCookies();
 		String userIDStr = null;
 		if (cookies == null) {
@@ -341,16 +329,12 @@ public class ProductDetail extends ActionSupport {
 			}
 			if (userIDStr == null || userIDStr.trim().equals("")) {
 				String userID = UUID.randomUUID().toString();
-				Cookie userCookie = new Cookie(ServletActionContext
-						.getRequest().getParameter("userID"), userID);
+				Cookie userCookie = new Cookie("userID", userID);
 				userCookie.setMaxAge(60 * 60 * 24 * 365);
 				ServletActionContext.getResponse().addCookie(userCookie);
 				userIDStr = userID;
 			}
 		}
-		log.warn("2");
-//		log.warn("cookie: " + (System.currentTimeMillis() - start)); 
-//		log.warn("user trade: " + this.getUserTrade());
 		if (ServletActionContext.getRequest().getParameterMap().get("addOrder") != null) {
 			String orderTypes = ServletActionContext.getRequest().getParameter(
 					"selectedTypes");
@@ -412,6 +396,7 @@ public class ProductDetail extends ActionSupport {
 			u.setReserve2(orderPostCode);// post code
 			u.setReserve3(orderSuburb);// order Suburb
 			u.setReserve4(orderState);// order State
+			log.warn(orderSuburb+" | " + orderState);
 			List<UserTrade> utList = new ArrayList<UserTrade>();
 			if (trade != null) {
 
@@ -435,36 +420,29 @@ public class ProductDetail extends ActionSupport {
 			
 			IUserOperation iuo = session.getMapper(IUserOperation.class);
 			iuo.addUser(u);
-			UserCache.refresh();
+			
 			if (utList.size() > 0) {
 				IUserTradeOperation iuto = session
 						.getMapper(IUserTradeOperation.class);
 				iuto.realDeleteUserTrade(userIDStr);
 				iuto.batchAddUserTrade(utList);
 			}
-
 			session.commit();
+			UserCache.refresh();
+			UserTradeCache.refresh();
 			return "cart"; 
 		}
-		log.warn("3");
-//		log.warn("before get product1: " + (System.currentTimeMillis() - start)); 
 		this.setUser(Util.getUserByID(userIDStr));
-		log.warn("4");
 		this.setUserTrade(Util.getTradesByUserID(userIDStr));
-		log.warn("5");
 		this.setUseTradeID(Util.getTradesIDsByUserID(this.getUserTrade()));
-		log.warn("6");
-//		log.warn("before get product: " + (System.currentTimeMillis() - start));
 		if (this.getProductID() != null
 				&& !this.getProductID().trim().equals("")) {
-			log.warn("6.1");
 			this.product = this.selectProduct();
 			if (this.product == null) {
 				return ERROR;
 			} else {
 				Set<String> tmpIDs = new HashSet<String>();
 				if (cookies != null) {
-					log.warn("6.7");
 					for (Cookie c : cookies) {
 						
 						String key = c.getName();
@@ -478,7 +456,6 @@ public class ProductDetail extends ActionSupport {
 						}
 					}
 				}
-				log.warn("7");
 				if (ServletActionContext.getRequest()
 						.getParameter("addCompare") != null
 						&& !ServletActionContext.getRequest()
@@ -497,7 +474,6 @@ public class ProductDetail extends ActionSupport {
 					ServletActionContext.getResponse().addCookie(addCompare);
 
 				}
-				log.warn("8");
 				if (ServletActionContext.getRequest().getParameter(
 						"deleteCompare") != null
 						&& !ServletActionContext.getRequest()
@@ -520,7 +496,6 @@ public class ProductDetail extends ActionSupport {
 					if (removeIndex != -1) {
 						this.getComparedProduct().remove(removeIndex);
 					}
-					log.warn("delete ID: " + deleteID);
 				}
 				
 //				log.warn("after get product: " + (System.currentTimeMillis() - start));

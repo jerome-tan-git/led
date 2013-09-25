@@ -18,6 +18,7 @@ public class TradeCache {
 		ITradeOperation ito = session.getMapper(ITradeOperation.class);
 		this.allTrade = ito.selectAllTrade();
 		
+		
 	}
 	
 

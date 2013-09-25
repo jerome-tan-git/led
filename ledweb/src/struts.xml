@@ -48,8 +48,6 @@
 		<action name="sysManagement" class="ledweb.action.SystemMan">
 			<interceptor-ref name="myDefaultStack"></interceptor-ref>
         	<param name="savePath">./UploadedImages</param>
-        	<param name="fileType">image/bmp,image/x-png,image/gif,image/pjpeg,image/png,image/jpg,image/jpeg</param>
-        	
     		<result name="input" type="freemarker">/WEB-INF/system.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/system.ftl</result>
 		</action>
