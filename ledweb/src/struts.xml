@@ -53,7 +53,6 @@
 		</action>
 
 		<action name="productList" class="ledweb.action.ProductList">
-			
     		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
 		</action>
@@ -61,6 +60,12 @@
 			<interceptor-ref name="myDefaultStack"></interceptor-ref>
     		<result name="input" type="freemarker">/WEB-INF/orderList.ftl</result>
     		<result name="success" type="freemarker">/WEB-INF/orderList.ftl</result>
+		</action>
+
+		<action name="globalCss" class="ledweb.action.GlobalCss">
+			<interceptor-ref name="myDefaultStack"></interceptor-ref>
+    		<result name="input" type="freemarker">/WEB-INF/global.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/global.ftl</result>
 		</action>
 
 		<action name="index" class="ledweb.action.Home">

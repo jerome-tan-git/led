@@ -3,14 +3,21 @@ package ledweb;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
 import java.util.UUID;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import ledweb.model.Category;
 import ledweb.model.Product;
@@ -81,6 +88,40 @@ public class Util {
 		return result;
 	}
 
+	
+	public static String getImageBackgroundURL(HttpServletRequest request, HttpServletResponse response, ServletContext context)
+	{
+		String imagePath = "./images/login-bg_0.png";
+		System.out.println("Image: 1 : " + request.getSession().getAttribute("image"));
+		System.out.println("Image: 2 : " + request.getSession().getAttribute("image"));  
+		if (request.getSession().getAttribute("image") == null
+				|| request.getSession().getAttribute("image").toString().trim()
+						.equals("")) {
+			File imageFolder = new File(context.getRealPath("/images"));
+			System.out.println("a: "+imageFolder.getAbsolutePath()); 
+			File[] listFiles = null;
+			List<File> fileArray = new ArrayList<File>();
+			if (imageFolder.isDirectory()) {
+				listFiles = imageFolder.listFiles();
+			}
+			if (listFiles != null) {
+				for (File x : listFiles) {
+					if (x.getName().startsWith("login-bg_")) {
+						fileArray.add(x);
+
+					}
+				}
+				Collections.shuffle(fileArray);
+				imagePath = "./images/" + fileArray.get(0).getName();
+				request.getSession().putValue("image", imagePath);
+			}
+
+		} else {
+			imagePath = request.getSession().getValue("image").toString();
+		}
+		return imagePath;
+	}
+	
 	public static List<UserTrade> getTradesByUserID(String _userID) {
 
 		return UserTradeCache.getInstance().getTradeByUserID(_userID);

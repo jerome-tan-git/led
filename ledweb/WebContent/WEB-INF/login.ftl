@@ -13,7 +13,7 @@
 
       /* http://css-tricks.com/perfect-full-page-background-image/ */
       html {
-          background: url("./ImageServlet.png") no-repeat center center fixed;
+          background: url("${(bgImage)!""}") no-repeat center center fixed;
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;

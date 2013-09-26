@@ -2,7 +2,10 @@ package ledweb.action;
 
 import java.util.Map;
 
+import ledweb.Util;
+
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +16,12 @@ public class Login extends ActionSupport{
 	private String login;
 	private String psd;
 	private Logger log = Logger.getLogger(Login.class); 
+	private String bgImage;
+	
+	public String getBgImage() {
+		return Util.getImageBackgroundURL(ServletActionContext.getRequest(), ServletActionContext.getResponse(), ServletActionContext.getServletContext());
+	}
+
 	public String getPsd() {
 		return psd;
 	}
