@@ -54,7 +54,7 @@
 
 		<action name="productList" class="ledweb.action.ProductList">
     		<result name="input" type="freemarker">/WEB-INF/productList.ftl</result>
-    		<result name="success" type="freemarker">/WEB-INF/ProductList.ftl</result>
+    		<result name="success" type="freemarker">/WEB-INF/productList.ftl</result>
 		</action>
 		<action name="orderManagement" class="ledweb.action.OrderAction">
 			<interceptor-ref name="myDefaultStack"></interceptor-ref>

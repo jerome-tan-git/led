@@ -725,7 +725,8 @@ input, select, label {
 				<#if relatedProducts?size gt 0>
 					<div class="cleaner h40 noprint" style="border-bottom:1px solid #ccc; margin-bottom:40px;margin-left: -19px;margin-right: 29px;"></div>
 				</#if>
-				<h3 class="noprint" style="margin-left: -13px">Comments</h3>
+				<!--
+					<h3 class="noprint" style="margin-left: -13px">Comments</h3>
                     <div id="disqus_thread"></div>
 					    <script type="text/javascript">
 					        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -740,6 +741,7 @@ input, select, label {
 					    </script>
 					    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 					    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+					    -->
 				</div>
                 </div><!--div class="container_16"-->
                 <div class="clear"></div>
