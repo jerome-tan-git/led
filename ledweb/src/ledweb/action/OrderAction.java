@@ -8,16 +8,16 @@ import ledweb.model.mapper.IOrderOperation;
 import ledweb.model.mapper.IProductOperation;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class OrderAction extends ActionSupport{
+public class OrderAction extends ActionSupport {
 	private String module = "order management";
 	private List<Order> allOrder;
 	private String deleteOrder;
-	
-	
-	
+	private Logger logger = Logger.getLogger(OrderAction.class);
+
 	public String getDeleteOrder() {
 		return deleteOrder;
 	}
@@ -40,12 +40,21 @@ public class OrderAction extends ActionSupport{
 
 	@Override
 	public String execute() {
-		if (this.getDeleteOrder()!= null && !this.getDeleteOrder().trim().equals(""))
-		{
-			SqlSession session = ModelSessionFactory.getSession().openSession();
-			IOrderOperation ioo = session.getMapper(IOrderOperation.class);
-			ioo.deleteOrder(this.getDeleteOrder());
-			session.commit();
+		if (this.getDeleteOrder() != null
+				&& !this.getDeleteOrder().trim().equals("")) {
+			SqlSession session = null;
+			try {
+				session = ModelSessionFactory.getSession().openSession();
+				IOrderOperation ioo = session.getMapper(IOrderOperation.class);
+				ioo.deleteOrder(this.getDeleteOrder());
+				session.commit();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
 		}
 		SqlSession session = ModelSessionFactory.getSession().openSession();
 		IOrderOperation ioo = session.getMapper(IOrderOperation.class);

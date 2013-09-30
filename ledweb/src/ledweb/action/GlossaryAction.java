@@ -54,8 +54,9 @@ public class GlossaryAction extends ActionSupport{
 	}
 	
 	private void showGlossaryContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IGlossaryOperation go = session.getMapper(IGlossaryOperation.class);
 			this.setGlossary(go.selectGlossary());
 			logger.warn("Get glossary versionID: " + this.glossary.getVersionID());
@@ -63,14 +64,16 @@ public class GlossaryAction extends ActionSupport{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session!=null)
 			session.close();
 		}
 
 	}
 	private void updateGlossaryInfo(){
 		
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IGlossaryOperation go = session.getMapper(IGlossaryOperation.class);
 			Glossary glossary = new Glossary();
 			glossary.setArticle(this.article);
@@ -79,7 +82,10 @@ public class GlossaryAction extends ActionSupport{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			session.close();
+			if (session !=null)
+			{
+				session.close();
+			}
 		}
 	}
 	

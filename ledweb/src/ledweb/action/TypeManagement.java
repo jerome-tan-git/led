@@ -38,6 +38,7 @@ public class TypeManagement extends ActionSupport {
 	private String deleteTypeID;
 	private String module = "type";
 	private Logger log = Logger.getLogger(TypeManagement.class);
+
 	public String getModule() {
 		return module;
 	}
@@ -169,11 +170,13 @@ public class TypeManagement extends ActionSupport {
 	}
 
 	private void init() {
-		String groupID = ServletActionContext.getRequest().getParameter("typeGroupID");
+		String groupID = ServletActionContext.getRequest().getParameter(
+				"typeGroupID");
 		this.setTypeGroupID(groupID);
-//		String groupID = 
-		SqlSession slqSession = ModelSessionFactory.getSession().openSession();
+		// String groupID =
+		SqlSession slqSession = null;
 		try {
+			slqSession = ModelSessionFactory.getSession().openSession();
 			// get types
 			ITypeOperation ito = slqSession.getMapper(ITypeOperation.class);
 			List<Type> types = ito.selectAllTypes();
@@ -194,8 +197,7 @@ public class TypeManagement extends ActionSupport {
 			this.setTypeGroups(typeGroups);
 
 			// get selected types
-			
-			
+
 			if (this.getTypeGroupID() != null
 					&& !this.getTypeGroupID().trim().equals("")) {
 				ITypeOperation ito_1 = slqSession
@@ -230,7 +232,10 @@ public class TypeManagement extends ActionSupport {
 			// e.printStackTrace();
 			logger.error(e.getMessage());
 		} finally {
-			slqSession.close();
+			if(slqSession!=null)
+			{
+				slqSession.close();
+			}
 
 		}
 	}
@@ -248,21 +253,25 @@ public class TypeManagement extends ActionSupport {
 		typeGroup.setReserve2("");
 		typeGroup.setReserve3("");
 		logger.warn(this.getTypeGroupID());
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
 			ITypeGroupOperation ITGO = sqlSession
 					.getMapper(ITypeGroupOperation.class);
 			ITGO.updateTypeGroup(typeGroup);
 			sqlSession.commit();
 		} catch (Exception e) {
 			logger.warn(e.getMessage());
+		} finally
+		{
+			if (sqlSession!=null)
+				sqlSession.close();
 		}
 
 	}
 
 	private void typeModify() {
-		if (this.getTypeID() == null
-				|| this.getTypeID().trim().equals("")) {
+		if (this.getTypeID() == null || this.getTypeID().trim().equals("")) {
 			this.setTypeID(Util.getUUID());
 		}
 		Type type = new Type();
@@ -272,45 +281,59 @@ public class TypeManagement extends ActionSupport {
 		type.setReserve2("");
 		type.setReserve3("");
 		logger.warn(this.getTypeID());
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
-			ITypeOperation ITO = sqlSession
-					.getMapper(ITypeOperation.class);
+			sqlSession = ModelSessionFactory.getSession().openSession();
+			ITypeOperation ITO = sqlSession.getMapper(ITypeOperation.class);
 			ITO.updateType(type);
 			sqlSession.commit();
 		} catch (Exception e) {
 			logger.warn(e.getMessage());
+		}finally {
+			if (sqlSession != null)
+			{
+				sqlSession.close();
+			}
+
 		}
 
 	}
 
 	private void deleteTypeGroup() {
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
+
 			ITypeGroupOperation ITGO = sqlSession
 					.getMapper(ITypeGroupOperation.class);
 			ITGO.realDeleteTypeGroup(this.getDeleteTypeGroupID());
 			sqlSession.commit();
 		} catch (Exception e) {
 			logger.warn(e.getMessage());
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
 		}
 	}
 
-	
-	private void deleteType()
-	{
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+	private void deleteType() {
+		SqlSession sqlSession = null;
+
 		try {
-			ITypeOperation ITO = sqlSession
-					.getMapper(ITypeOperation.class);
+			sqlSession = ModelSessionFactory.getSession().openSession();
+			ITypeOperation ITO = sqlSession.getMapper(ITypeOperation.class);
 			ITO.realDeleteType(this.getDeleteTypeID());
 			sqlSession.commit();
 		} catch (Exception e) {
 			logger.warn(e.getMessage());
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
 		}
 	}
-	
-	
+
 	@Override
 	public String execute() {
 		if (this.getSubmitTypeGroup() != null
@@ -322,8 +345,8 @@ public class TypeManagement extends ActionSupport {
 		} else if (this.getSubmitType() != null
 				&& !this.getSubmitType().trim().equals("")) {
 			this.typeModify();
-		} else if (this.getDeleteTypeID()!=null && !this.getDeleteTypeID().trim().equals(""))
-		{
+		} else if (this.getDeleteTypeID() != null
+				&& !this.getDeleteTypeID().trim().equals("")) {
 			this.deleteType();
 		}
 		this.init();

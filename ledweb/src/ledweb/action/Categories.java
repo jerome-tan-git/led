@@ -72,7 +72,7 @@ public class Categories extends ActionSupport {
 	}
 
 	private void init(String _categoryID) {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+//		SqlSession session = ModelSessionFactory.getSession().openSession();
 		long start = System.currentTimeMillis();
 		this.categories = Util.getAllCategories();
 		if (_categoryID == null || _categoryID.trim().equals("")) {

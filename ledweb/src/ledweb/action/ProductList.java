@@ -30,14 +30,15 @@ public class ProductList extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1815169853969021808L;
 	private List<Product> products;
+
 	public String getModule() {
 		return module;
 	}
 
 	private String deleteProduct;
-	
-	private String module="product management";
-	
+
+	private String module = "product management";
+
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -49,10 +50,21 @@ public class ProductList extends ActionSupport {
 	private Logger logger = Logger.getLogger(ProductList.class);
 
 	private void init() {
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
-		IProductOperation ipo = sqlSession.getMapper(IProductOperation.class);
-		List<Product> products = ipo.selectAllProducts();
-		this.products = products;
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
+			IProductOperation ipo = sqlSession
+					.getMapper(IProductOperation.class);
+			List<Product> products = ipo.selectAllProducts();
+			this.products = products;
+		} catch (Exception e) {
+			logger.error("Add product init: " + e.getMessage());
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+
+		}
 	}
 
 	public String getDeleteProduct() {
@@ -67,9 +79,9 @@ public class ProductList extends ActionSupport {
 	public String execute() {
 
 		if (this.deleteProduct != null && !this.deleteProduct.trim().equals("")) {
-			SqlSession sqlSession = ModelSessionFactory.getSession()
-					.openSession();
+			SqlSession sqlSession = null;
 			try {
+				sqlSession = ModelSessionFactory.getSession().openSession();
 				IProductOperation ipo = sqlSession
 						.getMapper(IProductOperation.class);
 				ipo.realDeleteProduct(this.deleteProduct);
@@ -77,7 +89,9 @@ public class ProductList extends ActionSupport {
 			} catch (Exception e) {
 				logger.error(e.getMessage());
 			} finally {
-				sqlSession.close();
+				if (sqlSession != null) {
+					sqlSession.close();
+				}
 
 			}
 		}

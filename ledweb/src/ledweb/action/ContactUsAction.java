@@ -56,8 +56,9 @@ public class ContactUsAction  extends ActionSupport {
 	}
 
 	private void showContactUsContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IContactUsOperation co = session.getMapper(IContactUsOperation.class);
 			this.setContactUs(co.selectContactUs());
 			logger.warn("Get contactUs versionID: " + contactUs.getVersionID());
@@ -65,14 +66,18 @@ public class ContactUsAction  extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			session.close();
+			if (session!=null)
+			{
+				session.close();
+			}
 		}
 
 	}
 	private void updateContactUsInfo(){
 		
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IContactUsOperation co = session.getMapper(IContactUsOperation.class);
 			ContactUs con = new ContactUs();
 			con.setArticle(this.article);
@@ -81,6 +86,7 @@ public class ContactUsAction  extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session!=null)
 			session.close();
 		}
 	}

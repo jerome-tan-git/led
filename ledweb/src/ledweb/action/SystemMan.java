@@ -186,8 +186,9 @@ public class SystemMan extends ActionSupport {
 	}
 
 	private void init() {
-		SqlSession slqSession = ModelSessionFactory.getSession().openSession();
+		SqlSession slqSession = null;
 		try {
+			slqSession = ModelSessionFactory.getSession().openSession();
 			ICategoryOperation ico = slqSession
 					.getMapper(ICategoryOperation.class);
 			List<Category> categories = ico.selectAllCategories();
@@ -233,7 +234,10 @@ public class SystemMan extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			slqSession.close();
+			if (slqSession != null)
+			{
+				slqSession.close();
+			}
 
 		}
 	}
@@ -276,8 +280,9 @@ public class SystemMan extends ActionSupport {
 			cat.setReserve2(this.getOrgCategoryImagePath());
 		}
 
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null; 
 		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
 			ICategoryOperation ico = sqlSession
 					.getMapper(ICategoryOperation.class);
 			ico.realDeleteCategory(categoryID);
@@ -286,7 +291,10 @@ public class SystemMan extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			sqlSession.close();
+			if(sqlSession !=null)
+			{
+				sqlSession.close();
+			}
 		}
 	}
 
@@ -294,8 +302,9 @@ public class SystemMan extends ActionSupport {
 		Spec spec = new Spec();
 		spec.setSpecID(_specID);
 		spec.setSpecName(this.specName);
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
 			ISpecOperation iso = sqlSession.getMapper(ISpecOperation.class);
 			iso.realDeleteSpec(_specID);
 			iso.addSpec(spec);
@@ -303,7 +312,10 @@ public class SystemMan extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			sqlSession.close();
+			if (sqlSession!=null)
+			{
+				sqlSession.close();
+			}
 		}
 
 	}
@@ -312,8 +324,9 @@ public class SystemMan extends ActionSupport {
 		Type type = new Type();
 		type.setTypeID(_typeID);
 		type.setTypeName(this.typeName);
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
+			sqlSession = ModelSessionFactory.getSession().openSession();
 			ITypeOperation ito = sqlSession.getMapper(ITypeOperation.class);
 			ito.realDeleteType(_typeID);
 			ito.addType(type);
@@ -321,7 +334,10 @@ public class SystemMan extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			sqlSession.close();
+			if (sqlSession!=null)
+			{
+				sqlSession.close();
+			}
 		}
 	}
 
@@ -372,17 +388,21 @@ public class SystemMan extends ActionSupport {
 					
 		} else if (this.deleteCategoryID != null
 				&& !this.deleteCategoryID.trim().equals("")) {
-			SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+			SqlSession sqlSession = null;
 			logger.warn("delete category ID:" + this.deleteCategoryID);
 			try
 			{
+				sqlSession = ModelSessionFactory.getSession().openSession();
 				ICategoryOperation ico = sqlSession.getMapper(ICategoryOperation.class);
 				ico.realDeleteCategory(this.deleteCategoryID);
 				sqlSession.commit();
 			} catch (Exception e) {
 				logger.error(e.getMessage());
 			} finally {
-				sqlSession.close();
+				if (sqlSession!=null)
+				{
+					sqlSession.close();
+				}
 			}
 		}else if (this.deleteSpecID != null
 				&& !this.deleteSpecID.trim().equals("")) {

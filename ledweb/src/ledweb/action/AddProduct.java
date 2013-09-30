@@ -291,8 +291,9 @@ public class AddProduct extends ActionSupport {
 	}
 
 	private void showProduct() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IProductOperation po = session.getMapper(IProductOperation.class);
 			this.setProduct(po.selectProductByID(this.productID));
 			// logger.warn("Get product ID: " + this.productID);
@@ -315,8 +316,10 @@ public class AddProduct extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session !=null)
+			{
 			session.close();
-
+			}	
 		}
 
 	}
@@ -405,9 +408,10 @@ public class AddProduct extends ActionSupport {
 		this.setSelectedTypes(this.testSelectTypes);
 
 		// Insert into DB
-		SqlSession sqlSession = ModelSessionFactory.getSession().openSession();
+		SqlSession sqlSession = null;
 		try {
 			// Product
+			sqlSession = ModelSessionFactory.getSession().openSession();
 			IProductOperation ipo = sqlSession
 					.getMapper(IProductOperation.class);
 			ipo.realDeleteProduct(_newProductID);
@@ -436,13 +440,17 @@ public class AddProduct extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			sqlSession.close();
+			if (sqlSession !=null)
+			{
+				sqlSession.close();
+			}
 		}
 	}
 
 	private void init() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			ISpecOperation iso = session.getMapper(ISpecOperation.class);
 			this.setAllSpecs(iso.selectAllSpec());
 			ITypeOperation ito = session.getMapper(ITypeOperation.class);
@@ -458,7 +466,10 @@ public class AddProduct extends ActionSupport {
 		} catch (Exception e) {
 			logger.error("Add product init: " + e.getMessage());
 		} finally {
-			session.close();
+			if (session != null)
+			{
+				session.close();
+			}
 
 		}
 	}

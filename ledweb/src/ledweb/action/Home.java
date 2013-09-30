@@ -64,9 +64,10 @@ public class Home extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		this.allCategories = Util.getAllCategories();
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try
 		{
+			session = ModelSessionFactory.getSession().openSession();
 			IHomeImageOperation IHIO = session.getMapper(IHomeImageOperation.class);
 			this.setHomeImages(IHIO.selectImageURLByType("home"));
 
@@ -99,6 +100,10 @@ public class Home extends ActionSupport{
 		catch(Exception e)
 		{
 			log.warn(e.getMessage());
+		}finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 		// TODO Auto-generated method stub
 		return SUCCESS;

@@ -56,8 +56,9 @@ public class LEDbenefitsAction extends ActionSupport{
 	}
 	
 	private void showLEDbenefitsContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			ILedBenefitsOperation bo = session.getMapper(ILedBenefitsOperation.class);
 			this.setBenefits(bo.selectLEDbenefitsByID());
 			logger.warn("Get versionID: " + this.benefits.getVersionID());
@@ -65,14 +66,16 @@ public class LEDbenefitsAction extends ActionSupport{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session !=null)
 			session.close();
 		}
 
 	}
 	private void updateLEDbenefitsInfo(){
 		
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			ILedBenefitsOperation bo = session.getMapper(ILedBenefitsOperation.class);
 			LEDbenefits ben = new LEDbenefits();
 			ben.setArticle(this.article);
@@ -81,6 +84,7 @@ public class LEDbenefitsAction extends ActionSupport{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session !=null)
 			session.close();
 		}
 	}

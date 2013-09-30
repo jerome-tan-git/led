@@ -38,7 +38,7 @@ public class FileManagement extends ActionSupport {
 	private Map<String, String> targetURLMap = new HashMap<String, String>();
 	private Map<String, String> showTargetURLMap = new HashMap<String, String>();
 	private String saveFilePath;
-	 
+
 	public String getSaveFilePath() {
 		return new File(this.getRealSavePath()).getAbsolutePath();
 	}
@@ -191,7 +191,7 @@ public class FileManagement extends ActionSupport {
 
 	public String execute() {
 		// if ()
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+
 		if (this.getUpload() != null && this.getUpload().trim().equals("1")) {
 			String newFileName = "";
 			if (this.getNewImage() != null) {
@@ -211,8 +211,10 @@ public class FileManagement extends ActionSupport {
 			}
 		} else if (this.indexImage != null
 				&& this.indexImage.trim().equals("1")) {
-
+			SqlSession session = null;
 			try {
+
+				session = ModelSessionFactory.getSession().openSession();
 				IHomeImageOperation IHIO = session
 						.getMapper(IHomeImageOperation.class);
 				IHIO.realDeleteImage();
@@ -279,6 +281,10 @@ public class FileManagement extends ActionSupport {
 				session.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
+			} finally {
+				if (session != null) {
+					session.close();
+				}
 			}
 
 		}
@@ -290,32 +296,46 @@ public class FileManagement extends ActionSupport {
 
 			}
 		}
-		IHomeImageOperation IHIO = session.getMapper(IHomeImageOperation.class);
-		List<HomeImage> pci = (IHIO.selectImageURLByType("home"));
-		List<HomeImage> moi = (IHIO.selectImageURLByType("mobile"));
-		for (HomeImage str : pci) {
-			this.getPcImages().add(
-					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
-			this.getShowTargetURLMap().put(
-					str.getImageURL().replaceAll(this.getSavePath() + "/", ""),
-					str.getTargetURL());
+		SqlSession session = null;
+		try {
+			session = ModelSessionFactory.getSession().openSession();
+			IHomeImageOperation IHIO = session
+					.getMapper(IHomeImageOperation.class);
+			List<HomeImage> pci = (IHIO.selectImageURLByType("home"));
+			List<HomeImage> moi = (IHIO.selectImageURLByType("mobile"));
 
-			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
-			// ""));
-			// log.warn(str.getImageURL());
-		}
+			for (HomeImage str : pci) {
+				this.getPcImages().add(
+						str.getImageURL().replaceAll(this.getSavePath() + "/",
+								""));
+				this.getShowTargetURLMap().put(
+						str.getImageURL().replaceAll(this.getSavePath() + "/",
+								""), str.getTargetURL());
 
-		for (HomeImage str : moi) {
-			this.getMobileImages().add(
-					str.getImageURL().replaceAll(this.getSavePath() + "/", ""));
-			this.getShowTargetURLMap().put(
-					str.getImageURL().replaceAll(this.getSavePath() + "/", ""),
-					str.getTargetURL());
-			// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
-			// ""));
-			// log.warn(str.getImageURL());
+				// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
+				// ""));
+				// log.warn(str.getImageURL());
+			}
+
+			for (HomeImage str : moi) {
+				this.getMobileImages().add(
+						str.getImageURL().replaceAll(this.getSavePath() + "/",
+								""));
+				this.getShowTargetURLMap().put(
+						str.getImageURL().replaceAll(this.getSavePath() + "/",
+								""), str.getTargetURL());
+				// str.setImageURL(str.getImageURL().replaceAll(this.getSavePath()+"/",
+				// ""));
+				// log.warn(str.getImageURL());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
-		log.warn(this.getShowTargetURLMap());
+		// log.warn(this.getShowTargetURLMap());
 		// log.warn(this.getPcImages());
 		// log.warn(this.getMobileImages());
 		// log.warn(this.homeImageUrl.length);

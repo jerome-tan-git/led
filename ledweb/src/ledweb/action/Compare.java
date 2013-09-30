@@ -26,14 +26,16 @@ public class Compare extends ActionSupport {
 	private List<Product> compareProduct = new ArrayList<Product>();
 	private List<Spec> allSpecs = new ArrayList<Spec>();
 	private List<Category> allCategories;
-	
+
 	public List<Category> getAllCategories() {
 		return allCategories;
 	}
+
 	public void setAllCategories(List<Category> allCategories) {
 		this.allCategories = allCategories;
 	}
-	public List<Spec> getAllSpecs() { 
+
+	public List<Spec> getAllSpecs() {
 		return allSpecs;
 	}
 
@@ -61,47 +63,44 @@ public class Compare extends ActionSupport {
 			}
 		}
 
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			ISpecOperation ISO = session.getMapper(ISpecOperation.class);
 			this.allSpecs = ISO.selectAllSpec();
 		} catch (Exception e) {
 			log.warn(e.getMessage());
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
-		
-		 
-		for (Product prod:this.compareProduct)
-		{
+
+		for (Product prod : this.compareProduct) {
 			List<ProductSpec> newProductSpec = new ArrayList<ProductSpec>();
-			List<ProductSpec> oldSpec= prod.getSpecs();
-			Map<String,String> oldSpecMap = new HashMap<String,String>();
-			for (ProductSpec a : oldSpec)
-			{
+			List<ProductSpec> oldSpec = prod.getSpecs();
+			Map<String, String> oldSpecMap = new HashMap<String, String>();
+			for (ProductSpec a : oldSpec) {
 				oldSpecMap.put(a.getSpec().getSpecName(), a.getSpecValue());
 			}
-			for(Spec spec: this.allSpecs)
-			{
-				String newSpecName = spec.getSpecName(); 
+			for (Spec spec : this.allSpecs) {
+				String newSpecName = spec.getSpecName();
 				ProductSpec ps = new ProductSpec();
 				ps.setProductID(prod.getProductID());
 				ps.setSpec(spec);
-				
-				if (oldSpecMap.containsKey(newSpecName))
-				{
+
+				if (oldSpecMap.containsKey(newSpecName)) {
 					ps.setSpecValue(oldSpecMap.get(newSpecName));
-				}
-				else
-				{
-					ps.setSpecValue("--"); 
+				} else {
+					ps.setSpecValue("--");
 				}
 				newProductSpec.add(ps);
-				 
+
 			}
-			prod.setSpecs(newProductSpec); 
-			
+			prod.setSpecs(newProductSpec);
+
 		}
-		
-		
+
 		return SUCCESS;
 	}
 }

@@ -56,8 +56,9 @@ public class AboutUsAction extends ActionSupport {
 	}
 
 	private void showAboutUsContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IAboutUsOperation co = session.getMapper(IAboutUsOperation.class);
 			this.setAboutUs(co.selectAboutUs());
 			logger.warn("Get aboutUs versionID: " + aboutUs.getVersionID());
@@ -65,14 +66,18 @@ public class AboutUsAction extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			session.close();
+			if (session!=null)
+			{
+				session.close();
+			}
 		}
 
 	}
 	private void updateAboutUsInfo(){
 		
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IAboutUsOperation ao = session.getMapper(IAboutUsOperation.class);
 			AboutUs aon = new AboutUs();
 			aon.setArticle(this.article);
@@ -81,7 +86,10 @@ public class AboutUsAction extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
-			session.close();
+			if (session !=null)
+			{
+				session.close();
+			}
 		}
 	}
 	

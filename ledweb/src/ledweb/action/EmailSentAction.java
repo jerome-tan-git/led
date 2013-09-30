@@ -47,8 +47,9 @@ public class EmailSentAction  extends ActionSupport{
 	}
 	
 	private void showContactUsContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IContactUsOperation co = session.getMapper(IContactUsOperation.class);
 			this.setContactUs(co.selectContactUs());
 			logger.warn("Get contactUs versionID: " + contactUs.getVersionID());
@@ -56,6 +57,7 @@ public class EmailSentAction  extends ActionSupport{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session !=null)
 			session.close();
 		}
 

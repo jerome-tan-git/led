@@ -64,7 +64,7 @@ public class ProductDetail extends ActionSupport {
 	private List<UserTrade> userTrade;
 	private List<String> useTradeID;
 	private User user;
-
+	private Logger logger = Logger.getLogger(ProductDetail.class);
 	public List<String> getUseTradeID() {
 		return useTradeID;
 	}
@@ -409,7 +409,9 @@ public class ProductDetail extends ActionSupport {
 
 			}
 			
-			SqlSession session = ModelSessionFactory.getSession().openSession();
+			SqlSession session = null;
+			try {
+			session = ModelSessionFactory.getSession().openSession();
 			IOrderOperation ioo = session.getMapper(IOrderOperation.class);
 			ioo.addOrder(o);
 			if (os.size() > 0) {
@@ -427,7 +429,15 @@ public class ProductDetail extends ActionSupport {
 				iuto.realDeleteUserTrade(userIDStr);
 				iuto.batchAddUserTrade(utList);
 			}
-			session.commit();
+			session.commit(); 
+			}catch (Exception e) {
+				logger.error(e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+			
 			UserCache.refresh();
 			UserTradeCache.refresh();
 			return "cart"; 

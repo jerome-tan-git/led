@@ -98,8 +98,9 @@ public class CustomerAction extends ActionSupport {
 	}
 
 	private void showContactUsContent() {
-		SqlSession session = ModelSessionFactory.getSession().openSession();
+		SqlSession session = null;
 		try {
+			session = ModelSessionFactory.getSession().openSession();
 			IContactUsOperation co = session
 					.getMapper(IContactUsOperation.class);
 			this.setContactUs(co.selectContactUs());
@@ -108,6 +109,7 @@ public class CustomerAction extends ActionSupport {
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} finally {
+			if (session !=null)
 			session.close();
 		}
 
